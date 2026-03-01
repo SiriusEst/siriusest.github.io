@@ -1,7 +1,0 @@
----
-title: "Home"
----
-
-Welcome to my Quarto blog.
-
-This site is deployed with GitHub Pages.
