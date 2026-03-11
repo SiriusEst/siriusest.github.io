@@ -9,7 +9,7 @@ website:
         text: Home
       - href: Mathematical-Foundations-of-Machine-Learning/index.qmd
         text: Mathematics
-      - href: about.md
+      - href: about.qmd
         text: About
 
 format:
