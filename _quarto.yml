@@ -7,6 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: Mathematical-Foundations-of-Machine-Learning/index.qmd
+        text: Mathematics
       - href: about.md
         text: About
 
