@@ -1,10 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Home",
+    "objectID": "foundations/Straight.html",
+    "href": "foundations/Straight.html",
+    "title": "Sirius Blog",
     "section": "",
-    "text": "Welcome to my Quarto blog.\nThis site is deployed with GitHub Pages."
+    "text": "Coupled -&gt;Decoupled\nDIvide Conquer 通过正交化来解耦\n\\(&lt;u,v&gt;=0\\)\n\n几何上互相投影为0\n代数上：内积为0，也就是线性无关\n信息上，相互解耦，（不相关）\n\n在欧式空间中，正交分量的能量可以直接相加\n\\(||x||^2=\\sum x_i^2\\)\n\\(v=\\sum_i &lt;v,e_i&gt;e_i\\) ， while\\(e_i\\)是标准正交基\n在各个基向量的方向上的投影系数（即内积），也称为基向量的线性组合，\nGram schmidt\n\nStraighten（正交化）： \\(\\tilde{v}=v- proj_u(v)\\)\nNormalize (归一化)：\\(e=\\frac{\\tilde{v}}{||\\tilde{v}||}\\)\n\n正交矩阵 用于刚性的旋转和镜像(Rotation Reflection)\n\\(Q^TQ=I\\)\n函数空间：无限维的正交\n$=_{a}^{b} f(x)g(x),dx $\n$_{0}^{2} sin(nx)cos(mx),dx $\n\n\n\n\n\n\n\n\n\n\n维度\n线性相关 (Linear)\n单调相关 (Monotonic)\n广义依赖 (Dependence)\n独立性 (Independence)\n\n\n\n\n典型指标\nPearson 相关系数 (\\(r\\))\nSpearman / Kendall 秩相关\n互信息 (MI) / 距离相关系数\n(这是一个状态，非单一指标)\n\n\n数学判据 (为 0 时)\n\\(\\text{Cov}(X, Y) = 0\\)\n\\(\\text{Cov}(\\text{rank}_X, \\text{rank}_Y) = 0\\)\n\\(I(X; Y) = 0\\)\n\\(f(x, y) = f(x)f(y)\\)\n\n\n信息量/预测视角\n线性预测器无法通过 \\(X\\) 提升对 \\(Y\\) 的预测精度。\n秩次/顺序预测器无法通过 \\(X\\) 的排名预判 \\(Y\\) 的排名。\n任何函数/模型都无法从 \\(X\\) 中提取关于 \\(Y\\) 的确定性信息。\n\\(X\\) 的出现完全不改变 \\(Y\\) 的概率分布，\\(Y\\) 对 \\(X\\) “无感”。\n\n\n\\(x\\) 与 \\(x^2\\) 的例子 (对称区间如 \\([-1, 1]\\))\n不相关 (积差抵消)\n不相关 (排名升降抵消)\n强依赖 (MI 极高，知道 \\(x\\) 即知 \\(x^2\\))\n绝对不独立 (存在确定性的平方映射)\n\n\n直观理解\n它们没法排成一条直线。\n它们不一定同进退。\n它们之间没有任何潜在规律。\n它们是平行宇宙，互不干涉。\n\n\n\n低维空间中，随机向量几乎很难垂直，但是高维空间中，任意两个随机向量几乎总是正交"
   },
   {
     "objectID": "about.html",
@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "I am a researcher at UNSW working on IoT systems and intelligent sensing."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Welcome to my Quarto blog.\nThis site is deployed with GitHub Pages."
   }
 ]
