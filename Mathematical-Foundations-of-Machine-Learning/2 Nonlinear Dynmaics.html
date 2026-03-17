@@ -428,9 +428,35 @@ J=
 <p><span class="math display">\[
 \dot{z}=J\nabla H
 \]</span></p>
+<p><strong>Definition.</strong> 相空间流 (Phase-space Flow) 可记为：</p>
+<p><span class="math display">\[
+X_H=(\dot{q},\dot{p})=\left(\frac{\partial H}{\partial p},-\frac{\partial H}{\partial q}\right)
+\]</span></p>
+<p><strong>Inference.</strong> 其散度 (Divergence) 为：</p>
+<p><span class="math display">\[
+\nabla\cdot X_H
+=
+\frac{\partial}{\partial q}\left(\frac{\partial H}{\partial p}\right)
++
+\frac{\partial}{\partial p}\left(-\frac{\partial H}{\partial q}\right)
+=0
+\]</span></p>
+<p>在多维情形下同理可得：</p>
+<p><span class="math display">\[
+\nabla\cdot X_H
+=
+\sum_{i=1}^{n}
+\left(
+\frac{\partial^2 H}{\partial q_i\partial p_i}
+-
+\frac{\partial^2 H}{\partial p_i\partial q_i}
+\right)
+=0
+\]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
 <li>辛结构保持相空间基本面积元 (Area Element Preservation)。</li>
+<li>Hamiltonian 相空间流是散度为 0 的流 (Divergence-free Flow)。</li>
 <li>Liouville 定理保证相空间体积保持 (Volume Preservation)。</li>
 <li>若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。</li>
 </ul>
