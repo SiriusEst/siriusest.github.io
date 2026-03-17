@@ -183,7 +183,9 @@ window.Quarto = {
 <section id="正交的定义-definition-of-orthogonality" class="level2">
 <h2 class="anchored" data-anchor-id="正交的定义-definition-of-orthogonality">2. 正交的定义 (Definition of Orthogonality)</h2>
 <p><strong>Definition.</strong> 向量正交满足：</p>
-<p>[ u,v ]</p>
+<p><span class="math display">\[
+\langle u,v\rangle=0
+\]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
 <li>几何视角：两个向量互相投影为零。</li>
@@ -194,15 +196,21 @@ window.Quarto = {
 <section id="正交分解与能量可加性-energy-additivity" class="level2">
 <h2 class="anchored" data-anchor-id="正交分解与能量可加性-energy-additivity">3. 正交分解与能量可加性 (Energy Additivity)</h2>
 <p><strong>Theory.</strong> 在欧式空间中，正交分量满足能量可加：</p>
-<p>[ |x|^2=_i x_i^2 ]</p>
+<p><span class="math display">\[
+\|x\|^2=\sum_i x_i^2
+\]</span></p>
 <p><strong>Definition.</strong> 这里的系数是向量在一组标准正交基下的坐标。</p>
 </section>
 <section id="正交基下的展开-expansion-in-orthonormal-basis" class="level2">
 <h2 class="anchored" data-anchor-id="正交基下的展开-expansion-in-orthonormal-basis">4. 正交基下的展开 (Expansion in Orthonormal Basis)</h2>
 <p><strong>Theory.</strong> 任意向量可展开为：</p>
-<p>[ v=_i v,e_ie_i ]</p>
+<p><span class="math display">\[
+v=\sum_i \langle v,e_i\rangle e_i
+\]</span></p>
 <p><strong>Definition.</strong> 系数</p>
-<p>[ v,e_i ]</p>
+<p><span class="math display">\[
+\langle v,e_i\rangle
+\]</span></p>
 <p>是投影系数 (Projection Coefficient)。</p>
 </section>
 <section id="gram-schmidt-正交化" class="level2">
@@ -213,100 +221,148 @@ window.Quarto = {
 <li>Normalize (Normalization)</li>
 </ol>
 <p><strong>Inference.</strong> 对两向量版本：</p>
-<p>[ =v-_u(v) ]</p>
-<p>[ e= ]</p>
+<p><span class="math display">\[
+\tilde{v}=v-\operatorname{proj}_u(v)
+\]</span></p>
+<p><span class="math display">\[
+e=\frac{\tilde{v}}{\|\tilde{v}\|}
+\]</span></p>
 <p><strong>Result.</strong> 原始基被转换为标准正交基，后续投影与坐标计算更稳定。</p>
 </section>
 <section id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="level2">
 <h2 class="anchored" data-anchor-id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform">6. 正交矩阵与正交变换 (Orthogonal Matrix &amp; Orthogonal Transform)</h2>
 <p><strong>Definition.</strong> 正交矩阵满足：</p>
-<p>[ Q^TQ=I ]</p>
+<p><span class="math display">\[
+Q^TQ=I
+\]</span></p>
 <p><strong>Theory.</strong> 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。</p>
 <p><strong>Result.</strong> 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。</p>
 </section>
 <section id="共轭转置-conjugate-transpose" class="level2">
 <h2 class="anchored" data-anchor-id="共轭转置-conjugate-transpose">7. 共轭转置 (Conjugate Transpose)</h2>
 <p><strong>Theory.</strong> 在复数空间中，内积应使用共轭转置，才能保证能量量</p>
-<p>[ x^Hx ]</p>
+<p><span class="math display">\[
+x^Hx
+\]</span></p>
 <p>为非负实数。</p>
 <p><strong>Definition.</strong></p>
-<p>[ A<sup>H=</sup>T ]</p>
+<p><span class="math display">\[
+A^H=\overline{A}^T
+\]</span></p>
 <p>给定：</p>
-[ A=
-<span class="math display">\[\begin{bmatrix}
+<p><span class="math display">\[
+A=
+\begin{bmatrix}
 1+i &amp; 2\\
 3i &amp; 4-i
-\end{bmatrix}\]</span>
-<p>]</p>
+\end{bmatrix}
+\]</span></p>
 <p>则：</p>
-[ A^T=
-<span class="math display">\[\begin{bmatrix}
+<p><span class="math display">\[
+A^T=
+\begin{bmatrix}
 1+i &amp; 3i\\
 2 &amp; 4-i
-\end{bmatrix}\]</span>
-<p>]</p>
-[ =
-<span class="math display">\[\begin{bmatrix}
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\overline{A}=
+\begin{bmatrix}
 1-i &amp; 2\\
 -3i &amp; 4+i
-\end{bmatrix}\]</span>
-<p>]</p>
-[ A^H=
-<span class="math display">\[\begin{bmatrix}
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+A^H=
+\begin{bmatrix}
 1-i &amp; -3i\\
 2 &amp; 4+i
-\end{bmatrix}\]</span>
-<p>]</p>
+\end{bmatrix}
+\]</span></p>
 </section>
 <section id="实空间与复空间中的正交-real-vs-complex-inner-product" class="level2">
 <h2 class="anchored" data-anchor-id="实空间与复空间中的正交-real-vs-complex-inner-product">8. 实空间与复空间中的正交 (Real vs Complex Inner Product)</h2>
 <p><strong>Definition.</strong> 实数空间内积与正交条件：</p>
-<p>[ x,y=x<sup>Ty,x</sup>Ty=0 ]</p>
+<p><span class="math display">\[
+\langle x,y\rangle=x^Ty,\quad x^Ty=0
+\]</span></p>
 <p>对应矩阵条件：</p>
-<p>[ Q^TQ=I ]</p>
+<p><span class="math display">\[
+Q^TQ=I
+\]</span></p>
 <p><strong>Definition.</strong> 复数空间内积与正交条件：</p>
-<p>[ x,y=x<sup>Hy,x</sup>Hy=0 ]</p>
+<p><span class="math display">\[
+\langle x,y\rangle=x^Hy,\quad x^Hy=0
+\]</span></p>
 <p>对应矩阵条件：</p>
-<p>[ U^HU=I ]</p>
+<p><span class="math display">\[
+U^HU=I
+\]</span></p>
 <p><strong>Inference.</strong> 内积保持性推导：</p>
-<p>[ Qx,Qy=(Qx)<sup>T(Qy)=x</sup>TQ<sup>TQy=x</sup>Ty ]</p>
-<p>[ Ux,Uy=(Ux)<sup>H(Uy)=x</sup>HU<sup>HUy=x</sup>Hy ]</p>
+<p><span class="math display">\[
+\langle Qx,Qy\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty
+\]</span></p>
+<p><span class="math display">\[
+\langle Ux,Uy\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy
+\]</span></p>
 <p><strong>Result.</strong> 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。</p>
 </section>
 <section id="函数空间中的正交-orthogonality-in-function-space" class="level2">
 <h2 class="anchored" data-anchor-id="函数空间中的正交-orthogonality-in-function-space">9. 函数空间中的正交 (Orthogonality in Function Space)</h2>
 <p><strong>Definition.</strong> 对实函数：</p>
-<p>[ f,g=_a^b f(x)g(x),dx ]</p>
+<p><span class="math display">\[
+\langle f,g\rangle=\int_a^b f(x)g(x)\,dx
+\]</span></p>
 <p>对复函数：</p>
-<p>[ f,g=_a^b g(x),dx ]</p>
+<p><span class="math display">\[
+\langle f,g\rangle=\int_a^b \overline{f(x)}g(x)\,dx
+\]</span></p>
 <p>正交条件：</p>
-<p>[ f,g ]</p>
+<p><span class="math display">\[
+\langle f,g\rangle=0
+\]</span></p>
 </section>
 <section id="经典正交系-classical-orthogonal-systems" class="level2">
 <h2 class="anchored" data-anchor-id="经典正交系-classical-orthogonal-systems">10. 经典正交系 (Classical Orthogonal Systems)</h2>
 <p><strong>Definition.</strong> 三角正交系：</p>
-<p>[ 1,x,x,2x,2x, ]</p>
+<p><span class="math display">\[
+1,\cos x,\sin x,\cos 2x,\sin 2x,\cdots
+\]</span></p>
 <p>在典型区间上的正交关系：</p>
-<p>[ _{-}^{}(mx)(nx),dx=0,mn ]</p>
-<p>[ _{-}^{}(mx)(nx),dx=0,mn ]</p>
-<p>[ _{-}^{}(mx)(nx),dx=0 ]</p>
+<p><span class="math display">\[
+\int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,dx=0,\quad m\neq n
+\]</span></p>
+<p><span class="math display">\[
+\int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,dx=0,\quad m\neq n
+\]</span></p>
+<p><span class="math display">\[
+\int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx=0
+\]</span></p>
 <p><strong>Definition.</strong> 正交多项式系满足：</p>
-<p>[ _a^b P_m(x)P_n(x),dx=0,mn ]</p>
+<p><span class="math display">\[
+\int_a^b P_m(x)P_n(x)\,dx=0,\quad m\neq n
+\]</span></p>
 <p><strong>Result.</strong> 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。</p>
 </section>
 <section id="谱定理-spectral-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="谱定理-spectral-theorem">11. 谱定理 (Spectral Theorem)</h2>
 <p><strong>Definition.</strong> 实对称矩阵满足：</p>
-<p>[ A^T=A ]</p>
+<p><span class="math display">\[
+A^T=A
+\]</span></p>
 <p><strong>Theory.</strong> 任意实对称矩阵可正交对角化：</p>
-<p>[ A=QQ^T ]</p>
+<p><span class="math display">\[
+A=Q\Lambda Q^T
+\]</span></p>
 <p><strong>Result.</strong> 特征向量给出主轴方向，特征值给出各主轴缩放率。<br>
 在该基下，耦合线性变换变成独立缩放。</p>
 </section>
 <section id="奇异值分解-svd" class="level2">
 <h2 class="anchored" data-anchor-id="奇异值分解-svd">12. 奇异值分解 (SVD)</h2>
 <p><strong>Theory.</strong> SVD 表示为：</p>
-<p>[ A=UV^T ]</p>
+<p><span class="math display">\[
+A=U\Sigma V^T
+\]</span></p>
 <p><strong>Definition.</strong></p>
 <ul>
 <li>列向量集合 V 对应输入空间基，称 Right Singular Vectors。</li>
@@ -314,21 +370,31 @@ window.Quarto = {
 <li>矩阵 Sigma 表示各方向缩放强度。</li>
 </ul>
 <p><strong>Inference.</strong> 每个奇异对满足：</p>
-<p>[ Av_i=_i u_i ]</p>
+<p><span class="math display">\[
+Av_i=\sigma_i u_i
+\]</span></p>
 <p><strong>Result.</strong> SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。</p>
 </section>
 <section id="correlation-与-independence" class="level2">
 <h2 class="anchored" data-anchor-id="correlation-与-independence">13. Correlation 与 Independence</h2>
 <p><strong>Definition.</strong> 线性不相关条件：</p>
-<p>[ (X,Y)=0 ]</p>
+<p><span class="math display">\[
+\operatorname{Cov}(X,Y)=0
+\]</span></p>
 <p><strong>Definition.</strong> 独立条件：</p>
-<p>[ f(x,y)=f(x)f(y) ]</p>
+<p><span class="math display">\[
+f(x,y)=f(x)f(y)
+\]</span></p>
 <p><strong>Theory.</strong> 互信息刻画广义依赖，满足：</p>
-<p>[ I(X;Y)=0 ]</p>
+<p><span class="math display">\[
+I(X;Y)=0
+\]</span></p>
 <p>当且仅当独立。</p>
 <p><strong>Result.</strong> 不相关不等于独立。<br>
 典型例子是对称分布下的</p>
-<p>[ X&nbsp;&nbsp;X^2 ]</p>
+<p><span class="math display">\[
+X\ \text{与}\ X^2
+\]</span></p>
 <p>它们可线性不相关，但仍强依赖。</p>
 </section>
 <section id="高维近似正交现象-near-orthogonality-in-high-dimensions" class="level2">

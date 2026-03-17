@@ -179,11 +179,17 @@ window.Quarto = {
 <section id="一维自治系统与相线-one-dimensional-autonomous-system-phase-line" class="level2">
 <h2 class="anchored" data-anchor-id="一维自治系统与相线-one-dimensional-autonomous-system-phase-line">1. 一维自治系统与相线 (One-dimensional Autonomous System &amp; Phase Line)</h2>
 <p><strong>Definition.</strong> 一维自治系统写为：</p>
-<p>[ =f(x) ]</p>
+<p><span class="math display">\[
+\dot{x}=f(x)
+\]</span></p>
 <p><strong>Definition.</strong> 平衡点 (Equilibrium Point) 满足：</p>
-<p>[ f(x^*)=0 ]</p>
+<p><span class="math display">\[
+f(x^*)=0
+\]</span></p>
 <p><strong>Theory.</strong> 线性稳定性判据 (Linear Stability Criterion)：</p>
-<p>[ f’(x^*) ]</p>
+<p><span class="math display">\[
+f'(x^*)
+\]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
 <li>若导数小于零，轨道在平衡点附近收敛 (Stable)。</li>
@@ -203,63 +209,98 @@ window.Quarto = {
 <section id="二维自治系统与线性化-two-dimensional-autonomous-system-linearization" class="level2">
 <h2 class="anchored" data-anchor-id="二维自治系统与线性化-two-dimensional-autonomous-system-linearization">3. 二维自治系统与线性化 (Two-dimensional Autonomous System &amp; Linearization)</h2>
 <p><strong>Definition.</strong> 二维自治系统：</p>
-<p>[ =f(x,y), =g(x,y) ]</p>
+<p><span class="math display">\[
+\dot{x}=f(x,y), \quad \dot{y}=g(x,y)
+\]</span></p>
 <p><strong>Definition.</strong> 平衡点条件：</p>
-<p>[ f(x^<em>,y<sup><em>)=0, g(x^</em>,y</sup></em>)=0 ]</p>
+<p><span class="math display">\[
+f(x^*,y^*)=0, \quad g(x^*,y^*)=0
+\]</span></p>
 <p><strong>Definition.</strong> 在平衡点附近定义小扰动：</p>
-<p>[ x=x^<em>+u, y=y^</em>+v ]</p>
-<p>[ =f(x^<em>+u,y<sup><em>+v), =g(x^</em>+u,y</sup></em>+v) ]</p>
+<p><span class="math display">\[
+x=x^*+u, \quad y=y^*+v
+\]</span></p>
+<p><span class="math display">\[
+\dot{u}=f(x^*+u,y^*+v), \quad \dot{v}=g(x^*+u,y^*+v)
+\]</span></p>
 <p><strong>Theory.</strong> 一阶 Taylor 展开 (First-order Taylor Expansion)：</p>
-<p>[ f(x^<em>+u,y<sup><em>+v)f(x^</em>,y</sup></em>)+f_xu+f_yv ]</p>
-<p>[ g(x^<em>+u,y<sup><em>+v)g(x^</em>,y</sup></em>)+g_xu+g_yv ]</p>
+<p><span class="math display">\[
+f(x^*+u,y^*+v)\approx f(x^*,y^*)+f_xu+f_yv
+\]</span></p>
+<p><span class="math display">\[
+g(x^*+u,y^*+v)\approx g(x^*,y^*)+g_xu+g_yv
+\]</span></p>
 <p>由平衡点条件可得线性化系统：</p>
-<p>[ f_xu+f_yv, g_xu+g_yv ]</p>
+<p><span class="math display">\[
+\dot{u}\approx f_xu+f_yv, \quad \dot{v}\approx g_xu+g_yv
+\]</span></p>
 <p>矩阵形式：</p>
-[
-<span class="math display">\[\begin{pmatrix}
+<p><span class="math display">\[
+\begin{pmatrix}
 \dot{u}\\
 \dot{v}
-\end{pmatrix}\]</span>
+\end{pmatrix}
 =
-<span class="math display">\[\begin{pmatrix}
+\begin{pmatrix}
 f_x &amp; f_y\\
 g_x &amp; g_y
 \end{pmatrix}
 \begin{pmatrix}
 u\\
 v
-\end{pmatrix}\]</span>
-<p>]</p>
+\end{pmatrix}
+\]</span></p>
 <p><strong>Definition.</strong> 雅可比矩阵 (Jacobian Matrix)：</p>
-[ J=
-<span class="math display">\[\begin{pmatrix}
+<p><span class="math display">\[
+J=
+\begin{pmatrix}
 f_x &amp; f_y\\
 g_x &amp; g_y
-\end{pmatrix}\]</span>
-<p>_{(x^<em>,y^</em>)} ]</p>
+\end{pmatrix}_{(x^*,y^*)}
+\]</span></p>
 </section>
 <section id="特征值方法-eigenvalue-method" class="level2">
 <h2 class="anchored" data-anchor-id="特征值方法-eigenvalue-method">4. 特征值方法 (Eigenvalue Method)</h2>
 <p><strong>Theory.</strong> 线性化后系统写成：</p>
-<p>[ =Jz ]</p>
+<p><span class="math display">\[
+\dot{z}=Jz
+\]</span></p>
 <p>设指数型解 (Exponential Ansatz)：</p>
-<p>[ z(t)=e^{t}v ]</p>
+<p><span class="math display">\[
+z(t)=e^{\lambda t}v
+\]</span></p>
 <p>代入得到：</p>
-<p>[ =e^{t}v, Jz=e^{t}Jv ]</p>
-<p>[ e<sup>{t}v=e</sup>{t}Jv ]</p>
-<p>[ Jv=v ]</p>
+<p><span class="math display">\[
+\dot{z}=\lambda e^{\lambda t}v, \quad Jz=e^{\lambda t}Jv
+\]</span></p>
+<p><span class="math display">\[
+\lambda e^{\lambda t}v=e^{\lambda t}Jv
+\]</span></p>
+<p><span class="math display">\[
+Jv=\lambda v
+\]</span></p>
 <p><strong>Inference.</strong> 为了存在非零特征向量 (Non-trivial Eigenvector)：</p>
-<p>[ (J-I)v=0 ]</p>
-<p>[ (J-I)=0 ]</p>
+<p><span class="math display">\[
+(J-\lambda I)v=0
+\]</span></p>
+<p><span class="math display">\[
+\det(J-\lambda I)=0
+\]</span></p>
 <p>解得特征值：</p>
-<p>[ _1,_2 ]</p>
+<p><span class="math display">\[
+\lambda_1,\lambda_2
+\]</span></p>
 <p>这就是局部稳定性分析的核心逻辑。</p>
 </section>
 <section id="trace-det-判据-trace-determinant-criterion" class="level2">
 <h2 class="anchored" data-anchor-id="trace-det-判据-trace-determinant-criterion">5. Trace-Det 判据 (Trace-Determinant Criterion)</h2>
 <p><strong>Definition.</strong> 对二维系统，定义：</p>
-<p>[ (J)=_1+_2 ]</p>
-<p>[ (J)=_1_2 ]</p>
+<p><span class="math display">\[
+\operatorname{tr}(J)=\lambda_1+\lambda_2
+\]</span></p>
+<p><span class="math display">\[
+\det(J)=\lambda_1\lambda_2
+\]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
 <li>若行列式小于零，平衡点为 Saddle。</li>
@@ -292,60 +333,101 @@ g_x &amp; g_y
 <section id="基本变量-basic-variables" class="level3">
 <h3 class="anchored" data-anchor-id="基本变量-basic-variables">9.1 基本变量 (Basic Variables)</h3>
 <p><strong>Definition.</strong> 广义速度 (Generalized Velocity)：</p>
-<p>[ = ]</p>
+<p><span class="math display">\[
+\dot{q}=\frac{dq}{dt}
+\]</span></p>
 <p><strong>Definition.</strong> 拉格朗日量 (Lagrangian)：</p>
-<p>[ L(q,)=T-V ]</p>
+<p><span class="math display">\[
+L(q,\dot{q})=T-V
+\]</span></p>
 <p>其中 T 为 Kinetic Energy，V 为 Potential Energy。</p>
 <p><strong>Definition.</strong> 广义动量 (Generalized Momentum)：</p>
-<p>[ p= ]</p>
+<p><span class="math display">\[
+p=\frac{\partial L}{\partial \dot{q}}
+\]</span></p>
 <p><strong>Theory.</strong> Euler-Lagrange Equation：</p>
-<p>[ ()= ]</p>
+<p><span class="math display">\[
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right)=\frac{\partial L}{\partial q}
+\]</span></p>
 <p>等价写法：</p>
-<p>[ = ]</p>
+<p><span class="math display">\[
+\dot{p}=\frac{\partial L}{\partial q}
+\]</span></p>
 <p><strong>Definition.</strong> 作用量 (Action)：</p>
-<p>[ S=L,dt ]</p>
+<p><span class="math display">\[
+S=\int L\,dt
+\]</span></p>
 <p>真实轨道满足驻值条件 (Stationary Action)：</p>
-<p>[ S=0 ]</p>
+<p><span class="math display">\[
+\delta S=0
+\]</span></p>
 </section>
 <section id="legendre-变换-legendre-transform" class="level3">
 <h3 class="anchored" data-anchor-id="legendre-变换-legendre-transform">9.2 Legendre 变换 (Legendre Transform)</h3>
 <p><strong>Definition.</strong></p>
-<p>[ p= ]</p>
-<p>[ g(p)=px-f(x) ]</p>
+<p><span class="math display">\[
+p=\frac{df}{dx}
+\]</span></p>
+<p><span class="math display">\[
+g(p)=px-f(x)
+\]</span></p>
 </section>
 <section id="hamiltonian-与-hamilton-方程-hamiltons-equations" class="level3">
 <h3 class="anchored" data-anchor-id="hamiltonian-与-hamilton-方程-hamiltons-equations">9.3 Hamiltonian 与 Hamilton 方程 (Hamilton’s Equations)</h3>
 <p><strong>Definition.</strong> Hamiltonian：</p>
-<p>[ H(q,p)=p-L(q,) ]</p>
+<p><span class="math display">\[
+H(q,p)=p\dot{q}-L(q,\dot{q})
+\]</span></p>
 <p>在常见机械系统中：</p>
-<p>[ H=T+V ]</p>
+<p><span class="math display">\[
+H=T+V
+\]</span></p>
 <p><strong>Theory.</strong> 对 Hamiltonian 做全微分：</p>
-<p>[ dH=d(p)-dL ]</p>
-<p>[ d(p)=,dp+p,d ]</p>
-<p>[ dL=,dq+,d ]</p>
+<p><span class="math display">\[
+dH=d(p\dot{q})-dL
+\]</span></p>
+<p><span class="math display">\[
+d(p\dot{q})=\dot{q}\,dp+p\,d\dot{q}
+\]</span></p>
+<p><span class="math display">\[
+dL=\frac{\partial L}{\partial q}\,dq+\frac{\partial L}{\partial \dot{q}}\,d\dot{q}
+\]</span></p>
 <p>代入并使用：</p>
-<p>[ =p, = ]</p>
+<p><span class="math display">\[
+\frac{\partial L}{\partial \dot{q}}=p, \quad \frac{\partial L}{\partial q}=\dot{p}
+\]</span></p>
 <p>得到：</p>
-<p>[ dH=,dp-,dq ]</p>
+<p><span class="math display">\[
+dH=\dot{q}\,dp-\dot{p}\,dq
+\]</span></p>
 <p>另一方面：</p>
-<p>[ dH=,dq+,dp ]</p>
+<p><span class="math display">\[
+dH=\frac{\partial H}{\partial q}\,dq+\frac{\partial H}{\partial p}\,dp
+\]</span></p>
 <p><strong>Inference.</strong> 比较系数得到 Hamilton’s Equations：</p>
-<p>[ =, =- ]</p>
+<p><span class="math display">\[
+\dot{q}=\frac{\partial H}{\partial p}, \quad \dot{p}=-\frac{\partial H}{\partial q}
+\]</span></p>
 <p>这与 Euler-Lagrange 方程等价，只是坐标描述不同。</p>
 </section>
 <section id="辛结构与体积保持-symplectic-structure-volume-preservation" class="level3">
 <h3 class="anchored" data-anchor-id="辛结构与体积保持-symplectic-structure-volume-preservation">9.4 辛结构与体积保持 (Symplectic Structure &amp; Volume Preservation)</h3>
 <p><strong>Definition.</strong> 状态向量 (State Vector)：</p>
-<p>[ z=(q,p) ]</p>
+<p><span class="math display">\[
+z=(q,p)
+\]</span></p>
 <p><strong>Definition.</strong> 标准辛矩阵 (Canonical Symplectic Matrix)：</p>
-[ J=
-<span class="math display">\[\begin{pmatrix}
+<p><span class="math display">\[
+J=
+\begin{pmatrix}
 0 &amp; 1\\
 -1 &amp; 0
-\end{pmatrix}\]</span>
-<p>]</p>
+\end{pmatrix}
+\]</span></p>
 <p><strong>Theory.</strong> Hamiltonian 系统可写为：</p>
-<p>[ =JH ]</p>
+<p><span class="math display">\[
+\dot{z}=J\nabla H
+\]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
 <li>辛结构保持相空间基本面积元 (Area Element Preservation)。</li>

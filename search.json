@@ -25,7 +25,7 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或应用结论。\n\n\nTheory. 正交化的核心价值是把耦合问题改写为解耦问题，这与 Divide and Conquer 的思想一致。\n在一组正交基下，每个分量可以独立分析，计算和解释都会更清晰。\n\n\n\nDefinition. 向量正交满足：\n[ u,v ]\nResult.\n\n几何视角：两个向量互相投影为零。\n代数视角：内积为零意味着在内积结构下无重叠方向信息。\n信息视角：两个分量在该表示中可视为解耦。\n\n\n\n\nTheory. 在欧式空间中，正交分量满足能量可加：\n[ |x|^2=_i x_i^2 ]\nDefinition. 这里的系数是向量在一组标准正交基下的坐标。\n\n\n\nTheory. 任意向量可展开为：\n[ v=_i v,e_ie_i ]\nDefinition. 系数\n[ v,e_i ]\n是投影系数 (Projection Coefficient)。\n\n\n\nTheory. Gram-Schmidt 包含两步：\n\nStraighten (Orthogonalization)\nNormalize (Normalization)\n\nInference. 对两向量版本：\n[ =v-_u(v) ]\n[ e= ]\nResult. 原始基被转换为标准正交基，后续投影与坐标计算更稳定。\n\n\n\nDefinition. 正交矩阵满足：\n[ Q^TQ=I ]\nTheory. 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。\nResult. 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。\n\n\n\nTheory. 在复数空间中，内积应使用共轭转置，才能保证能量量\n[ x^Hx ]\n为非负实数。\nDefinition.\n[ AH=T ]\n给定：\n[ A=\n\\[\\begin{bmatrix}\n1+i & 2\\\\\n3i & 4-i\n\\end{bmatrix}\\]\n]\n则：\n[ A^T=\n\\[\\begin{bmatrix}\n1+i & 3i\\\\\n2 & 4-i\n\\end{bmatrix}\\]\n]\n[ =\n\\[\\begin{bmatrix}\n1-i & 2\\\\\n-3i & 4+i\n\\end{bmatrix}\\]\n]\n[ A^H=\n\\[\\begin{bmatrix}\n1-i & -3i\\\\\n2 & 4+i\n\\end{bmatrix}\\]\n]\n\n\n\nDefinition. 实数空间内积与正交条件：\n[ x,y=xTy,xTy=0 ]\n对应矩阵条件：\n[ Q^TQ=I ]\nDefinition. 复数空间内积与正交条件：\n[ x,y=xHy,xHy=0 ]\n对应矩阵条件：\n[ U^HU=I ]\nInference. 内积保持性推导：\n[ Qx,Qy=(Qx)T(Qy)=xTQTQy=xTy ]\n[ Ux,Uy=(Ux)H(Uy)=xHUHUy=xHy ]\nResult. 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。\n\n\n\nDefinition. 对实函数：\n[ f,g=_a^b f(x)g(x),dx ]\n对复函数：\n[ f,g=_a^b g(x),dx ]\n正交条件：\n[ f,g ]\n\n\n\nDefinition. 三角正交系：\n[ 1,x,x,2x,2x, ]\n在典型区间上的正交关系：\n[ _{-}^{}(mx)(nx),dx=0,mn ]\n[ _{-}^{}(mx)(nx),dx=0,mn ]\n[ _{-}^{}(mx)(nx),dx=0 ]\nDefinition. 正交多项式系满足：\n[ _a^b P_m(x)P_n(x),dx=0,mn ]\nResult. 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。\n\n\n\nDefinition. 实对称矩阵满足：\n[ A^T=A ]\nTheory. 任意实对称矩阵可正交对角化：\n[ A=QQ^T ]\nResult. 特征向量给出主轴方向，特征值给出各主轴缩放率。\n在该基下，耦合线性变换变成独立缩放。\n\n\n\nTheory. SVD 表示为：\n[ A=UV^T ]\nDefinition.\n\n列向量集合 V 对应输入空间基，称 Right Singular Vectors。\n列向量集合 U 对应输出空间基，称 Left Singular Vectors。\n矩阵 Sigma 表示各方向缩放强度。\n\nInference. 每个奇异对满足：\n[ Av_i=_i u_i ]\nResult. SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。\n\n\n\nDefinition. 线性不相关条件：\n[ (X,Y)=0 ]\nDefinition. 独立条件：\n[ f(x,y)=f(x)f(y) ]\nTheory. 互信息刻画广义依赖，满足：\n[ I(X;Y)=0 ]\n当且仅当独立。\nResult. 不相关不等于独立。\n典型例子是对称分布下的\n[ X  X^2 ]\n它们可线性不相关，但仍强依赖。\n\n\n\nTheory. 在高维空间中，随机向量夹角集中在直角附近，出现角度集中现象 (Concentration of Measure)。\nResult. 随机向量在高维中通常近似正交，这也是高维统计与机器学习中常见的几何基础。"
+    "text": "标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或应用结论。\n\n\nTheory. 正交化的核心价值是把耦合问题改写为解耦问题，这与 Divide and Conquer 的思想一致。\n在一组正交基下，每个分量可以独立分析，计算和解释都会更清晰。\n\n\n\nDefinition. 向量正交满足：\n\\[\n\\langle u,v\\rangle=0\n\\]\nResult.\n\n几何视角：两个向量互相投影为零。\n代数视角：内积为零意味着在内积结构下无重叠方向信息。\n信息视角：两个分量在该表示中可视为解耦。\n\n\n\n\nTheory. 在欧式空间中，正交分量满足能量可加：\n\\[\n\\|x\\|^2=\\sum_i x_i^2\n\\]\nDefinition. 这里的系数是向量在一组标准正交基下的坐标。\n\n\n\nTheory. 任意向量可展开为：\n\\[\nv=\\sum_i \\langle v,e_i\\rangle e_i\n\\]\nDefinition. 系数\n\\[\n\\langle v,e_i\\rangle\n\\]\n是投影系数 (Projection Coefficient)。\n\n\n\nTheory. Gram-Schmidt 包含两步：\n\nStraighten (Orthogonalization)\nNormalize (Normalization)\n\nInference. 对两向量版本：\n\\[\n\\tilde{v}=v-\\operatorname{proj}_u(v)\n\\]\n\\[\ne=\\frac{\\tilde{v}}{\\|\\tilde{v}\\|}\n\\]\nResult. 原始基被转换为标准正交基，后续投影与坐标计算更稳定。\n\n\n\nDefinition. 正交矩阵满足：\n\\[\nQ^TQ=I\n\\]\nTheory. 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。\nResult. 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。\n\n\n\nTheory. 在复数空间中，内积应使用共轭转置，才能保证能量量\n\\[\nx^Hx\n\\]\n为非负实数。\nDefinition.\n\\[\nA^H=\\overline{A}^T\n\\]\n给定：\n\\[\nA=\n\\begin{bmatrix}\n1+i & 2\\\\\n3i & 4-i\n\\end{bmatrix}\n\\]\n则：\n\\[\nA^T=\n\\begin{bmatrix}\n1+i & 3i\\\\\n2 & 4-i\n\\end{bmatrix}\n\\]\n\\[\n\\overline{A}=\n\\begin{bmatrix}\n1-i & 2\\\\\n-3i & 4+i\n\\end{bmatrix}\n\\]\n\\[\nA^H=\n\\begin{bmatrix}\n1-i & -3i\\\\\n2 & 4+i\n\\end{bmatrix}\n\\]\n\n\n\nDefinition. 实数空间内积与正交条件：\n\\[\n\\langle x,y\\rangle=x^Ty,\\quad x^Ty=0\n\\]\n对应矩阵条件：\n\\[\nQ^TQ=I\n\\]\nDefinition. 复数空间内积与正交条件：\n\\[\n\\langle x,y\\rangle=x^Hy,\\quad x^Hy=0\n\\]\n对应矩阵条件：\n\\[\nU^HU=I\n\\]\nInference. 内积保持性推导：\n\\[\n\\langle Qx,Qy\\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty\n\\]\n\\[\n\\langle Ux,Uy\\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy\n\\]\nResult. 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。\n\n\n\nDefinition. 对实函数：\n\\[\n\\langle f,g\\rangle=\\int_a^b f(x)g(x)\\,dx\n\\]\n对复函数：\n\\[\n\\langle f,g\\rangle=\\int_a^b \\overline{f(x)}g(x)\\,dx\n\\]\n正交条件：\n\\[\n\\langle f,g\\rangle=0\n\\]\n\n\n\nDefinition. 三角正交系：\n\\[\n1,\\cos x,\\sin x,\\cos 2x,\\sin 2x,\\cdots\n\\]\n在典型区间上的正交关系：\n\\[\n\\int_{-\\pi}^{\\pi}\\sin(mx)\\sin(nx)\\,dx=0,\\quad m\\neq n\n\\]\n\\[\n\\int_{-\\pi}^{\\pi}\\cos(mx)\\cos(nx)\\,dx=0,\\quad m\\neq n\n\\]\n\\[\n\\int_{-\\pi}^{\\pi}\\sin(mx)\\cos(nx)\\,dx=0\n\\]\nDefinition. 正交多项式系满足：\n\\[\n\\int_a^b P_m(x)P_n(x)\\,dx=0,\\quad m\\neq n\n\\]\nResult. 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。\n\n\n\nDefinition. 实对称矩阵满足：\n\\[\nA^T=A\n\\]\nTheory. 任意实对称矩阵可正交对角化：\n\\[\nA=Q\\Lambda Q^T\n\\]\nResult. 特征向量给出主轴方向，特征值给出各主轴缩放率。\n在该基下，耦合线性变换变成独立缩放。\n\n\n\nTheory. SVD 表示为：\n\\[\nA=U\\Sigma V^T\n\\]\nDefinition.\n\n列向量集合 V 对应输入空间基，称 Right Singular Vectors。\n列向量集合 U 对应输出空间基，称 Left Singular Vectors。\n矩阵 Sigma 表示各方向缩放强度。\n\nInference. 每个奇异对满足：\n\\[\nAv_i=\\sigma_i u_i\n\\]\nResult. SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。\n\n\n\nDefinition. 线性不相关条件：\n\\[\n\\operatorname{Cov}(X,Y)=0\n\\]\nDefinition. 独立条件：\n\\[\nf(x,y)=f(x)f(y)\n\\]\nTheory. 互信息刻画广义依赖，满足：\n\\[\nI(X;Y)=0\n\\]\n当且仅当独立。\nResult. 不相关不等于独立。\n典型例子是对称分布下的\n\\[\nX\\ \\text{与}\\ X^2\n\\]\n它们可线性不相关，但仍强依赖。\n\n\n\nTheory. 在高维空间中，随机向量夹角集中在直角附近，出现角度集中现象 (Concentration of Measure)。\nResult. 随机向量在高维中通常近似正交，这也是高维统计与机器学习中常见的几何基础。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#从耦合到解耦-coupled-to-decoupled",
@@ -39,84 +39,84 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交的定义-definition-of-orthogonality",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 向量正交满足：\n[ u,v ]\nResult.\n\n几何视角：两个向量互相投影为零。\n代数视角：内积为零意味着在内积结构下无重叠方向信息。\n信息视角：两个分量在该表示中可视为解耦。"
+    "text": "Definition. 向量正交满足：\n\\[\n\\langle u,v\\rangle=0\n\\]\nResult.\n\n几何视角：两个向量互相投影为零。\n代数视角：内积为零意味着在内积结构下无重叠方向信息。\n信息视角：两个分量在该表示中可视为解耦。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交分解与能量可加性-energy-additivity",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交分解与能量可加性-energy-additivity",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Theory. 在欧式空间中，正交分量满足能量可加：\n[ |x|^2=_i x_i^2 ]\nDefinition. 这里的系数是向量在一组标准正交基下的坐标。"
+    "text": "Theory. 在欧式空间中，正交分量满足能量可加：\n\\[\n\\|x\\|^2=\\sum_i x_i^2\n\\]\nDefinition. 这里的系数是向量在一组标准正交基下的坐标。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交基下的展开-expansion-in-orthonormal-basis",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交基下的展开-expansion-in-orthonormal-basis",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Theory. 任意向量可展开为：\n[ v=_i v,e_ie_i ]\nDefinition. 系数\n[ v,e_i ]\n是投影系数 (Projection Coefficient)。"
+    "text": "Theory. 任意向量可展开为：\n\\[\nv=\\sum_i \\langle v,e_i\\rangle e_i\n\\]\nDefinition. 系数\n\\[\n\\langle v,e_i\\rangle\n\\]\n是投影系数 (Projection Coefficient)。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#gram-schmidt-正交化",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#gram-schmidt-正交化",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Theory. Gram-Schmidt 包含两步：\n\nStraighten (Orthogonalization)\nNormalize (Normalization)\n\nInference. 对两向量版本：\n[ =v-_u(v) ]\n[ e= ]\nResult. 原始基被转换为标准正交基，后续投影与坐标计算更稳定。"
+    "text": "Theory. Gram-Schmidt 包含两步：\n\nStraighten (Orthogonalization)\nNormalize (Normalization)\n\nInference. 对两向量版本：\n\\[\n\\tilde{v}=v-\\operatorname{proj}_u(v)\n\\]\n\\[\ne=\\frac{\\tilde{v}}{\\|\\tilde{v}\\|}\n\\]\nResult. 原始基被转换为标准正交基，后续投影与坐标计算更稳定。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 正交矩阵满足：\n[ Q^TQ=I ]\nTheory. 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。\nResult. 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。"
+    "text": "Definition. 正交矩阵满足：\n\\[\nQ^TQ=I\n\\]\nTheory. 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。\nResult. 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#共轭转置-conjugate-transpose",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#共轭转置-conjugate-transpose",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Theory. 在复数空间中，内积应使用共轭转置，才能保证能量量\n[ x^Hx ]\n为非负实数。\nDefinition.\n[ AH=T ]\n给定：\n[ A=\n\\[\\begin{bmatrix}\n1+i & 2\\\\\n3i & 4-i\n\\end{bmatrix}\\]\n]\n则：\n[ A^T=\n\\[\\begin{bmatrix}\n1+i & 3i\\\\\n2 & 4-i\n\\end{bmatrix}\\]\n]\n[ =\n\\[\\begin{bmatrix}\n1-i & 2\\\\\n-3i & 4+i\n\\end{bmatrix}\\]\n]\n[ A^H=\n\\[\\begin{bmatrix}\n1-i & -3i\\\\\n2 & 4+i\n\\end{bmatrix}\\]\n]"
+    "text": "Theory. 在复数空间中，内积应使用共轭转置，才能保证能量量\n\\[\nx^Hx\n\\]\n为非负实数。\nDefinition.\n\\[\nA^H=\\overline{A}^T\n\\]\n给定：\n\\[\nA=\n\\begin{bmatrix}\n1+i & 2\\\\\n3i & 4-i\n\\end{bmatrix}\n\\]\n则：\n\\[\nA^T=\n\\begin{bmatrix}\n1+i & 3i\\\\\n2 & 4-i\n\\end{bmatrix}\n\\]\n\\[\n\\overline{A}=\n\\begin{bmatrix}\n1-i & 2\\\\\n-3i & 4+i\n\\end{bmatrix}\n\\]\n\\[\nA^H=\n\\begin{bmatrix}\n1-i & -3i\\\\\n2 & 4+i\n\\end{bmatrix}\n\\]"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#实空间与复空间中的正交-real-vs-complex-inner-product",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#实空间与复空间中的正交-real-vs-complex-inner-product",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 实数空间内积与正交条件：\n[ x,y=xTy,xTy=0 ]\n对应矩阵条件：\n[ Q^TQ=I ]\nDefinition. 复数空间内积与正交条件：\n[ x,y=xHy,xHy=0 ]\n对应矩阵条件：\n[ U^HU=I ]\nInference. 内积保持性推导：\n[ Qx,Qy=(Qx)T(Qy)=xTQTQy=xTy ]\n[ Ux,Uy=(Ux)H(Uy)=xHUHUy=xHy ]\nResult. 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。"
+    "text": "Definition. 实数空间内积与正交条件：\n\\[\n\\langle x,y\\rangle=x^Ty,\\quad x^Ty=0\n\\]\n对应矩阵条件：\n\\[\nQ^TQ=I\n\\]\nDefinition. 复数空间内积与正交条件：\n\\[\n\\langle x,y\\rangle=x^Hy,\\quad x^Hy=0\n\\]\n对应矩阵条件：\n\\[\nU^HU=I\n\\]\nInference. 内积保持性推导：\n\\[\n\\langle Qx,Qy\\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty\n\\]\n\\[\n\\langle Ux,Uy\\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy\n\\]\nResult. 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#函数空间中的正交-orthogonality-in-function-space",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#函数空间中的正交-orthogonality-in-function-space",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 对实函数：\n[ f,g=_a^b f(x)g(x),dx ]\n对复函数：\n[ f,g=_a^b g(x),dx ]\n正交条件：\n[ f,g ]"
+    "text": "Definition. 对实函数：\n\\[\n\\langle f,g\\rangle=\\int_a^b f(x)g(x)\\,dx\n\\]\n对复函数：\n\\[\n\\langle f,g\\rangle=\\int_a^b \\overline{f(x)}g(x)\\,dx\n\\]\n正交条件：\n\\[\n\\langle f,g\\rangle=0\n\\]"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#经典正交系-classical-orthogonal-systems",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#经典正交系-classical-orthogonal-systems",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 三角正交系：\n[ 1,x,x,2x,2x, ]\n在典型区间上的正交关系：\n[ _{-}^{}(mx)(nx),dx=0,mn ]\n[ _{-}^{}(mx)(nx),dx=0,mn ]\n[ _{-}^{}(mx)(nx),dx=0 ]\nDefinition. 正交多项式系满足：\n[ _a^b P_m(x)P_n(x),dx=0,mn ]\nResult. 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。"
+    "text": "Definition. 三角正交系：\n\\[\n1,\\cos x,\\sin x,\\cos 2x,\\sin 2x,\\cdots\n\\]\n在典型区间上的正交关系：\n\\[\n\\int_{-\\pi}^{\\pi}\\sin(mx)\\sin(nx)\\,dx=0,\\quad m\\neq n\n\\]\n\\[\n\\int_{-\\pi}^{\\pi}\\cos(mx)\\cos(nx)\\,dx=0,\\quad m\\neq n\n\\]\n\\[\n\\int_{-\\pi}^{\\pi}\\sin(mx)\\cos(nx)\\,dx=0\n\\]\nDefinition. 正交多项式系满足：\n\\[\n\\int_a^b P_m(x)P_n(x)\\,dx=0,\\quad m\\neq n\n\\]\nResult. 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#谱定理-spectral-theorem",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#谱定理-spectral-theorem",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 实对称矩阵满足：\n[ A^T=A ]\nTheory. 任意实对称矩阵可正交对角化：\n[ A=QQ^T ]\nResult. 特征向量给出主轴方向，特征值给出各主轴缩放率。\n在该基下，耦合线性变换变成独立缩放。"
+    "text": "Definition. 实对称矩阵满足：\n\\[\nA^T=A\n\\]\nTheory. 任意实对称矩阵可正交对角化：\n\\[\nA=Q\\Lambda Q^T\n\\]\nResult. 特征向量给出主轴方向，特征值给出各主轴缩放率。\n在该基下，耦合线性变换变成独立缩放。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#奇异值分解-svd",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#奇异值分解-svd",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Theory. SVD 表示为：\n[ A=UV^T ]\nDefinition.\n\n列向量集合 V 对应输入空间基，称 Right Singular Vectors。\n列向量集合 U 对应输出空间基，称 Left Singular Vectors。\n矩阵 Sigma 表示各方向缩放强度。\n\nInference. 每个奇异对满足：\n[ Av_i=_i u_i ]\nResult. SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。"
+    "text": "Theory. SVD 表示为：\n\\[\nA=U\\Sigma V^T\n\\]\nDefinition.\n\n列向量集合 V 对应输入空间基，称 Right Singular Vectors。\n列向量集合 U 对应输出空间基，称 Left Singular Vectors。\n矩阵 Sigma 表示各方向缩放强度。\n\nInference. 每个奇异对满足：\n\\[\nAv_i=\\sigma_i u_i\n\\]\nResult. SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#correlation-与-independence",
     "href": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#correlation-与-independence",
     "title": "正交性 (Orthogonality)",
     "section": "",
-    "text": "Definition. 线性不相关条件：\n[ (X,Y)=0 ]\nDefinition. 独立条件：\n[ f(x,y)=f(x)f(y) ]\nTheory. 互信息刻画广义依赖，满足：\n[ I(X;Y)=0 ]\n当且仅当独立。\nResult. 不相关不等于独立。\n典型例子是对称分布下的\n[ X  X^2 ]\n它们可线性不相关，但仍强依赖。"
+    "text": "Definition. 线性不相关条件：\n\\[\n\\operatorname{Cov}(X,Y)=0\n\\]\nDefinition. 独立条件：\n\\[\nf(x,y)=f(x)f(y)\n\\]\nTheory. 互信息刻画广义依赖，满足：\n\\[\nI(X;Y)=0\n\\]\n当且仅当独立。\nResult. 不相关不等于独立。\n典型例子是对称分布下的\n\\[\nX\\ \\text{与}\\ X^2\n\\]\n它们可线性不相关，但仍强依赖。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html#高维近似正交现象-near-orthogonality-in-high-dimensions",
@@ -130,14 +130,14 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或判别结论。\n\n\nDefinition. 一维自治系统写为：\n[ =f(x) ]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n[ f(x^*)=0 ]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n[ f’(x^*) ]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。\n\n\n\n\nDefinition. 分岔是参数变化导致系统定性行为改变的现象。\nTheory. 常见类型：\n\nSaddle-node bifurcation\nTranscritical bifurcation\nPitchfork bifurcation\n\n\n\n\nDefinition. 二维自治系统：\n[ =f(x,y), =g(x,y) ]\nDefinition. 平衡点条件：\n[ f(x^,y)=0, g(x^,y)=0 ]\nDefinition. 在平衡点附近定义小扰动：\n[ x=x^+u, y=y^+v ]\n[ =f(x^+u,y+v), =g(x^+u,y+v) ]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n[ f(x^+u,y+v)f(x^,y)+f_xu+f_yv ]\n[ g(x^+u,y+v)g(x^,y)+g_xu+g_yv ]\n由平衡点条件可得线性化系统：\n[ f_xu+f_yv, g_xu+g_yv ]\n矩阵形式：\n[\n\\[\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\\]\n=\n\\[\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\\]\n]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n[ J=\n\\[\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\\]\n_{(x^,y^)} ]\n\n\n\nTheory. 线性化后系统写成：\n[ =Jz ]\n设指数型解 (Exponential Ansatz)：\n[ z(t)=e^{t}v ]\n代入得到：\n[ =e^{t}v, Jz=e^{t}Jv ]\n[ e{t}v=e{t}Jv ]\n[ Jv=v ]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n[ (J-I)v=0 ]\n[ (J-I)=0 ]\n解得特征值：\n[ _1,_2 ]\n这就是局部稳定性分析的核心逻辑。\n\n\n\nDefinition. 对二维系统，定义：\n[ (J)=_1+_2 ]\n[ (J)=_1_2 ]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。\n\n\n\n\nDefinition. 混沌是确定性系统中出现的复杂非周期行为。\nTheory. 典型特征：\n\nDeterministic dynamics\nBounded trajectories\nSensitive dependence on initial conditions\n\n\n\n\nTheory. 在双曲平衡点 (Hyperbolic Equilibrium) 附近，非线性系统与其线性化系统拓扑共轭 (Topological Conjugacy)。\nResult. 在局部邻域内，可以用线性系统判断相图骨架。\n\n\n\nTheory. 在哈密顿系统中，相空间体积在时间演化下保持不变。\nResult. 哈密顿流可视为不可压缩流 (Incompressible Flow in Phase Space)。\n\n\n\n\n\nDefinition. 广义速度 (Generalized Velocity)：\n[ = ]\nDefinition. 拉格朗日量 (Lagrangian)：\n[ L(q,)=T-V ]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n[ p= ]\nTheory. Euler-Lagrange Equation：\n[ ()= ]\n等价写法：\n[ = ]\nDefinition. 作用量 (Action)：\n[ S=L,dt ]\n真实轨道满足驻值条件 (Stationary Action)：\n[ S=0 ]\n\n\n\nDefinition.\n[ p= ]\n[ g(p)=px-f(x) ]\n\n\n\nDefinition. Hamiltonian：\n[ H(q,p)=p-L(q,) ]\n在常见机械系统中：\n[ H=T+V ]\nTheory. 对 Hamiltonian 做全微分：\n[ dH=d(p)-dL ]\n[ d(p)=,dp+p,d ]\n[ dL=,dq+,d ]\n代入并使用：\n[ =p, = ]\n得到：\n[ dH=,dp-,dq ]\n另一方面：\n[ dH=,dq+,dp ]\nInference. 比较系数得到 Hamilton’s Equations：\n[ =, =- ]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n[ z=(q,p) ]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n[ J=\n\\[\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\\]\n]\nTheory. Hamiltonian 系统可写为：\n[ =JH ]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"
+    "text": "标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或判别结论。\n\n\nDefinition. 一维自治系统写为：\n\\[\n\\dot{x}=f(x)\n\\]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n\\[\nf(x^*)=0\n\\]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n\\[\nf'(x^*)\n\\]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。\n\n\n\n\nDefinition. 分岔是参数变化导致系统定性行为改变的现象。\nTheory. 常见类型：\n\nSaddle-node bifurcation\nTranscritical bifurcation\nPitchfork bifurcation\n\n\n\n\nDefinition. 二维自治系统：\n\\[\n\\dot{x}=f(x,y), \\quad \\dot{y}=g(x,y)\n\\]\nDefinition. 平衡点条件：\n\\[\nf(x^*,y^*)=0, \\quad g(x^*,y^*)=0\n\\]\nDefinition. 在平衡点附近定义小扰动：\n\\[\nx=x^*+u, \\quad y=y^*+v\n\\]\n\\[\n\\dot{u}=f(x^*+u,y^*+v), \\quad \\dot{v}=g(x^*+u,y^*+v)\n\\]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n\\[\nf(x^*+u,y^*+v)\\approx f(x^*,y^*)+f_xu+f_yv\n\\]\n\\[\ng(x^*+u,y^*+v)\\approx g(x^*,y^*)+g_xu+g_yv\n\\]\n由平衡点条件可得线性化系统：\n\\[\n\\dot{u}\\approx f_xu+f_yv, \\quad \\dot{v}\\approx g_xu+g_yv\n\\]\n矩阵形式：\n\\[\n\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\n\\]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}_{(x^*,y^*)}\n\\]\n\n\n\nTheory. 线性化后系统写成：\n\\[\n\\dot{z}=Jz\n\\]\n设指数型解 (Exponential Ansatz)：\n\\[\nz(t)=e^{\\lambda t}v\n\\]\n代入得到：\n\\[\n\\dot{z}=\\lambda e^{\\lambda t}v, \\quad Jz=e^{\\lambda t}Jv\n\\]\n\\[\n\\lambda e^{\\lambda t}v=e^{\\lambda t}Jv\n\\]\n\\[\nJv=\\lambda v\n\\]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n\\[\n(J-\\lambda I)v=0\n\\]\n\\[\n\\det(J-\\lambda I)=0\n\\]\n解得特征值：\n\\[\n\\lambda_1,\\lambda_2\n\\]\n这就是局部稳定性分析的核心逻辑。\n\n\n\nDefinition. 对二维系统，定义：\n\\[\n\\operatorname{tr}(J)=\\lambda_1+\\lambda_2\n\\]\n\\[\n\\det(J)=\\lambda_1\\lambda_2\n\\]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。\n\n\n\n\nDefinition. 混沌是确定性系统中出现的复杂非周期行为。\nTheory. 典型特征：\n\nDeterministic dynamics\nBounded trajectories\nSensitive dependence on initial conditions\n\n\n\n\nTheory. 在双曲平衡点 (Hyperbolic Equilibrium) 附近，非线性系统与其线性化系统拓扑共轭 (Topological Conjugacy)。\nResult. 在局部邻域内，可以用线性系统判断相图骨架。\n\n\n\nTheory. 在哈密顿系统中，相空间体积在时间演化下保持不变。\nResult. 哈密顿流可视为不可压缩流 (Incompressible Flow in Phase Space)。\n\n\n\n\n\nDefinition. 广义速度 (Generalized Velocity)：\n\\[\n\\dot{q}=\\frac{dq}{dt}\n\\]\nDefinition. 拉格朗日量 (Lagrangian)：\n\\[\nL(q,\\dot{q})=T-V\n\\]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n\\[\np=\\frac{\\partial L}{\\partial \\dot{q}}\n\\]\nTheory. Euler-Lagrange Equation：\n\\[\n\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)=\\frac{\\partial L}{\\partial q}\n\\]\n等价写法：\n\\[\n\\dot{p}=\\frac{\\partial L}{\\partial q}\n\\]\nDefinition. 作用量 (Action)：\n\\[\nS=\\int L\\,dt\n\\]\n真实轨道满足驻值条件 (Stationary Action)：\n\\[\n\\delta S=0\n\\]\n\n\n\nDefinition.\n\\[\np=\\frac{df}{dx}\n\\]\n\\[\ng(p)=px-f(x)\n\\]\n\n\n\nDefinition. Hamiltonian：\n\\[\nH(q,p)=p\\dot{q}-L(q,\\dot{q})\n\\]\n在常见机械系统中：\n\\[\nH=T+V\n\\]\nTheory. 对 Hamiltonian 做全微分：\n\\[\ndH=d(p\\dot{q})-dL\n\\]\n\\[\nd(p\\dot{q})=\\dot{q}\\,dp+p\\,d\\dot{q}\n\\]\n\\[\ndL=\\frac{\\partial L}{\\partial q}\\,dq+\\frac{\\partial L}{\\partial \\dot{q}}\\,d\\dot{q}\n\\]\n代入并使用：\n\\[\n\\frac{\\partial L}{\\partial \\dot{q}}=p, \\quad \\frac{\\partial L}{\\partial q}=\\dot{p}\n\\]\n得到：\n\\[\ndH=\\dot{q}\\,dp-\\dot{p}\\,dq\n\\]\n另一方面：\n\\[\ndH=\\frac{\\partial H}{\\partial q}\\,dq+\\frac{\\partial H}{\\partial p}\\,dp\n\\]\nInference. 比较系数得到 Hamilton’s Equations：\n\\[\n\\dot{q}=\\frac{\\partial H}{\\partial p}, \\quad \\dot{p}=-\\frac{\\partial H}{\\partial q}\n\\]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n\\[\nz=(q,p)\n\\]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\n\\]\nTheory. Hamiltonian 系统可写为：\n\\[\n\\dot{z}=J\\nabla H\n\\]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "Definition. 一维自治系统写为：\n[ =f(x) ]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n[ f(x^*)=0 ]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n[ f’(x^*) ]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。"
+    "text": "Definition. 一维自治系统写为：\n\\[\n\\dot{x}=f(x)\n\\]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n\\[\nf(x^*)=0\n\\]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n\\[\nf'(x^*)\n\\]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#分岔-bifurcation",
@@ -151,21 +151,21 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#二维自治系统与线性化-two-dimensional-autonomous-system-linearization",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "Definition. 二维自治系统：\n[ =f(x,y), =g(x,y) ]\nDefinition. 平衡点条件：\n[ f(x^,y)=0, g(x^,y)=0 ]\nDefinition. 在平衡点附近定义小扰动：\n[ x=x^+u, y=y^+v ]\n[ =f(x^+u,y+v), =g(x^+u,y+v) ]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n[ f(x^+u,y+v)f(x^,y)+f_xu+f_yv ]\n[ g(x^+u,y+v)g(x^,y)+g_xu+g_yv ]\n由平衡点条件可得线性化系统：\n[ f_xu+f_yv, g_xu+g_yv ]\n矩阵形式：\n[\n\\[\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\\]\n=\n\\[\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\\]\n]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n[ J=\n\\[\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\\]\n_{(x^,y^)} ]"
+    "text": "Definition. 二维自治系统：\n\\[\n\\dot{x}=f(x,y), \\quad \\dot{y}=g(x,y)\n\\]\nDefinition. 平衡点条件：\n\\[\nf(x^*,y^*)=0, \\quad g(x^*,y^*)=0\n\\]\nDefinition. 在平衡点附近定义小扰动：\n\\[\nx=x^*+u, \\quad y=y^*+v\n\\]\n\\[\n\\dot{u}=f(x^*+u,y^*+v), \\quad \\dot{v}=g(x^*+u,y^*+v)\n\\]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n\\[\nf(x^*+u,y^*+v)\\approx f(x^*,y^*)+f_xu+f_yv\n\\]\n\\[\ng(x^*+u,y^*+v)\\approx g(x^*,y^*)+g_xu+g_yv\n\\]\n由平衡点条件可得线性化系统：\n\\[\n\\dot{u}\\approx f_xu+f_yv, \\quad \\dot{v}\\approx g_xu+g_yv\n\\]\n矩阵形式：\n\\[\n\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\n\\]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}_{(x^*,y^*)}\n\\]"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#特征值方法-eigenvalue-method",
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#特征值方法-eigenvalue-method",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "Theory. 线性化后系统写成：\n[ =Jz ]\n设指数型解 (Exponential Ansatz)：\n[ z(t)=e^{t}v ]\n代入得到：\n[ =e^{t}v, Jz=e^{t}Jv ]\n[ e{t}v=e{t}Jv ]\n[ Jv=v ]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n[ (J-I)v=0 ]\n[ (J-I)=0 ]\n解得特征值：\n[ _1,_2 ]\n这就是局部稳定性分析的核心逻辑。"
+    "text": "Theory. 线性化后系统写成：\n\\[\n\\dot{z}=Jz\n\\]\n设指数型解 (Exponential Ansatz)：\n\\[\nz(t)=e^{\\lambda t}v\n\\]\n代入得到：\n\\[\n\\dot{z}=\\lambda e^{\\lambda t}v, \\quad Jz=e^{\\lambda t}Jv\n\\]\n\\[\n\\lambda e^{\\lambda t}v=e^{\\lambda t}Jv\n\\]\n\\[\nJv=\\lambda v\n\\]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n\\[\n(J-\\lambda I)v=0\n\\]\n\\[\n\\det(J-\\lambda I)=0\n\\]\n解得特征值：\n\\[\n\\lambda_1,\\lambda_2\n\\]\n这就是局部稳定性分析的核心逻辑。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#trace-det-判据-trace-determinant-criterion",
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#trace-det-判据-trace-determinant-criterion",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "Definition. 对二维系统，定义：\n[ (J)=_1+_2 ]\n[ (J)=_1_2 ]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。"
+    "text": "Definition. 对二维系统，定义：\n\\[\n\\operatorname{tr}(J)=\\lambda_1+\\lambda_2\n\\]\n\\[\n\\det(J)=\\lambda_1\\lambda_2\n\\]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#混沌-chaos",
@@ -193,6 +193,6 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#哈密顿系统基础-hamiltonian-mechanics",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
-    "text": "Definition. 广义速度 (Generalized Velocity)：\n[ = ]\nDefinition. 拉格朗日量 (Lagrangian)：\n[ L(q,)=T-V ]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n[ p= ]\nTheory. Euler-Lagrange Equation：\n[ ()= ]\n等价写法：\n[ = ]\nDefinition. 作用量 (Action)：\n[ S=L,dt ]\n真实轨道满足驻值条件 (Stationary Action)：\n[ S=0 ]\n\n\n\nDefinition.\n[ p= ]\n[ g(p)=px-f(x) ]\n\n\n\nDefinition. Hamiltonian：\n[ H(q,p)=p-L(q,) ]\n在常见机械系统中：\n[ H=T+V ]\nTheory. 对 Hamiltonian 做全微分：\n[ dH=d(p)-dL ]\n[ d(p)=,dp+p,d ]\n[ dL=,dq+,d ]\n代入并使用：\n[ =p, = ]\n得到：\n[ dH=,dp-,dq ]\n另一方面：\n[ dH=,dq+,dp ]\nInference. 比较系数得到 Hamilton’s Equations：\n[ =, =- ]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n[ z=(q,p) ]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n[ J=\n\\[\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\\]\n]\nTheory. Hamiltonian 系统可写为：\n[ =JH ]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"
+    "text": "Definition. 广义速度 (Generalized Velocity)：\n\\[\n\\dot{q}=\\frac{dq}{dt}\n\\]\nDefinition. 拉格朗日量 (Lagrangian)：\n\\[\nL(q,\\dot{q})=T-V\n\\]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n\\[\np=\\frac{\\partial L}{\\partial \\dot{q}}\n\\]\nTheory. Euler-Lagrange Equation：\n\\[\n\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)=\\frac{\\partial L}{\\partial q}\n\\]\n等价写法：\n\\[\n\\dot{p}=\\frac{\\partial L}{\\partial q}\n\\]\nDefinition. 作用量 (Action)：\n\\[\nS=\\int L\\,dt\n\\]\n真实轨道满足驻值条件 (Stationary Action)：\n\\[\n\\delta S=0\n\\]\n\n\n\nDefinition.\n\\[\np=\\frac{df}{dx}\n\\]\n\\[\ng(p)=px-f(x)\n\\]\n\n\n\nDefinition. Hamiltonian：\n\\[\nH(q,p)=p\\dot{q}-L(q,\\dot{q})\n\\]\n在常见机械系统中：\n\\[\nH=T+V\n\\]\nTheory. 对 Hamiltonian 做全微分：\n\\[\ndH=d(p\\dot{q})-dL\n\\]\n\\[\nd(p\\dot{q})=\\dot{q}\\,dp+p\\,d\\dot{q}\n\\]\n\\[\ndL=\\frac{\\partial L}{\\partial q}\\,dq+\\frac{\\partial L}{\\partial \\dot{q}}\\,d\\dot{q}\n\\]\n代入并使用：\n\\[\n\\frac{\\partial L}{\\partial \\dot{q}}=p, \\quad \\frac{\\partial L}{\\partial q}=\\dot{p}\n\\]\n得到：\n\\[\ndH=\\dot{q}\\,dp-\\dot{p}\\,dq\n\\]\n另一方面：\n\\[\ndH=\\frac{\\partial H}{\\partial q}\\,dq+\\frac{\\partial H}{\\partial p}\\,dp\n\\]\nInference. 比较系数得到 Hamilton’s Equations：\n\\[\n\\dot{q}=\\frac{\\partial H}{\\partial p}, \\quad \\dot{p}=-\\frac{\\partial H}{\\partial q}\n\\]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n\\[\nz=(q,p)\n\\]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\n\\]\nTheory. Hamiltonian 系统可写为：\n\\[\n\\dot{z}=J\\nabla H\n\\]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"
   }
 ]
