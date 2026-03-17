@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>orthogonality – Sirius Blog</title>
+<title>nonlinear-dynmaics – Sirius Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,24 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#orthogonality" id="toc-orthogonality" class="nav-link active" data-scroll-target="#orthogonality">Orthogonality</a></li>
+  <li><a href="#非线性动力学-nonlinear-dynamics" id="toc-非线性动力学-nonlinear-dynamics" class="nav-link active" data-scroll-target="#非线性动力学-nonlinear-dynamics">非线性动力学 (Nonlinear Dynamics)</a>
+  <ul class="collapse">
+  <li><a href="#一维自治系统与相线-one-dimensional-autonomous-system-phase-line" id="toc-一维自治系统与相线-one-dimensional-autonomous-system-phase-line" class="nav-link" data-scroll-target="#一维自治系统与相线-one-dimensional-autonomous-system-phase-line">1. 一维自治系统与相线 (One-dimensional Autonomous System &amp; Phase Line)</a></li>
+  <li><a href="#分岔-bifurcation" id="toc-分岔-bifurcation" class="nav-link" data-scroll-target="#分岔-bifurcation">2. 分岔 (Bifurcation)</a></li>
+  <li><a href="#二维自治系统与线性化-two-dimensional-autonomous-system-linearization" id="toc-二维自治系统与线性化-two-dimensional-autonomous-system-linearization" class="nav-link" data-scroll-target="#二维自治系统与线性化-two-dimensional-autonomous-system-linearization">3. 二维自治系统与线性化 (Two-dimensional Autonomous System &amp; Linearization)</a></li>
+  <li><a href="#特征值方法-eigenvalue-method" id="toc-特征值方法-eigenvalue-method" class="nav-link" data-scroll-target="#特征值方法-eigenvalue-method">4. 特征值方法 (Eigenvalue Method)</a></li>
+  <li><a href="#trace-det-判据-trace-determinant-criterion" id="toc-trace-det-判据-trace-determinant-criterion" class="nav-link" data-scroll-target="#trace-det-判据-trace-determinant-criterion">5. Trace-Det 判据 (Trace-Determinant Criterion)</a></li>
+  <li><a href="#混沌-chaos" id="toc-混沌-chaos" class="nav-link" data-scroll-target="#混沌-chaos">6. 混沌 (Chaos)</a></li>
+  <li><a href="#hartman-grobman-定理-hartman-grobman-theorem" id="toc-hartman-grobman-定理-hartman-grobman-theorem" class="nav-link" data-scroll-target="#hartman-grobman-定理-hartman-grobman-theorem">7. Hartman-Grobman 定理 (Hartman-Grobman Theorem)</a></li>
+  <li><a href="#liouville-定理-liouvilles-theorem" id="toc-liouville-定理-liouvilles-theorem" class="nav-link" data-scroll-target="#liouville-定理-liouvilles-theorem">8. Liouville 定理 (Liouville’s Theorem)</a></li>
+  <li><a href="#哈密顿系统基础-hamiltonian-mechanics" id="toc-哈密顿系统基础-hamiltonian-mechanics" class="nav-link" data-scroll-target="#哈密顿系统基础-hamiltonian-mechanics">9. 哈密顿系统基础 (Hamiltonian Mechanics)</a>
+  <ul class="collapse">
+  <li><a href="#基本变量-basic-variables" id="toc-基本变量-basic-variables" class="nav-link" data-scroll-target="#基本变量-basic-variables">9.1 基本变量 (Basic Variables)</a></li>
+  <li><a href="#legendre-变换-legendre-transform" id="toc-legendre-变换-legendre-transform" class="nav-link" data-scroll-target="#legendre-变换-legendre-transform">9.2 Legendre 变换 (Legendre Transform)</a></li>
+  <li><a href="#hamiltonian-与-hamilton-方程-hamiltons-equations" id="toc-hamiltonian-与-hamilton-方程-hamiltons-equations" class="nav-link" data-scroll-target="#hamiltonian-与-hamilton-方程-hamiltons-equations">9.3 Hamiltonian 与 Hamilton 方程 (Hamilton’s Equations)</a></li>
+  <li><a href="#辛结构与体积保持-symplectic-structure-volume-preservation" id="toc-辛结构与体积保持-symplectic-structure-volume-preservation" class="nav-link" data-scroll-target="#辛结构与体积保持-symplectic-structure-volume-preservation">9.4 辛结构与体积保持 (Symplectic Structure &amp; Volume Preservation)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -156,265 +173,189 @@ window.Quarto = {
 
 
 
-<section id="orthogonality" class="level1">
-<h1>Orthogonality</h1>
-<ol type="1">
-<li>Coupled <span class="math inline">\(\rightarrow\)</span> Decoupled, 耦合 <span class="math inline">\(\rightarrow\)</span> 解耦</li>
-</ol>
-<p>DIvide Conquer 分而治之 通过正交化来解耦</p>
-<ol start="2" type="1">
-<li><span class="math inline">\(\langle u,v \rangle =0\)</span></li>
-</ol>
+<section id="非线性动力学-nonlinear-dynamics" class="level1">
+<h1>非线性动力学 (Nonlinear Dynamics)</h1>
+<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或判别结论。</p>
+<section id="一维自治系统与相线-one-dimensional-autonomous-system-phase-line" class="level2">
+<h2 class="anchored" data-anchor-id="一维自治系统与相线-one-dimensional-autonomous-system-phase-line">1. 一维自治系统与相线 (One-dimensional Autonomous System &amp; Phase Line)</h2>
+<p><strong>Definition.</strong> 一维自治系统写为：</p>
+<p>[ =f(x) ]</p>
+<p><strong>Definition.</strong> 平衡点 (Equilibrium Point) 满足：</p>
+<p>[ f(x^*)=0 ]</p>
+<p><strong>Theory.</strong> 线性稳定性判据 (Linear Stability Criterion)：</p>
+<p>[ f’(x^*) ]</p>
+<p><strong>Result.</strong></p>
 <ul>
-<li>几何上互相投影为0</li>
-<li>代数上：内积为0，也就是线性无关</li>
-<li>信息上，相互解耦，（不相关）</li>
+<li>若导数小于零，轨道在平衡点附近收敛 (Stable)。</li>
+<li>若导数大于零，轨道在平衡点附近发散 (Unstable)。</li>
 </ul>
-<ol start="3" type="1">
-<li>在欧式空间中，正交分量的能量可以直接相加</li>
-</ol>
-<p><span class="math inline">\(||x||^2=\sum x_i^2\)</span>, 其中 <span class="math inline">\(x_i\)</span> 是 <span class="math inline">\(x\)</span> 在一组正交归一基下的坐标</p>
-<ol start="4" type="1">
-<li>线性组合</li>
-</ol>
-<p>​ <span class="math inline">\(v=\sum_i \langle v,e_i \rangle e_i\)</span> ， while <span class="math inline">\(e_i\)</span>是一组标准正交基</p>
-<p>​ 其中<span class="math inline">\(\langle v,e_i \rangle\)</span>是在各个基向量的方向上的投影系数（即内积），也称为基向量的线性组合，</p>
-<ol start="5" type="1">
-<li><p>Gram schmidt</p>
-<ol type="1">
-<li><p>Straighten（正交化）： <span class="math inline">\(\tilde{v}=v- proj_u(v)\)</span></p></li>
-<li><p>Normalize (归一化)：<span class="math inline">\(e=\frac{\tilde{v}}{||\tilde{v}||}\)</span></p></li>
-</ol></li>
-<li><p>正交矩阵与正交变换</p>
-<p>用于刚性的旋转和镜像(Rotation Reflection)</p></li>
-</ol>
-<p>​ <span class="math inline">\(Q^TQ=I\)</span></p>
-<p>​ 显然<span class="math inline">\(Q\)</span>是一个满秩可逆阵，本质上就是：<strong>由一组标准正交基组成的矩阵</strong>。</p>
-<p>​ 就是旋转空间</p>
-<ol start="7" type="1">
-<li><p>共轭转置</p>
-<p>在复数空间中，使用共轭转置定义内积，可以保证 (x^H x) 是非负实数，因此能够正确表示向量的长度平方或信号能量。</p>
-<p>对于矩阵 (A)：</p>
-<h3 id="at" class="anchored" data-anchor-id="orthogonality">(A^T)</h3>
-<p>只是<strong>转置</strong></p>
-<p>把行列交换，不改复数本身。</p>
-<h3 id="section" class="anchored">()</h3>
-<p>只是<strong>共轭</strong></p>
-<p>把每个元素里的 (i) 变成 (-i)，但不交换行列。</p>
-<h3 id="ah" class="anchored">(A^H)</h3>
-<p>是<strong>共轭转置</strong></p>
-<p>[ A<sup>H=</sup>T ]</p>
-<p>Assume that</p>
-<p>[ A=</p>
-<span class="math display">\[\begin{bmatrix}
-1+i &amp; 2 \\
-3i &amp; 4-i
-\end{bmatrix}\]</span>
-<p>]</p>
-<h3 id="只转置" class="anchored">只转置</h3>
-<p>[ A^T=</p>
-<span class="math display">\[\begin{bmatrix}
-1+i &amp; 3i\\
-2 &amp; 4-i
-\end{bmatrix}\]</span>
-<p>]</p>
-<h3 id="只共轭" class="anchored">只共轭</h3>
-<p>[ =</p>
-<span class="math display">\[\begin{bmatrix}
-1-i &amp; 2\\
--3i &amp; 4+i
-\end{bmatrix}\]</span>
-<p>]</p>
-<h3 id="共轭转置" class="anchored">共轭转置</h3>
-<p>[ A^H=</p>
-<span class="math display">\[\begin{bmatrix}
-1-i &amp; -3i\\
-2 &amp; 4+i
-\end{bmatrix}\]</span>
-<p>]</p></li>
-<li><p>正交</p></li>
-</ol>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>空间</th>
-<th>内积</th>
-<th>正交条件</th>
-<th>对应矩阵</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>实数空间</td>
-<td>(x^T y)</td>
-<td>(x^T y = 0)</td>
-<td>正交矩阵：(Q^T Q = I)</td>
-</tr>
-<tr class="even">
-<td>复数空间</td>
-<td>(x^H y)</td>
-<td>(x^H y = 0)</td>
-<td>酉矩阵：(U^H U = I)</td>
-</tr>
-</tbody>
-</table>
-<p>[ x, y = x^T y,Q^TQ = I ]</p>
+</section>
+<section id="分岔-bifurcation" class="level2">
+<h2 class="anchored" data-anchor-id="分岔-bifurcation">2. 分岔 (Bifurcation)</h2>
+<p><strong>Definition.</strong> 分岔是参数变化导致系统定性行为改变的现象。</p>
+<p><strong>Theory.</strong> 常见类型：</p>
+<ul>
+<li>Saddle-node bifurcation</li>
+<li>Transcritical bifurcation</li>
+<li>Pitchfork bifurcation</li>
+</ul>
+</section>
+<section id="二维自治系统与线性化-two-dimensional-autonomous-system-linearization" class="level2">
+<h2 class="anchored" data-anchor-id="二维自治系统与线性化-two-dimensional-autonomous-system-linearization">3. 二维自治系统与线性化 (Two-dimensional Autonomous System &amp; Linearization)</h2>
+<p><strong>Definition.</strong> 二维自治系统：</p>
+<p>[ =f(x,y), =g(x,y) ]</p>
+<p><strong>Definition.</strong> 平衡点条件：</p>
+<p>[ f(x^<em>,y<sup><em>)=0, g(x^</em>,y</sup></em>)=0 ]</p>
+<p><strong>Definition.</strong> 在平衡点附近定义小扰动：</p>
+<p>[ x=x^<em>+u, y=y^</em>+v ]</p>
+<p>[ =f(x^<em>+u,y<sup><em>+v), =g(x^</em>+u,y</sup></em>+v) ]</p>
+<p><strong>Theory.</strong> 一阶 Taylor 展开 (First-order Taylor Expansion)：</p>
+<p>[ f(x^<em>+u,y<sup><em>+v)f(x^</em>,y</sup></em>)+f_xu+f_yv ]</p>
+<p>[ g(x^<em>+u,y<sup><em>+v)g(x^</em>,y</sup></em>)+g_xu+g_yv ]</p>
+<p>由平衡点条件可得线性化系统：</p>
+<p>[ f_xu+f_yv, g_xu+g_yv ]</p>
+<p>矩阵形式：</p>
 [
-<span class="math display">\[\begin{aligned}
-\langle Qx, Qy \rangle
-&amp;= (Qx)^T(Qy) \\
-&amp;= x^T Q^T Q y \\
-&amp;= x^T I y \\
-&amp;= x^T y \\
-&amp;= \langle x, y \rangle
-\end{aligned}\]</span>
+<span class="math display">\[\begin{pmatrix}
+\dot{u}\\
+\dot{v}
+\end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix}
+f_x &amp; f_y\\
+g_x &amp; g_y
+\end{pmatrix}
+\begin{pmatrix}
+u\\
+v
+\end{pmatrix}\]</span>
 <p>]</p>
-<p>[ x, y = x^H y,U^H U = I ]</p>
-[
-<span class="math display">\[\begin{aligned}
-\langle Ux, Uy \rangle
-&amp;= (Ux)^H(Uy) \\
-&amp;= x^H U^H U y \\
-&amp;= x^H I y \\
-&amp;= x^H y \\
-&amp;= \langle x, y \rangle
-\end{aligned}\]</span>
+<p><strong>Definition.</strong> 雅可比矩阵 (Jacobian Matrix)：</p>
+[ J=
+<span class="math display">\[\begin{pmatrix}
+f_x &amp; f_y\\
+g_x &amp; g_y
+\end{pmatrix}\]</span>
+<p>_{(x^<em>,y^</em>)} ]</p>
+</section>
+<section id="特征值方法-eigenvalue-method" class="level2">
+<h2 class="anchored" data-anchor-id="特征值方法-eigenvalue-method">4. 特征值方法 (Eigenvalue Method)</h2>
+<p><strong>Theory.</strong> 线性化后系统写成：</p>
+<p>[ =Jz ]</p>
+<p>设指数型解 (Exponential Ansatz)：</p>
+<p>[ z(t)=e^{t}v ]</p>
+<p>代入得到：</p>
+<p>[ =e^{t}v, Jz=e^{t}Jv ]</p>
+<p>[ e<sup>{t}v=e</sup>{t}Jv ]</p>
+<p>[ Jv=v ]</p>
+<p><strong>Inference.</strong> 为了存在非零特征向量 (Non-trivial Eigenvector)：</p>
+<p>[ (J-I)v=0 ]</p>
+<p>[ (J-I)=0 ]</p>
+<p>解得特征值：</p>
+<p>[ _1,_2 ]</p>
+<p>这就是局部稳定性分析的核心逻辑。</p>
+</section>
+<section id="trace-det-判据-trace-determinant-criterion" class="level2">
+<h2 class="anchored" data-anchor-id="trace-det-判据-trace-determinant-criterion">5. Trace-Det 判据 (Trace-Determinant Criterion)</h2>
+<p><strong>Definition.</strong> 对二维系统，定义：</p>
+<p>[ (J)=_1+_2 ]</p>
+<p>[ (J)=_1_2 ]</p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>若行列式小于零，平衡点为 Saddle。</li>
+<li>若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。</li>
+<li>若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。</li>
+</ul>
+</section>
+<section id="混沌-chaos" class="level2">
+<h2 class="anchored" data-anchor-id="混沌-chaos">6. 混沌 (Chaos)</h2>
+<p><strong>Definition.</strong> 混沌是确定性系统中出现的复杂非周期行为。</p>
+<p><strong>Theory.</strong> 典型特征：</p>
+<ul>
+<li>Deterministic dynamics</li>
+<li>Bounded trajectories</li>
+<li>Sensitive dependence on initial conditions</li>
+</ul>
+</section>
+<section id="hartman-grobman-定理-hartman-grobman-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="hartman-grobman-定理-hartman-grobman-theorem">7. Hartman-Grobman 定理 (Hartman-Grobman Theorem)</h2>
+<p><strong>Theory.</strong> 在双曲平衡点 (Hyperbolic Equilibrium) 附近，非线性系统与其线性化系统拓扑共轭 (Topological Conjugacy)。</p>
+<p><strong>Result.</strong> 在局部邻域内，可以用线性系统判断相图骨架。</p>
+</section>
+<section id="liouville-定理-liouvilles-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="liouville-定理-liouvilles-theorem">8. Liouville 定理 (Liouville’s Theorem)</h2>
+<p><strong>Theory.</strong> 在哈密顿系统中，相空间体积在时间演化下保持不变。</p>
+<p><strong>Result.</strong> 哈密顿流可视为不可压缩流 (Incompressible Flow in Phase Space)。</p>
+</section>
+<section id="哈密顿系统基础-hamiltonian-mechanics" class="level2">
+<h2 class="anchored" data-anchor-id="哈密顿系统基础-hamiltonian-mechanics">9. 哈密顿系统基础 (Hamiltonian Mechanics)</h2>
+<section id="基本变量-basic-variables" class="level3">
+<h3 class="anchored" data-anchor-id="基本变量-basic-variables">9.1 基本变量 (Basic Variables)</h3>
+<p><strong>Definition.</strong> 广义速度 (Generalized Velocity)：</p>
+<p>[ = ]</p>
+<p><strong>Definition.</strong> 拉格朗日量 (Lagrangian)：</p>
+<p>[ L(q,)=T-V ]</p>
+<p>其中 T 为 Kinetic Energy，V 为 Potential Energy。</p>
+<p><strong>Definition.</strong> 广义动量 (Generalized Momentum)：</p>
+<p>[ p= ]</p>
+<p><strong>Theory.</strong> Euler-Lagrange Equation：</p>
+<p>[ ()= ]</p>
+<p>等价写法：</p>
+<p>[ = ]</p>
+<p><strong>Definition.</strong> 作用量 (Action)：</p>
+<p>[ S=L,dt ]</p>
+<p>真实轨道满足驻值条件 (Stationary Action)：</p>
+<p>[ S=0 ]</p>
+</section>
+<section id="legendre-变换-legendre-transform" class="level3">
+<h3 class="anchored" data-anchor-id="legendre-变换-legendre-transform">9.2 Legendre 变换 (Legendre Transform)</h3>
+<p><strong>Definition.</strong></p>
+<p>[ p= ]</p>
+<p>[ g(p)=px-f(x) ]</p>
+</section>
+<section id="hamiltonian-与-hamilton-方程-hamiltons-equations" class="level3">
+<h3 class="anchored" data-anchor-id="hamiltonian-与-hamilton-方程-hamiltons-equations">9.3 Hamiltonian 与 Hamilton 方程 (Hamilton’s Equations)</h3>
+<p><strong>Definition.</strong> Hamiltonian：</p>
+<p>[ H(q,p)=p-L(q,) ]</p>
+<p>在常见机械系统中：</p>
+<p>[ H=T+V ]</p>
+<p><strong>Theory.</strong> 对 Hamiltonian 做全微分：</p>
+<p>[ dH=d(p)-dL ]</p>
+<p>[ d(p)=,dp+p,d ]</p>
+<p>[ dL=,dq+,d ]</p>
+<p>代入并使用：</p>
+<p>[ =p, = ]</p>
+<p>得到：</p>
+<p>[ dH=,dp-,dq ]</p>
+<p>另一方面：</p>
+<p>[ dH=,dq+,dp ]</p>
+<p><strong>Inference.</strong> 比较系数得到 Hamilton’s Equations：</p>
+<p>[ =, =- ]</p>
+<p>这与 Euler-Lagrange 方程等价，只是坐标描述不同。</p>
+</section>
+<section id="辛结构与体积保持-symplectic-structure-volume-preservation" class="level3">
+<h3 class="anchored" data-anchor-id="辛结构与体积保持-symplectic-structure-volume-preservation">9.4 辛结构与体积保持 (Symplectic Structure &amp; Volume Preservation)</h3>
+<p><strong>Definition.</strong> 状态向量 (State Vector)：</p>
+<p>[ z=(q,p) ]</p>
+<p><strong>Definition.</strong> 标准辛矩阵 (Canonical Symplectic Matrix)：</p>
+[ J=
+<span class="math display">\[\begin{pmatrix}
+0 &amp; 1\\
+-1 &amp; 0
+\end{pmatrix}\]</span>
 <p>]</p>
-<p>也就说是分别在实数和复数空间上保持内积不变的对应矩阵，分别叫做 正交矩阵 和 酉矩阵。</p>
-<ol start="9" type="1">
-<li><p>函数空间：无限维的正交</p>
-<p>在函数空间中，内积通常定义为积分形式。</p>
+<p><strong>Theory.</strong> Hamiltonian 系统可写为：</p>
+<p>[ =JH ]</p>
+<p><strong>Result.</strong></p>
 <ul>
-<li><p>对实函数： [ f,g=_a^b f(x)g(x),dx ]</p></li>
-<li><p>对复函数： [ f,g=_a^b ,g(x),dx ]</p></li>
+<li>辛结构保持相空间基本面积元 (Area Element Preservation)。</li>
+<li>Liouville 定理保证相空间体积保持 (Volume Preservation)。</li>
+<li>若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。</li>
 </ul>
-<p>若 [ f,g, ] 则称 (f) 与 (g) 正交。</p></li>
-<li><p>经典正交系</p>
-<ol type="1">
-<li><p>三角正交系</p>
-<p>在区间 <span class="math inline">\([-\pi,\pi]\)</span> 或 <span class="math inline">\([0,2\pi]\)</span> 上，函数组 <span class="math display">\[
-1,\ \cos x,\ \sin x,\ \cos 2x,\ \sin 2x,\ \cdots
-\]</span> 称为<strong>三角正交系</strong>。</p>
-<p>其正交性体现在以下积分关系： <span class="math display">\[
-\int_{-\pi}^{\pi} \sin(mx)\sin(nx)\,dx = 0 \quad (m\ne n)\\
-\int_{-\pi}^{\pi} \cos(mx)\cos(nx)\,dx = 0 \quad (m\ne n) \\
-\int_{-\pi}^{\pi} \sin(mx)\cos(nx)\,dx = 0 \quad (m\ne n) \\
-\]</span> 这说明：</p>
-<ul>
-<li>不同频率的正弦函数彼此正交；</li>
-<li>不同频率的余弦函数彼此正交；</li>
-<li>任意正弦函数与余弦函数也彼此正交。</li>
-</ul>
-<p>因此，这些三角函数在给定区间上构成一组<strong>正交函数系</strong>。</p></li>
-<li><p>一组多项式 (P_0(x), P_1(x), P_2(x), )，如果在区间 ([a,b]) 上满足 [ _a^b P_m(x)P_n(x),dx = 0 (m n), ] 则称这组多项式为正交多项式系。</p></li>
-</ol>
-<ul>
-<li><p><strong>有限维空间</strong> → 有限个正交基</p></li>
-<li><p><strong>无限维空间</strong> → 通常需要无限个正交基函数</p></li>
-</ul></li>
-</ol>
-<p>​ 真正决定有限还是无限的，是目标所在的空间，不是单个函数本身。</p>
-<ol start="11" type="1">
-<li><p>谱定理</p>
-<p>实对称矩阵满足 <span class="math display">\[
-A^T=A
-\]</span> 任意实对称矩阵都可以写成 <span class="math display">\[
-A=Q\Lambda Q^T
-\]</span> 其中 <span class="math inline">\(Q\)</span> 为正交矩阵，<span class="math inline">\(\Lambda\)</span> 为实对角矩阵。</p>
-<p>几何意义</p>
-<p>对称矩阵总能找到一组互相正交的主轴方向，在这些方向上它只做独立缩放，不发生耦合。也就是说特征向量给出主轴方向，特征值给出该方向上的缩放倍数；因此在特征向量基下，矩阵被对角化为各方向上的独立标量作用。 PS特征向量长度不一定要为1，但是可以通过归一化得到。</p></li>
-<li><p>SVD奇异值分解</p>
-<p>输入空间中的正交变换 + 一个可能长方形的轴向缩放映射 + 输出空间中的正交变换</p>
-<p><span class="math inline">\(U\)</span> 和 <span class="math inline">\(V\)</span> 分别是谁的基</p></li>
-</ol>
-<p>正交变换 + 轴向伸缩 + 正交变换</p>
-<p>设 [ A ^{m n}. ]</p>
-<p>(V) 的列向量是输入空间 (^n) 中的一组正交基，称为<strong>右奇异向量</strong>。</p>
-<p>它们描述了：</p>
-<ul>
-<li>输入空间中的主要方向；</li>
-<li>沿这些方向输入时，矩阵 (A) 如何作用。</li>
-</ul>
-<hr>
-<p>(U) 的列向量是输出空间 (^m) 中的一组正交基，称为<strong>左奇异向量</strong>。</p>
-<p>它们描述了：</p>
-<ul>
-<li>输出结果主要落在哪些方向上；</li>
-<li>矩阵作用后形成的主轴方向。</li>
-</ul>
-<hr>
-<p>() 是一个对角矩阵，它把 (V) 中的方向映射到 (U) 中的对应方向上：</p>
-<p>[ A v_i = _i u_i ]</p>
-<p>这表示：</p>
-<ul>
-<li>输入方向是 (v_i)；</li>
-<li>经过矩阵 (A) 后；</li>
-<li>输出方向变成 (u_i)；</li>
-<li>同时长度被缩放为原来的 (_i) 倍。</li>
-</ul>
-<hr>
-<p>因此，SVD 本质上是在说：</p>
-<ul>
-<li>(V)：给出输入空间的一组最佳正交基；</li>
-<li>(U)：给出输出空间的一组最佳正交基；</li>
-<li>()：描述从输入基到输出基之间各方向的缩放强度。</li>
-</ul>
-<ol start="13" type="1">
-<li>Correlation 和 Independence</li>
-</ol>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 17%">
-<col style="width: 18%">
-<col style="width: 20%">
-<col style="width: 21%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>维度</strong></th>
-<th><strong>线性相关 (Linear)</strong></th>
-<th><strong>单调相关 (Monotonic)</strong></th>
-<th><strong>广义依赖 (Dependence)</strong></th>
-<th><strong>独立性 (Independence)</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>典型指标</strong></td>
-<td>Pearson 相关系数 (<span class="math inline">\(r\)</span>)</td>
-<td>Spearman / Kendall 秩相关</td>
-<td>互信息 (MI) / 距离相关系数</td>
-<td>(这是一个状态，非单一指标)</td>
-</tr>
-<tr class="even">
-<td><strong>数学判据 (为 0 时)</strong></td>
-<td><span class="math inline">\(\text{Cov}(X, Y) = 0\)</span></td>
-<td><span class="math inline">\(\text{Cov}(\text{rank}_X, \text{rank}_Y) = 0\)</span></td>
-<td><span class="math inline">\(I(X; Y) = 0\)</span></td>
-<td><span class="math inline">\(f(x, y) = f(x)f(y)\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>信息量/预测视角</strong></td>
-<td><strong>线性预测器</strong>无法通过 <span class="math inline">\(X\)</span> 提升对 <span class="math inline">\(Y\)</span> 的预测精度。</td>
-<td><strong>秩次/顺序预测器</strong>无法通过 <span class="math inline">\(X\)</span> 的排名预判 <span class="math inline">\(Y\)</span> 的排名。</td>
-<td><strong>任何函数/模型</strong>都无法从 <span class="math inline">\(X\)</span> 中提取关于 <span class="math inline">\(Y\)</span> 的确定性信息。</td>
-<td><span class="math inline">\(X\)</span> 的出现<strong>完全不改变</strong> <span class="math inline">\(Y\)</span> 的概率分布，<span class="math inline">\(Y\)</span> 对 <span class="math inline">\(X\)</span> “无感”。</td>
-</tr>
-<tr class="even">
-<td><strong><span class="math inline">\(x\)</span> 与 <span class="math inline">\(x^2\)</span> 的例子 (对称区间如 <span class="math inline">\([-1, 1]\)</span>)</strong></td>
-<td><strong>不相关</strong> (积差抵消)</td>
-<td><strong>不相关</strong> (排名升降抵消)</td>
-<td><strong>强依赖</strong> (MI 极高，知道 <span class="math inline">\(x\)</span> 即知 <span class="math inline">\(x^2\)</span>)</td>
-<td><strong>绝对不独立</strong> (存在确定性的平方映射)</td>
-</tr>
-</tbody>
-</table>
-<ol start="14" type="1">
-<li>在高维空间中，随机向量之间的夹角往往高度集中在 (90^) 附近， 因此它们通常近似正交。</li>
-</ol>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
