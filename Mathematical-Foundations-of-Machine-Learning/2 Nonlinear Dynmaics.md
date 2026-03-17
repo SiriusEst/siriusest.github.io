@@ -415,8 +415,45 @@ $$
 $$
 
 
+**Definition.** 相空间流 (Phase-space Flow) 可记为：
+
+
+$$
+X_H=(\dot{q},\dot{p})=\left(\frac{\partial H}{\partial p},-\frac{\partial H}{\partial q}\right)
+$$
+
+
+**Inference.** 其散度 (Divergence) 为：
+
+
+$$
+\nabla\cdot X_H
+=
+\frac{\partial}{\partial q}\left(\frac{\partial H}{\partial p}\right)
++
+\frac{\partial}{\partial p}\left(-\frac{\partial H}{\partial q}\right)
+=0
+$$
+
+在多维情形下同理可得：
+
+
+$$
+\nabla\cdot X_H
+=
+\sum_{i=1}^{n}
+\left(
+\frac{\partial^2 H}{\partial q_i\partial p_i}
+-
+\frac{\partial^2 H}{\partial p_i\partial q_i}
+\right)
+=0
+$$
+
+
 **Result.**
 
 - 辛结构保持相空间基本面积元 (Area Element Preservation)。
+- Hamiltonian 相空间流是散度为 0 的流 (Divergence-free Flow)。
 - Liouville 定理保证相空间体积保持 (Volume Preservation)。
 - 若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。
