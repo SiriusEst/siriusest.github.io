@@ -11,9 +11,11 @@
 
 **Definition.** 向量正交满足：
 
-\[
+
+$$
 \langle u,v\rangle=0
-\]
+$$
+
 
 **Result.**
 
@@ -25,9 +27,11 @@
 
 **Theory.** 在欧式空间中，正交分量满足能量可加：
 
-\[
+
+$$
 \|x\|^2=\sum_i x_i^2
-\]
+$$
+
 
 **Definition.** 这里的系数是向量在一组标准正交基下的坐标。
 
@@ -35,15 +39,19 @@
 
 **Theory.** 任意向量可展开为：
 
-\[
+
+$$
 v=\sum_i \langle v,e_i\rangle e_i
-\]
+$$
+
 
 **Definition.** 系数
 
-\[
+
+$$
 \langle v,e_i\rangle
-\]
+$$
+
 
 是投影系数 (Projection Coefficient)。
 
@@ -56,13 +64,17 @@ v=\sum_i \langle v,e_i\rangle e_i
 
 **Inference.** 对两向量版本：
 
-\[
-\tilde{v}=v-\operatorname{proj}_u(v)
-\]
 
-\[
+$$
+\tilde{v}=v-\operatorname{proj}_u(v)
+$$
+
+
+
+$$
 e=\frac{\tilde{v}}{\|\tilde{v}\|}
-\]
+$$
+
 
 **Result.** 原始基被转换为标准正交基，后续投影与坐标计算更稳定。
 
@@ -70,9 +82,11 @@ e=\frac{\tilde{v}}{\|\tilde{v}\|}
 
 **Definition.** 正交矩阵满足：
 
-\[
+
+$$
 Q^TQ=I
-\]
+$$
+
 
 **Theory.** 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。
 
@@ -82,89 +96,113 @@ Q^TQ=I
 
 **Theory.** 在复数空间中，内积应使用共轭转置，才能保证能量量
 
-\[
+
+$$
 x^Hx
-\]
+$$
+
 
 为非负实数。
 
 **Definition.**
 
-\[
+
+$$
 A^H=\overline{A}^T
-\]
+$$
+
 
 给定：
 
-\[
+
+$$
 A=
 \begin{bmatrix}
 1+i & 2\\
 3i & 4-i
 \end{bmatrix}
-\]
+$$
+
 
 则：
 
-\[
+
+$$
 A^T=
 \begin{bmatrix}
 1+i & 3i\\
 2 & 4-i
 \end{bmatrix}
-\]
+$$
 
-\[
+
+
+$$
 \overline{A}=
 \begin{bmatrix}
 1-i & 2\\
 -3i & 4+i
 \end{bmatrix}
-\]
+$$
 
-\[
+
+
+$$
 A^H=
 \begin{bmatrix}
 1-i & -3i\\
 2 & 4+i
 \end{bmatrix}
-\]
+$$
+
 
 ## 8. 实空间与复空间中的正交 (Real vs Complex Inner Product)
 
 **Definition.** 实数空间内积与正交条件：
 
-\[
+
+$$
 \langle x,y\rangle=x^Ty,\quad x^Ty=0
-\]
+$$
+
 
 对应矩阵条件：
 
-\[
+
+$$
 Q^TQ=I
-\]
+$$
+
 
 **Definition.** 复数空间内积与正交条件：
 
-\[
+
+$$
 \langle x,y\rangle=x^Hy,\quad x^Hy=0
-\]
+$$
+
 
 对应矩阵条件：
 
-\[
+
+$$
 U^HU=I
-\]
+$$
+
 
 **Inference.** 内积保持性推导：
 
-\[
-\langle Qx,Qy\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty
-\]
 
-\[
+$$
+\langle Qx,Qy\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty
+$$
+
+
+
+$$
 \langle Ux,Uy\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy
-\]
+$$
+
 
 **Result.** 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。
 
@@ -172,49 +210,65 @@ U^HU=I
 
 **Definition.** 对实函数：
 
-\[
+
+$$
 \langle f,g\rangle=\int_a^b f(x)g(x)\,dx
-\]
+$$
+
 
 对复函数：
 
-\[
+
+$$
 \langle f,g\rangle=\int_a^b \overline{f(x)}g(x)\,dx
-\]
+$$
+
 
 正交条件：
 
-\[
+
+$$
 \langle f,g\rangle=0
-\]
+$$
+
 
 ## 10. 经典正交系 (Classical Orthogonal Systems)
 
 **Definition.** 三角正交系：
 
-\[
+
+$$
 1,\cos x,\sin x,\cos 2x,\sin 2x,\cdots
-\]
+$$
+
 
 在典型区间上的正交关系：
 
-\[
+
+$$
 \int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,dx=0,\quad m\neq n
-\]
+$$
 
-\[
+
+
+$$
 \int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,dx=0,\quad m\neq n
-\]
+$$
 
-\[
+
+
+$$
 \int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx=0
-\]
+$$
+
 
 **Definition.** 正交多项式系满足：
 
-\[
+
+$$
 \int_a^b P_m(x)P_n(x)\,dx=0,\quad m\neq n
-\]
+$$
+
 
 **Result.** 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。
 
@@ -222,15 +276,19 @@ U^HU=I
 
 **Definition.** 实对称矩阵满足：
 
-\[
+
+$$
 A^T=A
-\]
+$$
+
 
 **Theory.** 任意实对称矩阵可正交对角化：
 
-\[
+
+$$
 A=Q\Lambda Q^T
-\]
+$$
+
 
 **Result.** 特征向量给出主轴方向，特征值给出各主轴缩放率。  
 在该基下，耦合线性变换变成独立缩放。
@@ -239,9 +297,11 @@ A=Q\Lambda Q^T
 
 **Theory.** SVD 表示为：
 
-\[
+
+$$
 A=U\Sigma V^T
-\]
+$$
+
 
 **Definition.**
 
@@ -251,9 +311,11 @@ A=U\Sigma V^T
 
 **Inference.** 每个奇异对满足：
 
-\[
+
+$$
 Av_i=\sigma_i u_i
-\]
+$$
+
 
 **Result.** SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。
 
@@ -261,30 +323,38 @@ Av_i=\sigma_i u_i
 
 **Definition.** 线性不相关条件：
 
-\[
+
+$$
 \operatorname{Cov}(X,Y)=0
-\]
+$$
+
 
 **Definition.** 独立条件：
 
-\[
+
+$$
 f(x,y)=f(x)f(y)
-\]
+$$
+
 
 **Theory.** 互信息刻画广义依赖，满足：
 
-\[
+
+$$
 I(X;Y)=0
-\]
+$$
+
 
 当且仅当独立。
 
 **Result.** 不相关不等于独立。  
 典型例子是对称分布下的
 
-\[
+
+$$
 X\ \text{与}\ X^2
-\]
+$$
+
 
 它们可线性不相关，但仍强依赖。
 
