@@ -4,4 +4,5 @@ title: "Mathematical Foundations of Machine Learning"
 
 This section collects notes on the mathematical foundations used in machine learning.
 
-- [Orthogonality](Orthogonality.md)
+- [Orthogonality](1%20Orthogonality.md)
+- [Nonlinear Dynamics](2%20Nonlinear%20Dynmaics.md)
