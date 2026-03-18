@@ -1,228 +1,246 @@
-# 线性代数：四个子空间（给自己看的口语版）
+# 线性代数：四个基本子空间 (Four Fundamental Subspaces)
 
-先约定：
+标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或应用结论。
+
+## 1. 问题设定 (Problem Setup)
+
+**Definition.** 给定矩阵：
+
 
 $$
 A\in\mathbb{R}^{m\times n},\quad A:\mathbb{R}^n\to\mathbb{R}^m
 $$
 
-把它当成一个“过滤器”最直观：有些输入方向会被保留，有些会被吃掉。
 
-## 0. 四个子空间先摆出来
+它对应四个核心子空间：
 
-| 名称 | 记号 | 在哪里 | 直觉 |
-| --- | --- | --- | --- |
-| 列空间 | $C(A)$ | $\mathbb{R}^m$ | 能被 $Ax$ 产生出来的输出 |
-| 行空间 | $C(A^T)$ | $\mathbb{R}^n$ | 输入里真正被 A 看见的方向 |
-| 零空间 | $N(A)$ | $\mathbb{R}^n$ | 会被 A 直接压成 0 的输入 |
-| 左零空间 | $N(A^T)$ | $\mathbb{R}^m$ | 和所有可达输出都正交的输出方向 |
+- Column Space（列空间）$C(A)\subseteq\mathbb{R}^m$
+- Row Space（行空间）$C(A^T)\subseteq\mathbb{R}^n$
+- Null Space（零空间）$N(A)\subseteq\mathbb{R}^n$
+- Left Null Space（左零空间）$N(A^T)\subseteq\mathbb{R}^m$
 
----
+**Result.** 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 `Ax=b`、最小二乘和 SVD 的统一框架。
 
-## 1. 先记住一个超级关键结论
+## 2. 列空间与可达输出 (Column Space)
 
-$$
-\boxed{\text{不管 }x\text{ 是什么，}Ax\text{ 一定在 }C(A)}
-$$
+**Definition.** 列空间定义为：
 
-原因就是定义本身：
 
 $$
 C(A)=\{Ax\mid x\in\mathbb{R}^n\}
 $$
 
-所以“x 好不好”不影响它在不在列空间，只影响它落在列空间的哪个位置。
 
----
+**Inference.** 若记 $A=[a_1,\dots,a_n]$，则：
 
-## 2. Ax=b 到底什么时候有解
-
-精确可解当且仅当：
 
 $$
-Ax=b \text{ 有解}\iff b\in C(A)
+Ax=\sum_{i=1}^n x_i a_i
 $$
 
-等价写法：
+
+即输出是列向量的线性组合。
+
+**Result.** 方程 `Ax=b` 有解当且仅当：
+
 
 $$
-b\in C(A)\iff b\perp N(A^T)
+b\in C(A)
 $$
 
-也就是：如果 $b$ 里面掺了左零空间分量，那部分是 A 永远生成不出来的。
 
----
+## 3. 零空间与解的不唯一性 (Null Space)
 
-## 3. 解为什么会不唯一
+**Definition.** 零空间定义为：
 
-零空间定义：
 
 $$
-N(A)=\{x\mid Ax=0\}
+N(A)=\{x\in\mathbb{R}^n\mid Ax=0\}
 $$
 
-如果 $x_p$ 是一个特解，那么全部解是：
+
+**Theory.** 若 $x_p$ 是 `Ax=b` 的一个特解，则任意解可写成：
+
 
 $$
 x=x_p+x_n,\quad x_n\in N(A)
 $$
 
-所以：
 
-- $N(A)=\{0\}$：解唯一。
-- $N(A)$ 非平凡：解不唯一（沿零空间可以随便加）。
+**Result.** 解是否唯一由 $N(A)$ 决定。若 $N(A)=\{0\}$，则解唯一。
 
----
+## 4. 行空间与左零空间 (Row Space and Left Null Space)
 
-## 4. 输入分解（这个视角很有用）
+**Definition.** 行空间是：
 
-任意输入都能唯一拆成：
 
 $$
-x=x_r+x_n,
+C(A^T)=\operatorname{span}\{\text{A 的行向量}\}\subseteq\mathbb{R}^n
 $$
 
-其中
+
+**Definition.** 左零空间是：
+
 
 $$
-x_r\in C(A^T)\ (\text{行空间}),\quad x_n\in N(A)\ (\text{零空间})
+N(A^T)=\{y\in\mathbb{R}^m\mid A^Ty=0\}
 $$
 
-作用 A 之后：
 
-$$
-Ax=A(x_r+x_n)=Ax_r+Ax_n=Ax_r
-$$
+**Theory.** 行空间描述“输入中可被检测到的方向”，左零空间描述“输出中与所有可达输出正交的方向”。
 
-因为 $Ax_n=0$。
+## 5. 正交补关系 (Orthogonal Complements)
 
-结论：只有行空间部分决定输出，零空间部分完全被吃掉。
+**Theory.** 四子空间满足两组正交补：
 
----
-
-## 5. 正交关系（四子空间的骨架）
-
-在输入空间 $\mathbb{R}^n$：
 
 $$
 \mathbb{R}^n=C(A^T)\oplus N(A),\quad C(A^T)\perp N(A)
 $$
 
-在输出空间 $\mathbb{R}^m$：
 
 $$
 \mathbb{R}^m=C(A)\oplus N(A^T),\quad C(A)\perp N(A^T)
 $$
 
-就是两边都拆成“有效部分 + 正交的无效部分”。
 
----
+**Inference.** 若 $x_r\in C(A^T),x_n\in N(A)$，则：
 
-## 6. 维度分账（Rank-Nullity）
 
-设 $\operatorname{rank}(A)=r$，那么：
+$$
+x_r^Tx_n=0
+$$
+
+
+若 $b_c\in C(A),b_\ell\in N(A^T)$，则：
+
+
+$$
+b_c^Tb_\ell=0
+$$
+
+
+**Result.** 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。
+
+## 6. 秩与维度分配 (Rank and Dimension)
+
+**Definition.** 设：
+
+
+$$
+\operatorname{rank}(A)=r
+$$
+
+
+**Result.** 四个子空间的维度为：
+
 
 $$
 \dim C(A)=r,\quad \dim C(A^T)=r
 $$
 
+
 $$
 \dim N(A)=n-r,\quad \dim N(A^T)=m-r
 $$
 
-对应两条常用等式：
+
+这给出秩-零度定理：
+
 
 $$
-n=r+(n-r),\quad m=r+(m-r)
+n=\operatorname{rank}(A)+\operatorname{nullity}(A)
 $$
 
-也就是维度没消失，只是重新分配到了不同子空间。
 
----
+## 7. 输入分解与矩阵“过滤” (Input Decomposition)
 
-## 7. 不可解时：最小二乘在干嘛
+**Theory.** 任意输入 $x\in\mathbb{R}^n$ 都可唯一写成：
 
-当 `Ax=b` 不可解时，做：
 
 $$
-\hat{x}=\arg\min_x\|Ax-b\|_2^2,
+x=x_r+x_n,\quad x_r\in C(A^T),\ x_n\in N(A)
 $$
 
-把目标函数展开成数值计算友好的形式：
+
+**Inference.**
+
 
 $$
-f(x)=\|Ax-b\|_2^2=(Ax-b)^T(Ax-b)
+Ax=A(x_r+x_n)=Ax_r+Ax_n=Ax_r
 $$
 
+
+因为 $Ax_n=0$。
+
+**Result.** 矩阵乘法像一个过滤器：零空间方向被完全压缩，只保留行空间方向的贡献。
+
+## 8. 方程 `Ax=b` 的判据 (Solvability and General Solution)
+
+**Theory.** `Ax=b` 有解等价于：
+
+
 $$
-=x^TA^TAx-2b^TAx+b^Tb
+b\in C(A)\iff b\perp N(A^T)
 $$
 
-对 $x$ 求导并令梯度为 0：
+
+**Result.**
+
+- 可解时，通解为 $x=x_p+x_n,\ x_n\in N(A)$。
+- 不可解时，说明 $b$ 含有左零空间分量，无法由 $Ax$ 生成。
+
+## 9. 最小二乘与残差空间 (Least Squares and Residual)
+
+**Theory.** 当 `Ax=b` 无精确解时，最小二乘寻找：
+
 
 $$
-\nabla_x f(x)=2A^TAx-2A^Tb=0
+\hat{x}=\arg\min_x\|Ax-b\|_2^2
 $$
 
-得到正规方程：
+
+满足正规方程：
+
 
 $$
 A^TA\hat{x}=A^Tb
 $$
 
-如果 $A$ 列满秩（rank = n），那 $A^TA$ 可逆，于是有显式数值解：
 
-$$
-\hat{x}=(A^TA)^{-1}A^Tb
-$$
+**Result.** 残差 $r=b-A\hat{x}$ 满足：
 
-如果不满秩，就用伪逆写成统一形式：
-
-$$
-\hat{x}=A^+b
-$$
-
-其中最小二乘的最小范数解也是这一个。
-
-残差：
-
-$$
-r=b-A\hat{x}
-$$
-
-会落在左零空间：
 
 $$
 r\in N(A^T),\quad r\perp C(A)
 $$
 
-直觉：先把 $b$ 投影到列空间，可达部分由 $A\hat{x}$ 解释，剩下那块就是“怎么也解释不了”的残差。
 
----
+即把 $b$ 正交投影到列空间后留下的“不可达部分”。
 
-## 8. SVD 和四子空间一一对应
+## 10. SVD 与四子空间 (SVD View)
+
+**Theory.** 奇异值分解：
+
 
 $$
 A=U\Sigma V^T
 $$
 
-若非零奇异值有 $r$ 个，则：
+
+其中 $U,V$ 正交，$\Sigma$ 的非零奇异值个数为 $r$。
+
+**Result.** 若按非零奇异值排序，则：
+
 
 $$
 C(A)=\operatorname{span}(u_1,\dots,u_r),\quad N(A^T)=\operatorname{span}(u_{r+1},\dots,u_m)
 $$
 
+
 $$
 C(A^T)=\operatorname{span}(v_1,\dots,v_r),\quad N(A)=\operatorname{span}(v_{r+1},\dots,v_n)
 $$
 
-所以 SVD 其实就是把四个子空间的正交基一次性给你。
 
----
-
-## 9. 一句话总结
-
-- `Ax` 永远在列空间。
-- 哪些输入有效看行空间，哪些输入被抹掉看零空间。
-- `Ax=b` 是否可解看 $b$ 在不在列空间（等价于是否垂直左零空间）。
-- SVD 是四子空间最干净的坐标系。
+SVD 直接给出四子空间的一组标准正交基。
