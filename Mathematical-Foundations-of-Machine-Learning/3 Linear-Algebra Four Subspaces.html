@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathematical Foundations of Machine Learning – Sirius Blog</title>
+<title>linear-algebra-four-subspaces – Sirius Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -94,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../Mathematical-Foundations-of-Machine-Learning/index.html" aria-current="page"> 
+    <a class="nav-link" href="../Mathematical-Foundations-of-Machine-Learning/index.html"> 
 <span class="menu-text">Mathematics</span></a>
   </li>  
   <li class="nav-item">
@@ -112,39 +141,188 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#线性代数四个基本子空间-four-fundamental-subspaces" id="toc-线性代数四个基本子空间-four-fundamental-subspaces" class="nav-link active" data-scroll-target="#线性代数四个基本子空间-four-fundamental-subspaces">线性代数：四个基本子空间 (Four Fundamental Subspaces)</a>
+  <ul class="collapse">
+  <li><a href="#问题设定-problem-setup" id="toc-问题设定-problem-setup" class="nav-link" data-scroll-target="#问题设定-problem-setup">1. 问题设定 (Problem Setup)</a></li>
+  <li><a href="#列空间与可达输出-column-space" id="toc-列空间与可达输出-column-space" class="nav-link" data-scroll-target="#列空间与可达输出-column-space">2. 列空间与可达输出 (Column Space)</a></li>
+  <li><a href="#零空间与解的不唯一性-null-space" id="toc-零空间与解的不唯一性-null-space" class="nav-link" data-scroll-target="#零空间与解的不唯一性-null-space">3. 零空间与解的不唯一性 (Null Space)</a></li>
+  <li><a href="#行空间与左零空间-row-space-and-left-null-space" id="toc-行空间与左零空间-row-space-and-left-null-space" class="nav-link" data-scroll-target="#行空间与左零空间-row-space-and-left-null-space">4. 行空间与左零空间 (Row Space and Left Null Space)</a></li>
+  <li><a href="#正交补关系-orthogonal-complements" id="toc-正交补关系-orthogonal-complements" class="nav-link" data-scroll-target="#正交补关系-orthogonal-complements">5. 正交补关系 (Orthogonal Complements)</a></li>
+  <li><a href="#秩与维度分配-rank-and-dimension" id="toc-秩与维度分配-rank-and-dimension" class="nav-link" data-scroll-target="#秩与维度分配-rank-and-dimension">6. 秩与维度分配 (Rank and Dimension)</a></li>
+  <li><a href="#输入分解与矩阵过滤-input-decomposition" id="toc-输入分解与矩阵过滤-input-decomposition" class="nav-link" data-scroll-target="#输入分解与矩阵过滤-input-decomposition">7. 输入分解与矩阵“过滤” (Input Decomposition)</a></li>
+  <li><a href="#方程-axb-的判据-solvability-and-general-solution" id="toc-方程-axb-的判据-solvability-and-general-solution" class="nav-link" data-scroll-target="#方程-axb-的判据-solvability-and-general-solution">8. 方程 <code>Ax=b</code> 的判据 (Solvability and General Solution)</a></li>
+  <li><a href="#最小二乘与残差空间-least-squares-and-residual" id="toc-最小二乘与残差空间-least-squares-and-residual" class="nav-link" data-scroll-target="#最小二乘与残差空间-least-squares-and-residual">9. 最小二乘与残差空间 (Least Squares and Residual)</a></li>
+  <li><a href="#svd-与四子空间-svd-view" id="toc-svd-与四子空间-svd-view" class="nav-link" data-scroll-target="#svd-与四子空间-svd-view">10. SVD 与四子空间 (SVD View)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Mathematical Foundations of Machine Learning</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>This section collects notes on the mathematical foundations used in machine learning.</p>
+<section id="线性代数四个基本子空间-four-fundamental-subspaces" class="level1">
+<h1>线性代数：四个基本子空间 (Four Fundamental Subspaces)</h1>
+<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
+<section id="问题设定-problem-setup" class="level2">
+<h2 class="anchored" data-anchor-id="问题设定-problem-setup">1. 问题设定 (Problem Setup)</h2>
+<p><strong>Definition.</strong> 给定矩阵：</p>
+<p><span class="math display">\[
+A\in\mathbb{R}^{m\times n},\quad A:\mathbb{R}^n\to\mathbb{R}^m
+\]</span></p>
+<p>它对应四个核心子空间：</p>
 <ul>
-<li><a href="../Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html">Orthogonality</a></li>
-<li><a href="../Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html">Nonlinear Dynamics</a></li>
-<li><a href="../Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html">Four Fundamental Subspaces</a></li>
+<li>Column Space（列空间）<span class="math inline">\(C(A)\subseteq\mathbb{R}^m\)</span></li>
+<li>Row Space（行空间）<span class="math inline">\(C(A^T)\subseteq\mathbb{R}^n\)</span></li>
+<li>Null Space（零空间）<span class="math inline">\(N(A)\subseteq\mathbb{R}^n\)</span></li>
+<li>Left Null Space（左零空间）<span class="math inline">\(N(A^T)\subseteq\mathbb{R}^m\)</span></li>
 </ul>
+<p><strong>Result.</strong> 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 <code>Ax=b</code>、最小二乘和 SVD 的统一框架。</p>
+</section>
+<section id="列空间与可达输出-column-space" class="level2">
+<h2 class="anchored" data-anchor-id="列空间与可达输出-column-space">2. 列空间与可达输出 (Column Space)</h2>
+<p><strong>Definition.</strong> 列空间定义为：</p>
+<p><span class="math display">\[
+C(A)=\{Ax\mid x\in\mathbb{R}^n\}
+\]</span></p>
+<p><strong>Inference.</strong> 若记 <span class="math inline">\(A=[a_1,\dots,a_n]\)</span>，则：</p>
+<p><span class="math display">\[
+Ax=\sum_{i=1}^n x_i a_i
+\]</span></p>
+<p>即输出是列向量的线性组合。</p>
+<p><strong>Result.</strong> 方程 <code>Ax=b</code> 有解当且仅当：</p>
+<p><span class="math display">\[
+b\in C(A)
+\]</span></p>
+</section>
+<section id="零空间与解的不唯一性-null-space" class="level2">
+<h2 class="anchored" data-anchor-id="零空间与解的不唯一性-null-space">3. 零空间与解的不唯一性 (Null Space)</h2>
+<p><strong>Definition.</strong> 零空间定义为：</p>
+<p><span class="math display">\[
+N(A)=\{x\in\mathbb{R}^n\mid Ax=0\}
+\]</span></p>
+<p><strong>Theory.</strong> 若 <span class="math inline">\(x_p\)</span> 是 <code>Ax=b</code> 的一个特解，则任意解可写成：</p>
+<p><span class="math display">\[
+x=x_p+x_n,\quad x_n\in N(A)
+\]</span></p>
+<p><strong>Result.</strong> 解是否唯一由 <span class="math inline">\(N(A)\)</span> 决定。若 <span class="math inline">\(N(A)=\{0\}\)</span>，则解唯一。</p>
+</section>
+<section id="行空间与左零空间-row-space-and-left-null-space" class="level2">
+<h2 class="anchored" data-anchor-id="行空间与左零空间-row-space-and-left-null-space">4. 行空间与左零空间 (Row Space and Left Null Space)</h2>
+<p><strong>Definition.</strong> 行空间是：</p>
+<p><span class="math display">\[
+C(A^T)=\operatorname{span}\{\text{A 的行向量}\}\subseteq\mathbb{R}^n
+\]</span></p>
+<p><strong>Definition.</strong> 左零空间是：</p>
+<p><span class="math display">\[
+N(A^T)=\{y\in\mathbb{R}^m\mid A^Ty=0\}
+\]</span></p>
+<p><strong>Theory.</strong> 行空间描述“输入中可被检测到的方向”，左零空间描述“输出中与所有可达输出正交的方向”。</p>
+</section>
+<section id="正交补关系-orthogonal-complements" class="level2">
+<h2 class="anchored" data-anchor-id="正交补关系-orthogonal-complements">5. 正交补关系 (Orthogonal Complements)</h2>
+<p><strong>Theory.</strong> 四子空间满足两组正交补：</p>
+<p><span class="math display">\[
+\mathbb{R}^n=C(A^T)\oplus N(A),\quad C(A^T)\perp N(A)
+\]</span></p>
+<p><span class="math display">\[
+\mathbb{R}^m=C(A)\oplus N(A^T),\quad C(A)\perp N(A^T)
+\]</span></p>
+<p><strong>Inference.</strong> 若 <span class="math inline">\(x_r\in C(A^T),x_n\in N(A)\)</span>，则：</p>
+<p><span class="math display">\[
+x_r^Tx_n=0
+\]</span></p>
+<p>若 <span class="math inline">\(b_c\in C(A),b_\ell\in N(A^T)\)</span>，则：</p>
+<p><span class="math display">\[
+b_c^Tb_\ell=0
+\]</span></p>
+<p><strong>Result.</strong> 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。</p>
+</section>
+<section id="秩与维度分配-rank-and-dimension" class="level2">
+<h2 class="anchored" data-anchor-id="秩与维度分配-rank-and-dimension">6. 秩与维度分配 (Rank and Dimension)</h2>
+<p><strong>Definition.</strong> 设：</p>
+<p><span class="math display">\[
+\operatorname{rank}(A)=r
+\]</span></p>
+<p><strong>Result.</strong> 四个子空间的维度为：</p>
+<p><span class="math display">\[
+\dim C(A)=r,\quad \dim C(A^T)=r
+\]</span></p>
+<p><span class="math display">\[
+\dim N(A)=n-r,\quad \dim N(A^T)=m-r
+\]</span></p>
+<p>这给出秩-零度定理：</p>
+<p><span class="math display">\[
+n=\operatorname{rank}(A)+\operatorname{nullity}(A)
+\]</span></p>
+</section>
+<section id="输入分解与矩阵过滤-input-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="输入分解与矩阵过滤-input-decomposition">7. 输入分解与矩阵“过滤” (Input Decomposition)</h2>
+<p><strong>Theory.</strong> 任意输入 <span class="math inline">\(x\in\mathbb{R}^n\)</span> 都可唯一写成：</p>
+<p><span class="math display">\[
+x=x_r+x_n,\quad x_r\in C(A^T),\ x_n\in N(A)
+\]</span></p>
+<p><strong>Inference.</strong></p>
+<p><span class="math display">\[
+Ax=A(x_r+x_n)=Ax_r+Ax_n=Ax_r
+\]</span></p>
+<p>因为 <span class="math inline">\(Ax_n=0\)</span>。</p>
+<p><strong>Result.</strong> 矩阵乘法像一个过滤器：零空间方向被完全压缩，只保留行空间方向的贡献。</p>
+</section>
+<section id="方程-axb-的判据-solvability-and-general-solution" class="level2">
+<h2 class="anchored" data-anchor-id="方程-axb-的判据-solvability-and-general-solution">8. 方程 <code>Ax=b</code> 的判据 (Solvability and General Solution)</h2>
+<p><strong>Theory.</strong> <code>Ax=b</code> 有解等价于：</p>
+<p><span class="math display">\[
+b\in C(A)\iff b\perp N(A^T)
+\]</span></p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>可解时，通解为 <span class="math inline">\(x=x_p+x_n,\ x_n\in N(A)\)</span>。</li>
+<li>不可解时，说明 <span class="math inline">\(b\)</span> 含有左零空间分量，无法由 <span class="math inline">\(Ax\)</span> 生成。</li>
+</ul>
+</section>
+<section id="最小二乘与残差空间-least-squares-and-residual" class="level2">
+<h2 class="anchored" data-anchor-id="最小二乘与残差空间-least-squares-and-residual">9. 最小二乘与残差空间 (Least Squares and Residual)</h2>
+<p><strong>Theory.</strong> 当 <code>Ax=b</code> 无精确解时，最小二乘寻找：</p>
+<p><span class="math display">\[
+\hat{x}=\arg\min_x\|Ax-b\|_2^2
+\]</span></p>
+<p>满足正规方程：</p>
+<p><span class="math display">\[
+A^TA\hat{x}=A^Tb
+\]</span></p>
+<p><strong>Result.</strong> 残差 <span class="math inline">\(r=b-A\hat{x}\)</span> 满足：</p>
+<p><span class="math display">\[
+r\in N(A^T),\quad r\perp C(A)
+\]</span></p>
+<p>即把 <span class="math inline">\(b\)</span> 正交投影到列空间后留下的“不可达部分”。</p>
+</section>
+<section id="svd-与四子空间-svd-view" class="level2">
+<h2 class="anchored" data-anchor-id="svd-与四子空间-svd-view">10. SVD 与四子空间 (SVD View)</h2>
+<p><strong>Theory.</strong> 奇异值分解：</p>
+<p><span class="math display">\[
+A=U\Sigma V^T
+\]</span></p>
+<p>其中 <span class="math inline">\(U,V\)</span> 正交，<span class="math inline">\(\Sigma\)</span> 的非零奇异值个数为 <span class="math inline">\(r\)</span>。</p>
+<p><strong>Result.</strong> 若按非零奇异值排序，则：</p>
+<p><span class="math display">\[
+C(A)=\operatorname{span}(u_1,\dots,u_r),\quad N(A^T)=\operatorname{span}(u_{r+1},\dots,u_m)
+\]</span></p>
+<p><span class="math display">\[
+C(A^T)=\operatorname{span}(v_1,\dots,v_r),\quad N(A)=\operatorname{span}(v_{r+1},\dots,v_n)
+\]</span></p>
+<p>SVD 直接给出四子空间的一组标准正交基。</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

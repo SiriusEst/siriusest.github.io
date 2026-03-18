@@ -7,11 +7,81 @@
     "text": "I am a researcher at UNSW working on IoT systems and intelligent sensing."
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/index.html",
-    "href": "Mathematical-Foundations-of-Machine-Learning/index.html",
-    "title": "Mathematical Foundations of Machine Learning",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
     "section": "",
-    "text": "This section collects notes on the mathematical foundations used in machine learning.\n\nOrthogonality\nNonlinear Dynamics"
+    "text": "标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或应用结论。\n\n\nDefinition. 给定矩阵：\n\\[\nA\\in\\mathbb{R}^{m\\times n},\\quad A:\\mathbb{R}^n\\to\\mathbb{R}^m\n\\]\n它对应四个核心子空间：\n\nColumn Space（列空间）\\(C(A)\\subseteq\\mathbb{R}^m\\)\nRow Space（行空间）\\(C(A^T)\\subseteq\\mathbb{R}^n\\)\nNull Space（零空间）\\(N(A)\\subseteq\\mathbb{R}^n\\)\nLeft Null Space（左零空间）\\(N(A^T)\\subseteq\\mathbb{R}^m\\)\n\nResult. 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 Ax=b、最小二乘和 SVD 的统一框架。\n\n\n\nDefinition. 列空间定义为：\n\\[\nC(A)=\\{Ax\\mid x\\in\\mathbb{R}^n\\}\n\\]\nInference. 若记 \\(A=[a_1,\\dots,a_n]\\)，则：\n\\[\nAx=\\sum_{i=1}^n x_i a_i\n\\]\n即输出是列向量的线性组合。\nResult. 方程 Ax=b 有解当且仅当：\n\\[\nb\\in C(A)\n\\]\n\n\n\nDefinition. 零空间定义为：\n\\[\nN(A)=\\{x\\in\\mathbb{R}^n\\mid Ax=0\\}\n\\]\nTheory. 若 \\(x_p\\) 是 Ax=b 的一个特解，则任意解可写成：\n\\[\nx=x_p+x_n,\\quad x_n\\in N(A)\n\\]\nResult. 解是否唯一由 \\(N(A)\\) 决定。若 \\(N(A)=\\{0\\}\\)，则解唯一。\n\n\n\nDefinition. 行空间是：\n\\[\nC(A^T)=\\operatorname{span}\\{\\text{A 的行向量}\\}\\subseteq\\mathbb{R}^n\n\\]\nDefinition. 左零空间是：\n\\[\nN(A^T)=\\{y\\in\\mathbb{R}^m\\mid A^Ty=0\\}\n\\]\nTheory. 行空间描述“输入中可被检测到的方向”，左零空间描述“输出中与所有可达输出正交的方向”。\n\n\n\nTheory. 四子空间满足两组正交补：\n\\[\n\\mathbb{R}^n=C(A^T)\\oplus N(A),\\quad C(A^T)\\perp N(A)\n\\]\n\\[\n\\mathbb{R}^m=C(A)\\oplus N(A^T),\\quad C(A)\\perp N(A^T)\n\\]\nInference. 若 \\(x_r\\in C(A^T),x_n\\in N(A)\\)，则：\n\\[\nx_r^Tx_n=0\n\\]\n若 \\(b_c\\in C(A),b_\\ell\\in N(A^T)\\)，则：\n\\[\nb_c^Tb_\\ell=0\n\\]\nResult. 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。\n\n\n\nDefinition. 设：\n\\[\n\\operatorname{rank}(A)=r\n\\]\nResult. 四个子空间的维度为：\n\\[\n\\dim C(A)=r,\\quad \\dim C(A^T)=r\n\\]\n\\[\n\\dim N(A)=n-r,\\quad \\dim N(A^T)=m-r\n\\]\n这给出秩-零度定理：\n\\[\nn=\\operatorname{rank}(A)+\\operatorname{nullity}(A)\n\\]\n\n\n\nTheory. 任意输入 \\(x\\in\\mathbb{R}^n\\) 都可唯一写成：\n\\[\nx=x_r+x_n,\\quad x_r\\in C(A^T),\\ x_n\\in N(A)\n\\]\nInference.\n\\[\nAx=A(x_r+x_n)=Ax_r+Ax_n=Ax_r\n\\]\n因为 \\(Ax_n=0\\)。\nResult. 矩阵乘法像一个过滤器：零空间方向被完全压缩，只保留行空间方向的贡献。\n\n\n\nTheory. Ax=b 有解等价于：\n\\[\nb\\in C(A)\\iff b\\perp N(A^T)\n\\]\nResult.\n\n可解时，通解为 \\(x=x_p+x_n,\\ x_n\\in N(A)\\)。\n不可解时，说明 \\(b\\) 含有左零空间分量，无法由 \\(Ax\\) 生成。\n\n\n\n\nTheory. 当 Ax=b 无精确解时，最小二乘寻找：\n\\[\n\\hat{x}=\\arg\\min_x\\|Ax-b\\|_2^2\n\\]\n满足正规方程：\n\\[\nA^TA\\hat{x}=A^Tb\n\\]\nResult. 残差 \\(r=b-A\\hat{x}\\) 满足：\n\\[\nr\\in N(A^T),\\quad r\\perp C(A)\n\\]\n即把 \\(b\\) 正交投影到列空间后留下的“不可达部分”。\n\n\n\nTheory. 奇异值分解：\n\\[\nA=U\\Sigma V^T\n\\]\n其中 \\(U,V\\) 正交，\\(\\Sigma\\) 的非零奇异值个数为 \\(r\\)。\nResult. 若按非零奇异值排序，则：\n\\[\nC(A)=\\operatorname{span}(u_1,\\dots,u_r),\\quad N(A^T)=\\operatorname{span}(u_{r+1},\\dots,u_m)\n\\]\n\\[\nC(A^T)=\\operatorname{span}(v_1,\\dots,v_r),\\quad N(A)=\\operatorname{span}(v_{r+1},\\dots,v_n)\n\\]\nSVD 直接给出四子空间的一组标准正交基。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#问题设定-problem-setup",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#问题设定-problem-setup",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Definition. 给定矩阵：\n\\[\nA\\in\\mathbb{R}^{m\\times n},\\quad A:\\mathbb{R}^n\\to\\mathbb{R}^m\n\\]\n它对应四个核心子空间：\n\nColumn Space（列空间）\\(C(A)\\subseteq\\mathbb{R}^m\\)\nRow Space（行空间）\\(C(A^T)\\subseteq\\mathbb{R}^n\\)\nNull Space（零空间）\\(N(A)\\subseteq\\mathbb{R}^n\\)\nLeft Null Space（左零空间）\\(N(A^T)\\subseteq\\mathbb{R}^m\\)\n\nResult. 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 Ax=b、最小二乘和 SVD 的统一框架。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#列空间与可达输出-column-space",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#列空间与可达输出-column-space",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Definition. 列空间定义为：\n\\[\nC(A)=\\{Ax\\mid x\\in\\mathbb{R}^n\\}\n\\]\nInference. 若记 \\(A=[a_1,\\dots,a_n]\\)，则：\n\\[\nAx=\\sum_{i=1}^n x_i a_i\n\\]\n即输出是列向量的线性组合。\nResult. 方程 Ax=b 有解当且仅当：\n\\[\nb\\in C(A)\n\\]"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#零空间与解的不唯一性-null-space",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#零空间与解的不唯一性-null-space",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Definition. 零空间定义为：\n\\[\nN(A)=\\{x\\in\\mathbb{R}^n\\mid Ax=0\\}\n\\]\nTheory. 若 \\(x_p\\) 是 Ax=b 的一个特解，则任意解可写成：\n\\[\nx=x_p+x_n,\\quad x_n\\in N(A)\n\\]\nResult. 解是否唯一由 \\(N(A)\\) 决定。若 \\(N(A)=\\{0\\}\\)，则解唯一。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#行空间与左零空间-row-space-and-left-null-space",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#行空间与左零空间-row-space-and-left-null-space",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Definition. 行空间是：\n\\[\nC(A^T)=\\operatorname{span}\\{\\text{A 的行向量}\\}\\subseteq\\mathbb{R}^n\n\\]\nDefinition. 左零空间是：\n\\[\nN(A^T)=\\{y\\in\\mathbb{R}^m\\mid A^Ty=0\\}\n\\]\nTheory. 行空间描述“输入中可被检测到的方向”，左零空间描述“输出中与所有可达输出正交的方向”。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#正交补关系-orthogonal-complements",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#正交补关系-orthogonal-complements",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Theory. 四子空间满足两组正交补：\n\\[\n\\mathbb{R}^n=C(A^T)\\oplus N(A),\\quad C(A^T)\\perp N(A)\n\\]\n\\[\n\\mathbb{R}^m=C(A)\\oplus N(A^T),\\quad C(A)\\perp N(A^T)\n\\]\nInference. 若 \\(x_r\\in C(A^T),x_n\\in N(A)\\)，则：\n\\[\nx_r^Tx_n=0\n\\]\n若 \\(b_c\\in C(A),b_\\ell\\in N(A^T)\\)，则：\n\\[\nb_c^Tb_\\ell=0\n\\]\nResult. 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#秩与维度分配-rank-and-dimension",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#秩与维度分配-rank-and-dimension",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Definition. 设：\n\\[\n\\operatorname{rank}(A)=r\n\\]\nResult. 四个子空间的维度为：\n\\[\n\\dim C(A)=r,\\quad \\dim C(A^T)=r\n\\]\n\\[\n\\dim N(A)=n-r,\\quad \\dim N(A^T)=m-r\n\\]\n这给出秩-零度定理：\n\\[\nn=\\operatorname{rank}(A)+\\operatorname{nullity}(A)\n\\]"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#输入分解与矩阵过滤-input-decomposition",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#输入分解与矩阵过滤-input-decomposition",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Theory. 任意输入 \\(x\\in\\mathbb{R}^n\\) 都可唯一写成：\n\\[\nx=x_r+x_n,\\quad x_r\\in C(A^T),\\ x_n\\in N(A)\n\\]\nInference.\n\\[\nAx=A(x_r+x_n)=Ax_r+Ax_n=Ax_r\n\\]\n因为 \\(Ax_n=0\\)。\nResult. 矩阵乘法像一个过滤器：零空间方向被完全压缩，只保留行空间方向的贡献。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#方程-axb-的判据-solvability-and-general-solution",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#方程-axb-的判据-solvability-and-general-solution",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Theory. Ax=b 有解等价于：\n\\[\nb\\in C(A)\\iff b\\perp N(A^T)\n\\]\nResult.\n\n可解时，通解为 \\(x=x_p+x_n,\\ x_n\\in N(A)\\)。\n不可解时，说明 \\(b\\) 含有左零空间分量，无法由 \\(Ax\\) 生成。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#最小二乘与残差空间-least-squares-and-residual",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#最小二乘与残差空间-least-squares-and-residual",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Theory. 当 Ax=b 无精确解时，最小二乘寻找：\n\\[\n\\hat{x}=\\arg\\min_x\\|Ax-b\\|_2^2\n\\]\n满足正规方程：\n\\[\nA^TA\\hat{x}=A^Tb\n\\]\nResult. 残差 \\(r=b-A\\hat{x}\\) 满足：\n\\[\nr\\in N(A^T),\\quad r\\perp C(A)\n\\]\n即把 \\(b\\) 正交投影到列空间后留下的“不可达部分”。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#svd-与四子空间-svd-view",
+    "href": "Mathematical-Foundations-of-Machine-Learning/3 Linear-Algebra Four Subspaces.html#svd-与四子空间-svd-view",
+    "title": "线性代数：四个基本子空间 (Four Fundamental Subspaces)",
+    "section": "",
+    "text": "Theory. 奇异值分解：\n\\[\nA=U\\Sigma V^T\n\\]\n其中 \\(U,V\\) 正交，\\(\\Sigma\\) 的非零奇异值个数为 \\(r\\)。\nResult. 若按非零奇异值排序，则：\n\\[\nC(A)=\\operatorname{span}(u_1,\\dots,u_r),\\quad N(A^T)=\\operatorname{span}(u_{r+1},\\dots,u_m)\n\\]\n\\[\nC(A^T)=\\operatorname{span}(v_1,\\dots,v_r),\\quad N(A)=\\operatorname{span}(v_{r+1},\\dots,v_n)\n\\]\nSVD 直接给出四子空间的一组标准正交基。"
   },
   {
     "objectID": "index.html",
@@ -19,6 +89,13 @@
     "title": "Home",
     "section": "",
     "text": "Welcome to my Quarto blog.\nThis site is deployed with GitHub Pages."
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/index.html",
+    "href": "Mathematical-Foundations-of-Machine-Learning/index.html",
+    "title": "Mathematical Foundations of Machine Learning",
+    "section": "",
+    "text": "This section collects notes on the mathematical foundations used in machine learning.\n\nOrthogonality\nNonlinear Dynamics\nFour Fundamental Subspaces"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/1 Orthogonality.html",
