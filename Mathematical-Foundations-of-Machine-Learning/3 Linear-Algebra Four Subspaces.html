@@ -146,18 +146,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#线性代数四个基本子空间-four-fundamental-subspaces" id="toc-线性代数四个基本子空间-four-fundamental-subspaces" class="nav-link active" data-scroll-target="#线性代数四个基本子空间-four-fundamental-subspaces">线性代数：四个基本子空间 (Four Fundamental Subspaces)</a>
+  <li><a href="#线性代数四个子空间给自己看的口语版" id="toc-线性代数四个子空间给自己看的口语版" class="nav-link active" data-scroll-target="#线性代数四个子空间给自己看的口语版">线性代数：四个子空间（给自己看的口语版）</a>
   <ul class="collapse">
-  <li><a href="#问题设定-problem-setup" id="toc-问题设定-problem-setup" class="nav-link" data-scroll-target="#问题设定-problem-setup">1. 问题设定 (Problem Setup)</a></li>
-  <li><a href="#列空间与可达输出-column-space" id="toc-列空间与可达输出-column-space" class="nav-link" data-scroll-target="#列空间与可达输出-column-space">2. 列空间与可达输出 (Column Space)</a></li>
-  <li><a href="#零空间与解的不唯一性-null-space" id="toc-零空间与解的不唯一性-null-space" class="nav-link" data-scroll-target="#零空间与解的不唯一性-null-space">3. 零空间与解的不唯一性 (Null Space)</a></li>
-  <li><a href="#行空间与左零空间-row-space-and-left-null-space" id="toc-行空间与左零空间-row-space-and-left-null-space" class="nav-link" data-scroll-target="#行空间与左零空间-row-space-and-left-null-space">4. 行空间与左零空间 (Row Space and Left Null Space)</a></li>
-  <li><a href="#正交补关系-orthogonal-complements" id="toc-正交补关系-orthogonal-complements" class="nav-link" data-scroll-target="#正交补关系-orthogonal-complements">5. 正交补关系 (Orthogonal Complements)</a></li>
-  <li><a href="#秩与维度分配-rank-and-dimension" id="toc-秩与维度分配-rank-and-dimension" class="nav-link" data-scroll-target="#秩与维度分配-rank-and-dimension">6. 秩与维度分配 (Rank and Dimension)</a></li>
-  <li><a href="#输入分解与矩阵过滤-input-decomposition" id="toc-输入分解与矩阵过滤-input-decomposition" class="nav-link" data-scroll-target="#输入分解与矩阵过滤-input-decomposition">7. 输入分解与矩阵“过滤” (Input Decomposition)</a></li>
-  <li><a href="#方程-axb-的判据-solvability-and-general-solution" id="toc-方程-axb-的判据-solvability-and-general-solution" class="nav-link" data-scroll-target="#方程-axb-的判据-solvability-and-general-solution">8. 方程 <code>Ax=b</code> 的判据 (Solvability and General Solution)</a></li>
-  <li><a href="#最小二乘与残差空间-least-squares-and-residual" id="toc-最小二乘与残差空间-least-squares-and-residual" class="nav-link" data-scroll-target="#最小二乘与残差空间-least-squares-and-residual">9. 最小二乘与残差空间 (Least Squares and Residual)</a></li>
-  <li><a href="#svd-与四子空间-svd-view" id="toc-svd-与四子空间-svd-view" class="nav-link" data-scroll-target="#svd-与四子空间-svd-view">10. SVD 与四子空间 (SVD View)</a></li>
+  <li><a href="#四个子空间先摆出来" id="toc-四个子空间先摆出来" class="nav-link" data-scroll-target="#四个子空间先摆出来">0. 四个子空间先摆出来</a></li>
+  <li><a href="#先记住一个超级关键结论" id="toc-先记住一个超级关键结论" class="nav-link" data-scroll-target="#先记住一个超级关键结论">1. 先记住一个超级关键结论</a></li>
+  <li><a href="#axb-到底什么时候有解" id="toc-axb-到底什么时候有解" class="nav-link" data-scroll-target="#axb-到底什么时候有解">2. Ax=b 到底什么时候有解</a></li>
+  <li><a href="#解为什么会不唯一" id="toc-解为什么会不唯一" class="nav-link" data-scroll-target="#解为什么会不唯一">3. 解为什么会不唯一</a></li>
+  <li><a href="#输入分解这个视角很有用" id="toc-输入分解这个视角很有用" class="nav-link" data-scroll-target="#输入分解这个视角很有用">4. 输入分解（这个视角很有用）</a></li>
+  <li><a href="#正交关系四子空间的骨架" id="toc-正交关系四子空间的骨架" class="nav-link" data-scroll-target="#正交关系四子空间的骨架">5. 正交关系（四子空间的骨架）</a></li>
+  <li><a href="#维度分账rank-nullity" id="toc-维度分账rank-nullity" class="nav-link" data-scroll-target="#维度分账rank-nullity">6. 维度分账（Rank-Nullity）</a></li>
+  <li><a href="#不可解时最小二乘在干嘛" id="toc-不可解时最小二乘在干嘛" class="nav-link" data-scroll-target="#不可解时最小二乘在干嘛">7. 不可解时：最小二乘在干嘛</a></li>
+  <li><a href="#svd-和四子空间一一对应" id="toc-svd-和四子空间一一对应" class="nav-link" data-scroll-target="#svd-和四子空间一一对应">8. SVD 和四子空间一一对应</a></li>
+  <li><a href="#一句话总结" id="toc-一句话总结" class="nav-link" data-scroll-target="#一句话总结">9. 一句话总结</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -168,157 +168,192 @@ window.Quarto = {
 
 
 
-<section id="线性代数四个基本子空间-four-fundamental-subspaces" class="level1">
-<h1>线性代数：四个基本子空间 (Four Fundamental Subspaces)</h1>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="问题设定-problem-setup" class="level2">
-<h2 class="anchored" data-anchor-id="问题设定-problem-setup">1. 问题设定 (Problem Setup)</h2>
-<p><strong>Definition.</strong> 给定矩阵：</p>
+<section id="线性代数四个子空间给自己看的口语版" class="level1">
+<h1>线性代数：四个子空间（给自己看的口语版）</h1>
+<p>先约定：</p>
 <p><span class="math display">\[
 A\in\mathbb{R}^{m\times n},\quad A:\mathbb{R}^n\to\mathbb{R}^m
 \]</span></p>
-<p>它对应四个核心子空间：</p>
-<ul>
-<li>Column Space（列空间）<span class="math inline">\(C(A)\subseteq\mathbb{R}^m\)</span></li>
-<li>Row Space（行空间）<span class="math inline">\(C(A^T)\subseteq\mathbb{R}^n\)</span></li>
-<li>Null Space（零空间）<span class="math inline">\(N(A)\subseteq\mathbb{R}^n\)</span></li>
-<li>Left Null Space（左零空间）<span class="math inline">\(N(A^T)\subseteq\mathbb{R}^m\)</span></li>
-</ul>
-<p><strong>Result.</strong> 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 <code>Ax=b</code>、最小二乘和 SVD 的统一框架。</p>
+<p>把它当成一个“过滤器”最直观：有些输入方向会被保留，有些会被吃掉。</p>
+<section id="四个子空间先摆出来" class="level2">
+<h2 class="anchored" data-anchor-id="四个子空间先摆出来">0. 四个子空间先摆出来</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>名称</th>
+<th>记号</th>
+<th>在哪里</th>
+<th>直觉</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>列空间</td>
+<td><span class="math inline">\(C(A)\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^m\)</span></td>
+<td>能被 <span class="math inline">\(Ax\)</span> 产生出来的输出</td>
+</tr>
+<tr class="even">
+<td>行空间</td>
+<td><span class="math inline">\(C(A^T)\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^n\)</span></td>
+<td>输入里真正被 A 看见的方向</td>
+</tr>
+<tr class="odd">
+<td>零空间</td>
+<td><span class="math inline">\(N(A)\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^n\)</span></td>
+<td>会被 A 直接压成 0 的输入</td>
+</tr>
+<tr class="even">
+<td>左零空间</td>
+<td><span class="math inline">\(N(A^T)\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^m\)</span></td>
+<td>和所有可达输出都正交的输出方向</td>
+</tr>
+</tbody>
+</table>
+<hr>
 </section>
-<section id="列空间与可达输出-column-space" class="level2">
-<h2 class="anchored" data-anchor-id="列空间与可达输出-column-space">2. 列空间与可达输出 (Column Space)</h2>
-<p><strong>Definition.</strong> 列空间定义为：</p>
+<section id="先记住一个超级关键结论" class="level2">
+<h2 class="anchored" data-anchor-id="先记住一个超级关键结论">1. 先记住一个超级关键结论</h2>
+<p><span class="math display">\[
+\boxed{\text{不管 }x\text{ 是什么，}Ax\text{ 一定在 }C(A)}
+\]</span></p>
+<p>原因就是定义本身：</p>
 <p><span class="math display">\[
 C(A)=\{Ax\mid x\in\mathbb{R}^n\}
 \]</span></p>
-<p><strong>Inference.</strong> 若记 <span class="math inline">\(A=[a_1,\dots,a_n]\)</span>，则：</p>
-<p><span class="math display">\[
-Ax=\sum_{i=1}^n x_i a_i
-\]</span></p>
-<p>即输出是列向量的线性组合。</p>
-<p><strong>Result.</strong> 方程 <code>Ax=b</code> 有解当且仅当：</p>
-<p><span class="math display">\[
-b\in C(A)
-\]</span></p>
+<p>所以“x 好不好”不影响它在不在列空间，只影响它落在列空间的哪个位置。</p>
+<hr>
 </section>
-<section id="零空间与解的不唯一性-null-space" class="level2">
-<h2 class="anchored" data-anchor-id="零空间与解的不唯一性-null-space">3. 零空间与解的不唯一性 (Null Space)</h2>
-<p><strong>Definition.</strong> 零空间定义为：</p>
+<section id="axb-到底什么时候有解" class="level2">
+<h2 class="anchored" data-anchor-id="axb-到底什么时候有解">2. Ax=b 到底什么时候有解</h2>
+<p>精确可解当且仅当：</p>
 <p><span class="math display">\[
-N(A)=\{x\in\mathbb{R}^n\mid Ax=0\}
+Ax=b \text{ 有解}\iff b\in C(A)
 \]</span></p>
-<p><strong>Theory.</strong> 若 <span class="math inline">\(x_p\)</span> 是 <code>Ax=b</code> 的一个特解，则任意解可写成：</p>
+<p>等价写法：</p>
+<p><span class="math display">\[
+b\in C(A)\iff b\perp N(A^T)
+\]</span></p>
+<p>也就是：如果 <span class="math inline">\(b\)</span> 里面掺了左零空间分量，那部分是 A 永远生成不出来的。</p>
+<hr>
+</section>
+<section id="解为什么会不唯一" class="level2">
+<h2 class="anchored" data-anchor-id="解为什么会不唯一">3. 解为什么会不唯一</h2>
+<p>零空间定义：</p>
+<p><span class="math display">\[
+N(A)=\{x\mid Ax=0\}
+\]</span></p>
+<p>如果 <span class="math inline">\(x_p\)</span> 是一个特解，那么全部解是：</p>
 <p><span class="math display">\[
 x=x_p+x_n,\quad x_n\in N(A)
 \]</span></p>
-<p><strong>Result.</strong> 解是否唯一由 <span class="math inline">\(N(A)\)</span> 决定。若 <span class="math inline">\(N(A)=\{0\}\)</span>，则解唯一。</p>
+<p>所以：</p>
+<ul>
+<li><span class="math inline">\(N(A)=\{0\}\)</span>：解唯一。</li>
+<li><span class="math inline">\(N(A)\)</span> 非平凡：解不唯一（沿零空间可以随便加）。</li>
+</ul>
+<hr>
 </section>
-<section id="行空间与左零空间-row-space-and-left-null-space" class="level2">
-<h2 class="anchored" data-anchor-id="行空间与左零空间-row-space-and-left-null-space">4. 行空间与左零空间 (Row Space and Left Null Space)</h2>
-<p><strong>Definition.</strong> 行空间是：</p>
+<section id="输入分解这个视角很有用" class="level2">
+<h2 class="anchored" data-anchor-id="输入分解这个视角很有用">4. 输入分解（这个视角很有用）</h2>
+<p>任意输入都能唯一拆成：</p>
 <p><span class="math display">\[
-C(A^T)=\operatorname{span}\{\text{A 的行向量}\}\subseteq\mathbb{R}^n
+x=x_r+x_n,
 \]</span></p>
-<p><strong>Definition.</strong> 左零空间是：</p>
+<p>其中</p>
 <p><span class="math display">\[
-N(A^T)=\{y\in\mathbb{R}^m\mid A^Ty=0\}
+x_r\in C(A^T)\ (\text{行空间}),\quad x_n\in N(A)\ (\text{零空间})
 \]</span></p>
-<p><strong>Theory.</strong> 行空间描述“输入中可被检测到的方向”，左零空间描述“输出中与所有可达输出正交的方向”。</p>
+<p>作用 A 之后：</p>
+<p><span class="math display">\[
+Ax=A(x_r+x_n)=Ax_r+Ax_n=Ax_r
+\]</span></p>
+<p>因为 <span class="math inline">\(Ax_n=0\)</span>。</p>
+<p>结论：只有行空间部分决定输出，零空间部分完全被吃掉。</p>
+<hr>
 </section>
-<section id="正交补关系-orthogonal-complements" class="level2">
-<h2 class="anchored" data-anchor-id="正交补关系-orthogonal-complements">5. 正交补关系 (Orthogonal Complements)</h2>
-<p><strong>Theory.</strong> 四子空间满足两组正交补：</p>
+<section id="正交关系四子空间的骨架" class="level2">
+<h2 class="anchored" data-anchor-id="正交关系四子空间的骨架">5. 正交关系（四子空间的骨架）</h2>
+<p>在输入空间 <span class="math inline">\(\mathbb{R}^n\)</span>：</p>
 <p><span class="math display">\[
 \mathbb{R}^n=C(A^T)\oplus N(A),\quad C(A^T)\perp N(A)
 \]</span></p>
+<p>在输出空间 <span class="math inline">\(\mathbb{R}^m\)</span>：</p>
 <p><span class="math display">\[
 \mathbb{R}^m=C(A)\oplus N(A^T),\quad C(A)\perp N(A^T)
 \]</span></p>
-<p><strong>Inference.</strong> 若 <span class="math inline">\(x_r\in C(A^T),x_n\in N(A)\)</span>，则：</p>
-<p><span class="math display">\[
-x_r^Tx_n=0
-\]</span></p>
-<p>若 <span class="math inline">\(b_c\in C(A),b_\ell\in N(A^T)\)</span>，则：</p>
-<p><span class="math display">\[
-b_c^Tb_\ell=0
-\]</span></p>
-<p><strong>Result.</strong> 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。</p>
+<p>就是两边都拆成“有效部分 + 正交的无效部分”。</p>
+<hr>
 </section>
-<section id="秩与维度分配-rank-and-dimension" class="level2">
-<h2 class="anchored" data-anchor-id="秩与维度分配-rank-and-dimension">6. 秩与维度分配 (Rank and Dimension)</h2>
-<p><strong>Definition.</strong> 设：</p>
-<p><span class="math display">\[
-\operatorname{rank}(A)=r
-\]</span></p>
-<p><strong>Result.</strong> 四个子空间的维度为：</p>
+<section id="维度分账rank-nullity" class="level2">
+<h2 class="anchored" data-anchor-id="维度分账rank-nullity">6. 维度分账（Rank-Nullity）</h2>
+<p>设 <span class="math inline">\(\operatorname{rank}(A)=r\)</span>，那么：</p>
 <p><span class="math display">\[
 \dim C(A)=r,\quad \dim C(A^T)=r
 \]</span></p>
 <p><span class="math display">\[
 \dim N(A)=n-r,\quad \dim N(A^T)=m-r
 \]</span></p>
-<p>这给出秩-零度定理：</p>
+<p>对应两条常用等式：</p>
 <p><span class="math display">\[
-n=\operatorname{rank}(A)+\operatorname{nullity}(A)
+n=r+(n-r),\quad m=r+(m-r)
 \]</span></p>
+<p>也就是维度没消失，只是重新分配到了不同子空间。</p>
+<hr>
 </section>
-<section id="输入分解与矩阵过滤-input-decomposition" class="level2">
-<h2 class="anchored" data-anchor-id="输入分解与矩阵过滤-input-decomposition">7. 输入分解与矩阵“过滤” (Input Decomposition)</h2>
-<p><strong>Theory.</strong> 任意输入 <span class="math inline">\(x\in\mathbb{R}^n\)</span> 都可唯一写成：</p>
+<section id="不可解时最小二乘在干嘛" class="level2">
+<h2 class="anchored" data-anchor-id="不可解时最小二乘在干嘛">7. 不可解时：最小二乘在干嘛</h2>
+<p>当 <code>Ax=b</code> 不可解时，做：</p>
 <p><span class="math display">\[
-x=x_r+x_n,\quad x_r\in C(A^T),\ x_n\in N(A)
-\]</span></p>
-<p><strong>Inference.</strong></p>
-<p><span class="math display">\[
-Ax=A(x_r+x_n)=Ax_r+Ax_n=Ax_r
-\]</span></p>
-<p>因为 <span class="math inline">\(Ax_n=0\)</span>。</p>
-<p><strong>Result.</strong> 矩阵乘法像一个过滤器：零空间方向被完全压缩，只保留行空间方向的贡献。</p>
-</section>
-<section id="方程-axb-的判据-solvability-and-general-solution" class="level2">
-<h2 class="anchored" data-anchor-id="方程-axb-的判据-solvability-and-general-solution">8. 方程 <code>Ax=b</code> 的判据 (Solvability and General Solution)</h2>
-<p><strong>Theory.</strong> <code>Ax=b</code> 有解等价于：</p>
-<p><span class="math display">\[
-b\in C(A)\iff b\perp N(A^T)
-\]</span></p>
-<p><strong>Result.</strong></p>
-<ul>
-<li>可解时，通解为 <span class="math inline">\(x=x_p+x_n,\ x_n\in N(A)\)</span>。</li>
-<li>不可解时，说明 <span class="math inline">\(b\)</span> 含有左零空间分量，无法由 <span class="math inline">\(Ax\)</span> 生成。</li>
-</ul>
-</section>
-<section id="最小二乘与残差空间-least-squares-and-residual" class="level2">
-<h2 class="anchored" data-anchor-id="最小二乘与残差空间-least-squares-and-residual">9. 最小二乘与残差空间 (Least Squares and Residual)</h2>
-<p><strong>Theory.</strong> 当 <code>Ax=b</code> 无精确解时，最小二乘寻找：</p>
-<p><span class="math display">\[
-\hat{x}=\arg\min_x\|Ax-b\|_2^2
+\hat{x}=\arg\min_x\|Ax-b\|_2^2,
 \]</span></p>
 <p>满足正规方程：</p>
 <p><span class="math display">\[
 A^TA\hat{x}=A^Tb
 \]</span></p>
-<p><strong>Result.</strong> 残差 <span class="math inline">\(r=b-A\hat{x}\)</span> 满足：</p>
+<p>残差：</p>
+<p><span class="math display">\[
+r=b-A\hat{x}
+\]</span></p>
+<p>会落在左零空间：</p>
 <p><span class="math display">\[
 r\in N(A^T),\quad r\perp C(A)
 \]</span></p>
-<p>即把 <span class="math inline">\(b\)</span> 正交投影到列空间后留下的“不可达部分”。</p>
+<p>直觉：先把 <span class="math inline">\(b\)</span> 投影到列空间，可达部分由 <span class="math inline">\(A\hat{x}\)</span> 解释，剩下那块就是“怎么也解释不了”的残差。</p>
+<hr>
 </section>
-<section id="svd-与四子空间-svd-view" class="level2">
-<h2 class="anchored" data-anchor-id="svd-与四子空间-svd-view">10. SVD 与四子空间 (SVD View)</h2>
-<p><strong>Theory.</strong> 奇异值分解：</p>
+<section id="svd-和四子空间一一对应" class="level2">
+<h2 class="anchored" data-anchor-id="svd-和四子空间一一对应">8. SVD 和四子空间一一对应</h2>
 <p><span class="math display">\[
 A=U\Sigma V^T
 \]</span></p>
-<p>其中 <span class="math inline">\(U,V\)</span> 正交，<span class="math inline">\(\Sigma\)</span> 的非零奇异值个数为 <span class="math inline">\(r\)</span>。</p>
-<p><strong>Result.</strong> 若按非零奇异值排序，则：</p>
+<p>若非零奇异值有 <span class="math inline">\(r\)</span> 个，则：</p>
 <p><span class="math display">\[
 C(A)=\operatorname{span}(u_1,\dots,u_r),\quad N(A^T)=\operatorname{span}(u_{r+1},\dots,u_m)
 \]</span></p>
 <p><span class="math display">\[
 C(A^T)=\operatorname{span}(v_1,\dots,v_r),\quad N(A)=\operatorname{span}(v_{r+1},\dots,v_n)
 \]</span></p>
-<p>SVD 直接给出四子空间的一组标准正交基。</p>
+<p>所以 SVD 其实就是把四个子空间的正交基一次性给你。</p>
+<hr>
+</section>
+<section id="一句话总结" class="level2">
+<h2 class="anchored" data-anchor-id="一句话总结">9. 一句话总结</h2>
+<ul>
+<li><code>Ax</code> 永远在列空间。</li>
+<li>哪些输入有效看行空间，哪些输入被抹掉看零空间。</li>
+<li><code>Ax=b</code> 是否可解看 <span class="math inline">\(b\)</span> 在不在列空间（等价于是否垂直左零空间）。</li>
+<li>SVD 是四子空间最干净的坐标系。</li>
+</ul>
 
 
 </section>
