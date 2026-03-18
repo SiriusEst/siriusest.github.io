@@ -316,10 +316,30 @@ n=r+(n-r),\quad m=r+(m-r)
 <p><span class="math display">\[
 \hat{x}=\arg\min_x\|Ax-b\|_2^2,
 \]</span></p>
-<p>满足正规方程：</p>
+<p>把目标函数展开成数值计算友好的形式：</p>
+<p><span class="math display">\[
+f(x)=\|Ax-b\|_2^2=(Ax-b)^T(Ax-b)
+\]</span></p>
+<p><span class="math display">\[
+=x^TA^TAx-2b^TAx+b^Tb
+\]</span></p>
+<p>对 <span class="math inline">\(x\)</span> 求导并令梯度为 0：</p>
+<p><span class="math display">\[
+\nabla_x f(x)=2A^TAx-2A^Tb=0
+\]</span></p>
+<p>得到正规方程：</p>
 <p><span class="math display">\[
 A^TA\hat{x}=A^Tb
 \]</span></p>
+<p>如果 <span class="math inline">\(A\)</span> 列满秩（rank = n），那 <span class="math inline">\(A^TA\)</span> 可逆，于是有显式数值解：</p>
+<p><span class="math display">\[
+\hat{x}=(A^TA)^{-1}A^Tb
+\]</span></p>
+<p>如果不满秩，就用伪逆写成统一形式：</p>
+<p><span class="math display">\[
+\hat{x}=A^+b
+\]</span></p>
+<p>其中最小二乘的最小范数解也是这一个。</p>
 <p>残差：</p>
 <p><span class="math display">\[
 r=b-A\hat{x}
