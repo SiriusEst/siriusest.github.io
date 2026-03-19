@@ -21,6 +21,8 @@ $$
 
 **Result.** 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 `Ax=b`、最小二乘和 SVD 的统一框架。
 
+![线性映射下的四子空间关系](images/four-subspaces-isomorphism.png){fig-cap="四子空间的核心几何：行空间与列空间在秩 r 维子空间上同构，零空间被压到 0。" width="100%"}
+
 ## 2. 列空间与可达输出 (Column Space)
 
 **Definition.** 列空间定义为：
@@ -121,6 +123,8 @@ $$
 
 
 **Result.** 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。
+
+![四子空间全景图](images/four-subspaces-panorama.png){fig-cap="输入空间与输出空间的对应分解：C(A^T) ⊕ N(A) 经过 A 映射到 C(A) ⊕ N(A^T)。" width="100%"}
 
 ## 6. 秩与维度分配 (Rank and Dimension)
 
@@ -230,6 +234,8 @@ $$
 
 其中 $U,V$ 正交，$\Sigma$ 的非零奇异值个数为 $r$。
 
+![SVD 的几何代数表示](images/svd-geometry-formula.png){fig-cap="SVD 把线性映射分成三步：右正交基变换、奇异值缩放、左正交基变换。" width="100%"}
+
 **Result.** 若按非零奇异值排序，则：
 
 
@@ -242,5 +248,7 @@ $$
 C(A^T)=\operatorname{span}(v_1,\dots,v_r),\quad N(A)=\operatorname{span}(v_{r+1},\dots,v_n)
 $$
 
+
+![SVD 的基底映射关系](images/svd-basis-navigation.png){fig-cap="前 r 个右奇异向量 v_i 被映射到对应左奇异向量 u_i（缩放系数为 σ_i），其余落入零空间方向。" width="100%"}
 
 SVD 直接给出四子空间的一组标准正交基。
