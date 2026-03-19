@@ -185,6 +185,12 @@ A\in\mathbb{R}^{m\times n},\quad A:\mathbb{R}^n\to\mathbb{R}^m
 <li>Left Null Space（左零空间）<span class="math inline">\(N(A^T)\subseteq\mathbb{R}^m\)</span></li>
 </ul>
 <p><strong>Result.</strong> 四子空间把输入空间和输出空间分别拆成两块正交结构，是理解 <code>Ax=b</code>、最小二乘和 SVD 的统一框架。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/four-subspaces-isomorphism.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>线性映射下的四子空间关系</figcaption>
+</figure>
+</div>
 </section>
 <section id="列空间与可达输出-column-space" class="level2">
 <h2 class="anchored" data-anchor-id="列空间与可达输出-column-space">2. 列空间与可达输出 (Column Space)</h2>
@@ -244,6 +250,12 @@ x_r^Tx_n=0
 b_c^Tb_\ell=0
 \]</span></p>
 <p><strong>Result.</strong> 输入与输出空间都可分解为“有效部分 + 被抹除/不可达部分”。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/four-subspaces-panorama.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>四子空间全景图</figcaption>
+</figure>
+</div>
 </section>
 <section id="秩与维度分配-rank-and-dimension" class="level2">
 <h2 class="anchored" data-anchor-id="秩与维度分配-rank-and-dimension">6. 秩与维度分配 (Rank and Dimension)</h2>
@@ -311,6 +323,12 @@ r\in N(A^T),\quad r\perp C(A)
 A=U\Sigma V^T
 \]</span></p>
 <p>其中 <span class="math inline">\(U,V\)</span> 正交，<span class="math inline">\(\Sigma\)</span> 的非零奇异值个数为 <span class="math inline">\(r\)</span>。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/svd-geometry-formula.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>SVD 的几何代数表示</figcaption>
+</figure>
+</div>
 <p><strong>Result.</strong> 若按非零奇异值排序，则：</p>
 <p><span class="math display">\[
 C(A)=\operatorname{span}(u_1,\dots,u_r),\quad N(A^T)=\operatorname{span}(u_{r+1},\dots,u_m)
@@ -318,6 +336,12 @@ C(A)=\operatorname{span}(u_1,\dots,u_r),\quad N(A^T)=\operatorname{span}(u_{r+1}
 <p><span class="math display">\[
 C(A^T)=\operatorname{span}(v_1,\dots,v_r),\quad N(A)=\operatorname{span}(v_{r+1},\dots,v_n)
 \]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/svd-basis-navigation.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>SVD 的基底映射关系</figcaption>
+</figure>
+</div>
 <p>SVD 直接给出四子空间的一组标准正交基。</p>
 
 
