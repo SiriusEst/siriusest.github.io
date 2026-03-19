@@ -3,6 +3,7 @@ title: "Mathematical Foundations of Machine Learning"
 ---
 
 This section collects notes on the mathematical foundations used in machine learning.
+标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或应用结论。
 
 - [Orthogonality](1%20Orthogonality.md)
 - [Nonlinear Dynamics](2%20Nonlinear%20Dynmaics.md)
