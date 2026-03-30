@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>orthogonality – Sirius Blog</title>
+<title>langevin-dynamics-and-diffusion-model – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -149,22 +149,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#正交性-orthogonality" id="toc-正交性-orthogonality" class="nav-link active" data-scroll-target="#正交性-orthogonality">正交性 (Orthogonality)</a>
+  <li><a href="#langevin-dynamics-and-diffusion-model" id="toc-langevin-dynamics-and-diffusion-model" class="nav-link active" data-scroll-target="#langevin-dynamics-and-diffusion-model">Langevin Dynamics and Diffusion Model</a>
   <ul class="collapse">
-  <li><a href="#从耦合到解耦-coupled-to-decoupled" id="toc-从耦合到解耦-coupled-to-decoupled" class="nav-link" data-scroll-target="#从耦合到解耦-coupled-to-decoupled">1. 从耦合到解耦 (Coupled to Decoupled)</a></li>
-  <li><a href="#正交的定义-definition-of-orthogonality" id="toc-正交的定义-definition-of-orthogonality" class="nav-link" data-scroll-target="#正交的定义-definition-of-orthogonality">2. 正交的定义 (Definition of Orthogonality)</a></li>
-  <li><a href="#正交分解与能量可加性-energy-additivity" id="toc-正交分解与能量可加性-energy-additivity" class="nav-link" data-scroll-target="#正交分解与能量可加性-energy-additivity">3. 正交分解与能量可加性 (Energy Additivity)</a></li>
-  <li><a href="#正交基下的展开-expansion-in-orthonormal-basis" id="toc-正交基下的展开-expansion-in-orthonormal-basis" class="nav-link" data-scroll-target="#正交基下的展开-expansion-in-orthonormal-basis">4. 正交基下的展开 (Expansion in Orthonormal Basis)</a></li>
-  <li><a href="#gram-schmidt-正交化" id="toc-gram-schmidt-正交化" class="nav-link" data-scroll-target="#gram-schmidt-正交化">5. Gram-Schmidt 正交化</a></li>
-  <li><a href="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" id="toc-正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="nav-link" data-scroll-target="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform">6. 正交矩阵与正交变换 (Orthogonal Matrix &amp; Orthogonal Transform)</a></li>
-  <li><a href="#共轭转置-conjugate-transpose" id="toc-共轭转置-conjugate-transpose" class="nav-link" data-scroll-target="#共轭转置-conjugate-transpose">7. 共轭转置 (Conjugate Transpose)</a></li>
-  <li><a href="#实空间与复空间中的正交-real-vs-complex-inner-product" id="toc-实空间与复空间中的正交-real-vs-complex-inner-product" class="nav-link" data-scroll-target="#实空间与复空间中的正交-real-vs-complex-inner-product">8. 实空间与复空间中的正交 (Real vs Complex Inner Product)</a></li>
-  <li><a href="#函数空间中的正交-orthogonality-in-function-space" id="toc-函数空间中的正交-orthogonality-in-function-space" class="nav-link" data-scroll-target="#函数空间中的正交-orthogonality-in-function-space">9. 函数空间中的正交 (Orthogonality in Function Space)</a></li>
-  <li><a href="#经典正交系-classical-orthogonal-systems" id="toc-经典正交系-classical-orthogonal-systems" class="nav-link" data-scroll-target="#经典正交系-classical-orthogonal-systems">10. 经典正交系 (Classical Orthogonal Systems)</a></li>
-  <li><a href="#谱定理-spectral-theorem" id="toc-谱定理-spectral-theorem" class="nav-link" data-scroll-target="#谱定理-spectral-theorem">11. 谱定理 (Spectral Theorem)</a></li>
-  <li><a href="#奇异值分解-svd" id="toc-奇异值分解-svd" class="nav-link" data-scroll-target="#奇异值分解-svd">12. 奇异值分解 (SVD)</a></li>
-  <li><a href="#correlation-与-independence" id="toc-correlation-与-independence" class="nav-link" data-scroll-target="#correlation-与-independence">13. Correlation 与 Independence</a></li>
-  <li><a href="#高维近似正交现象-near-orthogonality-in-high-dimensions" id="toc-高维近似正交现象-near-orthogonality-in-high-dimensions" class="nav-link" data-scroll-target="#高维近似正交现象-near-orthogonality-in-high-dimensions">14. 高维近似正交现象 (Near Orthogonality in High Dimensions)</a></li>
+  <li><a href="#langevin-dynamics" id="toc-langevin-dynamics" class="nav-link" data-scroll-target="#langevin-dynamics">1. Langevin Dynamics</a></li>
+  <li><a href="#fokker-planck-equation-and-probability-current" id="toc-fokker-planck-equation-and-probability-current" class="nav-link" data-scroll-target="#fokker-planck-equation-and-probability-current">2. Fokker-Planck Equation and Probability Current</a></li>
+  <li><a href="#from-itôs-formula-to-the-general-fokker-planck-equation" id="toc-from-itôs-formula-to-the-general-fokker-planck-equation" class="nav-link" data-scroll-target="#from-itôs-formula-to-the-general-fokker-planck-equation">3. From Itô’s Formula to the General Fokker-Planck Equation</a></li>
+  <li><a href="#forward-diffusion-as-an-ou-vp-process" id="toc-forward-diffusion-as-an-ou-vp-process" class="nav-link" data-scroll-target="#forward-diffusion-as-an-ou-vp-process">4. Forward Diffusion as an OU / VP Process</a></li>
+  <li><a href="#reverse-time-sde" id="toc-reverse-time-sde" class="nav-link" data-scroll-target="#reverse-time-sde">5. Reverse-Time SDE</a></li>
+  <li><a href="#why-the-score-is-unknown" id="toc-why-the-score-is-unknown" class="nav-link" data-scroll-target="#why-the-score-is-unknown">6. Why the Score Is Unknown</a></li>
+  <li><a href="#denoising-score-matching" id="toc-denoising-score-matching" class="nav-link" data-scroll-target="#denoising-score-matching">7. Denoising Score Matching</a></li>
+  <li><a href="#from-dsm-to-the-ddpm-noise-objective" id="toc-from-dsm-to-the-ddpm-noise-objective" class="nav-link" data-scroll-target="#from-dsm-to-the-ddpm-noise-objective">8. From DSM to the DDPM Noise Objective</a></li>
+  <li><a href="#relation-between-langevin-dynamics-and-diffusion-models" id="toc-relation-between-langevin-dynamics-and-diffusion-models" class="nav-link" data-scroll-target="#relation-between-langevin-dynamics-and-diffusion-models">9. Relation Between Langevin Dynamics and Diffusion Models</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -175,238 +171,337 @@ window.Quarto = {
 
 
 
-<section id="正交性-orthogonality" class="level1">
-<h1>正交性 (Orthogonality)</h1>
+<section id="langevin-dynamics-and-diffusion-model" class="level1">
+<h1>Langevin Dynamics and Diffusion Model</h1>
 <div class="updated-time">
-Updated: 2026-03-17 18:51 AEDT
+Updated: 2026-03-30 17:59 AEDT
 </div>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="从耦合到解耦-coupled-to-decoupled" class="level2">
-<h2 class="anchored" data-anchor-id="从耦合到解耦-coupled-to-decoupled">1. 从耦合到解耦 (Coupled to Decoupled)</h2>
-<p><strong>Theory.</strong> 正交化的核心价值是把耦合问题改写为解耦问题，这与 Divide and Conquer 的思想一致。<br>
-在一组正交基下，每个分量可以独立分析，计算和解释都会更清晰。</p>
-</section>
-<section id="正交的定义-definition-of-orthogonality" class="level2">
-<h2 class="anchored" data-anchor-id="正交的定义-definition-of-orthogonality">2. 正交的定义 (Definition of Orthogonality)</h2>
-<p><strong>Definition.</strong> 向量正交满足：</p>
+<p>Tag legend: <code>Definition</code> marks a definition, <code>Theory</code> marks an equation or principle, <code>Inference</code> marks a derivation step, and <code>Result</code> marks a conclusion or modeling takeaway.</p>
+<section id="langevin-dynamics" class="level2">
+<h2 class="anchored" data-anchor-id="langevin-dynamics">1. Langevin Dynamics</h2>
+<p><strong>Definition.</strong> Continuous-time Langevin dynamics can be written as:</p>
 <p><span class="math display">\[
-\langle u,v\rangle=0
+dX_t=-\nabla \Phi(X_t)\,dt+\sqrt{2}\,dW_t
+\]</span></p>
+<p>Here <span class="math inline">\(\Phi(x)\)</span> is the potential function and <span class="math inline">\(W_t\)</span> is standard Brownian motion.</p>
+<p><strong>Inference.</strong> If the target distribution is written as</p>
+<p><span class="math display">\[
+p_*(x)\propto e^{-\Phi(x)},
+\qquad
+\Phi(x)=-\log p_*(x)+C,
+\]</span></p>
+<p>then the drift term <span class="math inline">\(-\nabla \Phi\)</span> pushes particles toward lower-potential regions, while the noise term <span class="math inline">\(\sqrt{2}\,dW_t\)</span> keeps injecting random exploration.</p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>The drift term corresponds to moving downhill on an energy landscape.</li>
+<li>The diffusion term prevents the particles from collapsing too early into a local region.</li>
+<li>At equilibrium, the stationary distribution of the process is exactly the target distribution <span class="math inline">\(p_*\)</span>.</li>
+</ul>
+<p>In machine learning, <span class="math inline">\(\Phi\)</span> is often viewed as an energy / loss landscape.</p>
+</section>
+<section id="fokker-planck-equation-and-probability-current" class="level2">
+<h2 class="anchored" data-anchor-id="fokker-planck-equation-and-probability-current">2. Fokker-Planck Equation and Probability Current</h2>
+<p><strong>Theory.</strong> The density evolution of the SDE above satisfies</p>
+<p><span class="math display">\[
+\frac{\partial p_t}{\partial t}
+=
+\nabla \cdot \bigl(p_t \nabla \Phi\bigr)+\Delta p_t.
+\]</span></p>
+<p><strong>Definition.</strong> Define the probability current</p>
+<p><span class="math display">\[
+J_t(x)=-p_t(x)\nabla \Phi(x)-\nabla p_t(x),
+\]</span></p>
+<p>Then the continuity equation becomes</p>
+<p><span class="math display">\[
+\frac{\partial p_t}{\partial t}=-\nabla \cdot J_t.
+\]</span></p>
+<p><strong>Inference.</strong> At equilibrium we have <span class="math inline">\(\partial_t p_t=0\)</span>. If we additionally impose the zero-flux condition <span class="math inline">\(J_t=0\)</span>, then</p>
+<p><span class="math display">\[
+\nabla p_*(x)=-p_*(x)\nabla \Phi(x),
+\]</span></p>
+<p>which is equivalent to</p>
+<p><span class="math display">\[
+\nabla \log p_*(x)=-\nabla \Phi(x).
+\]</span></p>
+<p>Integrating this identity gives</p>
+<p><span class="math display">\[
+p_*(x)\propto e^{-\Phi(x)}.
+\]</span></p>
+<p><strong>Result.</strong> This shows that Langevin dynamics is not arbitrary noise injection. It recovers the target distribution through the balance between drift and diffusion.</p>
+</section>
+<section id="from-itôs-formula-to-the-general-fokker-planck-equation" class="level2">
+<h2 class="anchored" data-anchor-id="from-itôs-formula-to-the-general-fokker-planck-equation">3. From Itô’s Formula to the General Fokker-Planck Equation</h2>
+<p><strong>Definition.</strong> More generally, consider the isotropic Itô process</p>
+<p><span class="math display">\[
+dX_t=f(X_t,t)\,dt+g(t)\,dW_t.
+\]</span></p>
+<p><strong>Theory.</strong> For any smooth test function <span class="math inline">\(\varphi\)</span>, Itô’s formula gives</p>
+<p><span class="math display">\[
+d\varphi(X_t)
+=
+\nabla \varphi(X_t)\cdot f(X_t,t)\,dt
++
+\nabla \varphi(X_t)\cdot g(t)\,dW_t
++
+\frac{g(t)^2}{2}\Delta \varphi(X_t)\,dt.
+\]</span></p>
+<p>The quadratic variation identities are</p>
+<p><span class="math display">\[
+\mathbb E[dW_t]=0,
+\qquad
+\mathbb E[(dW_t)^2]=dt.
+\]</span></p>
+<p><strong>Inference.</strong> Taking expectation removes the stochastic term. Then integration by parts moves the derivatives onto the density <span class="math inline">\(p_t\)</span>, which yields</p>
+<p><span class="math display">\[
+\frac{\partial p_t}{\partial t}
+=
+-\nabla \cdot \bigl(f(x,t)p_t(x)\bigr)
++
+\frac{g(t)^2}{2}\Delta p_t(x).
+\]</span></p>
+<p><strong>Result.</strong> Langevin dynamics is just a special case of this general form, with</p>
+<p><span class="math display">\[
+f(x)=-\nabla \Phi(x),
+\qquad
+g=\sqrt{2}.
+\]</span></p>
+</section>
+<section id="forward-diffusion-as-an-ou-vp-process" class="level2">
+<h2 class="anchored" data-anchor-id="forward-diffusion-as-an-ou-vp-process">4. Forward Diffusion as an OU / VP Process</h2>
+<p><strong>Definition.</strong> In diffusion models, a standard continuous-time forward process is</p>
+<p><span class="math display">\[
+dX_t=-\frac{1}{2}\beta(t)X_t\,dt+\sqrt{\beta(t)}\,dW_t.
+\]</span></p>
+<p>This is a time-inhomogeneous Ornstein-Uhlenbeck / variance-preserving (VP) process, corresponding to</p>
+<p><span class="math display">\[
+f(x,t)=-\frac{1}{2}\beta(t)x,
+\qquad
+g(t)=\sqrt{\beta(t)}.
+\]</span></p>
+<p><strong>Theory.</strong> Substituting it into the general Fokker-Planck equation gives</p>
+<p><span class="math display">\[
+\frac{\partial p_t}{\partial t}
+=
+\frac{\beta(t)}{2}
+\left[
+\nabla \cdot \bigl(x p_t\bigr)+\Delta p_t
+\right].
+\]</span></p>
+<p><strong>Inference.</strong> If <span class="math inline">\(p_t=\mathcal N(0,I)\)</span>, then</p>
+<p><span class="math display">\[
+\nabla p_t(x)=-x\,p_t(x),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\Delta p_t(x)=\bigl(\|x\|^2-d\bigr)p_t(x).
+\]</span></p>
+<p>Plugging these back in makes the right-hand side vanish, so the standard Gaussian is the equilibrium distribution of the process.</p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>As time increases, the data distribution is gradually pushed toward <span class="math inline">\(\mathcal N(0,I)\)</span>.</li>
+<li>This is the essence of forward diffusion: progressively destroying structure until the distribution becomes close to pure noise.</li>
+</ul>
+</section>
+<section id="reverse-time-sde" class="level2">
+<h2 class="anchored" data-anchor-id="reverse-time-sde">5. Reverse-Time SDE</h2>
+<p><strong>Theory.</strong> A classical result due to Anderson (1982) says that if the forward process is</p>
+<p><span class="math display">\[
+dX_t=f(X_t,t)\,dt+g(t)\,dW_t,
+\]</span></p>
+<p>then the time-reversed process, written in the convention used in these notes where we integrate from <span class="math inline">\(T\)</span> back to <span class="math inline">\(0\)</span>, is also an SDE:</p>
+<p><span class="math display">\[
+dX_t=
+\bigl[-f(X_t,t)+g(t)^2\nabla_x \log p_t(X_t)\bigr]dt
++
+g(t)\,d\bar W_t.
+\]</span></p>
+<p>Here <span class="math inline">\(\bar W_t\)</span> is reverse Brownian motion. Under the more standard reverse-time convention the same statement appears with an equivalent sign change.</p>
+<p><strong>Inference.</strong> For the VP forward SDE,</p>
+<p><span class="math display">\[
+f(x,t)=-\frac{1}{2}\beta(t)x,
+\qquad
+g(t)=\sqrt{\beta(t)},
+\]</span></p>
+<p>so the reverse process becomes</p>
+<p><span class="math display">\[
+dX_t=
+\left[
+\frac{1}{2}\beta(t)X_t
++
+\beta(t)\nabla_x \log p_t(X_t)
+\right]dt
++
+\sqrt{\beta(t)}\,d\bar W_t.
 \]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>几何视角：两个向量互相投影为零。</li>
-<li>代数视角：内积为零意味着在内积结构下无重叠方向信息。</li>
-<li>信息视角：两个分量在该表示中可视为解耦。</li>
+<li>If we initialize <span class="math inline">\(X_T\sim \mathcal N(0,I)\)</span> and integrate this SDE backward to <span class="math inline">\(t=0\)</span>, the endpoint is a data sample.</li>
+<li>The reverse drift is the forward drift corrected by a score term.</li>
 </ul>
 </section>
-<section id="正交分解与能量可加性-energy-additivity" class="level2">
-<h2 class="anchored" data-anchor-id="正交分解与能量可加性-energy-additivity">3. 正交分解与能量可加性 (Energy Additivity)</h2>
-<p><strong>Theory.</strong> 在欧式空间中，正交分量满足能量可加：</p>
+<section id="why-the-score-is-unknown" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-score-is-unknown">6. Why the Score Is Unknown</h2>
+<p><strong>Definition.</strong> The hard quantity in the reverse SDE is the score</p>
 <p><span class="math display">\[
-\|x\|^2=\sum_i x_i^2
+\nabla_x \log p_t(x).
 \]</span></p>
-<p><strong>Definition.</strong> 这里的系数是向量在一组标准正交基下的坐标。</p>
-</section>
-<section id="正交基下的展开-expansion-in-orthonormal-basis" class="level2">
-<h2 class="anchored" data-anchor-id="正交基下的展开-expansion-in-orthonormal-basis">4. 正交基下的展开 (Expansion in Orthonormal Basis)</h2>
-<p><strong>Theory.</strong> 任意向量可展开为：</p>
+<p>The marginal density <span class="math inline">\(p_t(x)\)</span> is what you get after evolving the data distribution <span class="math inline">\(p_0=p_{\mathrm{data}}\)</span> forward to time <span class="math inline">\(t\)</span>:</p>
 <p><span class="math display">\[
-v=\sum_i \langle v,e_i\rangle e_i
+p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0.
 \]</span></p>
-<p><strong>Definition.</strong> 系数</p>
-<p><span class="math display">\[
-\langle v,e_i\rangle
-\]</span></p>
-<p>是投影系数 (Projection Coefficient)。</p>
-</section>
-<section id="gram-schmidt-正交化" class="level2">
-<h2 class="anchored" data-anchor-id="gram-schmidt-正交化">5. Gram-Schmidt 正交化</h2>
-<p><strong>Theory.</strong> Gram-Schmidt 包含两步：</p>
-<ol type="1">
-<li>Straighten (Orthogonalization)</li>
-<li>Normalize (Normalization)</li>
-</ol>
-<p><strong>Inference.</strong> 对两向量版本：</p>
-<p><span class="math display">\[
-\tilde{v}=v-\operatorname{proj}_u(v)
-\]</span></p>
-<p><span class="math display">\[
-e=\frac{\tilde{v}}{\|\tilde{v}\|}
-\]</span></p>
-<p><strong>Result.</strong> 原始基被转换为标准正交基，后续投影与坐标计算更稳定。</p>
-</section>
-<section id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="level2">
-<h2 class="anchored" data-anchor-id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform">6. 正交矩阵与正交变换 (Orthogonal Matrix &amp; Orthogonal Transform)</h2>
-<p><strong>Definition.</strong> 正交矩阵满足：</p>
-<p><span class="math display">\[
-Q^TQ=I
-\]</span></p>
-<p><strong>Theory.</strong> 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。</p>
-<p><strong>Result.</strong> 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。</p>
-</section>
-<section id="共轭转置-conjugate-transpose" class="level2">
-<h2 class="anchored" data-anchor-id="共轭转置-conjugate-transpose">7. 共轭转置 (Conjugate Transpose)</h2>
-<p><strong>Theory.</strong> 在复数空间中，内积应使用共轭转置，才能保证能量量</p>
-<p><span class="math display">\[
-x^Hx
-\]</span></p>
-<p>为非负实数。</p>
-<p><strong>Definition.</strong></p>
-<p><span class="math display">\[
-A^H=\overline{A}^T
-\]</span></p>
-<p>给定：</p>
-<p><span class="math display">\[
-A=
-\begin{bmatrix}
-1+i &amp; 2\\
-3i &amp; 4-i
-\end{bmatrix}
-\]</span></p>
-<p>则：</p>
-<p><span class="math display">\[
-A^T=
-\begin{bmatrix}
-1+i &amp; 3i\\
-2 &amp; 4-i
-\end{bmatrix}
-\]</span></p>
-<p><span class="math display">\[
-\overline{A}=
-\begin{bmatrix}
-1-i &amp; 2\\
--3i &amp; 4+i
-\end{bmatrix}
-\]</span></p>
-<p><span class="math display">\[
-A^H=
-\begin{bmatrix}
-1-i &amp; -3i\\
-2 &amp; 4+i
-\end{bmatrix}
-\]</span></p>
-</section>
-<section id="实空间与复空间中的正交-real-vs-complex-inner-product" class="level2">
-<h2 class="anchored" data-anchor-id="实空间与复空间中的正交-real-vs-complex-inner-product">8. 实空间与复空间中的正交 (Real vs Complex Inner Product)</h2>
-<p><strong>Definition.</strong> 实数空间内积与正交条件：</p>
-<p><span class="math display">\[
-\langle x,y\rangle=x^Ty,\quad x^Ty=0
-\]</span></p>
-<p>对应矩阵条件：</p>
-<p><span class="math display">\[
-Q^TQ=I
-\]</span></p>
-<p><strong>Definition.</strong> 复数空间内积与正交条件：</p>
-<p><span class="math display">\[
-\langle x,y\rangle=x^Hy,\quad x^Hy=0
-\]</span></p>
-<p>对应矩阵条件：</p>
-<p><span class="math display">\[
-U^HU=I
-\]</span></p>
-<p><strong>Inference.</strong> 内积保持性推导：</p>
-<p><span class="math display">\[
-\langle Qx,Qy\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty
-\]</span></p>
-<p><span class="math display">\[
-\langle Ux,Uy\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy
-\]</span></p>
-<p><strong>Result.</strong> 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。</p>
-</section>
-<section id="函数空间中的正交-orthogonality-in-function-space" class="level2">
-<h2 class="anchored" data-anchor-id="函数空间中的正交-orthogonality-in-function-space">9. 函数空间中的正交 (Orthogonality in Function Space)</h2>
-<p><strong>Definition.</strong> 对实函数：</p>
-<p><span class="math display">\[
-\langle f,g\rangle=\int_a^b f(x)g(x)\,dx
-\]</span></p>
-<p>对复函数：</p>
-<p><span class="math display">\[
-\langle f,g\rangle=\int_a^b \overline{f(x)}g(x)\,dx
-\]</span></p>
-<p>正交条件：</p>
-<p><span class="math display">\[
-\langle f,g\rangle=0
-\]</span></p>
-</section>
-<section id="经典正交系-classical-orthogonal-systems" class="level2">
-<h2 class="anchored" data-anchor-id="经典正交系-classical-orthogonal-systems">10. 经典正交系 (Classical Orthogonal Systems)</h2>
-<p><strong>Definition.</strong> 三角正交系：</p>
-<p><span class="math display">\[
-1,\cos x,\sin x,\cos 2x,\sin 2x,\cdots
-\]</span></p>
-<p>在典型区间上的正交关系：</p>
-<p><span class="math display">\[
-\int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,dx=0,\quad m\neq n
-\]</span></p>
-<p><span class="math display">\[
-\int_{-\pi}^{\pi}\cos(mx)\cos(nx)\,dx=0,\quad m\neq n
-\]</span></p>
-<p><span class="math display">\[
-\int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx=0
-\]</span></p>
-<p><strong>Definition.</strong> 正交多项式系满足：</p>
-<p><span class="math display">\[
-\int_a^b P_m(x)P_n(x)\,dx=0,\quad m\neq n
-\]</span></p>
-<p><strong>Result.</strong> 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。</p>
-</section>
-<section id="谱定理-spectral-theorem" class="level2">
-<h2 class="anchored" data-anchor-id="谱定理-spectral-theorem">11. 谱定理 (Spectral Theorem)</h2>
-<p><strong>Definition.</strong> 实对称矩阵满足：</p>
-<p><span class="math display">\[
-A^T=A
-\]</span></p>
-<p><strong>Theory.</strong> 任意实对称矩阵可正交对角化：</p>
-<p><span class="math display">\[
-A=Q\Lambda Q^T
-\]</span></p>
-<p><strong>Result.</strong> 特征向量给出主轴方向，特征值给出各主轴缩放率。<br>
-在该基下，耦合线性变换变成独立缩放。</p>
-</section>
-<section id="奇异值分解-svd" class="level2">
-<h2 class="anchored" data-anchor-id="奇异值分解-svd">12. 奇异值分解 (SVD)</h2>
-<p><strong>Theory.</strong> SVD 表示为：</p>
-<p><span class="math display">\[
-A=U\Sigma V^T
-\]</span></p>
-<p><strong>Definition.</strong></p>
+<p><strong>Result.</strong></p>
 <ul>
-<li>列向量集合 V 对应输入空间基，称 Right Singular Vectors。</li>
-<li>列向量集合 U 对应输出空间基，称 Left Singular Vectors。</li>
-<li>矩阵 Sigma 表示各方向缩放强度。</li>
+<li>We do not know <span class="math inline">\(p_{\mathrm{data}}\)</span> analytically.</li>
+<li>Therefore we do not know <span class="math inline">\(p_t\)</span> analytically either.</li>
+<li>Hence the true score <span class="math inline">\(\nabla_x \log p_t(x)\)</span> cannot be computed directly.</li>
 </ul>
-<p><strong>Inference.</strong> 每个奇异对满足：</p>
+<p>So we train a neural network</p>
 <p><span class="math display">\[
-Av_i=\sigma_i u_i
+s_\theta(x,t)\approx \nabla_x \log p_t(x).
 \]</span></p>
-<p><strong>Result.</strong> SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。</p>
+<p>In conditional generation, the same idea becomes a conditional score such as <span class="math inline">\(\nabla_x \log p_t(x\mid c)\)</span>, where <span class="math inline">\(c\)</span> can be a class label, a text embedding, or prompt information.</p>
 </section>
-<section id="correlation-与-independence" class="level2">
-<h2 class="anchored" data-anchor-id="correlation-与-independence">13. Correlation 与 Independence</h2>
-<p><strong>Definition.</strong> 线性不相关条件：</p>
+<section id="denoising-score-matching" class="level2">
+<h2 class="anchored" data-anchor-id="denoising-score-matching">7. Denoising Score Matching</h2>
+<p><strong>Definition.</strong> A natural learning objective is</p>
 <p><span class="math display">\[
-\operatorname{Cov}(X,Y)=0
+\mathcal L(\theta)
+=
+\mathbb E_{t,\,x\sim p_t}
+\left[
+\left\|s_\theta(x,t)-\nabla_x \log p_t(x)\right\|^2
+\right].
 \]</span></p>
-<p><strong>Definition.</strong> 独立条件：</p>
+<p>The issue is that the target score on the right-hand side is unknown.</p>
+<p><strong>Theory.</strong> For the linear VP forward process, the transition kernel is explicit:</p>
 <p><span class="math display">\[
-f(x,y)=f(x)f(y)
+p_{t|0}(x\mid x_0)
+=
+\mathcal N\!\left(x;\,\alpha_t x_0,\sigma_t^2 I\right),
 \]</span></p>
-<p><strong>Theory.</strong> 互信息刻画广义依赖，满足：</p>
+<p>with</p>
 <p><span class="math display">\[
-I(X;Y)=0
+\alpha_t=\exp\!\left(-\frac{1}{2}\int_0^t \beta(s)\,ds\right),
+\qquad
+\sigma_t^2=1-\alpha_t^2.
 \]</span></p>
-<p>当且仅当独立。</p>
-<p><strong>Result.</strong> 不相关不等于独立。<br>
-典型例子是对称分布下的</p>
+<p>Its score is therefore</p>
 <p><span class="math display">\[
-X\ \text{与}\ X^2
+\nabla_x \log p_{t|0}(x\mid x_0)
+=
+-\frac{x-\alpha_t x_0}{\sigma_t^2}.
 \]</span></p>
-<p>它们可线性不相关，但仍强依赖。</p>
+<p><strong>Theory.</strong> The denoising score matching identity, in the form used by Vincent (2011), says that</p>
+<p><span class="math display">\[
+\mathbb E_{x\sim p_t}
+\left[
+\left\|s_\theta-\nabla_x \log p_t(x)\right\|^2
+\right]
+=
+\mathbb E_{x_0\sim p_{\mathrm{data}},\,x\sim p_{t|0}(\cdot\mid x_0)}
+\left[
+\left\|s_\theta-\nabla_x \log p_{t|0}(x\mid x_0)\right\|^2
+\right]
++
+C_t,
+\]</span></p>
+<p>where <span class="math inline">\(C_t\)</span> is independent of <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>Inference.</strong> After expanding the squared norm, the only nontrivial term is the cross term</p>
+<p><span class="math display">\[
+\int s_\theta(x,t)\cdot \nabla_x \log p_t(x)\,p_t(x)\,dx
+=
+\int s_\theta(x,t)\cdot \nabla_x p_t(x)\,dx.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0,
+\]</span></p>
+<p>this cross term can be rewritten in terms of the known conditional kernel, and the remaining difference does not depend on <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>Result.</strong> DSM replaces an intractable marginal score target by the tractable score of a known Gaussian transition kernel.</p>
 </section>
-<section id="高维近似正交现象-near-orthogonality-in-high-dimensions" class="level2">
-<h2 class="anchored" data-anchor-id="高维近似正交现象-near-orthogonality-in-high-dimensions">14. 高维近似正交现象 (Near Orthogonality in High Dimensions)</h2>
-<p><strong>Theory.</strong> 在高维空间中，随机向量夹角集中在直角附近，出现角度集中现象 (Concentration of Measure)。</p>
-<p><strong>Result.</strong> 随机向量在高维中通常近似正交，这也是高维统计与机器学习中常见的几何基础。</p>
+<section id="from-dsm-to-the-ddpm-noise-objective" class="level2">
+<h2 class="anchored" data-anchor-id="from-dsm-to-the-ddpm-noise-objective">8. From DSM to the DDPM Noise Objective</h2>
+<p><strong>Inference.</strong> Reparameterize the forward sample as</p>
+<p><span class="math display">\[
+x=\alpha_t x_0+\sigma_t \epsilon,
+\qquad
+\epsilon\sim \mathcal N(0,I).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+-\frac{x-\alpha_t x_0}{\sigma_t^2}
+=
+-\frac{\epsilon}{\sigma_t}.
+\]</span></p>
+<p>Substituting this into the DSM target gives</p>
+<p><span class="math display">\[
+\mathcal L(\theta)
+=
+\mathbb E_{t,\,x_0,\,\epsilon}
+\left[
+\left\|
+s_\theta(\alpha_t x_0+\sigma_t \epsilon,t)
++
+\frac{\epsilon}{\sigma_t}
+\right\|^2
+\right].
+\]</span></p>
+<p><strong>Theory.</strong> If we parameterize the score model through a noise predictor,</p>
+<p><span class="math display">\[
+s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
+\]</span></p>
+<p>then the objective becomes the standard DDPM loss of Ho et al.&nbsp;(2020):</p>
+<p><span class="math display">\[
+\mathcal L_{\mathrm{simple}}
+=
+\mathbb E_{t,\,x_0,\,\epsilon}
+\left[
+\left\|
+\epsilon_\theta(\alpha_t x_0+\sigma_t \epsilon,t)-\epsilon
+\right\|^2
+\right].
+\]</span></p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>Reverse SDE sampling needs the score.</li>
+<li>DSM replaces the unknown marginal score by a conditional Gaussian score.</li>
+<li>Reparameterization turns that score target into a noise target.</li>
+<li>DDPM training is therefore a practical implementation of score learning.</li>
+</ul>
+</section>
+<section id="relation-between-langevin-dynamics-and-diffusion-models" class="level2">
+<h2 class="anchored" data-anchor-id="relation-between-langevin-dynamics-and-diffusion-models">9. Relation Between Langevin Dynamics and Diffusion Models</h2>
+<p><strong>Result.</strong></p>
+<ul>
+<li>Langevin dynamics directly uses the score of the target distribution: <span class="math inline">\(\nabla_x \log p(x)=-\nabla \Phi(x)\)</span>.</li>
+<li>A diffusion model learns an entire time-indexed family of scores: <span class="math inline">\(\nabla_x \log p_t(x)\)</span>.</li>
+<li>The forward process continuously Gaussianizes a complicated data distribution.</li>
+<li>The reverse process uses the learned score to pull noise back toward the data manifold.</li>
+<li>In this sense, reverse diffusion is a time-dependent Langevin-like dynamics driven by a learned score field.</li>
+</ul>
+<p>In one sentence: Langevin dynamics answers “how to sample when the score is already known,” while a diffusion model turns the problem into a family of noisy distributions, learns their scores, and then uses a reverse-time SDE to generate samples.</p>
+<p>The full conceptual chain is</p>
+<p><span class="math display">\[
+\text{Langevin SDE}
+\to
+\text{Fokker-Planck}
+\to
+\text{forward Gaussianization}
+\to
+\text{reverse SDE needs score}
+\to
+\text{DSM equivalence}
+\to
+\text{noise prediction}.
+\]</span></p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li>Anderson, B. D. O. (1982). Reverse-time diffusion equation models.</li>
+<li>Vincent, P. (2011). A connection between score matching and denoising autoencoders.</li>
+<li>Ho, J., Jain, A., and Abbeel, P. (2020). Denoising Diffusion Probabilistic Models.</li>
+</ul>
 
 
 </section>
