@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input136df308ee88fce – Sirius Blog</title>
+<title>sgd-momentum-and-potential-dynamics – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -149,7 +149,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#中心极限定理的核心陈述" id="toc-中心极限定理的核心陈述" class="nav-link active" data-scroll-target="#中心极限定理的核心陈述">中心极限定理的核心陈述</a></li>
+  <li><a href="#sgd-momentum-and-potential-dynamics" id="toc-sgd-momentum-and-potential-dynamics" class="nav-link active" data-scroll-target="#sgd-momentum-and-potential-dynamics">SGD, Momentum, and Potential Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#loss-as-a-potential-function" id="toc-loss-as-a-potential-function" class="nav-link" data-scroll-target="#loss-as-a-potential-function">1. Loss as a Potential Function</a></li>
+  <li><a href="#gradient-descent-as-a-discretization-of-gradient-flow" id="toc-gradient-descent-as-a-discretization-of-gradient-flow" class="nav-link" data-scroll-target="#gradient-descent-as-a-discretization-of-gradient-flow">2. Gradient Descent as a Discretization of Gradient Flow</a></li>
+  <li><a href="#interpreting-sgd" id="toc-interpreting-sgd" class="nav-link" data-scroll-target="#interpreting-sgd">3. Interpreting SGD</a></li>
+  <li><a href="#momentum-as-a-second-order-dynamical-system" id="toc-momentum-as-a-second-order-dynamical-system" class="nav-link" data-scroll-target="#momentum-as-a-second-order-dynamical-system">4. Momentum as a Second-Order Dynamical System</a></li>
+  <li><a href="#mechanical-interpretation" id="toc-mechanical-interpretation" class="nav-link" data-scroll-target="#mechanical-interpretation">5. Mechanical Interpretation</a></li>
+  <li><a href="#connection-back-to-optimization" id="toc-connection-back-to-optimization" class="nav-link" data-scroll-target="#connection-back-to-optimization">6. Connection Back to Optimization</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -159,26 +167,133 @@ window.Quarto = {
 
 
 
-<section id="中心极限定理的核心陈述" class="level1">
-<h1>中心极限定理的核心陈述</h1>
+<section id="sgd-momentum-and-potential-dynamics" class="level1">
+<h1>SGD, Momentum, and Potential Dynamics</h1>
 <div class="updated-time">
-Updated: 2026-03-19 11:58 AEDT
+Updated: 2026-03-30 18:08 AEDT
 </div>
-<p>设<span class="math inline">\(X_1,X_2,...,X_n\)</span>是iid的随机变量，均值为<span class="math inline">\(\mu\)</span>，方差为<span class="math inline">\(\sigma ^2\)</span> <span class="math display">\[
-\frac{\bar{X}-\mu}{\sigma / \sqrt{n}}\overset{\text{d}}{\rightarrow}N(0,1)
-\]</span> 本质上是follow Principle of Maximum Entropy</p>
-<p>两个随机变量的特征函数相同的话，分布也相同</p>
-<p>四大变体</p>
-<ol type="1">
-<li>林德伯格勒维
+<p>Tag legend: <code>Definition</code> marks a definition, <code>Theory</code> marks an equation or principle, <code>Inference</code> marks a derivation step, and <code>Result</code> marks a conclusion or modeling takeaway.</p>
+<section id="loss-as-a-potential-function" class="level2">
+<h2 class="anchored" data-anchor-id="loss-as-a-potential-function">1. Loss as a Potential Function</h2>
+<p><strong>Definition.</strong> Let the objective function be <code>f(x)</code>. In optimization, it is often useful to interpret <code>f</code> as a potential energy landscape.</p>
+<p><strong>Theory.</strong> Under this interpretation, the force induced by the landscape is</p>
+<p><span class="math display">\[
+F(x)=-\nabla f(x).
+\]</span></p>
+<p><strong>Inference.</strong> A point <code>x</code> tends to move toward lower-potential regions, so optimization can be viewed as the motion of a particle descending an energy surface.</p>
+<p><strong>Result.</strong> Minimizing the loss is equivalent to driving the system toward low-potential states.</p>
+</section>
+<section id="gradient-descent-as-a-discretization-of-gradient-flow" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-descent-as-a-discretization-of-gradient-flow">2. Gradient Descent as a Discretization of Gradient Flow</h2>
+<p><strong>Theory.</strong> The basic gradient descent update is</p>
+<p><span class="math display">\[
+x_{k+1}=x_k-\eta \nabla f(x_k).
+\]</span></p>
+<p><strong>Inference.</strong> Let <code>x_k=x(t_k)</code> and choose the time step</p>
+<p><span class="math display">\[
+t_{k+1}-t_k=\eta.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{x_{k+1}-x_k}{\eta}=-\nabla f(x_k).
+\]</span></p>
+<p>As <code>\eta \to 0</code>, the difference quotient converges to a time derivative, giving the continuous-time limit</p>
+<p><span class="math display">\[
+\dot x(t)=-\nabla f(x(t)).
+\]</span></p>
+<p><strong>Result.</strong> Gradient descent is the forward Euler discretization of gradient flow on the potential <code>f</code>.</p>
+</section>
+<section id="interpreting-sgd" class="level2">
+<h2 class="anchored" data-anchor-id="interpreting-sgd">3. Interpreting SGD</h2>
+<p><strong>Definition.</strong> In stochastic gradient descent, the exact gradient is replaced by a minibatch estimate:</p>
+<p><span class="math display">\[
+x_{k+1}=x_k-\eta g_k,
+\qquad
+\mathbb E[g_k\mid x_k]=\nabla f(x_k).
+\]</span></p>
+<p><strong>Inference.</strong> The deterministic part is still the same downhill drift <code>-\nabla f(x)</code>, while the sampling error introduces noise around that drift.</p>
+<p><strong>Result.</strong> SGD can be viewed as gradient flow plus randomness. If the noise is small or averaged out, the leading-order behavior is still controlled by the potential landscape <code>f</code>.</p>
+</section>
+<section id="momentum-as-a-second-order-dynamical-system" class="level2">
+<h2 class="anchored" data-anchor-id="momentum-as-a-second-order-dynamical-system">4. Momentum as a Second-Order Dynamical System</h2>
+<p><strong>Definition.</strong> A standard momentum update is</p>
+<p><span class="math display">\[
+v_{k+1}=\beta v_k-\gamma \nabla f(x_k),
+\qquad
+x_{k+1}=x_k+v_{k+1},
+\]</span></p>
+<p>where <code>v_k</code> is the velocity-like auxiliary variable.</p>
+<p><strong>Inference.</strong> From the position update,</p>
+<p><span class="math display">\[
+v_k=x_k-x_{k-1}.
+\]</span></p>
+<p>Substituting this into the velocity recursion gives</p>
+<p><span class="math display">\[
+x_{k+1}-x_k=\beta(x_k-x_{k-1})-\gamma \nabla f(x_k).
+\]</span></p>
+<p>Rearranging,</p>
+<p><span class="math display">\[
+x_{k+1}-2x_k+x_{k-1}
++
+(1-\beta)(x_k-x_{k-1})
+=
+-\gamma \nabla f(x_k).
+\]</span></p>
+<p>Now divide by <code>(\Delta t)^2</code>:</p>
+<p><span class="math display">\[
+\frac{x_{k+1}-2x_k+x_{k-1}}{(\Delta t)^2}
++
+\frac{1-\beta}{\Delta t}\cdot \frac{x_k-x_{k-1}}{\Delta t}
+=
+-\frac{\gamma}{(\Delta t)^2}\nabla f(x_k).
+\]</span></p>
+<p>If we take the continuum scaling</p>
+<p><span class="math display">\[
+\frac{1-\beta}{\Delta t}\to r,
+\qquad
+\frac{\gamma}{(\Delta t)^2}\to 1,
+\]</span></p>
+<p>then as <code>\Delta t\to 0</code> we obtain</p>
+<p><span class="math display">\[
+\ddot x(t)+r\dot x(t)+\nabla f(x(t))=0.
+\]</span></p>
+<p><strong>Result.</strong> Momentum corresponds to a damped second-order system: inertia comes from <code>\ddot x</code>, friction comes from <code>r\dot x</code>, and the restoring force comes from the potential gradient <code>\nabla f</code>.</p>
+</section>
+<section id="mechanical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="mechanical-interpretation">5. Mechanical Interpretation</h2>
+<p><strong>Definition.</strong> Define the total energy</p>
+<p><span class="math display">\[
+E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
+\]</span></p>
+<p><strong>Inference.</strong> Differentiate along the momentum ODE:</p>
+<p><span class="math display">\[
+\frac{dE}{dt}
+=
+\dot x^\top \ddot x+\nabla f(x)^\top \dot x.
+\]</span></p>
+<p>Using</p>
+<p><span class="math display">\[
+\ddot x+r\dot x+\nabla f(x)=0,
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\frac{dE}{dt}=-r\|\dot x(t)\|^2\le 0.
+\]</span></p>
+<p><strong>Result.</strong> Momentum does not simply move downhill point by point. It carries kinetic energy, overshoots when necessary, and gradually dissipates energy through damping until the system settles near a minimizer.</p>
+</section>
+<section id="connection-back-to-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="connection-back-to-optimization">6. Connection Back to Optimization</h2>
+<p><strong>Result.</strong></p>
 <ul>
-<li>iid，有限方差</li>
-</ul></li>
-</ol>
-<p>统计推断</p>
-<p>概率论<span class="math inline">\(\overset{CLT}{\longleftrightarrows}\)</span>统计推断</p>
+<li>Gradient descent is a first-order descent law on the potential landscape.</li>
+<li>SGD adds stochastic perturbations to that first-order law.</li>
+<li>Momentum upgrades the dynamics to a second-order system with inertia and damping.</li>
+<li>This perspective explains why momentum can cross shallow valleys faster while still being stabilized by friction.</li>
+</ul>
+<p>In short, optimization algorithms can be interpreted as discretizations of continuous dynamical systems, and the loss function plays the role of a potential energy surface.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

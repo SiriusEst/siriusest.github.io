@@ -172,7 +172,7 @@ window.Quarto = {
 <section id="analytical-mechanics-lagrangian-and-hamiltonian-systems" class="level1">
 <h1>Analytical Mechanics: Lagrangian and Hamiltonian Systems</h1>
 <div class="updated-time">
-Updated: 2026-03-30 18:02 AEDT
+Updated: 2026-03-30 18:11 AEDT
 </div>
 <p>Tag legend: <code>Definition</code> marks a definition, <code>Theory</code> marks an equation or principle, <code>Inference</code> marks a derivation step, and <code>Result</code> marks a conclusion or application takeaway.</p>
 <section id="generalized-coordinates-and-the-lagrangian" class="level2">
@@ -257,22 +257,38 @@ H(q,p,t)=\sum_i p_i\dot q_i-L(q,\dot q,t)
 <p><span class="math display">\[
 H=T+V
 \]</span></p>
-<p><strong>Result.</strong> The Hamiltonian can often be interpreted as the total energy. It rewrites the system as a first-order dynamical system in position and momentum.</p>
+<p><strong>Result.</strong> The Hamiltonian can often be interpreted as the total energy. It rewrites the system as a first-order dynamical system in position and momentum, with the Legendre transform providing the bridge from the Lagrangian variables <code>(q,\dot q)</code> to the phase-space variables <code>(q,p)</code>.</p>
 </section>
 <section id="hamiltons-equations" class="level2">
 <h2 class="anchored" data-anchor-id="hamiltons-equations">6. Hamilton’s Equations</h2>
-<p><strong>Theory.</strong> Differentiate the Hamiltonian:</p>
+<p><strong>Theory.</strong> Start from the defining relation</p>
+<p><span class="math display">\[
+H(q,p)=p\dot q-L(q,\dot q)
+\]</span></p>
+<p>and differentiate it:</p>
 <p><span class="math display">\[
 dH=d(p\dot q)-dL
 \]</span></p>
-<p>Using</p>
+<p>Using the product rule,</p>
 <p><span class="math display">\[
-dL=\frac{\partial L}{\partial q}\,dq+\frac{\partial L}{\partial \dot q}\,d\dot q
-=\dot p\,dq+p\,d\dot q
+d(p\dot q)=p\,d\dot q+\dot q\,dp
 \]</span></p>
-<p>we obtain:</p>
+<p>and</p>
 <p><span class="math display">\[
-dH=\dot q\,dp-\dot p\,dq
+dL=\frac{\partial L}{\partial q}\,dq+\frac{\partial L}{\partial \dot q}\,d\dot q,
+\qquad
+p=\frac{\partial L}{\partial \dot q},
+\qquad
+\dot p=\frac{\partial L}{\partial q},
+\]</span></p>
+<p>we get</p>
+<p><span class="math display">\[
+\begin{aligned}
+dH
+&amp;=p\,d\dot q+\dot q\,dp-\frac{\partial L}{\partial q}\,dq-\frac{\partial L}{\partial \dot q}\,d\dot q \\
+&amp;=\left(p-\frac{\partial L}{\partial \dot q}\right)d\dot q+\dot q\,dp-\frac{\partial L}{\partial q}\,dq \\
+&amp;=\dot q\,dp-\dot p\,dq.
+\end{aligned}
 \]</span></p>
 <p><strong>Inference.</strong> On the other hand, as a function of <code>(q,p)</code>,</p>
 <p><span class="math display">\[
@@ -284,7 +300,7 @@ dH=\frac{\partial H}{\partial q}\,dq+\frac{\partial H}{\partial p}\,dp
 \qquad
 \dot p=-\frac{\partial H}{\partial q}
 \]</span></p>
-<p><strong>Result.</strong> The second-order Euler-Lagrange dynamics is split into a pair of first-order equations. This is the standard starting point for phase-space analysis, conservation laws, and numerical integration.</p>
+<p><strong>Result.</strong> The second-order Euler-Lagrange dynamics is split into a pair of first-order equations. This derivation also shows that, after the Legendre transform from <code>(q,\dot q)</code> to <code>(q,p)</code>, Hamilton’s equations are equivalent to the Euler-Lagrange equation. This is the standard starting point for phase-space analysis, conservation laws, and numerical integration.</p>
 </section>
 <section id="symplectic-structure-and-liouvilles-theorem" class="level2">
 <h2 class="anchored" data-anchor-id="symplectic-structure-and-liouvilles-theorem">7. Symplectic Structure and Liouville’s Theorem</h2>
