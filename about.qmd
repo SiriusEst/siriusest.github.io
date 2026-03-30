@@ -2,4 +2,6 @@
 title: "About"
 ---
 
+<div class="updated-time">Updated: 2026-03-11 21:24 AEDT</div>
+
 I am a researcher at UNSW working on IoT systems and intelligent sensing.

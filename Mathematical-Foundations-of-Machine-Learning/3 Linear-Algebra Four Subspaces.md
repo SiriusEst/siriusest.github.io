@@ -1,5 +1,7 @@
 # 线性代数：四个基本子空间 (Four Fundamental Subspaces)
 
+<div class="updated-time">Updated: 2026-03-19 11:35 AEDT</div>
+
 标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或应用结论。
 
 ## 1. 问题设定 (Problem Setup)

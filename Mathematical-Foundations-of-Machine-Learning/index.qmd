@@ -2,9 +2,13 @@
 title: "Mathematical Foundations of Machine Learning"
 ---
 
+<div class="updated-time">Updated: 2026-03-30 17:59 AEDT</div>
+
 This section collects notes on the mathematical foundations used in machine learning.
-标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或应用结论。
+Tag legend: `Definition` marks a definition, `Theory` marks a theorem or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or application takeaway.
 
 - [Orthogonality](1%20Orthogonality.md)
 - [Nonlinear Dynamics](2%20Nonlinear%20Dynmaics.md)
 - [Four Fundamental Subspaces](3%20Linear-Algebra%20Four%20Subspaces.md)
+- [Langevin Dynamics and Diffusion Model](4%20Langevin%20Dynamics%20and%20Diffusion%20Model.md)
+- [Analytical Mechanics: Lagrangian and Hamiltonian Systems](5%20Lagrangian%20and%20Hamiltonian%20Mechanics.md)

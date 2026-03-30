@@ -1,5 +1,7 @@
 # 非线性动力学 (Nonlinear Dynamics)
 
+<div class="updated-time">Updated: 2026-03-17 18:56 AEDT</div>
+
 标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或判别结论。
 
 ## 1. 一维自治系统与相线 (One-dimensional Autonomous System & Phase Line)
