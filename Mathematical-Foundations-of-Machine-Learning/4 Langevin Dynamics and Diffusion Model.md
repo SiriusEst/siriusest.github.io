@@ -1,12 +1,12 @@
-# Langevin Dynamics and Diffusion Model
+# Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model)
 
-<div class="updated-time">Updated: 2026-03-30 17:59 AEDT</div>
+<div class="updated-time">Updated: 2026-03-31 12:00 AEDT</div>
 
-Tag legend: `Definition` marks a definition, `Theory` marks an equation or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or modeling takeaway.
+标签约定：`Definition` 表示定义，`Theory` 表示理论/定理，`Inference` 仅表示推导步骤，`Result` 表示结论或应用结论。
 
-## 1. Langevin Dynamics
+## 1. Langevin 动力学 (Langevin Dynamics)
 
-**Definition.** Continuous-time Langevin dynamics can be written as:
+**Definition.** 连续时间 Langevin 动力学写为：
 
 
 $$
@@ -14,9 +14,9 @@ dX_t=-\nabla \Phi(X_t)\,dt+\sqrt{2}\,dW_t
 $$
 
 
-Here $\Phi(x)$ is the potential function and $W_t$ is standard Brownian motion.
+其中 $\Phi(x)$ 是势函数 (Potential Function)，$W_t$ 是标准布朗运动 (Standard Brownian Motion)。
 
-**Inference.** If the target distribution is written as
+**Inference.** 若目标分布写为
 
 
 $$
@@ -26,19 +26,19 @@ p_*(x)\propto e^{-\Phi(x)},
 $$
 
 
-then the drift term $-\nabla \Phi$ pushes particles toward lower-potential regions, while the noise term $\sqrt{2}\,dW_t$ keeps injecting random exploration.
+则漂移项 $-\nabla \Phi$ 将粒子推向低势能区域，噪声项 $\sqrt{2}\,dW_t$ 持续注入随机探索。
 
 **Result.**
 
-- The drift term corresponds to moving downhill on an energy landscape.
-- The diffusion term prevents the particles from collapsing too early into a local region.
-- At equilibrium, the stationary distribution of the process is exactly the target distribution $p_*$.
+- 漂移项对应在能量地形上向下移动。
+- 扩散项防止粒子过早塌缩到局部区域。
+- 在平衡态下，过程的稳态分布恰好是目标分布 $p_*$。
 
-In machine learning, $\Phi$ is often viewed as an energy / loss landscape.
+在机器学习中，$\Phi$ 通常被视为能量/损失地形 (Energy / Loss Landscape)。
 
-## 2. Fokker-Planck Equation and Probability Current
+## 2. Fokker-Planck 方程与概率流 (Fokker-Planck Equation and Probability Current)
 
-**Theory.** The density evolution of the SDE above satisfies
+**Theory.** 上述 SDE 的密度演化满足
 
 
 $$
@@ -48,7 +48,7 @@ $$
 $$
 
 
-**Definition.** Define the probability current
+**Definition.** 定义概率流 (Probability Current)
 
 
 $$
@@ -56,7 +56,7 @@ J_t(x)=-p_t(x)\nabla \Phi(x)-\nabla p_t(x),
 $$
 
 
-Then the continuity equation becomes
+则连续性方程变为
 
 
 $$
@@ -64,7 +64,7 @@ $$
 $$
 
 
-**Inference.** At equilibrium we have $\partial_t p_t=0$. If we additionally impose the zero-flux condition $J_t=0$, then
+**Inference.** 在平衡态下 $\partial_t p_t=0$。若进一步施加零通量条件 $J_t=0$，则
 
 
 $$
@@ -72,7 +72,7 @@ $$
 $$
 
 
-which is equivalent to
+等价于
 
 
 $$
@@ -80,7 +80,7 @@ $$
 $$
 
 
-Integrating this identity gives
+对该恒等式积分得到
 
 
 $$
@@ -88,11 +88,11 @@ p_*(x)\propto e^{-\Phi(x)}.
 $$
 
 
-**Result.** This shows that Langevin dynamics is not arbitrary noise injection. It recovers the target distribution through the balance between drift and diffusion.
+**Result.** 这表明 Langevin 动力学并非任意噪声注入，而是通过漂移与扩散的平衡恢复目标分布。
 
-## 3. From Itô's Formula to the General Fokker-Planck Equation
+## 3. 从 Itô 公式到一般 Fokker-Planck 方程 (From Itô's Formula to the General Fokker-Planck Equation)
 
-**Definition.** More generally, consider the isotropic Itô process
+**Definition.** 更一般地，考虑各向同性 Itô 过程
 
 
 $$
@@ -100,7 +100,7 @@ dX_t=f(X_t,t)\,dt+g(t)\,dW_t.
 $$
 
 
-**Theory.** For any smooth test function $\varphi$, Itô's formula gives
+**Theory.** 对任意光滑测试函数 $\varphi$，Itô 公式给出
 
 
 $$
@@ -114,7 +114,7 @@ d\varphi(X_t)
 $$
 
 
-The quadratic variation identities are
+二次变差恒等式为
 
 
 $$
@@ -124,7 +124,7 @@ $$
 $$
 
 
-**Inference.** Taking expectation removes the stochastic term. Then integration by parts moves the derivatives onto the density $p_t$, which yields
+**Inference.** 取期望消除随机项，再通过分部积分将导数转移到密度 $p_t$ 上，得到
 
 
 $$
@@ -136,7 +136,7 @@ $$
 $$
 
 
-**Result.** Langevin dynamics is just a special case of this general form, with
+**Result.** Langevin 动力学是上述一般形式的特例，取
 
 
 $$
@@ -146,9 +146,9 @@ g=\sqrt{2}.
 $$
 
 
-## 4. Forward Diffusion as an OU / VP Process
+## 4. 前向扩散：OU / VP 过程 (Forward Diffusion as an OU / VP Process)
 
-**Definition.** In diffusion models, a standard continuous-time forward process is
+**Definition.** 在扩散模型中，标准连续时间前向过程为
 
 
 $$
@@ -156,7 +156,7 @@ dX_t=-\frac{1}{2}\beta(t)X_t\,dt+\sqrt{\beta(t)}\,dW_t.
 $$
 
 
-This is a time-inhomogeneous Ornstein-Uhlenbeck / variance-preserving (VP) process, corresponding to
+这是时间非齐次 Ornstein-Uhlenbeck / 方差保持 (VP) 过程，对应
 
 
 $$
@@ -166,7 +166,7 @@ g(t)=\sqrt{\beta(t)}.
 $$
 
 
-**Theory.** Substituting it into the general Fokker-Planck equation gives
+**Theory.** 代入一般 Fokker-Planck 方程得到
 
 
 $$
@@ -179,7 +179,7 @@ $$
 $$
 
 
-**Inference.** If $p_t=\mathcal N(0,I)$, then
+**Inference.** 若 $p_t=\mathcal N(0,I)$，则
 
 
 $$
@@ -187,7 +187,7 @@ $$
 $$
 
 
-and
+以及
 
 
 $$
@@ -195,16 +195,16 @@ $$
 $$
 
 
-Plugging these back in makes the right-hand side vanish, so the standard Gaussian is the equilibrium distribution of the process.
+回代后右端恰好为零，因此标准高斯分布是该过程的平衡分布。
 
 **Result.**
 
-- As time increases, the data distribution is gradually pushed toward $\mathcal N(0,I)$.
-- This is the essence of forward diffusion: progressively destroying structure until the distribution becomes close to pure noise.
+- 随着时间增加，数据分布逐渐被推向 $\mathcal N(0,I)$。
+- 这就是前向扩散的本质：逐步破坏结构，直到分布接近纯噪声。
 
-## 5. Reverse-Time SDE
+## 5. 反向时间 SDE (Reverse-Time SDE)
 
-**Theory.** A classical result due to Anderson (1982) says that if the forward process is
+**Theory.** Anderson (1982) 的经典结果指出，若前向过程为
 
 
 $$
@@ -212,7 +212,7 @@ dX_t=f(X_t,t)\,dt+g(t)\,dW_t,
 $$
 
 
-then the time-reversed process, written in the convention used in these notes where we integrate from $T$ back to $0$, is also an SDE:
+则反向时间过程（按从 $T$ 回到 $0$ 的约定）也是一个 SDE：
 
 
 $$
@@ -223,9 +223,9 @@ g(t)\,d\bar W_t.
 $$
 
 
-Here $\bar W_t$ is reverse Brownian motion. Under the more standard reverse-time convention the same statement appears with an equivalent sign change.
+其中 $\bar W_t$ 是反向布朗运动 (Reverse Brownian Motion)。
 
-**Inference.** For the VP forward SDE,
+**Inference.** 对 VP 前向 SDE，
 
 
 $$
@@ -235,7 +235,7 @@ g(t)=\sqrt{\beta(t)},
 $$
 
 
-so the reverse process becomes
+反向过程变为
 
 
 $$
@@ -252,12 +252,12 @@ $$
 
 **Result.**
 
-- If we initialize $X_T\sim \mathcal N(0,I)$ and integrate this SDE backward to $t=0$, the endpoint is a data sample.
-- The reverse drift is the forward drift corrected by a score term.
+- 若从 $X_T\sim \mathcal N(0,I)$ 出发，将此 SDE 反向积分到 $t=0$，终点即为数据样本。
+- 反向漂移是前向漂移加上一个 Score 修正项。
 
-## 6. Why the Score Is Unknown
+## 6. 为什么 Score 是未知的 (Why the Score Is Unknown)
 
-**Definition.** The hard quantity in the reverse SDE is the score
+**Definition.** 反向 SDE 中的关键量是 Score
 
 
 $$
@@ -265,7 +265,7 @@ $$
 $$
 
 
-The marginal density $p_t(x)$ is what you get after evolving the data distribution $p_0=p_{\mathrm{data}}$ forward to time $t$:
+边际密度 $p_t(x)$ 是将数据分布 $p_0=p_{\mathrm{data}}$ 前向演化到时间 $t$ 后的结果：
 
 
 $$
@@ -275,11 +275,11 @@ $$
 
 **Result.**
 
-- We do not know $p_{\mathrm{data}}$ analytically.
-- Therefore we do not know $p_t$ analytically either.
-- Hence the true score $\nabla_x \log p_t(x)$ cannot be computed directly.
+- 我们不知道 $p_{\mathrm{data}}$ 的解析形式。
+- 因此也不知道 $p_t$ 的解析形式。
+- 从而真实 Score $\nabla_x \log p_t(x)$ 无法直接计算。
 
-So we train a neural network
+所以我们训练一个神经网络
 
 
 $$
@@ -287,11 +287,11 @@ s_\theta(x,t)\approx \nabla_x \log p_t(x).
 $$
 
 
-In conditional generation, the same idea becomes a conditional score such as $\nabla_x \log p_t(x\mid c)$, where $c$ can be a class label, a text embedding, or prompt information.
+在条件生成中，同样的思想变为条件 Score，如 $\nabla_x \log p_t(x\mid c)$，其中 $c$ 可以是类别标签、文本嵌入或 Prompt 信息。
 
-## 7. Denoising Score Matching
+## 7. 去噪 Score Matching (Denoising Score Matching)
 
-**Definition.** A natural learning objective is
+**Definition.** 自然的学习目标为
 
 
 $$
@@ -304,9 +304,9 @@ $$
 $$
 
 
-The issue is that the target score on the right-hand side is unknown.
+问题在于右端的目标 Score 是未知的。
 
-**Theory.** For the linear VP forward process, the transition kernel is explicit:
+**Theory.** 对线性 VP 前向过程，转移核 (Transition Kernel) 是显式的：
 
 
 $$
@@ -316,7 +316,7 @@ p_{t|0}(x\mid x_0)
 $$
 
 
-with
+其中
 
 
 $$
@@ -326,7 +326,7 @@ $$
 $$
 
 
-Its score is therefore
+其 Score 因此为
 
 
 $$
@@ -336,7 +336,7 @@ $$
 $$
 
 
-**Theory.** The denoising score matching identity, in the form used by Vincent (2011), says that
+**Theory.** 去噪 Score Matching 恒等式 (Vincent, 2011) 表明
 
 
 $$
@@ -354,9 +354,9 @@ C_t,
 $$
 
 
-where $C_t$ is independent of $\theta$.
+其中 $C_t$ 与 $\theta$ 无关。
 
-**Inference.** After expanding the squared norm, the only nontrivial term is the cross term
+**Inference.** 展开平方范数后，唯一非平凡的项是交叉项
 
 
 $$
@@ -366,7 +366,7 @@ $$
 $$
 
 
-Using
+利用
 
 
 $$
@@ -374,13 +374,13 @@ p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0,
 $$
 
 
-this cross term can be rewritten in terms of the known conditional kernel, and the remaining difference does not depend on $\theta$.
+该交叉项可用已知条件核改写，余项不依赖 $\theta$。
 
-**Result.** DSM replaces an intractable marginal score target by the tractable score of a known Gaussian transition kernel.
+**Result.** DSM 将不可求的边际 Score 目标替换为可求的已知高斯转移核的 Score。
 
-## 8. From DSM to the DDPM Noise Objective
+## 8. 从 DSM 到 DDPM 噪声目标 (From DSM to the DDPM Noise Objective)
 
-**Inference.** Reparameterize the forward sample as
+**Inference.** 对前向样本做重参数化
 
 
 $$
@@ -390,7 +390,7 @@ x=\alpha_t x_0+\sigma_t \epsilon,
 $$
 
 
-Then
+则
 
 
 $$
@@ -400,7 +400,7 @@ $$
 $$
 
 
-Substituting this into the DSM target gives
+代入 DSM 目标得到
 
 
 $$
@@ -417,7 +417,7 @@ s_\theta(\alpha_t x_0+\sigma_t \epsilon,t)
 $$
 
 
-**Theory.** If we parameterize the score model through a noise predictor,
+**Theory.** 若通过噪声预测器参数化 Score 模型，
 
 
 $$
@@ -425,7 +425,7 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 $$
 
 
-then the objective becomes the standard DDPM loss of Ho et al. (2020):
+则目标变为 Ho et al. (2020) 的标准 DDPM 损失：
 
 
 $$
@@ -442,24 +442,24 @@ $$
 
 **Result.**
 
-- Reverse SDE sampling needs the score.
-- DSM replaces the unknown marginal score by a conditional Gaussian score.
-- Reparameterization turns that score target into a noise target.
-- DDPM training is therefore a practical implementation of score learning.
+- 反向 SDE 采样需要 Score。
+- DSM 用条件高斯 Score 替换未知的边际 Score。
+- 重参数化将 Score 目标转换为噪声目标。
+- DDPM 训练因此是 Score 学习的一种实际实现。
 
-## 9. Relation Between Langevin Dynamics and Diffusion Models
+## 9. Langevin 动力学与扩散模型的关系 (Relation Between Langevin Dynamics and Diffusion Models)
 
 **Result.**
 
-- Langevin dynamics directly uses the score of the target distribution: $\nabla_x \log p(x)=-\nabla \Phi(x)$.
-- A diffusion model learns an entire time-indexed family of scores: $\nabla_x \log p_t(x)$.
-- The forward process continuously Gaussianizes a complicated data distribution.
-- The reverse process uses the learned score to pull noise back toward the data manifold.
-- In this sense, reverse diffusion is a time-dependent Langevin-like dynamics driven by a learned score field.
+- Langevin 动力学直接使用目标分布的 Score：$\nabla_x \log p(x)=-\nabla \Phi(x)$。
+- 扩散模型学习一整族时间索引的 Score：$\nabla_x \log p_t(x)$。
+- 前向过程将复杂数据分布逐步高斯化。
+- 反向过程利用学到的 Score 将噪声拉回数据流形。
+- 从这个意义上说，反向扩散是一种由学习到的 Score 场驱动的、时间依赖的 Langevin 式动力学。
 
-In one sentence: Langevin dynamics answers "how to sample when the score is already known," while a diffusion model turns the problem into a family of noisy distributions, learns their scores, and then uses a reverse-time SDE to generate samples.
+一句话总结：Langevin 动力学回答"当 Score 已知时如何采样"，而扩散模型将问题转化为一族带噪分布，学习它们的 Score，然后利用反向时间 SDE 生成样本。
 
-The full conceptual chain is
+完整概念链为
 
 
 $$
@@ -467,16 +467,16 @@ $$
 \to
 \text{Fokker-Planck}
 \to
-\text{forward Gaussianization}
+\text{前向高斯化}
 \to
-\text{reverse SDE needs score}
+\text{反向 SDE 需要 Score}
 \to
-\text{DSM equivalence}
+\text{DSM 等价}
 \to
-\text{noise prediction}.
+\text{噪声预测}.
 $$
 
-## References
+## 参考文献 (References)
 
 - Anderson, B. D. O. (1982). Reverse-time diffusion equation models.
 - Vincent, P. (2011). A connection between score matching and denoising autoencoders.
