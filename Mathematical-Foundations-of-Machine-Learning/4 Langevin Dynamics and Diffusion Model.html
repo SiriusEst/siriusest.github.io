@@ -149,18 +149,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#langevin-dynamics-and-diffusion-model" id="toc-langevin-dynamics-and-diffusion-model" class="nav-link active" data-scroll-target="#langevin-dynamics-and-diffusion-model">Langevin Dynamics and Diffusion Model</a>
+  <li><a href="#langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" id="toc-langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" class="nav-link active" data-scroll-target="#langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model">Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model)</a>
   <ul class="collapse">
-  <li><a href="#langevin-dynamics" id="toc-langevin-dynamics" class="nav-link" data-scroll-target="#langevin-dynamics">1. Langevin Dynamics</a></li>
-  <li><a href="#fokker-planck-equation-and-probability-current" id="toc-fokker-planck-equation-and-probability-current" class="nav-link" data-scroll-target="#fokker-planck-equation-and-probability-current">2. Fokker-Planck Equation and Probability Current</a></li>
-  <li><a href="#from-itôs-formula-to-the-general-fokker-planck-equation" id="toc-from-itôs-formula-to-the-general-fokker-planck-equation" class="nav-link" data-scroll-target="#from-itôs-formula-to-the-general-fokker-planck-equation">3. From Itô’s Formula to the General Fokker-Planck Equation</a></li>
-  <li><a href="#forward-diffusion-as-an-ou-vp-process" id="toc-forward-diffusion-as-an-ou-vp-process" class="nav-link" data-scroll-target="#forward-diffusion-as-an-ou-vp-process">4. Forward Diffusion as an OU / VP Process</a></li>
-  <li><a href="#reverse-time-sde" id="toc-reverse-time-sde" class="nav-link" data-scroll-target="#reverse-time-sde">5. Reverse-Time SDE</a></li>
-  <li><a href="#why-the-score-is-unknown" id="toc-why-the-score-is-unknown" class="nav-link" data-scroll-target="#why-the-score-is-unknown">6. Why the Score Is Unknown</a></li>
-  <li><a href="#denoising-score-matching" id="toc-denoising-score-matching" class="nav-link" data-scroll-target="#denoising-score-matching">7. Denoising Score Matching</a></li>
-  <li><a href="#from-dsm-to-the-ddpm-noise-objective" id="toc-from-dsm-to-the-ddpm-noise-objective" class="nav-link" data-scroll-target="#from-dsm-to-the-ddpm-noise-objective">8. From DSM to the DDPM Noise Objective</a></li>
-  <li><a href="#relation-between-langevin-dynamics-and-diffusion-models" id="toc-relation-between-langevin-dynamics-and-diffusion-models" class="nav-link" data-scroll-target="#relation-between-langevin-dynamics-and-diffusion-models">9. Relation Between Langevin Dynamics and Diffusion Models</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#langevin-动力学-langevin-dynamics" id="toc-langevin-动力学-langevin-dynamics" class="nav-link" data-scroll-target="#langevin-动力学-langevin-dynamics">1. Langevin 动力学 (Langevin Dynamics)</a></li>
+  <li><a href="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" id="toc-fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="nav-link" data-scroll-target="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current">2. Fokker-Planck 方程与概率流 (Fokker-Planck Equation and Probability Current)</a></li>
+  <li><a href="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" id="toc-从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="nav-link" data-scroll-target="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation">3. 从 Itô 公式到一般 Fokker-Planck 方程 (From Itô’s Formula to the General Fokker-Planck Equation)</a></li>
+  <li><a href="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" id="toc-前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="nav-link" data-scroll-target="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process">4. 前向扩散：OU / VP 过程 (Forward Diffusion as an OU / VP Process)</a></li>
+  <li><a href="#反向时间-sde-reverse-time-sde" id="toc-反向时间-sde-reverse-time-sde" class="nav-link" data-scroll-target="#反向时间-sde-reverse-time-sde">5. 反向时间 SDE (Reverse-Time SDE)</a></li>
+  <li><a href="#为什么-score-是未知的-why-the-score-is-unknown" id="toc-为什么-score-是未知的-why-the-score-is-unknown" class="nav-link" data-scroll-target="#为什么-score-是未知的-why-the-score-is-unknown">6. 为什么 Score 是未知的 (Why the Score Is Unknown)</a></li>
+  <li><a href="#去噪-score-matching-denoising-score-matching" id="toc-去噪-score-matching-denoising-score-matching" class="nav-link" data-scroll-target="#去噪-score-matching-denoising-score-matching">7. 去噪 Score Matching (Denoising Score Matching)</a></li>
+  <li><a href="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" id="toc-从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="nav-link" data-scroll-target="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective">8. 从 DSM 到 DDPM 噪声目标 (From DSM to the DDPM Noise Objective)</a></li>
+  <li><a href="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" id="toc-langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="nav-link" data-scroll-target="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models">9. Langevin 动力学与扩散模型的关系 (Relation Between Langevin Dynamics and Diffusion Models)</a></li>
+  <li><a href="#参考文献-references" id="toc-参考文献-references" class="nav-link" data-scroll-target="#参考文献-references">参考文献 (References)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,71 +171,71 @@ window.Quarto = {
 
 
 
-<section id="langevin-dynamics-and-diffusion-model" class="level1">
-<h1>Langevin Dynamics and Diffusion Model</h1>
+<section id="langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" class="level1">
+<h1>Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model)</h1>
 <div class="updated-time">
-Updated: 2026-03-30 17:59 AEDT
+Updated: 2026-03-31 12:00 AEDT
 </div>
-<p>Tag legend: <code>Definition</code> marks a definition, <code>Theory</code> marks an equation or principle, <code>Inference</code> marks a derivation step, and <code>Result</code> marks a conclusion or modeling takeaway.</p>
-<section id="langevin-dynamics" class="level2">
-<h2 class="anchored" data-anchor-id="langevin-dynamics">1. Langevin Dynamics</h2>
-<p><strong>Definition.</strong> Continuous-time Langevin dynamics can be written as:</p>
+<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
+<section id="langevin-动力学-langevin-dynamics" class="level2">
+<h2 class="anchored" data-anchor-id="langevin-动力学-langevin-dynamics">1. Langevin 动力学 (Langevin Dynamics)</h2>
+<p><strong>Definition.</strong> 连续时间 Langevin 动力学写为：</p>
 <p><span class="math display">\[
 dX_t=-\nabla \Phi(X_t)\,dt+\sqrt{2}\,dW_t
 \]</span></p>
-<p>Here <span class="math inline">\(\Phi(x)\)</span> is the potential function and <span class="math inline">\(W_t\)</span> is standard Brownian motion.</p>
-<p><strong>Inference.</strong> If the target distribution is written as</p>
+<p>其中 <span class="math inline">\(\Phi(x)\)</span> 是势函数 (Potential Function)，<span class="math inline">\(W_t\)</span> 是标准布朗运动 (Standard Brownian Motion)。</p>
+<p><strong>Inference.</strong> 若目标分布写为</p>
 <p><span class="math display">\[
 p_*(x)\propto e^{-\Phi(x)},
 \qquad
 \Phi(x)=-\log p_*(x)+C,
 \]</span></p>
-<p>then the drift term <span class="math inline">\(-\nabla \Phi\)</span> pushes particles toward lower-potential regions, while the noise term <span class="math inline">\(\sqrt{2}\,dW_t\)</span> keeps injecting random exploration.</p>
+<p>则漂移项 <span class="math inline">\(-\nabla \Phi\)</span> 将粒子推向低势能区域，噪声项 <span class="math inline">\(\sqrt{2}\,dW_t\)</span> 持续注入随机探索。</p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>The drift term corresponds to moving downhill on an energy landscape.</li>
-<li>The diffusion term prevents the particles from collapsing too early into a local region.</li>
-<li>At equilibrium, the stationary distribution of the process is exactly the target distribution <span class="math inline">\(p_*\)</span>.</li>
+<li>漂移项对应在能量地形上向下移动。</li>
+<li>扩散项防止粒子过早塌缩到局部区域。</li>
+<li>在平衡态下，过程的稳态分布恰好是目标分布 <span class="math inline">\(p_*\)</span>。</li>
 </ul>
-<p>In machine learning, <span class="math inline">\(\Phi\)</span> is often viewed as an energy / loss landscape.</p>
+<p>在机器学习中，<span class="math inline">\(\Phi\)</span> 通常被视为能量/损失地形 (Energy / Loss Landscape)。</p>
 </section>
-<section id="fokker-planck-equation-and-probability-current" class="level2">
-<h2 class="anchored" data-anchor-id="fokker-planck-equation-and-probability-current">2. Fokker-Planck Equation and Probability Current</h2>
-<p><strong>Theory.</strong> The density evolution of the SDE above satisfies</p>
+<section id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="level2">
+<h2 class="anchored" data-anchor-id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current">2. Fokker-Planck 方程与概率流 (Fokker-Planck Equation and Probability Current)</h2>
+<p><strong>Theory.</strong> 上述 SDE 的密度演化满足</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}
 =
 \nabla \cdot \bigl(p_t \nabla \Phi\bigr)+\Delta p_t.
 \]</span></p>
-<p><strong>Definition.</strong> Define the probability current</p>
+<p><strong>Definition.</strong> 定义概率流 (Probability Current)</p>
 <p><span class="math display">\[
 J_t(x)=-p_t(x)\nabla \Phi(x)-\nabla p_t(x),
 \]</span></p>
-<p>Then the continuity equation becomes</p>
+<p>则连续性方程变为</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}=-\nabla \cdot J_t.
 \]</span></p>
-<p><strong>Inference.</strong> At equilibrium we have <span class="math inline">\(\partial_t p_t=0\)</span>. If we additionally impose the zero-flux condition <span class="math inline">\(J_t=0\)</span>, then</p>
+<p><strong>Inference.</strong> 在平衡态下 <span class="math inline">\(\partial_t p_t=0\)</span>。若进一步施加零通量条件 <span class="math inline">\(J_t=0\)</span>，则</p>
 <p><span class="math display">\[
 \nabla p_*(x)=-p_*(x)\nabla \Phi(x),
 \]</span></p>
-<p>which is equivalent to</p>
+<p>等价于</p>
 <p><span class="math display">\[
 \nabla \log p_*(x)=-\nabla \Phi(x).
 \]</span></p>
-<p>Integrating this identity gives</p>
+<p>对该恒等式积分得到</p>
 <p><span class="math display">\[
 p_*(x)\propto e^{-\Phi(x)}.
 \]</span></p>
-<p><strong>Result.</strong> This shows that Langevin dynamics is not arbitrary noise injection. It recovers the target distribution through the balance between drift and diffusion.</p>
+<p><strong>Result.</strong> 这表明 Langevin 动力学并非任意噪声注入，而是通过漂移与扩散的平衡恢复目标分布。</p>
 </section>
-<section id="from-itôs-formula-to-the-general-fokker-planck-equation" class="level2">
-<h2 class="anchored" data-anchor-id="from-itôs-formula-to-the-general-fokker-planck-equation">3. From Itô’s Formula to the General Fokker-Planck Equation</h2>
-<p><strong>Definition.</strong> More generally, consider the isotropic Itô process</p>
+<section id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="level2">
+<h2 class="anchored" data-anchor-id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation">3. 从 Itô 公式到一般 Fokker-Planck 方程 (From Itô’s Formula to the General Fokker-Planck Equation)</h2>
+<p><strong>Definition.</strong> 更一般地，考虑各向同性 Itô 过程</p>
 <p><span class="math display">\[
 dX_t=f(X_t,t)\,dt+g(t)\,dW_t.
 \]</span></p>
-<p><strong>Theory.</strong> For any smooth test function <span class="math inline">\(\varphi\)</span>, Itô’s formula gives</p>
+<p><strong>Theory.</strong> 对任意光滑测试函数 <span class="math inline">\(\varphi\)</span>，Itô 公式给出</p>
 <p><span class="math display">\[
 d\varphi(X_t)
 =
@@ -245,13 +245,13 @@ d\varphi(X_t)
 +
 \frac{g(t)^2}{2}\Delta \varphi(X_t)\,dt.
 \]</span></p>
-<p>The quadratic variation identities are</p>
+<p>二次变差恒等式为</p>
 <p><span class="math display">\[
 \mathbb E[dW_t]=0,
 \qquad
 \mathbb E[(dW_t)^2]=dt.
 \]</span></p>
-<p><strong>Inference.</strong> Taking expectation removes the stochastic term. Then integration by parts moves the derivatives onto the density <span class="math inline">\(p_t\)</span>, which yields</p>
+<p><strong>Inference.</strong> 取期望消除随机项，再通过分部积分将导数转移到密度 <span class="math inline">\(p_t\)</span> 上，得到</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}
 =
@@ -259,26 +259,26 @@ d\varphi(X_t)
 +
 \frac{g(t)^2}{2}\Delta p_t(x).
 \]</span></p>
-<p><strong>Result.</strong> Langevin dynamics is just a special case of this general form, with</p>
+<p><strong>Result.</strong> Langevin 动力学是上述一般形式的特例，取</p>
 <p><span class="math display">\[
 f(x)=-\nabla \Phi(x),
 \qquad
 g=\sqrt{2}.
 \]</span></p>
 </section>
-<section id="forward-diffusion-as-an-ou-vp-process" class="level2">
-<h2 class="anchored" data-anchor-id="forward-diffusion-as-an-ou-vp-process">4. Forward Diffusion as an OU / VP Process</h2>
-<p><strong>Definition.</strong> In diffusion models, a standard continuous-time forward process is</p>
+<section id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="level2">
+<h2 class="anchored" data-anchor-id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process">4. 前向扩散：OU / VP 过程 (Forward Diffusion as an OU / VP Process)</h2>
+<p><strong>Definition.</strong> 在扩散模型中，标准连续时间前向过程为</p>
 <p><span class="math display">\[
 dX_t=-\frac{1}{2}\beta(t)X_t\,dt+\sqrt{\beta(t)}\,dW_t.
 \]</span></p>
-<p>This is a time-inhomogeneous Ornstein-Uhlenbeck / variance-preserving (VP) process, corresponding to</p>
+<p>这是时间非齐次 Ornstein-Uhlenbeck / 方差保持 (VP) 过程，对应</p>
 <p><span class="math display">\[
 f(x,t)=-\frac{1}{2}\beta(t)x,
 \qquad
 g(t)=\sqrt{\beta(t)}.
 \]</span></p>
-<p><strong>Theory.</strong> Substituting it into the general Fokker-Planck equation gives</p>
+<p><strong>Theory.</strong> 代入一般 Fokker-Planck 方程得到</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}
 =
@@ -287,42 +287,42 @@ g(t)=\sqrt{\beta(t)}.
 \nabla \cdot \bigl(x p_t\bigr)+\Delta p_t
 \right].
 \]</span></p>
-<p><strong>Inference.</strong> If <span class="math inline">\(p_t=\mathcal N(0,I)\)</span>, then</p>
+<p><strong>Inference.</strong> 若 <span class="math inline">\(p_t=\mathcal N(0,I)\)</span>，则</p>
 <p><span class="math display">\[
 \nabla p_t(x)=-x\,p_t(x),
 \]</span></p>
-<p>and</p>
+<p>以及</p>
 <p><span class="math display">\[
 \Delta p_t(x)=\bigl(\|x\|^2-d\bigr)p_t(x).
 \]</span></p>
-<p>Plugging these back in makes the right-hand side vanish, so the standard Gaussian is the equilibrium distribution of the process.</p>
+<p>回代后右端恰好为零，因此标准高斯分布是该过程的平衡分布。</p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>As time increases, the data distribution is gradually pushed toward <span class="math inline">\(\mathcal N(0,I)\)</span>.</li>
-<li>This is the essence of forward diffusion: progressively destroying structure until the distribution becomes close to pure noise.</li>
+<li>随着时间增加，数据分布逐渐被推向 <span class="math inline">\(\mathcal N(0,I)\)</span>。</li>
+<li>这就是前向扩散的本质：逐步破坏结构，直到分布接近纯噪声。</li>
 </ul>
 </section>
-<section id="reverse-time-sde" class="level2">
-<h2 class="anchored" data-anchor-id="reverse-time-sde">5. Reverse-Time SDE</h2>
-<p><strong>Theory.</strong> A classical result due to Anderson (1982) says that if the forward process is</p>
+<section id="反向时间-sde-reverse-time-sde" class="level2">
+<h2 class="anchored" data-anchor-id="反向时间-sde-reverse-time-sde">5. 反向时间 SDE (Reverse-Time SDE)</h2>
+<p><strong>Theory.</strong> Anderson (1982) 的经典结果指出，若前向过程为</p>
 <p><span class="math display">\[
 dX_t=f(X_t,t)\,dt+g(t)\,dW_t,
 \]</span></p>
-<p>then the time-reversed process, written in the convention used in these notes where we integrate from <span class="math inline">\(T\)</span> back to <span class="math inline">\(0\)</span>, is also an SDE:</p>
+<p>则反向时间过程（按从 <span class="math inline">\(T\)</span> 回到 <span class="math inline">\(0\)</span> 的约定）也是一个 SDE：</p>
 <p><span class="math display">\[
 dX_t=
 \bigl[-f(X_t,t)+g(t)^2\nabla_x \log p_t(X_t)\bigr]dt
 +
 g(t)\,d\bar W_t.
 \]</span></p>
-<p>Here <span class="math inline">\(\bar W_t\)</span> is reverse Brownian motion. Under the more standard reverse-time convention the same statement appears with an equivalent sign change.</p>
-<p><strong>Inference.</strong> For the VP forward SDE,</p>
+<p>其中 <span class="math inline">\(\bar W_t\)</span> 是反向布朗运动 (Reverse Brownian Motion)。</p>
+<p><strong>Inference.</strong> 对 VP 前向 SDE，</p>
 <p><span class="math display">\[
 f(x,t)=-\frac{1}{2}\beta(t)x,
 \qquad
 g(t)=\sqrt{\beta(t)},
 \]</span></p>
-<p>so the reverse process becomes</p>
+<p>反向过程变为</p>
 <p><span class="math display">\[
 dX_t=
 \left[
@@ -335,35 +335,35 @@ dX_t=
 \]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>If we initialize <span class="math inline">\(X_T\sim \mathcal N(0,I)\)</span> and integrate this SDE backward to <span class="math inline">\(t=0\)</span>, the endpoint is a data sample.</li>
-<li>The reverse drift is the forward drift corrected by a score term.</li>
+<li>若从 <span class="math inline">\(X_T\sim \mathcal N(0,I)\)</span> 出发，将此 SDE 反向积分到 <span class="math inline">\(t=0\)</span>，终点即为数据样本。</li>
+<li>反向漂移是前向漂移加上一个 Score 修正项。</li>
 </ul>
 </section>
-<section id="why-the-score-is-unknown" class="level2">
-<h2 class="anchored" data-anchor-id="why-the-score-is-unknown">6. Why the Score Is Unknown</h2>
-<p><strong>Definition.</strong> The hard quantity in the reverse SDE is the score</p>
+<section id="为什么-score-是未知的-why-the-score-is-unknown" class="level2">
+<h2 class="anchored" data-anchor-id="为什么-score-是未知的-why-the-score-is-unknown">6. 为什么 Score 是未知的 (Why the Score Is Unknown)</h2>
+<p><strong>Definition.</strong> 反向 SDE 中的关键量是 Score</p>
 <p><span class="math display">\[
 \nabla_x \log p_t(x).
 \]</span></p>
-<p>The marginal density <span class="math inline">\(p_t(x)\)</span> is what you get after evolving the data distribution <span class="math inline">\(p_0=p_{\mathrm{data}}\)</span> forward to time <span class="math inline">\(t\)</span>:</p>
+<p>边际密度 <span class="math inline">\(p_t(x)\)</span> 是将数据分布 <span class="math inline">\(p_0=p_{\mathrm{data}}\)</span> 前向演化到时间 <span class="math inline">\(t\)</span> 后的结果：</p>
 <p><span class="math display">\[
 p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0.
 \]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>We do not know <span class="math inline">\(p_{\mathrm{data}}\)</span> analytically.</li>
-<li>Therefore we do not know <span class="math inline">\(p_t\)</span> analytically either.</li>
-<li>Hence the true score <span class="math inline">\(\nabla_x \log p_t(x)\)</span> cannot be computed directly.</li>
+<li>我们不知道 <span class="math inline">\(p_{\mathrm{data}}\)</span> 的解析形式。</li>
+<li>因此也不知道 <span class="math inline">\(p_t\)</span> 的解析形式。</li>
+<li>从而真实 Score <span class="math inline">\(\nabla_x \log p_t(x)\)</span> 无法直接计算。</li>
 </ul>
-<p>So we train a neural network</p>
+<p>所以我们训练一个神经网络</p>
 <p><span class="math display">\[
 s_\theta(x,t)\approx \nabla_x \log p_t(x).
 \]</span></p>
-<p>In conditional generation, the same idea becomes a conditional score such as <span class="math inline">\(\nabla_x \log p_t(x\mid c)\)</span>, where <span class="math inline">\(c\)</span> can be a class label, a text embedding, or prompt information.</p>
+<p>在条件生成中，同样的思想变为条件 Score，如 <span class="math inline">\(\nabla_x \log p_t(x\mid c)\)</span>，其中 <span class="math inline">\(c\)</span> 可以是类别标签、文本嵌入或 Prompt 信息。</p>
 </section>
-<section id="denoising-score-matching" class="level2">
-<h2 class="anchored" data-anchor-id="denoising-score-matching">7. Denoising Score Matching</h2>
-<p><strong>Definition.</strong> A natural learning objective is</p>
+<section id="去噪-score-matching-denoising-score-matching" class="level2">
+<h2 class="anchored" data-anchor-id="去噪-score-matching-denoising-score-matching">7. 去噪 Score Matching (Denoising Score Matching)</h2>
+<p><strong>Definition.</strong> 自然的学习目标为</p>
 <p><span class="math display">\[
 \mathcal L(\theta)
 =
@@ -372,26 +372,26 @@ s_\theta(x,t)\approx \nabla_x \log p_t(x).
 \left\|s_\theta(x,t)-\nabla_x \log p_t(x)\right\|^2
 \right].
 \]</span></p>
-<p>The issue is that the target score on the right-hand side is unknown.</p>
-<p><strong>Theory.</strong> For the linear VP forward process, the transition kernel is explicit:</p>
+<p>问题在于右端的目标 Score 是未知的。</p>
+<p><strong>Theory.</strong> 对线性 VP 前向过程，转移核 (Transition Kernel) 是显式的：</p>
 <p><span class="math display">\[
 p_{t|0}(x\mid x_0)
 =
 \mathcal N\!\left(x;\,\alpha_t x_0,\sigma_t^2 I\right),
 \]</span></p>
-<p>with</p>
+<p>其中</p>
 <p><span class="math display">\[
 \alpha_t=\exp\!\left(-\frac{1}{2}\int_0^t \beta(s)\,ds\right),
 \qquad
 \sigma_t^2=1-\alpha_t^2.
 \]</span></p>
-<p>Its score is therefore</p>
+<p>其 Score 因此为</p>
 <p><span class="math display">\[
 \nabla_x \log p_{t|0}(x\mid x_0)
 =
 -\frac{x-\alpha_t x_0}{\sigma_t^2}.
 \]</span></p>
-<p><strong>Theory.</strong> The denoising score matching identity, in the form used by Vincent (2011), says that</p>
+<p><strong>Theory.</strong> 去噪 Score Matching 恒等式 (Vincent, 2011) 表明</p>
 <p><span class="math display">\[
 \mathbb E_{x\sim p_t}
 \left[
@@ -405,35 +405,35 @@ p_{t|0}(x\mid x_0)
 +
 C_t,
 \]</span></p>
-<p>where <span class="math inline">\(C_t\)</span> is independent of <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>Inference.</strong> After expanding the squared norm, the only nontrivial term is the cross term</p>
+<p>其中 <span class="math inline">\(C_t\)</span> 与 <span class="math inline">\(\theta\)</span> 无关。</p>
+<p><strong>Inference.</strong> 展开平方范数后，唯一非平凡的项是交叉项</p>
 <p><span class="math display">\[
 \int s_\theta(x,t)\cdot \nabla_x \log p_t(x)\,p_t(x)\,dx
 =
 \int s_\theta(x,t)\cdot \nabla_x p_t(x)\,dx.
 \]</span></p>
-<p>Using</p>
+<p>利用</p>
 <p><span class="math display">\[
 p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0,
 \]</span></p>
-<p>this cross term can be rewritten in terms of the known conditional kernel, and the remaining difference does not depend on <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>Result.</strong> DSM replaces an intractable marginal score target by the tractable score of a known Gaussian transition kernel.</p>
+<p>该交叉项可用已知条件核改写，余项不依赖 <span class="math inline">\(\theta\)</span>。</p>
+<p><strong>Result.</strong> DSM 将不可求的边际 Score 目标替换为可求的已知高斯转移核的 Score。</p>
 </section>
-<section id="from-dsm-to-the-ddpm-noise-objective" class="level2">
-<h2 class="anchored" data-anchor-id="from-dsm-to-the-ddpm-noise-objective">8. From DSM to the DDPM Noise Objective</h2>
-<p><strong>Inference.</strong> Reparameterize the forward sample as</p>
+<section id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="level2">
+<h2 class="anchored" data-anchor-id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective">8. 从 DSM 到 DDPM 噪声目标 (From DSM to the DDPM Noise Objective)</h2>
+<p><strong>Inference.</strong> 对前向样本做重参数化</p>
 <p><span class="math display">\[
 x=\alpha_t x_0+\sigma_t \epsilon,
 \qquad
 \epsilon\sim \mathcal N(0,I).
 \]</span></p>
-<p>Then</p>
+<p>则</p>
 <p><span class="math display">\[
 -\frac{x-\alpha_t x_0}{\sigma_t^2}
 =
 -\frac{\epsilon}{\sigma_t}.
 \]</span></p>
-<p>Substituting this into the DSM target gives</p>
+<p>代入 DSM 目标得到</p>
 <p><span class="math display">\[
 \mathcal L(\theta)
 =
@@ -446,11 +446,11 @@ s_\theta(\alpha_t x_0+\sigma_t \epsilon,t)
 \right\|^2
 \right].
 \]</span></p>
-<p><strong>Theory.</strong> If we parameterize the score model through a noise predictor,</p>
+<p><strong>Theory.</strong> 若通过噪声预测器参数化 Score 模型，</p>
 <p><span class="math display">\[
 s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 \]</span></p>
-<p>then the objective becomes the standard DDPM loss of Ho et al.&nbsp;(2020):</p>
+<p>则目标变为 Ho et al.&nbsp;(2020) 的标准 DDPM 损失：</p>
 <p><span class="math display">\[
 \mathcal L_{\mathrm{simple}}
 =
@@ -463,40 +463,40 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 \]</span></p>
 <p><strong>Result.</strong></p>
 <ul>
-<li>Reverse SDE sampling needs the score.</li>
-<li>DSM replaces the unknown marginal score by a conditional Gaussian score.</li>
-<li>Reparameterization turns that score target into a noise target.</li>
-<li>DDPM training is therefore a practical implementation of score learning.</li>
+<li>反向 SDE 采样需要 Score。</li>
+<li>DSM 用条件高斯 Score 替换未知的边际 Score。</li>
+<li>重参数化将 Score 目标转换为噪声目标。</li>
+<li>DDPM 训练因此是 Score 学习的一种实际实现。</li>
 </ul>
 </section>
-<section id="relation-between-langevin-dynamics-and-diffusion-models" class="level2">
-<h2 class="anchored" data-anchor-id="relation-between-langevin-dynamics-and-diffusion-models">9. Relation Between Langevin Dynamics and Diffusion Models</h2>
+<section id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="level2">
+<h2 class="anchored" data-anchor-id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models">9. Langevin 动力学与扩散模型的关系 (Relation Between Langevin Dynamics and Diffusion Models)</h2>
 <p><strong>Result.</strong></p>
 <ul>
-<li>Langevin dynamics directly uses the score of the target distribution: <span class="math inline">\(\nabla_x \log p(x)=-\nabla \Phi(x)\)</span>.</li>
-<li>A diffusion model learns an entire time-indexed family of scores: <span class="math inline">\(\nabla_x \log p_t(x)\)</span>.</li>
-<li>The forward process continuously Gaussianizes a complicated data distribution.</li>
-<li>The reverse process uses the learned score to pull noise back toward the data manifold.</li>
-<li>In this sense, reverse diffusion is a time-dependent Langevin-like dynamics driven by a learned score field.</li>
+<li>Langevin 动力学直接使用目标分布的 Score：<span class="math inline">\(\nabla_x \log p(x)=-\nabla \Phi(x)\)</span>。</li>
+<li>扩散模型学习一整族时间索引的 Score：<span class="math inline">\(\nabla_x \log p_t(x)\)</span>。</li>
+<li>前向过程将复杂数据分布逐步高斯化。</li>
+<li>反向过程利用学到的 Score 将噪声拉回数据流形。</li>
+<li>从这个意义上说，反向扩散是一种由学习到的 Score 场驱动的、时间依赖的 Langevin 式动力学。</li>
 </ul>
-<p>In one sentence: Langevin dynamics answers “how to sample when the score is already known,” while a diffusion model turns the problem into a family of noisy distributions, learns their scores, and then uses a reverse-time SDE to generate samples.</p>
-<p>The full conceptual chain is</p>
+<p>一句话总结：Langevin 动力学回答”当 Score 已知时如何采样”，而扩散模型将问题转化为一族带噪分布，学习它们的 Score，然后利用反向时间 SDE 生成样本。</p>
+<p>完整概念链为</p>
 <p><span class="math display">\[
 \text{Langevin SDE}
 \to
 \text{Fokker-Planck}
 \to
-\text{forward Gaussianization}
+\text{前向高斯化}
 \to
-\text{reverse SDE needs score}
+\text{反向 SDE 需要 Score}
 \to
-\text{DSM equivalence}
+\text{DSM 等价}
 \to
-\text{noise prediction}.
+\text{噪声预测}.
 \]</span></p>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
+<section id="参考文献-references" class="level2">
+<h2 class="anchored" data-anchor-id="参考文献-references">参考文献 (References)</h2>
 <ul>
 <li>Anderson, B. D. O. (1982). Reverse-time diffusion equation models.</li>
 <li>Vincent, P. (2011). A connection between score matching and denoising autoencoders.</li>

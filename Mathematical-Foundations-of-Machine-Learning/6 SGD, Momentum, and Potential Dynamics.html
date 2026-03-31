@@ -149,14 +149,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sgd-momentum-and-potential-dynamics" id="toc-sgd-momentum-and-potential-dynamics" class="nav-link active" data-scroll-target="#sgd-momentum-and-potential-dynamics">SGD, Momentum, and Potential Dynamics</a>
+  <li><a href="#sgd动量与势动力学-sgd-momentum-and-potential-dynamics" id="toc-sgd动量与势动力学-sgd-momentum-and-potential-dynamics" class="nav-link active" data-scroll-target="#sgd动量与势动力学-sgd-momentum-and-potential-dynamics">SGD、动量与势动力学 (SGD, Momentum, and Potential Dynamics)</a>
   <ul class="collapse">
-  <li><a href="#loss-as-a-potential-function" id="toc-loss-as-a-potential-function" class="nav-link" data-scroll-target="#loss-as-a-potential-function">1. Loss as a Potential Function</a></li>
-  <li><a href="#gradient-descent-as-a-discretization-of-gradient-flow" id="toc-gradient-descent-as-a-discretization-of-gradient-flow" class="nav-link" data-scroll-target="#gradient-descent-as-a-discretization-of-gradient-flow">2. Gradient Descent as a Discretization of Gradient Flow</a></li>
-  <li><a href="#interpreting-sgd" id="toc-interpreting-sgd" class="nav-link" data-scroll-target="#interpreting-sgd">3. Interpreting SGD</a></li>
-  <li><a href="#momentum-as-a-second-order-dynamical-system" id="toc-momentum-as-a-second-order-dynamical-system" class="nav-link" data-scroll-target="#momentum-as-a-second-order-dynamical-system">4. Momentum as a Second-Order Dynamical System</a></li>
-  <li><a href="#mechanical-interpretation" id="toc-mechanical-interpretation" class="nav-link" data-scroll-target="#mechanical-interpretation">5. Mechanical Interpretation</a></li>
-  <li><a href="#connection-back-to-optimization" id="toc-connection-back-to-optimization" class="nav-link" data-scroll-target="#connection-back-to-optimization">6. Connection Back to Optimization</a></li>
+  <li><a href="#损失函数作为势函数-loss-as-a-potential-function" id="toc-损失函数作为势函数-loss-as-a-potential-function" class="nav-link" data-scroll-target="#损失函数作为势函数-loss-as-a-potential-function">1. 损失函数作为势函数 (Loss as a Potential Function)</a></li>
+  <li><a href="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" id="toc-梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="nav-link" data-scroll-target="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow">2. 梯度下降作为梯度流的离散化 (Gradient Descent as a Discretization of Gradient Flow)</a></li>
+  <li><a href="#sgd-的解释-interpreting-sgd" id="toc-sgd-的解释-interpreting-sgd" class="nav-link" data-scroll-target="#sgd-的解释-interpreting-sgd">3. SGD 的解释 (Interpreting SGD)</a></li>
+  <li><a href="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" id="toc-动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="nav-link" data-scroll-target="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system">4. 动量作为二阶动力系统 (Momentum as a Second-Order Dynamical System)</a></li>
+  <li><a href="#力学解释-mechanical-interpretation" id="toc-力学解释-mechanical-interpretation" class="nav-link" data-scroll-target="#力学解释-mechanical-interpretation">5. 力学解释 (Mechanical Interpretation)</a></li>
+  <li><a href="#与优化的联系-connection-back-to-optimization" id="toc-与优化的联系-connection-back-to-optimization" class="nav-link" data-scroll-target="#与优化的联系-connection-back-to-optimization">6. 与优化的联系 (Connection Back to Optimization)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -167,71 +167,71 @@ window.Quarto = {
 
 
 
-<section id="sgd-momentum-and-potential-dynamics" class="level1">
-<h1>SGD, Momentum, and Potential Dynamics</h1>
+<section id="sgd动量与势动力学-sgd-momentum-and-potential-dynamics" class="level1">
+<h1>SGD、动量与势动力学 (SGD, Momentum, and Potential Dynamics)</h1>
 <div class="updated-time">
-Updated: 2026-03-30 18:08 AEDT
+Updated: 2026-03-31 12:00 AEDT
 </div>
-<p>Tag legend: <code>Definition</code> marks a definition, <code>Theory</code> marks an equation or principle, <code>Inference</code> marks a derivation step, and <code>Result</code> marks a conclusion or modeling takeaway.</p>
-<section id="loss-as-a-potential-function" class="level2">
-<h2 class="anchored" data-anchor-id="loss-as-a-potential-function">1. Loss as a Potential Function</h2>
-<p><strong>Definition.</strong> Let the objective function be <code>f(x)</code>. In optimization, it is often useful to interpret <code>f</code> as a potential energy landscape.</p>
-<p><strong>Theory.</strong> Under this interpretation, the force induced by the landscape is</p>
+<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
+<section id="损失函数作为势函数-loss-as-a-potential-function" class="level2">
+<h2 class="anchored" data-anchor-id="损失函数作为势函数-loss-as-a-potential-function">1. 损失函数作为势函数 (Loss as a Potential Function)</h2>
+<p><strong>Definition.</strong> 设目标函数为 <span class="math inline">\(f(x)\)</span>。在优化中，常将 <span class="math inline">\(f\)</span> 解释为势能地形 (Potential Energy Landscape)。</p>
+<p><strong>Theory.</strong> 在此解释下，地形诱导的力为</p>
 <p><span class="math display">\[
 F(x)=-\nabla f(x).
 \]</span></p>
-<p><strong>Inference.</strong> A point <code>x</code> tends to move toward lower-potential regions, so optimization can be viewed as the motion of a particle descending an energy surface.</p>
-<p><strong>Result.</strong> Minimizing the loss is equivalent to driving the system toward low-potential states.</p>
+<p><strong>Inference.</strong> 点 <span class="math inline">\(x\)</span> 倾向于移向低势能区域，因此优化可被视为粒子在能量曲面上的下降运动。</p>
+<p><strong>Result.</strong> 最小化损失等价于将系统驱向低势能状态。</p>
 </section>
-<section id="gradient-descent-as-a-discretization-of-gradient-flow" class="level2">
-<h2 class="anchored" data-anchor-id="gradient-descent-as-a-discretization-of-gradient-flow">2. Gradient Descent as a Discretization of Gradient Flow</h2>
-<p><strong>Theory.</strong> The basic gradient descent update is</p>
+<section id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="level2">
+<h2 class="anchored" data-anchor-id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow">2. 梯度下降作为梯度流的离散化 (Gradient Descent as a Discretization of Gradient Flow)</h2>
+<p><strong>Theory.</strong> 基本梯度下降更新为</p>
 <p><span class="math display">\[
 x_{k+1}=x_k-\eta \nabla f(x_k).
 \]</span></p>
-<p><strong>Inference.</strong> Let <code>x_k=x(t_k)</code> and choose the time step</p>
+<p><strong>Inference.</strong> 令 <span class="math inline">\(x_k=x(t_k)\)</span>，选取时间步长</p>
 <p><span class="math display">\[
 t_{k+1}-t_k=\eta.
 \]</span></p>
-<p>Then</p>
+<p>则</p>
 <p><span class="math display">\[
 \frac{x_{k+1}-x_k}{\eta}=-\nabla f(x_k).
 \]</span></p>
-<p>As <code>\eta \to 0</code>, the difference quotient converges to a time derivative, giving the continuous-time limit</p>
+<p>当 <span class="math inline">\(\eta \to 0\)</span> 时，差商收敛到时间导数，给出连续时间极限</p>
 <p><span class="math display">\[
 \dot x(t)=-\nabla f(x(t)).
 \]</span></p>
-<p><strong>Result.</strong> Gradient descent is the forward Euler discretization of gradient flow on the potential <code>f</code>.</p>
+<p><strong>Result.</strong> 梯度下降是势函数 <span class="math inline">\(f\)</span> 上梯度流 (Gradient Flow) 的前向 Euler 离散化。</p>
 </section>
-<section id="interpreting-sgd" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-sgd">3. Interpreting SGD</h2>
-<p><strong>Definition.</strong> In stochastic gradient descent, the exact gradient is replaced by a minibatch estimate:</p>
+<section id="sgd-的解释-interpreting-sgd" class="level2">
+<h2 class="anchored" data-anchor-id="sgd-的解释-interpreting-sgd">3. SGD 的解释 (Interpreting SGD)</h2>
+<p><strong>Definition.</strong> 在随机梯度下降中，精确梯度被小批量估计替代：</p>
 <p><span class="math display">\[
 x_{k+1}=x_k-\eta g_k,
 \qquad
 \mathbb E[g_k\mid x_k]=\nabla f(x_k).
 \]</span></p>
-<p><strong>Inference.</strong> The deterministic part is still the same downhill drift <code>-\nabla f(x)</code>, while the sampling error introduces noise around that drift.</p>
-<p><strong>Result.</strong> SGD can be viewed as gradient flow plus randomness. If the noise is small or averaged out, the leading-order behavior is still controlled by the potential landscape <code>f</code>.</p>
+<p><strong>Inference.</strong> 确定性部分仍然是相同的下坡漂移 <span class="math inline">\(-\nabla f(x)\)</span>，而采样误差在漂移周围引入噪声。</p>
+<p><strong>Result.</strong> SGD 可被视为梯度流加上随机性。若噪声较小或被平均掉，主导行为仍由势能地形 <span class="math inline">\(f\)</span> 控制。</p>
 </section>
-<section id="momentum-as-a-second-order-dynamical-system" class="level2">
-<h2 class="anchored" data-anchor-id="momentum-as-a-second-order-dynamical-system">4. Momentum as a Second-Order Dynamical System</h2>
-<p><strong>Definition.</strong> A standard momentum update is</p>
+<section id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="level2">
+<h2 class="anchored" data-anchor-id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system">4. 动量作为二阶动力系统 (Momentum as a Second-Order Dynamical System)</h2>
+<p><strong>Definition.</strong> 标准动量更新为</p>
 <p><span class="math display">\[
 v_{k+1}=\beta v_k-\gamma \nabla f(x_k),
 \qquad
 x_{k+1}=x_k+v_{k+1},
 \]</span></p>
-<p>where <code>v_k</code> is the velocity-like auxiliary variable.</p>
-<p><strong>Inference.</strong> From the position update,</p>
+<p>其中 <span class="math inline">\(v_k\)</span> 是类速度辅助变量。</p>
+<p><strong>Inference.</strong> 由位置更新可得</p>
 <p><span class="math display">\[
 v_k=x_k-x_{k-1}.
 \]</span></p>
-<p>Substituting this into the velocity recursion gives</p>
+<p>代入速度递推得到</p>
 <p><span class="math display">\[
 x_{k+1}-x_k=\beta(x_k-x_{k-1})-\gamma \nabla f(x_k).
 \]</span></p>
-<p>Rearranging,</p>
+<p>整理为</p>
 <p><span class="math display">\[
 x_{k+1}-2x_k+x_{k-1}
 +
@@ -239,7 +239,7 @@ x_{k+1}-2x_k+x_{k-1}
 =
 -\gamma \nabla f(x_k).
 \]</span></p>
-<p>Now divide by <code>(\Delta t)^2</code>:</p>
+<p>两端除以 <span class="math inline">\((\Delta t)^2\)</span>：</p>
 <p><span class="math display">\[
 \frac{x_{k+1}-2x_k+x_{k-1}}{(\Delta t)^2}
 +
@@ -247,50 +247,50 @@ x_{k+1}-2x_k+x_{k-1}
 =
 -\frac{\gamma}{(\Delta t)^2}\nabla f(x_k).
 \]</span></p>
-<p>If we take the continuum scaling</p>
+<p>取连续化尺度</p>
 <p><span class="math display">\[
 \frac{1-\beta}{\Delta t}\to r,
 \qquad
 \frac{\gamma}{(\Delta t)^2}\to 1,
 \]</span></p>
-<p>then as <code>\Delta t\to 0</code> we obtain</p>
+<p>当 <span class="math inline">\(\Delta t\to 0\)</span> 时得到</p>
 <p><span class="math display">\[
 \ddot x(t)+r\dot x(t)+\nabla f(x(t))=0.
 \]</span></p>
-<p><strong>Result.</strong> Momentum corresponds to a damped second-order system: inertia comes from <code>\ddot x</code>, friction comes from <code>r\dot x</code>, and the restoring force comes from the potential gradient <code>\nabla f</code>.</p>
+<p><strong>Result.</strong> 动量对应一个有阻尼的二阶系统：惯性来自 <span class="math inline">\(\ddot x\)</span>，摩擦来自 <span class="math inline">\(r\dot x\)</span>，恢复力来自势梯度 <span class="math inline">\(\nabla f\)</span>。</p>
 </section>
-<section id="mechanical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="mechanical-interpretation">5. Mechanical Interpretation</h2>
-<p><strong>Definition.</strong> Define the total energy</p>
+<section id="力学解释-mechanical-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="力学解释-mechanical-interpretation">5. 力学解释 (Mechanical Interpretation)</h2>
+<p><strong>Definition.</strong> 定义总能量</p>
 <p><span class="math display">\[
 E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
 \]</span></p>
-<p><strong>Inference.</strong> Differentiate along the momentum ODE:</p>
+<p><strong>Inference.</strong> 沿动量 ODE 对其求导：</p>
 <p><span class="math display">\[
 \frac{dE}{dt}
 =
 \dot x^\top \ddot x+\nabla f(x)^\top \dot x.
 \]</span></p>
-<p>Using</p>
+<p>利用</p>
 <p><span class="math display">\[
 \ddot x+r\dot x+\nabla f(x)=0,
 \]</span></p>
-<p>we get</p>
+<p>得到</p>
 <p><span class="math display">\[
 \frac{dE}{dt}=-r\|\dot x(t)\|^2\le 0.
 \]</span></p>
-<p><strong>Result.</strong> Momentum does not simply move downhill point by point. It carries kinetic energy, overshoots when necessary, and gradually dissipates energy through damping until the system settles near a minimizer.</p>
+<p><strong>Result.</strong> 动量并非逐点简单下坡。它携带动能，必要时可以越过浅谷，并通过阻尼逐渐耗散能量，直到系统在极小值附近安定下来。</p>
 </section>
-<section id="connection-back-to-optimization" class="level2">
-<h2 class="anchored" data-anchor-id="connection-back-to-optimization">6. Connection Back to Optimization</h2>
+<section id="与优化的联系-connection-back-to-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="与优化的联系-connection-back-to-optimization">6. 与优化的联系 (Connection Back to Optimization)</h2>
 <p><strong>Result.</strong></p>
 <ul>
-<li>Gradient descent is a first-order descent law on the potential landscape.</li>
-<li>SGD adds stochastic perturbations to that first-order law.</li>
-<li>Momentum upgrades the dynamics to a second-order system with inertia and damping.</li>
-<li>This perspective explains why momentum can cross shallow valleys faster while still being stabilized by friction.</li>
+<li>梯度下降是势能地形上的一阶下降律。</li>
+<li>SGD 在该一阶律上添加了随机扰动。</li>
+<li>动量将动力学升级为带惯性和阻尼的二阶系统。</li>
+<li>这一视角解释了为什么动量能更快地穿越浅谷，同时仍被摩擦所稳定。</li>
 </ul>
-<p>In short, optimization algorithms can be interpreted as discretizations of continuous dynamical systems, and the loss function plays the role of a potential energy surface.</p>
+<p>简言之，优化算法可被解释为连续动力系统的离散化，而损失函数扮演势能面的角色。</p>
 
 
 </section>
