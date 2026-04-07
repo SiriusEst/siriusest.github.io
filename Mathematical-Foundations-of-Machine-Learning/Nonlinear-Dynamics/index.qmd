@@ -1,0 +1,11 @@
+---
+title: "Nonlinear Dynamics"
+---
+
+<div class="updated-time">Updated: 2026-04-07 12:00 AEDT</div>
+
+Notes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications.
+Tag legend: `Definition` marks a definition, `Theory` marks a theorem or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or application takeaway.
+
+- [Nonlinear Dynamics](1%20Nonlinear%20Dynamics.md) — autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics
+- [Photon Physics and Laser](2%20Photon%20Physics%20and%20Laser.md) — energy quantization, laser threshold, transcritical bifurcation
