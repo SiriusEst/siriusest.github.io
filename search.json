@@ -56,11 +56,81 @@
     "text": "Result.\n\n梯度下降是势能地形上的一阶下降律。\nSGD 在该一阶律上添加了随机扰动。\n动量将动力学升级为带惯性和阻尼的二阶系统。\n这一视角解释了为什么动量能更快地穿越浅谷，同时仍被摩擦所稳定。\n\n简言之，优化算法可被解释为连续动力系统的离散化，而损失函数扮演势能面的角色。"
   },
   {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Updated: 2026-04-07 12:00 AEDT\n\n标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或应用结论。\n\n\nDefinition. 频率为 \\(\\nu\\) 的电磁场模式，其能量只能取 \\(h\\nu\\) 的整数倍：\n\\[\nE_n = n h\\nu, \\quad n = 0, 1, 2, \\ldots\n\\]\n其中 \\(h \\approx 6.626 \\times 10^{-34} \\, \\text{J·s}\\) 是 Planck 常数。\nResult.\n\n光子 (Photon) 不是”能量切出来的小块”，而是电磁场天生只能以光子为单位激发和释放。光子是电磁场能量的最小单位。\n量子化思想是普遍的：光子是电磁场的量子，声子 (Phonon) 是晶格振动的量子，都是同一个框架。\n为什么能量是量子化的？量子力学没有从更深层解释这一点，它是一个基本假设。Planck 为解释黑体辐射 (Black-body Radiation) 而提出，Einstein 用光电效应 (Photoelectric Effect) 证实了光子的实在性。\n\n\n\n\nTheory. 不同频率的光子就像不同面额的硬币——每种面额的”最小单位”不同，但都是不可再分的一份。\n\\[\nE = h\\nu\n\\]\nResult.\n\n红光 (Red Light)：频率低 → 单光子能量小。\n紫光 (Violet Light)：频率高 → 单光子能量大。\nX 射线 / 伽马射线 (Gamma Ray)：频率更高 → 单光子能量更大。\n\n紫外线有害的根本原因是质的区别：每一份能量（\\(h\\nu\\)）都足以打断化学键、损伤 DNA，而红光的单光子能量太低，无论用多少个都打不断化学键。\n\n\n\nTheory. 原子有不同的能量状态（能级 Energy Level）。当原子在能级之间跃迁时，能量以光子的形式释放或吸收：\n\\[\nE_{\\text{高}} - E_{\\text{低}} = h\\nu\n\\]\n能级差唯一确定了释放光子的频率。\nInference. 原子从高能级跳到低能级时，电子云分布发生变化，产生一个振荡的电偶极矩 (Oscillating Electric Dipole Moment)。这个振荡的偶极矩激发电磁场，而电磁场只能以量子化的方式被激发，所以出来的恰好是一个光子。\n\n\n\nDefinition. 激光器涉及三种辐射过程：\n\n\n\n\n\n\n\n\n过程\n描述\n光子数变化\n\n\n\n\n自发辐射 (Spontaneous Emission)\n高能态原子自行跳回低能态，随机方向发射光子\n+1（随机方向）\n\n\n受激吸收 (Stimulated Absorption)\n光子被低能态原子吸收，原子跳到高能态\n−1\n\n\n受激辐射 (Stimulated Emission)\n光子”刺激”高能态原子跳下来，释放一个与入射光子完全相同（同频率、同方向、同相位）的新光子\n+1（相干）\n\n\n\nResult. 受激辐射是激光 (Laser) 的核心机制：一个光子进去，两个一模一样的光子出来。\n\n\n\nDefinition. 固态激光器由以下部分组成：\n\n活性材料 (Active Medium)：含有大量激光活性原子（如红宝石中的铬离子）。\n两端镜子：构成光学谐振腔 (Optical Resonator)，让光子来回反射，不断触发受激辐射。\n泵浦 (Pump)：外部能量源，将原子从基态激发到高能态。\n半透镜 (Partially Transparent Mirror)：让一部分光漏出去，作为激光输出。\n\nTheory. 粒子数反转 (Population Inversion)：正常热平衡下，低能态原子数 \\(N_1\\) 远多于高能态 \\(N_2\\)，即 \\(N_1 &gt; N_2\\)。粒子数反转就是人为地让 \\(N_2 &gt; N_1\\)。\nInference. 一个轴向光子飞过活性材料时：\n\n遇到高能态原子 → 触发受激辐射（光子数 +1）\n遇到低能态原子 → 被受激吸收（光子数 −1）\n\n如果 \\(N_1 &gt; N_2\\)，光子被吸收的概率更大，净效果是光子被消耗。只有当 \\(N_2 &gt; N_1\\) 时，受激辐射占主导，光子数才能净增长。\nResult.\n\n谐振腔起到方向滤波器 (Directional Filter) 的作用：轴向光子在两面镜子之间来回反弹被不断放大，偏离轴向的光子则被自然淘汰。\n激光器是能量转换器：把无序的泵浦能量转换成高度有序的激光输出，具有单色性 (Monochromaticity)、方向性 (Directionality) 和相干性 (Coherence)。\n\n\n\n\n\n\nDefinition. 动态变量是腔内光子数 \\(n(t)\\)，其演化由增益和损耗的竞争决定：\n\\[\n\\dot{n} = \\underbrace{GnN}_{\\text{gain (受激辐射)}} - \\underbrace{kn}_{\\text{loss (光子漏出)}}\n\\]\n\n增益项 \\(GnN\\)：来自受激辐射，速率正比于光子数 \\(n\\) 与高能态原子数 \\(N\\) 的乘积。\\(G &gt; 0\\) 是增益系数。\n损耗项 \\(kn\\)：光子从半透镜漏出，速率正比于光子数。\\(k &gt; 0\\) 是损耗速率常数，其倒数 \\(\\tau = 1/k\\) 是光子在腔内的典型寿命。\n\n\n\n\nTheory. \\(N\\) 不是常数。每次受激辐射发射一个光子，就有一个原子从高能态跳到低能态，\\(N\\) 减少。用线性模型近似：\n\\[\nN(t) = N_0 - \\alpha n\n\\]\n其中 \\(N_0\\) 是无激光时泵浦维持的高能态原子数（反映泵浦强度），\\(\\alpha &gt; 0\\) 表示每个光子消耗高能态原子的比率。\nResult. 这就是增益饱和效应：光子越多 → 高能态原子被消耗越快 → 增益被压低 → 系统自我调节。\n\n\n\nInference. 将 \\(N = N_0 - \\alpha n\\) 代入：\n\\[\n\\dot{n} = Gn(N_0 - \\alpha n) - kn = (GN_0 - k)n - (\\alpha G)n^2\n\\]\n令有效控制参数 \\(r = GN_0 - k\\)：\n\\[\n\\dot{n} = rn - (\\alpha G)n^2\n\\]\nResult. 这正是 Transcritical 分岔的标准型。\n\n\n\nInference. 令 \\(\\dot{n} = 0\\)：\n\\[\nn\\left[r - (\\alpha G)n\\right] = 0\n\\]\n两个不动点：\n\\[\nn_1^* = 0, \\qquad n_2^* = \\frac{r}{\\alpha G} = \\frac{GN_0 - k}{\\alpha G}\n\\]\n\n\n\nTheory. 令 \\(f(n) = rn - (\\alpha G)n^2\\)，则 \\(f'(n) = r - 2(\\alpha G)n\\)。\n在 \\(n_1^* = 0\\) 处：\\(f'(0) = r = GN_0 - k\\)\n\n\\(r &lt; 0\\)（泵浦弱，\\(GN_0 &lt; k\\)）：\\(f'(0) &lt; 0\\)，稳定\n\\(r &gt; 0\\)（泵浦强，\\(GN_0 &gt; k\\)）：\\(f'(0) &gt; 0\\)，不稳定\n\n在 \\(n_2^* = r/(\\alpha G)\\) 处：\\(f'(n_2^*) = r - 2r = -r\\)\n\n\\(r &lt; 0\\)：\\(f'(n_2^*) &gt; 0\\)，不稳定（但此时 \\(n_2^* &lt; 0\\)，物理上无意义）\n\\(r &gt; 0\\)：\\(f'(n_2^*) &lt; 0\\)，稳定\n\nResult. 两个不动点的稳定性恰好互补并交换——这是 Transcritical 分岔的标志。\n\n\n\nResult. 激光阈值对应 \\(r = 0\\)，即 \\(GN_0 = k\\)（增益恰好等于损耗）：\n\n\n\n\n\n\n\n\n参数区域\n条件\n物理状态\n\n\n\n\n\\(GN_0 &lt; k\\)\n增益 &lt; 损耗\n\\(n^* = 0\\) 稳定，无激光输出\n\n\n\\(GN_0 = k\\)\n增益 = 损耗\n分岔点（激光阈值）\n\n\n\\(GN_0 &gt; k\\)\n增益 &gt; 损耗\n\\(n^* = 0\\) 不稳定，系统跑到 \\(n^* = (GN_0-k)/(\\alpha G)\\)，激光工作\n\n\n\n\\(N_0\\) 由泵浦强度控制：泵浦越强 → \\(N_0\\) 越大 → 越容易超过阈值。物理约束 \\(n \\geq 0\\) 意味着 \\(r &lt; 0\\) 时的负不动点没有物理意义。\n\n\n\n\nDefinition. Transcritical 分岔描述的是两个不动点始终存在，但在某个参数临界值处交换稳定性的场景。\nTheory. 标准型 (Normal Form)：\n\\[\n\\dot{x} = rx - x^2\n\\]\n其中 \\(r\\) 是控制参数 (Control Parameter)。\nInference. 令 \\(\\dot{x} = 0\\)，提取 \\(x\\)：\n\\[\nx(r - x) = 0 \\implies x_1^* = 0, \\quad x_2^* = r\n\\]\n两个不动点始终存在，在 \\(r = 0\\) 处合并。\nTheory. 稳定性：\\(f(x) = rx - x^2\\)，\\(f'(x) = r - 2x\\)。\n\n\n\n不动点\n\\(f'(x^*)\\)\n\\(r &lt; 0\\) 时\n\\(r &gt; 0\\) 时\n\n\n\n\n\\(x_1^* = 0\\)\n\\(r\\)\n稳定 (\\(f' &lt; 0\\))\n不稳定 (\\(f' &gt; 0\\))\n\n\n\\(x_2^* = r\\)\n\\(-r\\)\n不稳定 (\\(f' &gt; 0\\))\n稳定 (\\(f' &lt; 0\\))\n\n\n\nResult. 在 \\(r = 0\\) 处，两个不动点的稳定性同时翻转——这就是”交换稳定性”。\n\n\n\n\n\n特征\nSaddle-Node\nTranscritical\n\n\n\n\n分岔时\n两个不动点碰撞后消失\n两个不动点交换稳定性\n\n\n不动点数量变化\n2 → 0（或 0 → 2）\n始终为 2\n\n\n标准型\n\\(\\dot{x} = r + x^2\\)\n\\(\\dot{x} = rx - x^2\\)\n\n\n物理场景\n阈值效应（状态消失）\n模式切换（主导权转移）\n\n\n\n\n\n\nTheory. 对一般系统 \\(\\dot{x} = f(x; r)\\)，判断某个不动点 \\(x^*\\) 是否发生 Transcritical 分岔：\n\n在 \\(x^*\\) 处 Taylor 展开\n检查线性项系数是否随参数过零\n确认二次项系数非零（否则可能退化为更高阶的分岔）\n验证不动点不消失，只是交换稳定性\n\n\n\n\n\nDefinition. 系统 \\(\\dot{x} = x(1 - x^2) - a(1 - e^{-bx})\\)，分析 \\(x = 0\\) 处的分岔。\nInference. \\(x = 0\\) 始终是不动点：代入 \\(x = 0\\) 得 \\(0 \\cdot (1 - 0) - a(1 - e^0) = 0\\)。对所有 \\((a, b)\\) 成立。这是 Transcritical 的特征。\n在 \\(x = 0\\) 附近 Taylor 展开。利用 \\(e^{-bx} = 1 - bx + \\frac{1}{2}b^2x^2 + O(x^3)\\)：\n\\[\n1 - e^{-bx} = bx - \\frac{1}{2}b^2x^2 + O(x^3)\n\\]\n代入原方程（注意 \\(x(1-x^2) = x + O(x^3)\\)，保留到 \\(x^2\\)）：\n\\[\n\\dot{x} = (1 - ab)x + \\frac{1}{2}ab^2 x^2 + O(x^3)\n\\]\nResult. 线性项系数为 \\((1 - ab)\\)。当 \\(ab = 1\\) 时线性项消失，这就是 \\((a, b)\\) 参数空间中的分岔曲线——双曲线 \\(ab = 1\\)。\n近似非零不动点：\n\\[\nx^* \\approx \\frac{2(ab - 1)}{ab^2}\n\\]\n验证稳定性交换：\\(f'(0) = 1 - ab\\)，在非零不动点处 \\(f'(x^*) = ab - 1\\)。两者在 \\(ab = 1\\) 处同时翻转，确认为 Transcritical 分岔。\n\n\n\n\n\n\n物理概念\n数学对应\n\n\n\n\n腔内光子数 \\(n\\)\n动态变量 \\(x\\)\n\n\n泵浦强度（通过 \\(N_0\\)）\n控制参数 \\(r\\)\n\n\n激光阈值（增益 = 损耗）\n分岔点 \\(r = 0\\)\n\n\n无激光状态\n不动点 \\(x^* = 0\\)（\\(r &lt; 0\\) 时稳定）\n\n\n激光工作状态\n非零不动点 \\(x^* = r/\\beta\\)（\\(r &gt; 0\\) 时稳定）\n\n\n增益饱和\n非线性项 \\(-\\beta n^2\\)\n\n\n泵浦过阈值后激光开启\n稳定性交换\n\n\n\nResult. 核心方法论：\n\n找不动点：令 \\(\\dot{x} = 0\\)\nTaylor 展开：在不动点处展开，化简为多项式\n读系数：线性项系数过零 → 分岔；二次项非零 → Transcritical\n判稳定性：\\(f'(x^*) &lt; 0\\) 稳定，\\(f'(x^*) &gt; 0\\) 不稳定\n验证交换：确认两个不动点的稳定性在分岔点处同时翻转"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#能量量子化-energy-quantization",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#能量量子化-energy-quantization",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. 频率为 \\(\\nu\\) 的电磁场模式，其能量只能取 \\(h\\nu\\) 的整数倍：\n\\[\nE_n = n h\\nu, \\quad n = 0, 1, 2, \\ldots\n\\]\n其中 \\(h \\approx 6.626 \\times 10^{-34} \\, \\text{J·s}\\) 是 Planck 常数。\nResult.\n\n光子 (Photon) 不是”能量切出来的小块”，而是电磁场天生只能以光子为单位激发和释放。光子是电磁场能量的最小单位。\n量子化思想是普遍的：光子是电磁场的量子，声子 (Phonon) 是晶格振动的量子，都是同一个框架。\n为什么能量是量子化的？量子力学没有从更深层解释这一点，它是一个基本假设。Planck 为解释黑体辐射 (Black-body Radiation) 而提出，Einstein 用光电效应 (Photoelectric Effect) 证实了光子的实在性。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#不同频率的光子-photons-at-different-frequencies",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#不同频率的光子-photons-at-different-frequencies",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Theory. 不同频率的光子就像不同面额的硬币——每种面额的”最小单位”不同，但都是不可再分的一份。\n\\[\nE = h\\nu\n\\]\nResult.\n\n红光 (Red Light)：频率低 → 单光子能量小。\n紫光 (Violet Light)：频率高 → 单光子能量大。\nX 射线 / 伽马射线 (Gamma Ray)：频率更高 → 单光子能量更大。\n\n紫外线有害的根本原因是质的区别：每一份能量（\\(h\\nu\\)）都足以打断化学键、损伤 DNA，而红光的单光子能量太低，无论用多少个都打不断化学键。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#原子能级跃迁-atomic-energy-level-transitions",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#原子能级跃迁-atomic-energy-level-transitions",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Theory. 原子有不同的能量状态（能级 Energy Level）。当原子在能级之间跃迁时，能量以光子的形式释放或吸收：\n\\[\nE_{\\text{高}} - E_{\\text{低}} = h\\nu\n\\]\n能级差唯一确定了释放光子的频率。\nInference. 原子从高能级跳到低能级时，电子云分布发生变化，产生一个振荡的电偶极矩 (Oscillating Electric Dipole Moment)。这个振荡的偶极矩激发电磁场，而电磁场只能以量子化的方式被激发，所以出来的恰好是一个光子。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#激光器中的三种辐射过程-three-radiation-processes-in-a-laser",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#激光器中的三种辐射过程-three-radiation-processes-in-a-laser",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. 激光器涉及三种辐射过程：\n\n\n\n\n\n\n\n\n过程\n描述\n光子数变化\n\n\n\n\n自发辐射 (Spontaneous Emission)\n高能态原子自行跳回低能态，随机方向发射光子\n+1（随机方向）\n\n\n受激吸收 (Stimulated Absorption)\n光子被低能态原子吸收，原子跳到高能态\n−1\n\n\n受激辐射 (Stimulated Emission)\n光子”刺激”高能态原子跳下来，释放一个与入射光子完全相同（同频率、同方向、同相位）的新光子\n+1（相干）\n\n\n\nResult. 受激辐射是激光 (Laser) 的核心机制：一个光子进去，两个一模一样的光子出来。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#固态激光器的结构与工作原理-solid-state-laser-structure",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#固态激光器的结构与工作原理-solid-state-laser-structure",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. 固态激光器由以下部分组成：\n\n活性材料 (Active Medium)：含有大量激光活性原子（如红宝石中的铬离子）。\n两端镜子：构成光学谐振腔 (Optical Resonator)，让光子来回反射，不断触发受激辐射。\n泵浦 (Pump)：外部能量源，将原子从基态激发到高能态。\n半透镜 (Partially Transparent Mirror)：让一部分光漏出去，作为激光输出。\n\nTheory. 粒子数反转 (Population Inversion)：正常热平衡下，低能态原子数 \\(N_1\\) 远多于高能态 \\(N_2\\)，即 \\(N_1 &gt; N_2\\)。粒子数反转就是人为地让 \\(N_2 &gt; N_1\\)。\nInference. 一个轴向光子飞过活性材料时：\n\n遇到高能态原子 → 触发受激辐射（光子数 +1）\n遇到低能态原子 → 被受激吸收（光子数 −1）\n\n如果 \\(N_1 &gt; N_2\\)，光子被吸收的概率更大，净效果是光子被消耗。只有当 \\(N_2 &gt; N_1\\) 时，受激辐射占主导，光子数才能净增长。\nResult.\n\n谐振腔起到方向滤波器 (Directional Filter) 的作用：轴向光子在两面镜子之间来回反弹被不断放大，偏离轴向的光子则被自然淘汰。\n激光器是能量转换器：把无序的泵浦能量转换成高度有序的激光输出，具有单色性 (Monochromaticity)、方向性 (Directionality) 和相干性 (Coherence)。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#激光模型的动力学分析-dynamical-analysis-of-laser-model",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#激光模型的动力学分析-dynamical-analysis-of-laser-model",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. 动态变量是腔内光子数 \\(n(t)\\)，其演化由增益和损耗的竞争决定：\n\\[\n\\dot{n} = \\underbrace{GnN}_{\\text{gain (受激辐射)}} - \\underbrace{kn}_{\\text{loss (光子漏出)}}\n\\]\n\n增益项 \\(GnN\\)：来自受激辐射，速率正比于光子数 \\(n\\) 与高能态原子数 \\(N\\) 的乘积。\\(G &gt; 0\\) 是增益系数。\n损耗项 \\(kn\\)：光子从半透镜漏出，速率正比于光子数。\\(k &gt; 0\\) 是损耗速率常数，其倒数 \\(\\tau = 1/k\\) 是光子在腔内的典型寿命。\n\n\n\n\nTheory. \\(N\\) 不是常数。每次受激辐射发射一个光子，就有一个原子从高能态跳到低能态，\\(N\\) 减少。用线性模型近似：\n\\[\nN(t) = N_0 - \\alpha n\n\\]\n其中 \\(N_0\\) 是无激光时泵浦维持的高能态原子数（反映泵浦强度），\\(\\alpha &gt; 0\\) 表示每个光子消耗高能态原子的比率。\nResult. 这就是增益饱和效应：光子越多 → 高能态原子被消耗越快 → 增益被压低 → 系统自我调节。\n\n\n\nInference. 将 \\(N = N_0 - \\alpha n\\) 代入：\n\\[\n\\dot{n} = Gn(N_0 - \\alpha n) - kn = (GN_0 - k)n - (\\alpha G)n^2\n\\]\n令有效控制参数 \\(r = GN_0 - k\\)：\n\\[\n\\dot{n} = rn - (\\alpha G)n^2\n\\]\nResult. 这正是 Transcritical 分岔的标准型。\n\n\n\nInference. 令 \\(\\dot{n} = 0\\)：\n\\[\nn\\left[r - (\\alpha G)n\\right] = 0\n\\]\n两个不动点：\n\\[\nn_1^* = 0, \\qquad n_2^* = \\frac{r}{\\alpha G} = \\frac{GN_0 - k}{\\alpha G}\n\\]\n\n\n\nTheory. 令 \\(f(n) = rn - (\\alpha G)n^2\\)，则 \\(f'(n) = r - 2(\\alpha G)n\\)。\n在 \\(n_1^* = 0\\) 处：\\(f'(0) = r = GN_0 - k\\)\n\n\\(r &lt; 0\\)（泵浦弱，\\(GN_0 &lt; k\\)）：\\(f'(0) &lt; 0\\)，稳定\n\\(r &gt; 0\\)（泵浦强，\\(GN_0 &gt; k\\)）：\\(f'(0) &gt; 0\\)，不稳定\n\n在 \\(n_2^* = r/(\\alpha G)\\) 处：\\(f'(n_2^*) = r - 2r = -r\\)\n\n\\(r &lt; 0\\)：\\(f'(n_2^*) &gt; 0\\)，不稳定（但此时 \\(n_2^* &lt; 0\\)，物理上无意义）\n\\(r &gt; 0\\)：\\(f'(n_2^*) &lt; 0\\)，稳定\n\nResult. 两个不动点的稳定性恰好互补并交换——这是 Transcritical 分岔的标志。\n\n\n\nResult. 激光阈值对应 \\(r = 0\\)，即 \\(GN_0 = k\\)（增益恰好等于损耗）：\n\n\n\n\n\n\n\n\n参数区域\n条件\n物理状态\n\n\n\n\n\\(GN_0 &lt; k\\)\n增益 &lt; 损耗\n\\(n^* = 0\\) 稳定，无激光输出\n\n\n\\(GN_0 = k\\)\n增益 = 损耗\n分岔点（激光阈值）\n\n\n\\(GN_0 &gt; k\\)\n增益 &gt; 损耗\n\\(n^* = 0\\) 不稳定，系统跑到 \\(n^* = (GN_0-k)/(\\alpha G)\\)，激光工作\n\n\n\n\\(N_0\\) 由泵浦强度控制：泵浦越强 → \\(N_0\\) 越大 → 越容易超过阈值。物理约束 \\(n \\geq 0\\) 意味着 \\(r &lt; 0\\) 时的负不动点没有物理意义。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#transcritical-分岔一般理论-transcritical-bifurcation-general-theory",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#transcritical-分岔一般理论-transcritical-bifurcation-general-theory",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. Transcritical 分岔描述的是两个不动点始终存在，但在某个参数临界值处交换稳定性的场景。\nTheory. 标准型 (Normal Form)：\n\\[\n\\dot{x} = rx - x^2\n\\]\n其中 \\(r\\) 是控制参数 (Control Parameter)。\nInference. 令 \\(\\dot{x} = 0\\)，提取 \\(x\\)：\n\\[\nx(r - x) = 0 \\implies x_1^* = 0, \\quad x_2^* = r\n\\]\n两个不动点始终存在，在 \\(r = 0\\) 处合并。\nTheory. 稳定性：\\(f(x) = rx - x^2\\)，\\(f'(x) = r - 2x\\)。\n\n\n\n不动点\n\\(f'(x^*)\\)\n\\(r &lt; 0\\) 时\n\\(r &gt; 0\\) 时\n\n\n\n\n\\(x_1^* = 0\\)\n\\(r\\)\n稳定 (\\(f' &lt; 0\\))\n不稳定 (\\(f' &gt; 0\\))\n\n\n\\(x_2^* = r\\)\n\\(-r\\)\n不稳定 (\\(f' &gt; 0\\))\n稳定 (\\(f' &lt; 0\\))\n\n\n\nResult. 在 \\(r = 0\\) 处，两个不动点的稳定性同时翻转——这就是”交换稳定性”。\n\n\n\n\n\n特征\nSaddle-Node\nTranscritical\n\n\n\n\n分岔时\n两个不动点碰撞后消失\n两个不动点交换稳定性\n\n\n不动点数量变化\n2 → 0（或 0 → 2）\n始终为 2\n\n\n标准型\n\\(\\dot{x} = r + x^2\\)\n\\(\\dot{x} = rx - x^2\\)\n\n\n物理场景\n阈值效应（状态消失）\n模式切换（主导权转移）\n\n\n\n\n\n\nTheory. 对一般系统 \\(\\dot{x} = f(x; r)\\)，判断某个不动点 \\(x^*\\) 是否发生 Transcritical 分岔：\n\n在 \\(x^*\\) 处 Taylor 展开\n检查线性项系数是否随参数过零\n确认二次项系数非零（否则可能退化为更高阶的分岔）\n验证不动点不消失，只是交换稳定性"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "Definition. 系统 \\(\\dot{x} = x(1 - x^2) - a(1 - e^{-bx})\\)，分析 \\(x = 0\\) 处的分岔。\nInference. \\(x = 0\\) 始终是不动点：代入 \\(x = 0\\) 得 \\(0 \\cdot (1 - 0) - a(1 - e^0) = 0\\)。对所有 \\((a, b)\\) 成立。这是 Transcritical 的特征。\n在 \\(x = 0\\) 附近 Taylor 展开。利用 \\(e^{-bx} = 1 - bx + \\frac{1}{2}b^2x^2 + O(x^3)\\)：\n\\[\n1 - e^{-bx} = bx - \\frac{1}{2}b^2x^2 + O(x^3)\n\\]\n代入原方程（注意 \\(x(1-x^2) = x + O(x^3)\\)，保留到 \\(x^2\\)）：\n\\[\n\\dot{x} = (1 - ab)x + \\frac{1}{2}ab^2 x^2 + O(x^3)\n\\]\nResult. 线性项系数为 \\((1 - ab)\\)。当 \\(ab = 1\\) 时线性项消失，这就是 \\((a, b)\\) 参数空间中的分岔曲线——双曲线 \\(ab = 1\\)。\n近似非零不动点：\n\\[\nx^* \\approx \\frac{2(ab - 1)}{ab^2}\n\\]\n验证稳定性交换：\\(f'(0) = 1 - ab\\)，在非零不动点处 \\(f'(x^*) = ab - 1\\)。两者在 \\(ab = 1\\) 处同时翻转，确认为 Transcritical 分岔。"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence",
+    "title": "光子物理与激光器 (Photon Physics and Laser)",
+    "section": "",
+    "text": "物理概念\n数学对应\n\n\n\n\n腔内光子数 \\(n\\)\n动态变量 \\(x\\)\n\n\n泵浦强度（通过 \\(N_0\\)）\n控制参数 \\(r\\)\n\n\n激光阈值（增益 = 损耗）\n分岔点 \\(r = 0\\)\n\n\n无激光状态\n不动点 \\(x^* = 0\\)（\\(r &lt; 0\\) 时稳定）\n\n\n激光工作状态\n非零不动点 \\(x^* = r/\\beta\\)（\\(r &gt; 0\\) 时稳定）\n\n\n增益饱和\n非线性项 \\(-\\beta n^2\\)\n\n\n泵浦过阈值后激光开启\n稳定性交换\n\n\n\nResult. 核心方法论：\n\n找不动点：令 \\(\\dot{x} = 0\\)\nTaylor 展开：在不动点处展开，化简为多项式\n读系数：线性项系数过零 → 分岔；二次项非零 → Transcritical\n判稳定性：\\(f'(x^*) &lt; 0\\) 稳定，\\(f'(x^*) &gt; 0\\) 不稳定\n验证交换：确认两个不动点的稳定性在分岔点处同时翻转"
+  },
+  {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/index.html",
     "href": "Mathematical-Foundations-of-Machine-Learning/index.html",
     "title": "Mathematical Foundations of Machine Learning",
     "section": "",
-    "text": "Updated: 2026-03-30 18:08 AEDT\n\nThis section collects notes on the mathematical foundations used in machine learning. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\nOrthogonality\nNonlinear Dynamics\nFour Fundamental Subspaces\nLangevin Dynamics and Diffusion Model\nAnalytical Mechanics: Lagrangian and Hamiltonian Systems\nSGD, Momentum, and Potential Dynamics"
+    "text": "Updated: 2026-04-07 12:00 AEDT\n\nThis section collects notes on the mathematical foundations used in machine learning. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\nOrthogonality\nNonlinear Dynamics\nFour Fundamental Subspaces\nLangevin Dynamics and Diffusion Model\nAnalytical Mechanics: Lagrangian and Hamiltonian Systems\nSGD, Momentum, and Potential Dynamics"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/5 Lagrangian and Hamiltonian Mechanics.html",
@@ -294,71 +364,78 @@
     "text": "Theory. 奇异值分解：\n\\[\nA=U\\Sigma V^T\n\\]\n其中 \\(U,V\\) 正交，\\(\\Sigma\\) 的非零奇异值个数为 \\(r\\)。\n\n\n\nSVD 的几何代数表示\n\n\nResult. 若按非零奇异值排序，则：\n\\[\nC(A)=\\operatorname{span}(u_1,\\dots,u_r),\\quad N(A^T)=\\operatorname{span}(u_{r+1},\\dots,u_m)\n\\]\n\\[\nC(A^T)=\\operatorname{span}(v_1,\\dots,v_r),\\quad N(A)=\\operatorname{span}(v_{r+1},\\dots,v_n)\n\\]\n\n\n\nSVD 的基底映射关系\n\n\nSVD 直接给出四子空间的一组标准正交基。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/index.html",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/index.html",
+    "title": "Nonlinear Dynamics",
+    "section": "",
+    "text": "Updated: 2026-04-07 12:00 AEDT\n\nNotes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\nNonlinear Dynamics — autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics\nPhoton Physics and Laser — energy quantization, laser threshold, transcritical bifurcation"
+  },
+  {
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Updated: 2026-03-17 18:56 AEDT\n\n标签约定：Definition 表示定义，Theory 表示理论/定理，Inference 仅表示推导步骤，Result 表示结论或判别结论。\n\n\nDefinition. 一维自治系统写为：\n\\[\n\\dot{x}=f(x)\n\\]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n\\[\nf(x^*)=0\n\\]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n\\[\nf'(x^*)\n\\]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。\n\n\n\n\nDefinition. 分岔是参数变化导致系统定性行为改变的现象。\nTheory. 常见类型：\n\nSaddle-node bifurcation\nTranscritical bifurcation\nPitchfork bifurcation\n\n\n\n\nDefinition. 二维自治系统：\n\\[\n\\dot{x}=f(x,y), \\quad \\dot{y}=g(x,y)\n\\]\nDefinition. 平衡点条件：\n\\[\nf(x^*,y^*)=0, \\quad g(x^*,y^*)=0\n\\]\nDefinition. 在平衡点附近定义小扰动：\n\\[\nx=x^*+u, \\quad y=y^*+v\n\\]\n\\[\n\\dot{u}=f(x^*+u,y^*+v), \\quad \\dot{v}=g(x^*+u,y^*+v)\n\\]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n\\[\nf(x^*+u,y^*+v)\\approx f(x^*,y^*)+f_xu+f_yv\n\\]\n\\[\ng(x^*+u,y^*+v)\\approx g(x^*,y^*)+g_xu+g_yv\n\\]\n由平衡点条件可得线性化系统：\n\\[\n\\dot{u}\\approx f_xu+f_yv, \\quad \\dot{v}\\approx g_xu+g_yv\n\\]\n矩阵形式：\n\\[\n\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\n\\]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}_{(x^*,y^*)}\n\\]\n\n\n\nTheory. 线性化后系统写成：\n\\[\n\\dot{z}=Jz\n\\]\n设指数型解 (Exponential Ansatz)：\n\\[\nz(t)=e^{\\lambda t}v\n\\]\n代入得到：\n\\[\n\\dot{z}=\\lambda e^{\\lambda t}v, \\quad Jz=e^{\\lambda t}Jv\n\\]\n\\[\n\\lambda e^{\\lambda t}v=e^{\\lambda t}Jv\n\\]\n\\[\nJv=\\lambda v\n\\]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n\\[\n(J-\\lambda I)v=0\n\\]\n\\[\n\\det(J-\\lambda I)=0\n\\]\n解得特征值：\n\\[\n\\lambda_1,\\lambda_2\n\\]\n这就是局部稳定性分析的核心逻辑。\n\n\n\nDefinition. 对二维系统，定义：\n\\[\n\\operatorname{tr}(J)=\\lambda_1+\\lambda_2\n\\]\n\\[\n\\det(J)=\\lambda_1\\lambda_2\n\\]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。\n\n\n\n\nDefinition. 混沌是确定性系统中出现的复杂非周期行为。\nTheory. 典型特征：\n\nDeterministic dynamics\nBounded trajectories\nSensitive dependence on initial conditions\n\n\n\n\nTheory. 在双曲平衡点 (Hyperbolic Equilibrium) 附近，非线性系统与其线性化系统拓扑共轭 (Topological Conjugacy)。\nResult. 在局部邻域内，可以用线性系统判断相图骨架。\n\n\n\nTheory. 在哈密顿系统中，相空间体积在时间演化下保持不变。\nResult. 哈密顿流可视为不可压缩流 (Incompressible Flow in Phase Space)。\n\n\n\n\n\nDefinition. 广义速度 (Generalized Velocity)：\n\\[\n\\dot{q}=\\frac{dq}{dt}\n\\]\nDefinition. 拉格朗日量 (Lagrangian)：\n\\[\nL(q,\\dot{q})=T-V\n\\]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n\\[\np=\\frac{\\partial L}{\\partial \\dot{q}}\n\\]\nTheory. Euler-Lagrange Equation：\n\\[\n\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)=\\frac{\\partial L}{\\partial q}\n\\]\n等价写法：\n\\[\n\\dot{p}=\\frac{\\partial L}{\\partial q}\n\\]\nDefinition. 作用量 (Action)：\n\\[\nS=\\int L\\,dt\n\\]\n真实轨道满足驻值条件 (Stationary Action)：\n\\[\n\\delta S=0\n\\]\n\n\n\nDefinition.\n\\[\np=\\frac{df}{dx}\n\\]\n\\[\ng(p)=px-f(x)\n\\]\n\n\n\nDefinition. Hamiltonian：\n\\[\nH(q,p)=p\\dot{q}-L(q,\\dot{q})\n\\]\n在常见机械系统中：\n\\[\nH=T+V\n\\]\nTheory. 对 Hamiltonian 做全微分：\n\\[\ndH=d(p\\dot{q})-dL\n\\]\n\\[\nd(p\\dot{q})=\\dot{q}\\,dp+p\\,d\\dot{q}\n\\]\n\\[\ndL=\\frac{\\partial L}{\\partial q}\\,dq+\\frac{\\partial L}{\\partial \\dot{q}}\\,d\\dot{q}\n\\]\n代入并使用：\n\\[\n\\frac{\\partial L}{\\partial \\dot{q}}=p, \\quad \\frac{\\partial L}{\\partial q}=\\dot{p}\n\\]\n得到：\n\\[\ndH=\\dot{q}\\,dp-\\dot{p}\\,dq\n\\]\n另一方面：\n\\[\ndH=\\frac{\\partial H}{\\partial q}\\,dq+\\frac{\\partial H}{\\partial p}\\,dp\n\\]\nInference. 比较系数得到 Hamilton’s Equations：\n\\[\n\\dot{q}=\\frac{\\partial H}{\\partial p}, \\quad \\dot{p}=-\\frac{\\partial H}{\\partial q}\n\\]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n\\[\nz=(q,p)\n\\]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\n\\]\nTheory. Hamiltonian 系统可写为：\n\\[\n\\dot{z}=J\\nabla H\n\\]\nDefinition. 相空间流 (Phase-space Flow) 可记为：\n\\[\nX_H=(\\dot{q},\\dot{p})=\\left(\\frac{\\partial H}{\\partial p},-\\frac{\\partial H}{\\partial q}\\right)\n\\]\nInference. 其散度 (Divergence) 为：\n\\[\n\\nabla\\cdot X_H\n=\n\\frac{\\partial}{\\partial q}\\left(\\frac{\\partial H}{\\partial p}\\right)\n+\n\\frac{\\partial}{\\partial p}\\left(-\\frac{\\partial H}{\\partial q}\\right)\n=0\n\\]\n在多维情形下同理可得：\n\\[\n\\nabla\\cdot X_H\n=\n\\sum_{i=1}^{n}\n\\left(\n\\frac{\\partial^2 H}{\\partial q_i\\partial p_i}\n-\n\\frac{\\partial^2 H}{\\partial p_i\\partial q_i}\n\\right)\n=0\n\\]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nHamiltonian 相空间流是散度为 0 的流 (Divergence-free Flow)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#一维自治系统与相线-one-dimensional-autonomous-system-phase-line",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 一维自治系统写为：\n\\[\n\\dot{x}=f(x)\n\\]\nDefinition. 平衡点 (Equilibrium Point) 满足：\n\\[\nf(x^*)=0\n\\]\nTheory. 线性稳定性判据 (Linear Stability Criterion)：\n\\[\nf'(x^*)\n\\]\nResult.\n\n若导数小于零，轨道在平衡点附近收敛 (Stable)。\n若导数大于零，轨道在平衡点附近发散 (Unstable)。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#分岔-bifurcation",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#分岔-bifurcation",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#分岔-bifurcation",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#分岔-bifurcation",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 分岔是参数变化导致系统定性行为改变的现象。\nTheory. 常见类型：\n\nSaddle-node bifurcation\nTranscritical bifurcation\nPitchfork bifurcation"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#二维自治系统与线性化-two-dimensional-autonomous-system-linearization",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#二维自治系统与线性化-two-dimensional-autonomous-system-linearization",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#二维自治系统与线性化-two-dimensional-autonomous-system-linearization",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#二维自治系统与线性化-two-dimensional-autonomous-system-linearization",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 二维自治系统：\n\\[\n\\dot{x}=f(x,y), \\quad \\dot{y}=g(x,y)\n\\]\nDefinition. 平衡点条件：\n\\[\nf(x^*,y^*)=0, \\quad g(x^*,y^*)=0\n\\]\nDefinition. 在平衡点附近定义小扰动：\n\\[\nx=x^*+u, \\quad y=y^*+v\n\\]\n\\[\n\\dot{u}=f(x^*+u,y^*+v), \\quad \\dot{v}=g(x^*+u,y^*+v)\n\\]\nTheory. 一阶 Taylor 展开 (First-order Taylor Expansion)：\n\\[\nf(x^*+u,y^*+v)\\approx f(x^*,y^*)+f_xu+f_yv\n\\]\n\\[\ng(x^*+u,y^*+v)\\approx g(x^*,y^*)+g_xu+g_yv\n\\]\n由平衡点条件可得线性化系统：\n\\[\n\\dot{u}\\approx f_xu+f_yv, \\quad \\dot{v}\\approx g_xu+g_yv\n\\]\n矩阵形式：\n\\[\n\\begin{pmatrix}\n\\dot{u}\\\\\n\\dot{v}\n\\end{pmatrix}\n=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}\n\\begin{pmatrix}\nu\\\\\nv\n\\end{pmatrix}\n\\]\nDefinition. 雅可比矩阵 (Jacobian Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\nf_x & f_y\\\\\ng_x & g_y\n\\end{pmatrix}_{(x^*,y^*)}\n\\]"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#特征值方法-eigenvalue-method",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#特征值方法-eigenvalue-method",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#特征值方法-eigenvalue-method",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#特征值方法-eigenvalue-method",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Theory. 线性化后系统写成：\n\\[\n\\dot{z}=Jz\n\\]\n设指数型解 (Exponential Ansatz)：\n\\[\nz(t)=e^{\\lambda t}v\n\\]\n代入得到：\n\\[\n\\dot{z}=\\lambda e^{\\lambda t}v, \\quad Jz=e^{\\lambda t}Jv\n\\]\n\\[\n\\lambda e^{\\lambda t}v=e^{\\lambda t}Jv\n\\]\n\\[\nJv=\\lambda v\n\\]\nInference. 为了存在非零特征向量 (Non-trivial Eigenvector)：\n\\[\n(J-\\lambda I)v=0\n\\]\n\\[\n\\det(J-\\lambda I)=0\n\\]\n解得特征值：\n\\[\n\\lambda_1,\\lambda_2\n\\]\n这就是局部稳定性分析的核心逻辑。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#trace-det-判据-trace-determinant-criterion",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#trace-det-判据-trace-determinant-criterion",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#trace-det-判据-trace-determinant-criterion",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#trace-det-判据-trace-determinant-criterion",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 对二维系统，定义：\n\\[\n\\operatorname{tr}(J)=\\lambda_1+\\lambda_2\n\\]\n\\[\n\\det(J)=\\lambda_1\\lambda_2\n\\]\nResult.\n\n若行列式小于零，平衡点为 Saddle。\n若行列式大于零且迹小于零，常对应稳定类型 (Stable Node / Stable Focus)。\n若行列式大于零且迹大于零，常对应不稳定类型 (Unstable Node / Unstable Focus)。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#混沌-chaos",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#混沌-chaos",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#混沌-chaos",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#混沌-chaos",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 混沌是确定性系统中出现的复杂非周期行为。\nTheory. 典型特征：\n\nDeterministic dynamics\nBounded trajectories\nSensitive dependence on initial conditions"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#hartman-grobman-定理-hartman-grobman-theorem",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#hartman-grobman-定理-hartman-grobman-theorem",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#hartman-grobman-定理-hartman-grobman-theorem",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#hartman-grobman-定理-hartman-grobman-theorem",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Theory. 在双曲平衡点 (Hyperbolic Equilibrium) 附近，非线性系统与其线性化系统拓扑共轭 (Topological Conjugacy)。\nResult. 在局部邻域内，可以用线性系统判断相图骨架。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#liouville-定理-liouvilles-theorem",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#liouville-定理-liouvilles-theorem",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#liouville-定理-liouvilles-theorem",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#liouville-定理-liouvilles-theorem",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Theory. 在哈密顿系统中，相空间体积在时间演化下保持不变。\nResult. 哈密顿流可视为不可压缩流 (Incompressible Flow in Phase Space)。"
   },
   {
-    "objectID": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#哈密顿系统基础-hamiltonian-mechanics",
-    "href": "Mathematical-Foundations-of-Machine-Learning/2 Nonlinear Dynmaics.html#哈密顿系统基础-hamiltonian-mechanics",
+    "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#哈密顿系统基础-hamiltonian-mechanics",
+    "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html#哈密顿系统基础-hamiltonian-mechanics",
     "title": "非线性动力学 (Nonlinear Dynamics)",
     "section": "",
     "text": "Definition. 广义速度 (Generalized Velocity)：\n\\[\n\\dot{q}=\\frac{dq}{dt}\n\\]\nDefinition. 拉格朗日量 (Lagrangian)：\n\\[\nL(q,\\dot{q})=T-V\n\\]\n其中 T 为 Kinetic Energy，V 为 Potential Energy。\nDefinition. 广义动量 (Generalized Momentum)：\n\\[\np=\\frac{\\partial L}{\\partial \\dot{q}}\n\\]\nTheory. Euler-Lagrange Equation：\n\\[\n\\frac{d}{dt}\\left(\\frac{\\partial L}{\\partial \\dot{q}}\\right)=\\frac{\\partial L}{\\partial q}\n\\]\n等价写法：\n\\[\n\\dot{p}=\\frac{\\partial L}{\\partial q}\n\\]\nDefinition. 作用量 (Action)：\n\\[\nS=\\int L\\,dt\n\\]\n真实轨道满足驻值条件 (Stationary Action)：\n\\[\n\\delta S=0\n\\]\n\n\n\nDefinition.\n\\[\np=\\frac{df}{dx}\n\\]\n\\[\ng(p)=px-f(x)\n\\]\n\n\n\nDefinition. Hamiltonian：\n\\[\nH(q,p)=p\\dot{q}-L(q,\\dot{q})\n\\]\n在常见机械系统中：\n\\[\nH=T+V\n\\]\nTheory. 对 Hamiltonian 做全微分：\n\\[\ndH=d(p\\dot{q})-dL\n\\]\n\\[\nd(p\\dot{q})=\\dot{q}\\,dp+p\\,d\\dot{q}\n\\]\n\\[\ndL=\\frac{\\partial L}{\\partial q}\\,dq+\\frac{\\partial L}{\\partial \\dot{q}}\\,d\\dot{q}\n\\]\n代入并使用：\n\\[\n\\frac{\\partial L}{\\partial \\dot{q}}=p, \\quad \\frac{\\partial L}{\\partial q}=\\dot{p}\n\\]\n得到：\n\\[\ndH=\\dot{q}\\,dp-\\dot{p}\\,dq\n\\]\n另一方面：\n\\[\ndH=\\frac{\\partial H}{\\partial q}\\,dq+\\frac{\\partial H}{\\partial p}\\,dp\n\\]\nInference. 比较系数得到 Hamilton’s Equations：\n\\[\n\\dot{q}=\\frac{\\partial H}{\\partial p}, \\quad \\dot{p}=-\\frac{\\partial H}{\\partial q}\n\\]\n这与 Euler-Lagrange 方程等价，只是坐标描述不同。\n\n\n\nDefinition. 状态向量 (State Vector)：\n\\[\nz=(q,p)\n\\]\nDefinition. 标准辛矩阵 (Canonical Symplectic Matrix)：\n\\[\nJ=\n\\begin{pmatrix}\n0 & 1\\\\\n-1 & 0\n\\end{pmatrix}\n\\]\nTheory. Hamiltonian 系统可写为：\n\\[\n\\dot{z}=J\\nabla H\n\\]\nDefinition. 相空间流 (Phase-space Flow) 可记为：\n\\[\nX_H=(\\dot{q},\\dot{p})=\\left(\\frac{\\partial H}{\\partial p},-\\frac{\\partial H}{\\partial q}\\right)\n\\]\nInference. 其散度 (Divergence) 为：\n\\[\n\\nabla\\cdot X_H\n=\n\\frac{\\partial}{\\partial q}\\left(\\frac{\\partial H}{\\partial p}\\right)\n+\n\\frac{\\partial}{\\partial p}\\left(-\\frac{\\partial H}{\\partial q}\\right)\n=0\n\\]\n在多维情形下同理可得：\n\\[\n\\nabla\\cdot X_H\n=\n\\sum_{i=1}^{n}\n\\left(\n\\frac{\\partial^2 H}{\\partial q_i\\partial p_i}\n-\n\\frac{\\partial^2 H}{\\partial p_i\\partial q_i}\n\\right)\n=0\n\\]\nResult.\n\n辛结构保持相空间基本面积元 (Area Element Preservation)。\nHamiltonian 相空间流是散度为 0 的流 (Divergence-free Flow)。\nLiouville 定理保证相空间体积保持 (Volume Preservation)。\n若一般系统散度小于零，则体积收缩，可能出现吸引子 (Attractor)。"

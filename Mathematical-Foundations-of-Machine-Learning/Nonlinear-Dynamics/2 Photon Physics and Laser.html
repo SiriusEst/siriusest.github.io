@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>photon-physics-and-laser – Sirius Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-be3771519f21acc1c5b6733774c6dcd8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Sirius Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../Mathematical-Foundations-of-Machine-Learning/index.html"> 
+<span class="menu-text">Mathematics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#光子物理与激光器-photon-physics-and-laser" id="toc-光子物理与激光器-photon-physics-and-laser" class="nav-link active" data-scroll-target="#光子物理与激光器-photon-physics-and-laser">光子物理与激光器 (Photon Physics and Laser)</a>
+  <ul class="collapse">
+  <li><a href="#能量量子化-energy-quantization" id="toc-能量量子化-energy-quantization" class="nav-link" data-scroll-target="#能量量子化-energy-quantization">1. 能量量子化 (Energy Quantization)</a></li>
+  <li><a href="#不同频率的光子-photons-at-different-frequencies" id="toc-不同频率的光子-photons-at-different-frequencies" class="nav-link" data-scroll-target="#不同频率的光子-photons-at-different-frequencies">2. 不同频率的光子 (Photons at Different Frequencies)</a></li>
+  <li><a href="#原子能级跃迁-atomic-energy-level-transitions" id="toc-原子能级跃迁-atomic-energy-level-transitions" class="nav-link" data-scroll-target="#原子能级跃迁-atomic-energy-level-transitions">3. 原子能级跃迁 (Atomic Energy Level Transitions)</a></li>
+  <li><a href="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser" id="toc-激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="nav-link" data-scroll-target="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser">4. 激光器中的三种辐射过程 (Three Radiation Processes in a Laser)</a></li>
+  <li><a href="#固态激光器的结构与工作原理-solid-state-laser-structure" id="toc-固态激光器的结构与工作原理-solid-state-laser-structure" class="nav-link" data-scroll-target="#固态激光器的结构与工作原理-solid-state-laser-structure">5. 固态激光器的结构与工作原理 (Solid-State Laser Structure)</a></li>
+  <li><a href="#激光模型的动力学分析-dynamical-analysis-of-laser-model" id="toc-激光模型的动力学分析-dynamical-analysis-of-laser-model" class="nav-link" data-scroll-target="#激光模型的动力学分析-dynamical-analysis-of-laser-model">6. 激光模型的动力学分析 (Dynamical Analysis of Laser Model)</a>
+  <ul class="collapse">
+  <li><a href="#模型构建-model-construction" id="toc-模型构建-model-construction" class="nav-link" data-scroll-target="#模型构建-model-construction">6.1 模型构建 (Model Construction)</a></li>
+  <li><a href="#增益饱和-gain-saturation" id="toc-增益饱和-gain-saturation" class="nav-link" data-scroll-target="#增益饱和-gain-saturation">6.2 增益饱和 (Gain Saturation)</a></li>
+  <li><a href="#最终方程与-transcritical-标准型-final-equation-transcritical-normal-form" id="toc-最终方程与-transcritical-标准型-final-equation-transcritical-normal-form" class="nav-link" data-scroll-target="#最终方程与-transcritical-标准型-final-equation-transcritical-normal-form">6.3 最终方程与 Transcritical 标准型 (Final Equation &amp; Transcritical Normal Form)</a></li>
+  <li><a href="#不动点分析-fixed-point-analysis" id="toc-不动点分析-fixed-point-analysis" class="nav-link" data-scroll-target="#不动点分析-fixed-point-analysis">6.4 不动点分析 (Fixed Point Analysis)</a></li>
+  <li><a href="#稳定性分析-stability-analysis" id="toc-稳定性分析-stability-analysis" class="nav-link" data-scroll-target="#稳定性分析-stability-analysis">6.5 稳定性分析 (Stability Analysis)</a></li>
+  <li><a href="#物理解读激光阈值-physical-interpretation-laser-threshold" id="toc-物理解读激光阈值-physical-interpretation-laser-threshold" class="nav-link" data-scroll-target="#物理解读激光阈值-physical-interpretation-laser-threshold">6.6 物理解读：激光阈值 (Physical Interpretation: Laser Threshold)</a></li>
+  </ul></li>
+  <li><a href="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory" id="toc-transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="nav-link" data-scroll-target="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory">7. Transcritical 分岔：一般理论 (Transcritical Bifurcation: General Theory)</a>
+  <ul class="collapse">
+  <li><a href="#与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" id="toc-与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" class="nav-link" data-scroll-target="#与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation">与 Saddle-Node 分岔的对比 (Comparison with Saddle-Node Bifurcation)</a></li>
+  <li><a href="#判别方法-identification-method" id="toc-判别方法-identification-method" class="nav-link" data-scroll-target="#判别方法-identification-method">判别方法 (Identification Method)</a></li>
+  </ul></li>
+  <li><a href="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" id="toc-例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="nav-link" data-scroll-target="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space">8. 例题：参数空间中的分岔曲线 (Example: Bifurcation Curve in Parameter Space)</a></li>
+  <li><a href="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" id="toc-总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="nav-link" data-scroll-target="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence">9. 总结：从物理到数学的对应 (Summary: Physics-to-Mathematics Correspondence)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="光子物理与激光器-photon-physics-and-laser" class="level1">
+<h1>光子物理与激光器 (Photon Physics and Laser)</h1>
+<div class="updated-time">
+Updated: 2026-04-07 12:00 AEDT
+</div>
+<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
+<section id="能量量子化-energy-quantization" class="level2">
+<h2 class="anchored" data-anchor-id="能量量子化-energy-quantization">1. 能量量子化 (Energy Quantization)</h2>
+<p><strong>Definition.</strong> 频率为 <span class="math inline">\(\nu\)</span> 的电磁场模式，其能量只能取 <span class="math inline">\(h\nu\)</span> 的整数倍：</p>
+<p><span class="math display">\[
+E_n = n h\nu, \quad n = 0, 1, 2, \ldots
+\]</span></p>
+<p>其中 <span class="math inline">\(h \approx 6.626 \times 10^{-34} \, \text{J·s}\)</span> 是 Planck 常数。</p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>光子 (Photon) 不是”能量切出来的小块”，而是电磁场天生只能以光子为单位激发和释放。光子是电磁场能量的最小单位。</li>
+<li>量子化思想是普遍的：光子是电磁场的量子，声子 (Phonon) 是晶格振动的量子，都是同一个框架。</li>
+<li>为什么能量是量子化的？量子力学没有从更深层解释这一点，它是一个基本假设。Planck 为解释黑体辐射 (Black-body Radiation) 而提出，Einstein 用光电效应 (Photoelectric Effect) 证实了光子的实在性。</li>
+</ul>
+</section>
+<section id="不同频率的光子-photons-at-different-frequencies" class="level2">
+<h2 class="anchored" data-anchor-id="不同频率的光子-photons-at-different-frequencies">2. 不同频率的光子 (Photons at Different Frequencies)</h2>
+<p><strong>Theory.</strong> 不同频率的光子就像不同面额的硬币——每种面额的”最小单位”不同，但都是不可再分的一份。</p>
+<p><span class="math display">\[
+E = h\nu
+\]</span></p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>红光 (Red Light)：频率低 → 单光子能量小。</li>
+<li>紫光 (Violet Light)：频率高 → 单光子能量大。</li>
+<li>X 射线 / 伽马射线 (Gamma Ray)：频率更高 → 单光子能量更大。</li>
+</ul>
+<p>紫外线有害的根本原因是质的区别：每一份能量（<span class="math inline">\(h\nu\)</span>）都足以打断化学键、损伤 DNA，而红光的单光子能量太低，无论用多少个都打不断化学键。</p>
+</section>
+<section id="原子能级跃迁-atomic-energy-level-transitions" class="level2">
+<h2 class="anchored" data-anchor-id="原子能级跃迁-atomic-energy-level-transitions">3. 原子能级跃迁 (Atomic Energy Level Transitions)</h2>
+<p><strong>Theory.</strong> 原子有不同的能量状态（能级 Energy Level）。当原子在能级之间跃迁时，能量以光子的形式释放或吸收：</p>
+<p><span class="math display">\[
+E_{\text{高}} - E_{\text{低}} = h\nu
+\]</span></p>
+<p>能级差唯一确定了释放光子的频率。</p>
+<p><strong>Inference.</strong> 原子从高能级跳到低能级时，电子云分布发生变化，产生一个振荡的电偶极矩 (Oscillating Electric Dipole Moment)。这个振荡的偶极矩激发电磁场，而电磁场只能以量子化的方式被激发，所以出来的恰好是一个光子。</p>
+</section>
+<section id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="level2">
+<h2 class="anchored" data-anchor-id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser">4. 激光器中的三种辐射过程 (Three Radiation Processes in a Laser)</h2>
+<p><strong>Definition.</strong> 激光器涉及三种辐射过程：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>过程</th>
+<th>描述</th>
+<th>光子数变化</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>自发辐射 (Spontaneous Emission)</td>
+<td>高能态原子自行跳回低能态，随机方向发射光子</td>
+<td>+1（随机方向）</td>
+</tr>
+<tr class="even">
+<td>受激吸收 (Stimulated Absorption)</td>
+<td>光子被低能态原子吸收，原子跳到高能态</td>
+<td>−1</td>
+</tr>
+<tr class="odd">
+<td>受激辐射 (Stimulated Emission)</td>
+<td>光子”刺激”高能态原子跳下来，释放一个与入射光子完全相同（同频率、同方向、同相位）的新光子</td>
+<td>+1（相干）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result.</strong> 受激辐射是激光 (Laser) 的核心机制：一个光子进去，两个一模一样的光子出来。</p>
+</section>
+<section id="固态激光器的结构与工作原理-solid-state-laser-structure" class="level2">
+<h2 class="anchored" data-anchor-id="固态激光器的结构与工作原理-solid-state-laser-structure">5. 固态激光器的结构与工作原理 (Solid-State Laser Structure)</h2>
+<p><strong>Definition.</strong> 固态激光器由以下部分组成：</p>
+<ul>
+<li>活性材料 (Active Medium)：含有大量激光活性原子（如红宝石中的铬离子）。</li>
+<li>两端镜子：构成光学谐振腔 (Optical Resonator)，让光子来回反射，不断触发受激辐射。</li>
+<li>泵浦 (Pump)：外部能量源，将原子从基态激发到高能态。</li>
+<li>半透镜 (Partially Transparent Mirror)：让一部分光漏出去，作为激光输出。</li>
+</ul>
+<p><strong>Theory.</strong> 粒子数反转 (Population Inversion)：正常热平衡下，低能态原子数 <span class="math inline">\(N_1\)</span> 远多于高能态 <span class="math inline">\(N_2\)</span>，即 <span class="math inline">\(N_1 &gt; N_2\)</span>。粒子数反转就是人为地让 <span class="math inline">\(N_2 &gt; N_1\)</span>。</p>
+<p><strong>Inference.</strong> 一个轴向光子飞过活性材料时：</p>
+<ul>
+<li>遇到高能态原子 → 触发受激辐射（光子数 +1）</li>
+<li>遇到低能态原子 → 被受激吸收（光子数 −1）</li>
+</ul>
+<p>如果 <span class="math inline">\(N_1 &gt; N_2\)</span>，光子被吸收的概率更大，净效果是光子被消耗。只有当 <span class="math inline">\(N_2 &gt; N_1\)</span> 时，受激辐射占主导，光子数才能净增长。</p>
+<p><strong>Result.</strong></p>
+<ul>
+<li>谐振腔起到方向滤波器 (Directional Filter) 的作用：轴向光子在两面镜子之间来回反弹被不断放大，偏离轴向的光子则被自然淘汰。</li>
+<li>激光器是能量转换器：把无序的泵浦能量转换成高度有序的激光输出，具有单色性 (Monochromaticity)、方向性 (Directionality) 和相干性 (Coherence)。</li>
+</ul>
+</section>
+<section id="激光模型的动力学分析-dynamical-analysis-of-laser-model" class="level2">
+<h2 class="anchored" data-anchor-id="激光模型的动力学分析-dynamical-analysis-of-laser-model">6. 激光模型的动力学分析 (Dynamical Analysis of Laser Model)</h2>
+<section id="模型构建-model-construction" class="level3">
+<h3 class="anchored" data-anchor-id="模型构建-model-construction">6.1 模型构建 (Model Construction)</h3>
+<p><strong>Definition.</strong> 动态变量是腔内光子数 <span class="math inline">\(n(t)\)</span>，其演化由增益和损耗的竞争决定：</p>
+<p><span class="math display">\[
+\dot{n} = \underbrace{GnN}_{\text{gain (受激辐射)}} - \underbrace{kn}_{\text{loss (光子漏出)}}
+\]</span></p>
+<ul>
+<li>增益项 <span class="math inline">\(GnN\)</span>：来自受激辐射，速率正比于光子数 <span class="math inline">\(n\)</span> 与高能态原子数 <span class="math inline">\(N\)</span> 的乘积。<span class="math inline">\(G &gt; 0\)</span> 是增益系数。</li>
+<li>损耗项 <span class="math inline">\(kn\)</span>：光子从半透镜漏出，速率正比于光子数。<span class="math inline">\(k &gt; 0\)</span> 是损耗速率常数，其倒数 <span class="math inline">\(\tau = 1/k\)</span> 是光子在腔内的典型寿命。</li>
+</ul>
+</section>
+<section id="增益饱和-gain-saturation" class="level3">
+<h3 class="anchored" data-anchor-id="增益饱和-gain-saturation">6.2 增益饱和 (Gain Saturation)</h3>
+<p><strong>Theory.</strong> <span class="math inline">\(N\)</span> 不是常数。每次受激辐射发射一个光子，就有一个原子从高能态跳到低能态，<span class="math inline">\(N\)</span> 减少。用线性模型近似：</p>
+<p><span class="math display">\[
+N(t) = N_0 - \alpha n
+\]</span></p>
+<p>其中 <span class="math inline">\(N_0\)</span> 是无激光时泵浦维持的高能态原子数（反映泵浦强度），<span class="math inline">\(\alpha &gt; 0\)</span> 表示每个光子消耗高能态原子的比率。</p>
+<p><strong>Result.</strong> 这就是增益饱和效应：光子越多 → 高能态原子被消耗越快 → 增益被压低 → 系统自我调节。</p>
+</section>
+<section id="最终方程与-transcritical-标准型-final-equation-transcritical-normal-form" class="level3">
+<h3 class="anchored" data-anchor-id="最终方程与-transcritical-标准型-final-equation-transcritical-normal-form">6.3 最终方程与 Transcritical 标准型 (Final Equation &amp; Transcritical Normal Form)</h3>
+<p><strong>Inference.</strong> 将 <span class="math inline">\(N = N_0 - \alpha n\)</span> 代入：</p>
+<p><span class="math display">\[
+\dot{n} = Gn(N_0 - \alpha n) - kn = (GN_0 - k)n - (\alpha G)n^2
+\]</span></p>
+<p>令有效控制参数 <span class="math inline">\(r = GN_0 - k\)</span>：</p>
+<p><span class="math display">\[
+\dot{n} = rn - (\alpha G)n^2
+\]</span></p>
+<p><strong>Result.</strong> 这正是 Transcritical 分岔的标准型。</p>
+</section>
+<section id="不动点分析-fixed-point-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="不动点分析-fixed-point-analysis">6.4 不动点分析 (Fixed Point Analysis)</h3>
+<p><strong>Inference.</strong> 令 <span class="math inline">\(\dot{n} = 0\)</span>：</p>
+<p><span class="math display">\[
+n\left[r - (\alpha G)n\right] = 0
+\]</span></p>
+<p>两个不动点：</p>
+<p><span class="math display">\[
+n_1^* = 0, \qquad n_2^* = \frac{r}{\alpha G} = \frac{GN_0 - k}{\alpha G}
+\]</span></p>
+</section>
+<section id="稳定性分析-stability-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="稳定性分析-stability-analysis">6.5 稳定性分析 (Stability Analysis)</h3>
+<p><strong>Theory.</strong> 令 <span class="math inline">\(f(n) = rn - (\alpha G)n^2\)</span>，则 <span class="math inline">\(f'(n) = r - 2(\alpha G)n\)</span>。</p>
+<p>在 <span class="math inline">\(n_1^* = 0\)</span> 处：<span class="math inline">\(f'(0) = r = GN_0 - k\)</span></p>
+<ul>
+<li><span class="math inline">\(r &lt; 0\)</span>（泵浦弱，<span class="math inline">\(GN_0 &lt; k\)</span>）：<span class="math inline">\(f'(0) &lt; 0\)</span>，<strong>稳定</strong></li>
+<li><span class="math inline">\(r &gt; 0\)</span>（泵浦强，<span class="math inline">\(GN_0 &gt; k\)</span>）：<span class="math inline">\(f'(0) &gt; 0\)</span>，<strong>不稳定</strong></li>
+</ul>
+<p>在 <span class="math inline">\(n_2^* = r/(\alpha G)\)</span> 处：<span class="math inline">\(f'(n_2^*) = r - 2r = -r\)</span></p>
+<ul>
+<li><span class="math inline">\(r &lt; 0\)</span>：<span class="math inline">\(f'(n_2^*) &gt; 0\)</span>，不稳定（但此时 <span class="math inline">\(n_2^* &lt; 0\)</span>，物理上无意义）</li>
+<li><span class="math inline">\(r &gt; 0\)</span>：<span class="math inline">\(f'(n_2^*) &lt; 0\)</span>，<strong>稳定</strong></li>
+</ul>
+<p><strong>Result.</strong> 两个不动点的稳定性恰好互补并交换——这是 Transcritical 分岔的标志。</p>
+</section>
+<section id="物理解读激光阈值-physical-interpretation-laser-threshold" class="level3">
+<h3 class="anchored" data-anchor-id="物理解读激光阈值-physical-interpretation-laser-threshold">6.6 物理解读：激光阈值 (Physical Interpretation: Laser Threshold)</h3>
+<p><strong>Result.</strong> 激光阈值对应 <span class="math inline">\(r = 0\)</span>，即 <span class="math inline">\(GN_0 = k\)</span>（增益恰好等于损耗）：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 25%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>参数区域</th>
+<th>条件</th>
+<th>物理状态</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(GN_0 &lt; k\)</span></td>
+<td>增益 &lt; 损耗</td>
+<td><span class="math inline">\(n^* = 0\)</span> 稳定，无激光输出</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(GN_0 = k\)</span></td>
+<td>增益 = 损耗</td>
+<td>分岔点（激光阈值）</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(GN_0 &gt; k\)</span></td>
+<td>增益 &gt; 损耗</td>
+<td><span class="math inline">\(n^* = 0\)</span> 不稳定，系统跑到 <span class="math inline">\(n^* = (GN_0-k)/(\alpha G)\)</span>，激光工作</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(N_0\)</span> 由泵浦强度控制：泵浦越强 → <span class="math inline">\(N_0\)</span> 越大 → 越容易超过阈值。物理约束 <span class="math inline">\(n \geq 0\)</span> 意味着 <span class="math inline">\(r &lt; 0\)</span> 时的负不动点没有物理意义。</p>
+</section>
+</section>
+<section id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="level2">
+<h2 class="anchored" data-anchor-id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory">7. Transcritical 分岔：一般理论 (Transcritical Bifurcation: General Theory)</h2>
+<p><strong>Definition.</strong> Transcritical 分岔描述的是两个不动点始终存在，但在某个参数临界值处交换稳定性的场景。</p>
+<p><strong>Theory.</strong> 标准型 (Normal Form)：</p>
+<p><span class="math display">\[
+\dot{x} = rx - x^2
+\]</span></p>
+<p>其中 <span class="math inline">\(r\)</span> 是控制参数 (Control Parameter)。</p>
+<p><strong>Inference.</strong> 令 <span class="math inline">\(\dot{x} = 0\)</span>，提取 <span class="math inline">\(x\)</span>：</p>
+<p><span class="math display">\[
+x(r - x) = 0 \implies x_1^* = 0, \quad x_2^* = r
+\]</span></p>
+<p>两个不动点始终存在，在 <span class="math inline">\(r = 0\)</span> 处合并。</p>
+<p><strong>Theory.</strong> 稳定性：<span class="math inline">\(f(x) = rx - x^2\)</span>，<span class="math inline">\(f'(x) = r - 2x\)</span>。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>不动点</th>
+<th><span class="math inline">\(f'(x^*)\)</span></th>
+<th><span class="math inline">\(r &lt; 0\)</span> 时</th>
+<th><span class="math inline">\(r &gt; 0\)</span> 时</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_1^* = 0\)</span></td>
+<td><span class="math inline">\(r\)</span></td>
+<td>稳定 (<span class="math inline">\(f' &lt; 0\)</span>)</td>
+<td>不稳定 (<span class="math inline">\(f' &gt; 0\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(x_2^* = r\)</span></td>
+<td><span class="math inline">\(-r\)</span></td>
+<td>不稳定 (<span class="math inline">\(f' &gt; 0\)</span>)</td>
+<td>稳定 (<span class="math inline">\(f' &lt; 0\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result.</strong> 在 <span class="math inline">\(r = 0\)</span> 处，两个不动点的稳定性同时翻转——这就是”交换稳定性”。</p>
+<section id="与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" class="level3">
+<h3 class="anchored" data-anchor-id="与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation">与 Saddle-Node 分岔的对比 (Comparison with Saddle-Node Bifurcation)</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>特征</th>
+<th>Saddle-Node</th>
+<th>Transcritical</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分岔时</td>
+<td>两个不动点碰撞后消失</td>
+<td>两个不动点交换稳定性</td>
+</tr>
+<tr class="even">
+<td>不动点数量变化</td>
+<td>2 → 0（或 0 → 2）</td>
+<td>始终为 2</td>
+</tr>
+<tr class="odd">
+<td>标准型</td>
+<td><span class="math inline">\(\dot{x} = r + x^2\)</span></td>
+<td><span class="math inline">\(\dot{x} = rx - x^2\)</span></td>
+</tr>
+<tr class="even">
+<td>物理场景</td>
+<td>阈值效应（状态消失）</td>
+<td>模式切换（主导权转移）</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="判别方法-identification-method" class="level3">
+<h3 class="anchored" data-anchor-id="判别方法-identification-method">判别方法 (Identification Method)</h3>
+<p><strong>Theory.</strong> 对一般系统 <span class="math inline">\(\dot{x} = f(x; r)\)</span>，判断某个不动点 <span class="math inline">\(x^*\)</span> 是否发生 Transcritical 分岔：</p>
+<ol type="1">
+<li>在 <span class="math inline">\(x^*\)</span> 处 Taylor 展开</li>
+<li>检查线性项系数是否随参数过零</li>
+<li>确认二次项系数非零（否则可能退化为更高阶的分岔）</li>
+<li>验证不动点不消失，只是交换稳定性</li>
+</ol>
+</section>
+</section>
+<section id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="level2">
+<h2 class="anchored" data-anchor-id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space">8. 例题：参数空间中的分岔曲线 (Example: Bifurcation Curve in Parameter Space)</h2>
+<p><strong>Definition.</strong> 系统 <span class="math inline">\(\dot{x} = x(1 - x^2) - a(1 - e^{-bx})\)</span>，分析 <span class="math inline">\(x = 0\)</span> 处的分岔。</p>
+<p><strong>Inference.</strong> <span class="math inline">\(x = 0\)</span> 始终是不动点：代入 <span class="math inline">\(x = 0\)</span> 得 <span class="math inline">\(0 \cdot (1 - 0) - a(1 - e^0) = 0\)</span>。对所有 <span class="math inline">\((a, b)\)</span> 成立。这是 Transcritical 的特征。</p>
+<p>在 <span class="math inline">\(x = 0\)</span> 附近 Taylor 展开。利用 <span class="math inline">\(e^{-bx} = 1 - bx + \frac{1}{2}b^2x^2 + O(x^3)\)</span>：</p>
+<p><span class="math display">\[
+1 - e^{-bx} = bx - \frac{1}{2}b^2x^2 + O(x^3)
+\]</span></p>
+<p>代入原方程（注意 <span class="math inline">\(x(1-x^2) = x + O(x^3)\)</span>，保留到 <span class="math inline">\(x^2\)</span>）：</p>
+<p><span class="math display">\[
+\dot{x} = (1 - ab)x + \frac{1}{2}ab^2 x^2 + O(x^3)
+\]</span></p>
+<p><strong>Result.</strong> 线性项系数为 <span class="math inline">\((1 - ab)\)</span>。当 <span class="math inline">\(ab = 1\)</span> 时线性项消失，这就是 <span class="math inline">\((a, b)\)</span> 参数空间中的分岔曲线——双曲线 <span class="math inline">\(ab = 1\)</span>。</p>
+<p>近似非零不动点：</p>
+<p><span class="math display">\[
+x^* \approx \frac{2(ab - 1)}{ab^2}
+\]</span></p>
+<p>验证稳定性交换：<span class="math inline">\(f'(0) = 1 - ab\)</span>，在非零不动点处 <span class="math inline">\(f'(x^*) = ab - 1\)</span>。两者在 <span class="math inline">\(ab = 1\)</span> 处同时翻转，确认为 Transcritical 分岔。</p>
+</section>
+<section id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="level2">
+<h2 class="anchored" data-anchor-id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence">9. 总结：从物理到数学的对应 (Summary: Physics-to-Mathematics Correspondence)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>物理概念</th>
+<th>数学对应</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>腔内光子数 <span class="math inline">\(n\)</span></td>
+<td>动态变量 <span class="math inline">\(x\)</span></td>
+</tr>
+<tr class="even">
+<td>泵浦强度（通过 <span class="math inline">\(N_0\)</span>）</td>
+<td>控制参数 <span class="math inline">\(r\)</span></td>
+</tr>
+<tr class="odd">
+<td>激光阈值（增益 = 损耗）</td>
+<td>分岔点 <span class="math inline">\(r = 0\)</span></td>
+</tr>
+<tr class="even">
+<td>无激光状态</td>
+<td>不动点 <span class="math inline">\(x^* = 0\)</span>（<span class="math inline">\(r &lt; 0\)</span> 时稳定）</td>
+</tr>
+<tr class="odd">
+<td>激光工作状态</td>
+<td>非零不动点 <span class="math inline">\(x^* = r/\beta\)</span>（<span class="math inline">\(r &gt; 0\)</span> 时稳定）</td>
+</tr>
+<tr class="even">
+<td>增益饱和</td>
+<td>非线性项 <span class="math inline">\(-\beta n^2\)</span></td>
+</tr>
+<tr class="odd">
+<td>泵浦过阈值后激光开启</td>
+<td>稳定性交换</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result.</strong> 核心方法论：</p>
+<ol type="1">
+<li>找不动点：令 <span class="math inline">\(\dot{x} = 0\)</span></li>
+<li>Taylor 展开：在不动点处展开，化简为多项式</li>
+<li>读系数：线性项系数过零 → 分岔；二次项非零 → Transcritical</li>
+<li>判稳定性：<span class="math inline">\(f'(x^*) &lt; 0\)</span> 稳定，<span class="math inline">\(f'(x^*) &gt; 0\)</span> 不稳定</li>
+<li>验证交换：确认两个不动点的稳定性在分岔点处同时翻转</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/SiriusEst\.github\.io\/siriusest\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
