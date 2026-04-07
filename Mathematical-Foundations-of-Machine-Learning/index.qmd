@@ -12,8 +12,8 @@ Tag legend: `Definition` marks a definition, `Theory` marks a theorem or princip
 <a href="1%20Orthogonality.md">Orthogonality</a>
 <div class="card-desc">Orthogonal decomposition, projection, Gram-Schmidt</div>
 </div>
-<div class="note-card">
-<a href="Nonlinear-Dynamics/index.qmd">Nonlinear Dynamics</a>
+<div class="note-card subfolder">
+<a href="Nonlinear-Dynamics/index.qmd">Nonlinear Dynamics</a><span class="card-badge">subfolder</span>
 <div class="card-desc">Phase portraits, bifurcations, laser models</div>
 </div>
 <div class="note-card">
