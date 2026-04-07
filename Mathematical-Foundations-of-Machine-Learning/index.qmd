@@ -7,9 +7,29 @@ title: "Mathematical Foundations of Machine Learning"
 This section collects notes on the mathematical foundations used in machine learning.
 Tag legend: `Definition` marks a definition, `Theory` marks a theorem or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or application takeaway.
 
-- [Orthogonality](1%20Orthogonality.md)
-- [Nonlinear Dynamics](Nonlinear-Dynamics/index.qmd)
-- [Four Fundamental Subspaces](3%20Linear-Algebra%20Four%20Subspaces.md)
-- [Langevin Dynamics and Diffusion Model](4%20Langevin%20Dynamics%20and%20Diffusion%20Model.md)
-- [Analytical Mechanics: Lagrangian and Hamiltonian Systems](5%20Lagrangian%20and%20Hamiltonian%20Mechanics.md)
-- [SGD, Momentum, and Potential Dynamics](6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.md)
+<div class="note-cards">
+<div class="note-card">
+<a href="1%20Orthogonality.md">Orthogonality</a>
+<div class="card-desc">Orthogonal decomposition, projection, Gram-Schmidt</div>
+</div>
+<div class="note-card">
+<a href="Nonlinear-Dynamics/index.qmd">Nonlinear Dynamics</a>
+<div class="card-desc">Phase portraits, bifurcations, laser models</div>
+</div>
+<div class="note-card">
+<a href="3%20Linear-Algebra%20Four%20Subspaces.md">Four Fundamental Subspaces</a>
+<div class="card-desc">Column / row / null spaces, least squares</div>
+</div>
+<div class="note-card">
+<a href="4%20Langevin%20Dynamics%20and%20Diffusion%20Model.md">Langevin Dynamics and Diffusion Model</a>
+<div class="card-desc">Stochastic dynamics, score matching</div>
+</div>
+<div class="note-card">
+<a href="5%20Lagrangian%20and%20Hamiltonian%20Mechanics.md">Analytical Mechanics</a>
+<div class="card-desc">Lagrangian, Hamiltonian, symplectic structure</div>
+</div>
+<div class="note-card">
+<a href="6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.md">SGD, Momentum, and Potential Dynamics</a>
+<div class="card-desc">Gradient flow, momentum, potential energy landscape</div>
+</div>
+</div>
