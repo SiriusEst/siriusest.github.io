@@ -36,3 +36,20 @@
   font-size: 0.9rem;
   margin-top: 0.25rem;
 }
+
+/* Subfolder / navigation cards */
+.note-card.subfolder {
+  border-left: 3px solid #2780e3;
+}
+
+.note-card.subfolder .card-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #2780e3;
+  border: 1px solid #2780e3;
+  border-radius: 0.25rem;
+  padding: 0.05rem 0.4rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  font-weight: 500;
+}
