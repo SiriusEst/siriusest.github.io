@@ -130,7 +130,7 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/index.html",
     "title": "Mathematical Foundations of Machine Learning",
     "section": "",
-    "text": "Updated: 2026-04-07 12:00 AEDT\n\nThis section collects notes on the mathematical foundations used in machine learning. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\nOrthogonality\nNonlinear Dynamics\nFour Fundamental Subspaces\nLangevin Dynamics and Diffusion Model\nAnalytical Mechanics: Lagrangian and Hamiltonian Systems\nSGD, Momentum, and Potential Dynamics"
+    "text": "Updated: 2026-04-07 12:00 AEDT\n\nThis section collects notes on the mathematical foundations used in machine learning. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\n\nOrthogonality\n\nOrthogonal decomposition, projection, Gram-Schmidt\n\n\n\nNonlinear Dynamics\n\nPhase portraits, bifurcations, laser models\n\n\n\nFour Fundamental Subspaces\n\nColumn / row / null spaces, least squares\n\n\n\nLangevin Dynamics and Diffusion Model\n\nStochastic dynamics, score matching\n\n\n\nAnalytical Mechanics\n\nLagrangian, Hamiltonian, symplectic structure\n\n\n\nSGD, Momentum, and Potential Dynamics\n\nGradient flow, momentum, potential energy landscape"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/5 Lagrangian and Hamiltonian Mechanics.html",
@@ -368,7 +368,7 @@
     "href": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/index.html",
     "title": "Nonlinear Dynamics",
     "section": "",
-    "text": "Updated: 2026-04-07 12:00 AEDT\n\nNotes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\nNonlinear Dynamics — autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics\nPhoton Physics and Laser — energy quantization, laser threshold, transcritical bifurcation"
+    "text": "Updated: 2026-04-07 12:00 AEDT\n\nNotes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications. Tag legend: Definition marks a definition, Theory marks a theorem or principle, Inference marks a derivation step, and Result marks a conclusion or application takeaway.\n\n\nNonlinear Dynamics\n\nAutonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics\n\n\n\nPhoton Physics and Laser\n\nEnergy quantization, laser threshold, transcritical bifurcation"
   },
   {
     "objectID": "Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/1 Nonlinear Dynamics.html",
