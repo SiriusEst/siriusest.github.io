@@ -45,11 +45,12 @@
 .note-card.subfolder .card-badge {
   display: inline-block;
   font-size: 0.7rem;
-  color: #2780e3;
-  border: 1px solid #2780e3;
-  border-radius: 0.25rem;
-  padding: 0.05rem 0.4rem;
+  color: #fff;
+  background-color: #2780e3;
+  border-radius: 1rem;
+  padding: 0.1rem 0.5rem;
   margin-left: 0.5rem;
   vertical-align: middle;
   font-weight: 500;
+  letter-spacing: 0.02em;
 }
