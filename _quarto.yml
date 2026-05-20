@@ -9,6 +9,8 @@ website:
         text: Home
       - href: Mathematical-Foundations-of-Machine-Learning/index.qmd
         text: Mathematics
+      - href: research/index.qmd
+        text: Research
       - href: about.qmd
         text: About
 

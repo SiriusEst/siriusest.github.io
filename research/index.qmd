@@ -1,0 +1,18 @@
+---
+title: "Research"
+---
+
+<div class="updated-time">Updated: 2026-05-20 17:30 AEDT</div>
+
+Notes and summaries from ongoing research reading.
+
+<div class="note-cards">
+<div class="note-card">
+<a href="probing_concept_summary.md">Probing 概念体系总结</a>
+<div class="card-desc">Probe / SAE / LoRA / Linear Representation Hypothesis / SSL — structured notes organized as "what → how → use → caveats"</div>
+</div>
+<div class="note-card">
+<a href="mamba-theory.md">Mamba Theory</a>
+<div class="card-desc">State space models, selective scan — work in progress</div>
+</div>
+</div>
