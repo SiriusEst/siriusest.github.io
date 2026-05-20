@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>probing_concept_summary – Sirius Blog</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Sirius Blog</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Mathematical-Foundations-of-Machine-Learning/index.html"> 
+<span class="menu-text">Mathematics</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probing-概念体系总结" id="toc-probing-概念体系总结" class="nav-link active" data-scroll-target="#probing-概念体系总结">Probing 概念体系总结</a>
+  <ul class="collapse">
+  <li><a href="#一probe-是什么" id="toc-一probe-是什么" class="nav-link" data-scroll-target="#一probe-是什么">一、Probe 是什么</a>
+  <ul class="collapse">
+  <li><a href="#核心定义alain-bengio-2016" id="toc-核心定义alain-bengio-2016" class="nav-link" data-scroll-target="#核心定义alain-bengio-2016">核心定义（Alain &amp; Bengio 2016）</a></li>
+  <li><a href="#数学等价物方向向量" id="toc-数学等价物方向向量" class="nav-link" data-scroll-target="#数学等价物方向向量">数学等价物：方向向量</a></li>
+  <li><a href="#probe-在问什么" id="toc-probe-在问什么" class="nav-link" data-scroll-target="#probe-在问什么">Probe 在问什么</a></li>
+  </ul></li>
+  <li><a href="#二probe-的两种用途诊断-vs-评测" id="toc-二probe-的两种用途诊断-vs-评测" class="nav-link" data-scroll-target="#二probe-的两种用途诊断-vs-评测">二、Probe 的两种用途：诊断 vs 评测</a></li>
+  <li><a href="#三为什么必须-linear-non-linear-两栏一起报" id="toc-三为什么必须-linear-non-linear-两栏一起报" class="nav-link" data-scroll-target="#三为什么必须-linear-non-linear-两栏一起报">三、为什么必须 linear + non-linear 两栏一起报</a></li>
+  <li><a href="#四probe-方法论的核心保险selectivity" id="toc-四probe-方法论的核心保险selectivity" class="nav-link" data-scroll-target="#四probe-方法论的核心保险selectivity">四、Probe 方法论的核心保险：Selectivity</a>
+  <ul class="collapse">
+  <li><a href="#hewitt-liang-2019-的洞察" id="toc-hewitt-liang-2019-的洞察" class="nav-link" data-scroll-target="#hewitt-liang-2019-的洞察">Hewitt &amp; Liang (2019) 的洞察</a></li>
+  <li><a href="#control-task-实验" id="toc-control-task-实验" class="nav-link" data-scroll-target="#control-task-实验">Control Task 实验</a></li>
+  <li><a href="#linear-probe-天然-selective" id="toc-linear-probe-天然-selective" class="nav-link" data-scroll-target="#linear-probe-天然-selective">Linear probe 天然 selective</a></li>
+  </ul></li>
+  <li><a href="#五probe-的进阶因果干预" id="toc-五probe-的进阶因果干预" class="nav-link" data-scroll-target="#五probe-的进阶因果干预">五、Probe 的进阶：因果干预</a></li>
+  <li><a href="#六saeprobe-的无监督泛化" id="toc-六saeprobe-的无监督泛化" class="nav-link" data-scroll-target="#六saeprobe-的无监督泛化">六、SAE：probe 的无监督泛化</a>
+  <ul class="collapse">
+  <li><a href="#是什么" id="toc-是什么" class="nav-link" data-scroll-target="#是什么">是什么</a></li>
+  <li><a href="#和-probe-的关系" id="toc-和-probe-的关系" class="nav-link" data-scroll-target="#和-probe-的关系">和 probe 的关系</a></li>
+  <li><a href="#关键贡献templeton-et-al.-anthropic-2024-claude-3-sonnet" id="toc-关键贡献templeton-et-al.-anthropic-2024-claude-3-sonnet" class="nav-link" data-scroll-target="#关键贡献templeton-et-al.-anthropic-2024-claude-3-sonnet">关键贡献（Templeton et al., Anthropic 2024 — Claude 3 Sonnet）</a></li>
+  <li><a href="#但要小心的质疑" id="toc-但要小心的质疑" class="nav-link" data-scroll-target="#但要小心的质疑">但要小心的质疑</a></li>
+  </ul></li>
+  <li><a href="#七probe-vs-lora-vs-fine-tune完整谱系" id="toc-七probe-vs-lora-vs-fine-tune完整谱系" class="nav-link" data-scroll-target="#七probe-vs-lora-vs-fine-tune完整谱系">七、Probe vs LoRA vs Fine-tune：完整谱系</a>
+  <ul class="collapse">
+  <li><a href="#关键区分" id="toc-关键区分" class="nav-link" data-scroll-target="#关键区分">关键区分</a></li>
+  <li><a href="#报哪几栏取决于-backbone-规模" id="toc-报哪几栏取决于-backbone-规模" class="nav-link" data-scroll-target="#报哪几栏取决于-backbone-规模">报哪几栏取决于 backbone 规模</a></li>
+  </ul></li>
+  <li><a href="#八probe-as-loss把-probe-推回训练" id="toc-八probe-as-loss把-probe-推回训练" class="nav-link" data-scroll-target="#八probe-as-loss把-probe-推回训练">八、Probe-as-Loss：把 probe 推回训练</a>
+  <ul class="collapse">
+  <li><a href="#代表工作" id="toc-代表工作" class="nav-link" data-scroll-target="#代表工作">代表工作</a></li>
+  <li><a href="#为什么有效" id="toc-为什么有效" class="nav-link" data-scroll-target="#为什么有效">为什么有效</a></li>
+  <li><a href="#对-fwam-的直接启示" id="toc-对-fwam-的直接启示" class="nav-link" data-scroll-target="#对-fwam-的直接启示">对 FWAM 的直接启示</a></li>
+  </ul></li>
+  <li><a href="#九ssl-是底层范式" id="toc-九ssl-是底层范式" class="nav-link" data-scroll-target="#九ssl-是底层范式">九、SSL 是底层范式</a>
+  <ul class="collapse">
+  <li><a href="#三大-ssl-范式" id="toc-三大-ssl-范式" class="nav-link" data-scroll-target="#三大-ssl-范式">三大 SSL 范式</a></li>
+  </ul></li>
+  <li><a href="#十给你的具体应用fwam-评测协议" id="toc-十给你的具体应用fwam-评测协议" class="nav-link" data-scroll-target="#十给你的具体应用fwam-评测协议">十、给你的具体应用：FWAM 评测协议</a>
+  <ul class="collapse">
+  <li><a href="#完整评测表" id="toc-完整评测表" class="nav-link" data-scroll-target="#完整评测表">完整评测表</a></li>
+  <li><a href="#三个核心保障" id="toc-三个核心保障" class="nav-link" data-scroll-target="#三个核心保障">三个核心保障</a></li>
+  <li><a href="#免费-probe-标签清单温室传感器场景" id="toc-免费-probe-标签清单温室传感器场景" class="nav-link" data-scroll-target="#免费-probe-标签清单温室传感器场景">免费 probe 标签清单（温室传感器场景）</a></li>
+  </ul></li>
+  <li><a href="#十一给你的研究的延伸方向" id="toc-十一给你的研究的延伸方向" class="nav-link" data-scroll-target="#十一给你的研究的延伸方向">十一、给你的研究的延伸方向</a>
+  <ul class="collapse">
+  <li><a href="#对-fwam" id="toc-对-fwam" class="nav-link" data-scroll-target="#对-fwam">对 FWAM</a></li>
+  <li><a href="#对-ralf" id="toc-对-ralf" class="nav-link" data-scroll-target="#对-ralf">对 RALF</a></li>
+  </ul></li>
+  <li><a href="#十二必读论文清单按优先级" id="toc-十二必读论文清单按优先级" class="nav-link" data-scroll-target="#十二必读论文清单按优先级">十二、必读论文清单（按优先级）</a>
+  <ul class="collapse">
+  <li><a href="#一定要读4-篇" id="toc-一定要读4-篇" class="nav-link" data-scroll-target="#一定要读4-篇">一定要读（4 篇）</a></li>
+  <li><a href="#想做-probe-as-loss" id="toc-想做-probe-as-loss" class="nav-link" data-scroll-target="#想做-probe-as-loss">想做 probe-as-loss</a></li>
+  <li><a href="#想做因果sae" id="toc-想做因果sae" class="nav-link" data-scroll-target="#想做因果sae">想做因果/SAE</a></li>
+  <li><a href="#奠基" id="toc-奠基" class="nav-link" data-scroll-target="#奠基">奠基</a></li>
+  <li><a href="#补充已在对话中提及" id="toc-补充已在对话中提及" class="nav-link" data-scroll-target="#补充已在对话中提及">补充（已在对话中提及）</a></li>
+  </ul></li>
+  <li><a href="#十三一句话浓缩" id="toc-十三一句话浓缩" class="nav-link" data-scroll-target="#十三一句话浓缩">十三、一句话浓缩</a></li>
+  <li><a href="#附录核心术语速查" id="toc-附录核心术语速查" class="nav-link" data-scroll-target="#附录核心术语速查">附录：核心术语速查</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="probing-概念体系总结" class="level1">
+<h1>Probing 概念体系总结</h1>
+<blockquote class="blockquote">
+<p>一份关于 probe / SAE / LoRA / Linear Representation Hypothesis / SSL 的结构化笔记。</p>
+<p>按”<strong>是什么 → 怎么做 → 怎么用 → 注意什么</strong>”的顺序组织，每一节标注关键论文。</p>
+</blockquote>
+<hr>
+<section id="一probe-是什么" class="level2">
+<h2 class="anchored" data-anchor-id="一probe-是什么">一、Probe 是什么</h2>
+<section id="核心定义alain-bengio-2016" class="level3">
+<h3 class="anchored" data-anchor-id="核心定义alain-bengio-2016">核心定义（Alain &amp; Bengio 2016）</h3>
+<blockquote class="blockquote">
+<p><strong>Linear probe</strong> = 在神经网络某一冻结层的激活上独立训练的一个线性分类器，用来量化该层表示对一个预先指定概念的<strong>线性可分性</strong>。</p>
+</blockquote>
+<p>形式化：</p>
+<p><span class="math display">\[
+g_\ell(h^{(\ell)}(x)) = W h^{(\ell)}(x) + b, \quad \text{(只更新 W, b；backbone 冻结)}
+\]</span></p>
+<p>三个不可缺要素：</p>
+<ol type="1">
+<li><strong>线性分类器</strong>（容量受限）</li>
+<li><strong>独立训练</strong>（不影响 backbone）</li>
+<li><strong>针对中间层激活</strong></li>
+</ol>
+</section>
+<section id="数学等价物方向向量" class="level3">
+<h3 class="anchored" data-anchor-id="数学等价物方向向量">数学等价物：方向向量</h3>
+<p>二分类时 probe 退化为：</p>
+<p><span class="math display">\[
+\hat{y}(x) = \text{sign}(v^\top h + b)
+\]</span></p>
+<p>其中 <span class="math inline">\(v\)</span> 就是该概念在表示空间中的<strong>方向向量</strong>。这就是 <strong>Linear Representation Hypothesis (Park et al.&nbsp;2024)</strong> 的核心：</p>
+<blockquote class="blockquote">
+<p><strong>高层概念以方向（direction）的形式被线性编码在表示空间里。</strong></p>
+</blockquote>
+</section>
+<section id="probe-在问什么" class="level3">
+<h3 class="anchored" data-anchor-id="probe-在问什么">Probe 在问什么</h3>
+<blockquote class="blockquote">
+<p><strong>M 个我们关心的概念，是否在某一层表示中线性可分。</strong></p>
+</blockquote>
+<p>这是 Alain &amp; Bengio (2017) + Park et al.&nbsp;(2024) + Belinkov (2022) 三条文献链的共同精神。</p>
+<hr>
+</section>
+</section>
+<section id="二probe-的两种用途诊断-vs-评测" class="level2">
+<h2 class="anchored" data-anchor-id="二probe-的两种用途诊断-vs-评测">二、Probe 的两种用途：诊断 vs 评测</h2>
+<p>这是整个领域<strong>最容易混淆</strong>的地方——同一个工具，两种目的。</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>维度</th>
+<th><strong>诊断型</strong>（NLP/Interp 派）</th>
+<th><strong>评测型</strong>（FM 派）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>代表论文</td>
+<td>Hewitt &amp; Liang, Belinkov, Tenney</td>
+<td>DINO, MAE, SimCLR</td>
+</tr>
+<tr class="even">
+<td>取哪一层</td>
+<td>逐层（中间层重点）</td>
+<td>最后一层</td>
+</tr>
+<tr class="odd">
+<td>Probe 类型</td>
+<td><strong>严格线性</strong></td>
+<td><strong>Linear + Non-linear 都报</strong></td>
+</tr>
+<tr class="even">
+<td>关心 selectivity</td>
+<td>极度关心</td>
+<td>不太关心</td>
+</tr>
+<tr class="odd">
+<td>核心问题</td>
+<td>信息在哪一层？</td>
+<td>backbone 实用性多强？</td>
+</tr>
+<tr class="even">
+<td>Probe 角色</td>
+<td>诊断工具（必须弱）</td>
+<td>实用性代理（可强可弱）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键洞察</strong>：两派不矛盾，是分工。<strong>最佳实践是 linear + non-linear + fine-tune 三栏全报</strong>。</p>
+<hr>
+</section>
+<section id="三为什么必须-linear-non-linear-两栏一起报" class="level2">
+<h2 class="anchored" data-anchor-id="三为什么必须-linear-non-linear-两栏一起报">三、为什么必须 linear + non-linear 两栏一起报</h2>
+<p>这条规律的根源是 SSL 训练目标的差异：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>SSL 类型</th>
+<th>训练目标</th>
+<th>表示性质</th>
+<th>该报哪种 probe</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>对比式</strong>（SimCLR, DINO, CLIP, SleepFM）</td>
+<td>InfoNCE</td>
+<td><strong>天然线性可分</strong></td>
+<td>linear 就够</td>
+</tr>
+<tr class="even">
+<td><strong>生成式</strong>（MAE, BEiT, GluFormer, CSFM, <strong>FWAM</strong>）</td>
+<td>重建</td>
+<td><strong>信息丰富但线性散乱</strong></td>
+<td>必须报 non-linear</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MAE 困惑</strong>：MAE 的 linear probe 低于对比学习，但 fine-tune 后超过——证明信息<strong>存在</strong>但不<strong>线性可分</strong>。</p>
+<p>四种结果的诊断意义：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Linear</th>
+<th>Non-linear</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>高</td>
+<td>高</td>
+<td>表示干净又有信息</td>
+</tr>
+<tr class="even">
+<td>低</td>
+<td>高</td>
+<td>表示散乱但有信息（典型 MAE 系）</td>
+</tr>
+<tr class="odd">
+<td>高</td>
+<td>高（接近）</td>
+<td>表示已接近上限</td>
+</tr>
+<tr class="even">
+<td>低</td>
+<td>低</td>
+<td>没学到东西</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+<section id="四probe-方法论的核心保险selectivity" class="level2">
+<h2 class="anchored" data-anchor-id="四probe-方法论的核心保险selectivity">四、Probe 方法论的核心保险：Selectivity</h2>
+<section id="hewitt-liang-2019-的洞察" class="level3">
+<h3 class="anchored" data-anchor-id="hewitt-liang-2019-的洞察">Hewitt &amp; Liang (2019) 的洞察</h3>
+<blockquote class="blockquote">
+<p><strong>Probe accuracy 高，可能是因为表示编码了概念，也可能是因为 probe 自己会学。光看一个数字区分不出来。</strong></p>
+</blockquote>
+</section>
+<section id="control-task-实验" class="level3">
+<h3 class="anchored" data-anchor-id="control-task-实验">Control Task 实验</h3>
+<pre><code>1. 真任务：用真实标签训 probe → P_real
+2. Control task：用随机/打乱标签训同样 probe → P_random
+3. Selectivity = P_real − P_random</code></pre>
+<p>诊断规则：</p>
+<ul>
+<li><strong>Selectivity 高（&gt;20-30%）</strong> → probe 数字可信</li>
+<li><strong>Selectivity 低</strong> → probe 太强，数字不可信（不管多高）</li>
+</ul>
+</section>
+<section id="linear-probe-天然-selective" class="level3">
+<h3 class="anchored" data-anchor-id="linear-probe-天然-selective">Linear probe 天然 selective</h3>
+<p>线性分类器的容量瓶颈<strong>保证了它学不会随机标签</strong>——这就是为什么解释性派坚持只用 linear probe。</p>
+<p>四种结果的判断表：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>真任务 acc</th>
+<th>Random acc</th>
+<th>Selectivity</th>
+<th>解读</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>95%</td>
+<td>50%</td>
+<td><strong>+45%</strong></td>
+<td>✅ 表示真的编码了概念</td>
+</tr>
+<tr class="even">
+<td>95%</td>
+<td>90%</td>
+<td>+5%</td>
+<td>❌ probe 太强了，结果不可信</td>
+</tr>
+<tr class="odd">
+<td>60%</td>
+<td>50%</td>
+<td>+10%</td>
+<td>⚠️ 表示编码弱信号，但 probe 没问题</td>
+</tr>
+<tr class="even">
+<td>50%</td>
+<td>50%</td>
+<td>0%</td>
+<td>❌ 表示没学到这个概念</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="五probe-的进阶因果干预" class="level2">
+<h2 class="anchored" data-anchor-id="五probe-的进阶因果干预">五、Probe 的进阶：因果干预</h2>
+<p>普通 probe 只能证明<strong>相关性</strong>（“信息存在”），不能证明<strong>因果性</strong>（“模型在用这个信息”）。</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>方法</th>
+<th>论文</th>
+<th>做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Amnesic probing</strong></td>
+<td>Elazar et al.&nbsp;2021</td>
+<td>用 INLP 擦除目标信息，看行为变化</td>
+</tr>
+<tr class="even">
+<td><strong>INLP</strong></td>
+<td>Ravfogel et al.&nbsp;2020</td>
+<td>迭代零空间投影，擦除线性可分信息</td>
+</tr>
+<tr class="odd">
+<td><strong>LEACE</strong></td>
+<td>Belrose et al.&nbsp;2023</td>
+<td>INLP 的闭式解改进，更精确擦除</td>
+</tr>
+<tr class="even">
+<td><strong>Causal abstraction</strong></td>
+<td>Geiger et al.</td>
+<td>干预 attention/MLP，看行为变化</td>
+</tr>
+</tbody>
+</table>
+<p>→ 因果 probing 把 “信息在不在” 升级为 “信息有没有被用”。</p>
+<hr>
+</section>
+<section id="六saeprobe-的无监督泛化" class="level2">
+<h2 class="anchored" data-anchor-id="六saeprobe-的无监督泛化">六、SAE：probe 的无监督泛化</h2>
+<section id="是什么" class="level3">
+<h3 class="anchored" data-anchor-id="是什么">是什么</h3>
+<p><strong>SAE = Sparse Autoencoder</strong>。架构上是一个<strong>过完备</strong>的两层自编码器，中间层维度远大于输入：</p>
+<p><span class="math display">\[
+x \xrightarrow{W_{enc} + \text{ReLU}} f \xrightarrow{W_{dec}} \hat{x}
+\]</span></p>
+<p>损失：<span class="math inline">\(L = \|x - \hat{x}\|^2 + \lambda \|f\|_1\)</span></p>
+</section>
+<section id="和-probe-的关系" class="level3">
+<h3 class="anchored" data-anchor-id="和-probe-的关系">和 probe 的关系</h3>
+<blockquote class="blockquote">
+<p><strong>SAE 解码器 <span class="math inline">\(W_{dec}\)</span> 的每一列 = 一个无监督找到的 probe direction。</strong></p>
+<p>Probe 是给定概念找方向，SAE 是不预设概念、一次性找出所有方向、再事后解读。</p>
+</blockquote>
+</section>
+<section id="关键贡献templeton-et-al.-anthropic-2024-claude-3-sonnet" class="level3">
+<h3 class="anchored" data-anchor-id="关键贡献templeton-et-al.-anthropic-2024-claude-3-sonnet">关键贡献（Templeton et al., Anthropic 2024 — Claude 3 Sonnet）</h3>
+<ul>
+<li>在中间层残差流上训 1M / 4M / 34M 特征的 SAE</li>
+<li>找到大量可解释的、跨模态、多语言的特征（Golden Gate Bridge、scam email 等）</li>
+<li><strong>干预</strong>特征能改变行为（Golden Gate Claude）</li>
+</ul>
+</section>
+<section id="但要小心的质疑" class="level3">
+<h3 class="anchored" data-anchor-id="但要小心的质疑">但要小心的质疑</h3>
+<ul>
+<li>可分解 ≠ 模型在用这个分解</li>
+<li>可解释 ≠ 真实（事后合理化风险）</li>
+<li>干预成功 ≠ 因果证据</li>
+<li>重建误差永远不为 0，丢失的信息可能正好关键</li>
+</ul>
+<p>→ <strong>SAE 是当前最 actionable 的解释性工具，但 claim 不能太强</strong>。</p>
+<hr>
+</section>
+</section>
+<section id="七probe-vs-lora-vs-fine-tune完整谱系" class="level2">
+<h2 class="anchored" data-anchor-id="七probe-vs-lora-vs-fine-tune完整谱系">七、Probe vs LoRA vs Fine-tune：完整谱系</h2>
+<pre><code>                            适配能力 →
+冻结 ──────────────────────────────────────── 完全可训练
+  │←─── 外挂式 ────→│←──── 内嵌式 ────→│
+  Linear probe       LoRA / Adapter           Full Fine-tune
+  Non-linear probe   Prefix tuning
+  
+  ↑                  ↑                              ↑
+读取已有方向        修改已有方向 +              重塑所有方向
+                    创造少量新方向</code></pre>
+<section id="关键区分" class="level3">
+<h3 class="anchored" data-anchor-id="关键区分">关键区分</h3>
+<ul>
+<li><strong>Probe</strong>：在 backbone <strong>外面</strong>加 head，只能<strong>读取</strong>已有方向</li>
+<li><strong>LoRA</strong>：在 backbone <strong>内部</strong>加低秩扰动，可以<strong>创造</strong>新方向</li>
+<li><strong>Fine-tune</strong>：解冻所有参数，<strong>重塑</strong>整个表示空间</li>
+</ul>
+</section>
+<section id="报哪几栏取决于-backbone-规模" class="level3">
+<h3 class="anchored" data-anchor-id="报哪几栏取决于-backbone-规模">报哪几栏取决于 backbone 规模</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>模型规模</th>
+<th>推荐评测</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt;100M（FWAM 当前）</td>
+<td>Linear + Non-linear + Full FT</td>
+</tr>
+<tr class="even">
+<td>100M–1B</td>
+<td>Linear + Non-linear + LoRA + Full FT</td>
+</tr>
+<tr class="odd">
+<td>&gt;1B（LLM）</td>
+<td>Linear + Non-linear + LoRA（不再 full FT）</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="八probe-as-loss把-probe-推回训练" class="level2">
+<h2 class="anchored" data-anchor-id="八probe-as-loss把-probe-推回训练">八、Probe-as-Loss：把 probe 推回训练</h2>
+<blockquote class="blockquote">
+<p><strong>不只是在评测时用 probe，而是把 probe loss 加进预训练目标里。</strong></p>
+</blockquote>
+<section id="代表工作" class="level3">
+<h3 class="anchored" data-anchor-id="代表工作">代表工作</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>论文</th>
+<th>做什么</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Deeply Supervised Nets</strong> (Lee 2015)</td>
+<td>远古辅助监督</td>
+</tr>
+<tr class="even">
+<td><strong>GoogLeNet auxiliary classifier</strong> (Szegedy 2015)</td>
+<td>中间层加分类 head</td>
+</tr>
+<tr class="odd">
+<td><strong>REPA</strong> (Yu et al.&nbsp;ICLR 2025)</td>
+<td>扩散模型对齐 DINOv2 → <strong>17.5× 训练加速</strong></td>
+</tr>
+<tr class="even">
+<td><strong>LSEP</strong> (2025)</td>
+<td>显式叫 “Linear Separability”，扩散模型加 linear probe loss</td>
+</tr>
+<tr class="odd">
+<td><strong>对比学习（隐式）</strong></td>
+<td>InfoNCE 本身就是隐式的 probe-aware loss</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="为什么有效" class="level3">
+<h3 class="anchored" data-anchor-id="为什么有效">为什么有效</h3>
+<ol type="1">
+<li><strong>归纳偏置</strong>：把 LRH 从评测假设升级为训练目标</li>
+<li><strong>梯度捷径</strong>：辅助 loss 在中间层注入语义信号</li>
+<li><strong>特征解耦</strong>：逼迫不同概念朝不同方向”分流”</li>
+</ol>
+</section>
+<section id="对-fwam-的直接启示" class="level3">
+<h3 class="anchored" data-anchor-id="对-fwam-的直接启示">对 FWAM 的直接启示</h3>
+<p>FWAM 是 MAE-style（生成式 SSL，线性散乱），<strong>正好是 REPA 要解决的那种模型</strong>。可以加 day/night、season、growth phase 等弱监督 probe loss 作为辅助。</p>
+<hr>
+</section>
+</section>
+<section id="九ssl-是底层范式" class="level2">
+<h2 class="anchored" data-anchor-id="九ssl-是底层范式">九、SSL 是底层范式</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>范式</th>
+<th>标签来源</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>监督学习</td>
+<td>人工标注</td>
+</tr>
+<tr class="even">
+<td><strong>SSL（自监督）</strong></td>
+<td><strong>数据自己生成的伪标签</strong></td>
+</tr>
+<tr class="odd">
+<td>无监督</td>
+<td>完全无标签（如 K-means）</td>
+</tr>
+</tbody>
+</table>
+<section id="三大-ssl-范式" class="level3">
+<h3 class="anchored" data-anchor-id="三大-ssl-范式">三大 SSL 范式</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>例子</th>
+<th>Probe 表现</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>生成式</strong></td>
+<td>GPT, BERT, MAE, FWAM</td>
+<td>linear 弱，non-linear 强</td>
+</tr>
+<tr class="even">
+<td><strong>对比式</strong></td>
+<td>SimCLR, CLIP, DINO, SleepFM</td>
+<td>linear 就够</td>
+</tr>
+<tr class="odd">
+<td><strong>蒸馏式</strong></td>
+<td>BYOL, DINO</td>
+<td>类似对比</td>
+</tr>
+</tbody>
+</table>
+<p><strong>FM 时代 ≈ SSL 时代</strong>——所有大型基础模型都是 SSL 预训练的。</p>
+<hr>
+</section>
+</section>
+<section id="十给你的具体应用fwam-评测协议" class="level2">
+<h2 class="anchored" data-anchor-id="十给你的具体应用fwam-评测协议">十、给你的具体应用：FWAM 评测协议</h2>
+<section id="完整评测表" class="level3">
+<h3 class="anchored" data-anchor-id="完整评测表">完整评测表</h3>
+<pre><code>                        Random   FWAM    Selectivity
+─────────────────────────────────────────────────────
+Linear Probe
+  Day/Night             0.51     0.92    +0.41
+  Season                0.30     0.84    +0.54
+  Heat stress           0.55     0.88    +0.33
+  Light deficit         0.50     0.79    +0.29
+  Vent state            0.52     0.81    +0.29
+  Growth phase          0.34     0.71    +0.37
+─────────────────────────────────────────────────────
+Non-linear Probe (XGBoost)
+  [same tasks]          ...      ...     ...
+─────────────────────────────────────────────────────
+Fine-tune upper bound   ...      ...</code></pre>
+</section>
+<section id="三个核心保障" class="level3">
+<h3 class="anchored" data-anchor-id="三个核心保障">三个核心保障</h3>
+<ol type="1">
+<li><strong>三栏全报</strong>（linear / non-linear / fine-tune）→ 同时告诉读者表示的结构性、信息量、上限</li>
+<li><strong>每个 probe 配 control task</strong> → selectivity 证据</li>
+<li><strong>逐层 probe（附录）</strong> → 中间层往往更可迁移</li>
+</ol>
+</section>
+<section id="免费-probe-标签清单温室传感器场景" class="level3">
+<h3 class="anchored" data-anchor-id="免费-probe-标签清单温室传感器场景">免费 probe 标签清单（温室传感器场景）</h3>
+<p><strong>Tier 1：完全免费（时间/状态自动可得）</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Probe 标签</th>
+<th>难度</th>
+<th>物理含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day / Night</td>
+<td>易</td>
+<td>昼夜节律</td>
+</tr>
+<tr class="even">
+<td>Hour of day（分桶）</td>
+<td>中</td>
+<td>更细粒度时间</td>
+</tr>
+<tr class="odd">
+<td>Season</td>
+<td>中</td>
+<td>季节</td>
+</tr>
+<tr class="even">
+<td>Heating ON/OFF</td>
+<td>易</td>
+<td>加热系统状态</td>
+</tr>
+<tr class="odd">
+<td>Vent open/closed</td>
+<td>易</td>
+<td>通风状态</td>
+</tr>
+<tr class="even">
+<td>Light ON/OFF</td>
+<td>易</td>
+<td>补光状态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tier 2：弱监督（基于阈值的”伪标签”）</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Probe 标签</th>
+<th>构造方式</th>
+<th>物理含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>High/Low CO2</td>
+<td>阈值分桶</td>
+<td>光合活跃度</td>
+</tr>
+<tr class="even">
+<td>Heat stress</td>
+<td>Tair &gt; 30°C</td>
+<td>热胁迫</td>
+</tr>
+<tr class="odd">
+<td>Light deficit</td>
+<td>PAR &lt; 阈值</td>
+<td>光不足</td>
+</tr>
+<tr class="even">
+<td>VPD regime</td>
+<td>计算后分桶</td>
+<td>蒸腾压力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tier 3：需要少量农艺知识</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Probe 标签</th>
+<th>构造方式</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Growth phase（vegetative/flowering/ripening）</td>
+<td>用日期 + 作物档案</td>
+</tr>
+<tr class="even">
+<td>Anomaly type</td>
+<td>故障记录</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="十一给你的研究的延伸方向" class="level2">
+<h2 class="anchored" data-anchor-id="十一给你的研究的延伸方向">十一、给你的研究的延伸方向</h2>
+<section id="对-fwam" class="level3">
+<h3 class="anchored" data-anchor-id="对-fwam">对 FWAM</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>用途</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>评测</strong></td>
+<td>三栏 + 6 个免费 probe 标签 + selectivity</td>
+</tr>
+<tr class="even">
+<td><strong>预训练辅助 loss</strong></td>
+<td>REPA-style 弱监督 probe loss</td>
+</tr>
+<tr class="odd">
+<td><strong>诊断</strong></td>
+<td>逐层 probe，找哪一层 regime 最可分</td>
+</tr>
+<tr class="even">
+<td><strong>可解释性</strong></td>
+<td>训 SAE 看自动发现哪些特征</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="对-ralf" class="level3">
+<h3 class="anchored" data-anchor-id="对-ralf">对 RALF</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>用途</th>
+<th>怎么做</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>验证 late-fusion 合法性</strong></td>
+<td>LLM branch vs MLP branch 的 regime probe accuracy 对比</td>
+</tr>
+<tr class="even">
+<td><strong>理论辩护</strong></td>
+<td>LoRA 是 “在 LLM 内部创造 regime 方向”，是 probe 做不到的</td>
+</tr>
+<tr class="odd">
+<td><strong>因果证据</strong></td>
+<td>用 LEACE 擦除 LLM branch 的 regime 信息，看 RALF 性能掉多少</td>
+</tr>
+</tbody>
+</table>
+<hr>
+</section>
+</section>
+<section id="十二必读论文清单按优先级" class="level2">
+<h2 class="anchored" data-anchor-id="十二必读论文清单按优先级">十二、必读论文清单（按优先级）</h2>
+<section id="一定要读4-篇" class="level3">
+<h3 class="anchored" data-anchor-id="一定要读4-篇">一定要读（4 篇）</h3>
+<ol type="1">
+<li><strong>Belinkov (2022)</strong> — <em>Probing Classifiers: Promises, Shortcomings, and Advances</em> — Computational Linguistics 48(1)
+<ul>
+<li>30 分钟扫完，建立全局框架</li>
+</ul></li>
+<li><strong>Hewitt &amp; Liang (2019)</strong> — <em>Designing and Interpreting Probes with Control Tasks</em> — EMNLP 2019
+<ul>
+<li>selectivity 的源头</li>
+</ul></li>
+<li><strong>Lee et al.&nbsp;(2023)</strong> — <em>Rethinking Evaluation Protocols of Visual Representations Learned via Self-supervised Learning</em> — arXiv:2304.03456
+<ul>
+<li>SSL probe 操作手册</li>
+</ul></li>
+<li><strong>Park, Choe &amp; Veitch (2024)</strong> — <em>The Linear Representation Hypothesis and the Geometry of Large Language Models</em> — ICML 2024
+<ul>
+<li>理论基础</li>
+</ul></li>
+</ol>
+</section>
+<section id="想做-probe-as-loss" class="level3">
+<h3 class="anchored" data-anchor-id="想做-probe-as-loss">想做 probe-as-loss</h3>
+<ol start="5" type="1">
+<li><strong>Yu et al.&nbsp;(2025)</strong> — <em>Representation Alignment for Generation: Training Diffusion Transformers Is Easier Than You Think (REPA)</em> — ICLR 2025
+<ul>
+<li>最火的实例，扩散模型 17.5× 加速</li>
+</ul></li>
+<li><strong>LSEP (2025)</strong> — <em>No Alignment Needed for Generation: Learning Linearly Separable Representations in Diffusion Models</em> — arXiv:2509.21565
+<ul>
+<li>显式 “linear separability” 损失</li>
+</ul></li>
+</ol>
+</section>
+<section id="想做因果sae" class="level3">
+<h3 class="anchored" data-anchor-id="想做因果sae">想做因果/SAE</h3>
+<ol start="7" type="1">
+<li><strong>Elazar et al.&nbsp;(2021)</strong> — <em>Amnesic Probing: Behavioral Explanation with Amnesic Counterfactuals</em> — TACL 2021
+<ul>
+<li>因果 probing 入门</li>
+</ul></li>
+<li><strong>Templeton et al.&nbsp;(Anthropic 2024)</strong> — <em>Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet</em>
+<ul>
+<li>SAE 大规模实例</li>
+</ul></li>
+<li><strong>Belrose et al.&nbsp;(2023)</strong> — <em>LEACE: Perfect Linear Concept Erasure in Closed Form</em> — NeurIPS 2023
+<ul>
+<li>精确擦除</li>
+</ul></li>
+</ol>
+</section>
+<section id="奠基" class="level3">
+<h3 class="anchored" data-anchor-id="奠基">奠基</h3>
+<ol start="10" type="1">
+<li><strong>Alain &amp; Bengio (2016)</strong> — <em>Understanding intermediate layers using linear classifier probes</em> — arXiv:1610.01644
+<ul>
+<li>引用 probe 时的祖师爷</li>
+</ul></li>
+</ol>
+</section>
+<section id="补充已在对话中提及" class="level3">
+<h3 class="anchored" data-anchor-id="补充已在对话中提及">补充（已在对话中提及）</h3>
+<ul>
+<li><strong>Hewitt &amp; Manning (2019)</strong> — <em>A Structural Probe for Finding Syntax in Word Representations</em> — NAACL 2019</li>
+<li><strong>Voita &amp; Titov (2020)</strong> — <em>Information-Theoretic Probing with Minimum Description Length</em> — EMNLP 2020</li>
+<li><strong>Ravfogel et al.&nbsp;(2020)</strong> — <em>Null It Out: Guarding Protected Attributes by Iterative Null-space Projection (INLP)</em> — ACL 2020</li>
+<li><strong>Marks &amp; Tegmark (2023)</strong> — <em>The Geometry of Truth: Emergent Linear Structure in LLM Representations of True/False Datasets</em></li>
+<li><strong>Hernandez et al.&nbsp;(2023)</strong> — <em>Linearity of Relation Decoding in Transformer Language Models</em></li>
+<li><strong>Tenney et al.&nbsp;(2019)</strong> — <em>BERT Rediscovers the Classical NLP Pipeline</em></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十三一句话浓缩" class="level2">
+<h2 class="anchored" data-anchor-id="十三一句话浓缩">十三、一句话浓缩</h2>
+<blockquote class="blockquote">
+<p><strong>Probe 是检验 “Linear Representation Hypothesis 是否在某一层成立” 的工具。</strong></p>
+<p><strong>它可以用来诊断（看信息在哪一层、以什么形式存在），可以用来评测（看 backbone 实用性多强），也可以用来训练（用 probe loss 强制表示线性可分）。</strong></p>
+<p><strong>它的可信度依赖容量约束（linear 才安全）和 selectivity 验证（control task 是金标准）。</strong></p>
+<p><strong>SAE 是 probe 的无监督泛化，LoRA 是 probe 触不到的”创造新方向”，三者构成现代 FM 的完整解释/适配/评测谱系。</strong></p>
+</blockquote>
+<hr>
+</section>
+<section id="附录核心术语速查" class="level2">
+<h2 class="anchored" data-anchor-id="附录核心术语速查">附录：核心术语速查</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>术语</th>
+<th>中文</th>
+<th>一句话定义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Probe</strong></td>
+<td>探针</td>
+<td>在冻结表示上独立训练的辅助分类器</td>
+</tr>
+<tr class="even">
+<td><strong>Linear probe</strong></td>
+<td>线性探针</td>
+<td>容量受限的线性版本，用于诊断线性可分性</td>
+</tr>
+<tr class="odd">
+<td><strong>LRH (Linear Representation Hypothesis)</strong></td>
+<td>线性表示假说</td>
+<td>概念以方向形式编码在表示空间</td>
+</tr>
+<tr class="even">
+<td><strong>Selectivity</strong></td>
+<td>选择性</td>
+<td>P_real − P_random，衡量 probe 数字的可信度</td>
+</tr>
+<tr class="odd">
+<td><strong>Control task</strong></td>
+<td>控制任务</td>
+<td>用随机标签训同样 probe 作为基线</td>
+</tr>
+<tr class="even">
+<td><strong>SAE (Sparse Autoencoder)</strong></td>
+<td>稀疏自编码器</td>
+<td>无监督找出所有 probe direction</td>
+</tr>
+<tr class="odd">
+<td><strong>Superposition</strong></td>
+<td>叠加</td>
+<td>d 维空间塞下远多于 d 个几乎正交的方向</td>
+</tr>
+<tr class="even">
+<td><strong>LoRA</strong></td>
+<td>低秩适配</td>
+<td>在 backbone 内加低秩扰动，创造新方向</td>
+</tr>
+<tr class="odd">
+<td><strong>SSL</strong></td>
+<td>自监督学习</td>
+<td>用数据自己生成的伪标签做监督学习</td>
+</tr>
+<tr class="even">
+<td><strong>MAE-style / Generative SSL</strong></td>
+<td>生成式 SSL</td>
+<td>重建被 mask 的数据，表示线性散乱</td>
+</tr>
+<tr class="odd">
+<td><strong>Contrastive SSL</strong></td>
+<td>对比式 SSL</td>
+<td>拉近同类推远异类，表示天然线性可分</td>
+</tr>
+<tr class="even">
+<td><strong>REPA</strong></td>
+<td>表示对齐</td>
+<td>用预训练 encoder 的表示作为辅助 loss</td>
+</tr>
+<tr class="odd">
+<td><strong>Amnesic probing</strong></td>
+<td>健忘探针</td>
+<td>擦除某属性后看行为变化，做因果 probing</td>
+</tr>
+<tr class="even">
+<td><strong>LEACE</strong></td>
+<td>闭式概念擦除</td>
+<td>INLP 的精确版本</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>生成日期：2026-05-20</em><br>
+<em>基于与 Claude 的对话整理</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/SiriusEst\.github\.io\/siriusest\.github\.io\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
