@@ -2,6 +2,20 @@
   // Render formulas in STIX Two (Times-style, as in IEEE papers).
   // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
   window.MathJax = {
-    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' },
+    options: {
+      menuOptions: {
+        settings: {
+          // MathJax 4 turns on speech/braille generation for every formula by
+          // default; on long notes that took ~14 s instead of ~1 s. Screen
+          // readers still get hidden MathML, and readers can re-enable speech
+          // from the formula's right-click menu.
+          enrich: false,
+          speech: false,
+          braille: false,
+          assistiveMml: true
+        }
+      }
+    }
   };
 </script>
