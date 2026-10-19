@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>photon-physics-and-laser – Sirius Blog</title>
+<title>光子物理与激光器 (Photon Physics and Laser) – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +74,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -101,16 +112,19 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="../../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -145,22 +159,37 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">光子物理与激光器</h1>
+            <p class="subtitle lead">Photon Physics and Laser</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">On this page · 目录</h2>
    
   <ul>
-  <li><a href="#光子物理与激光器-photon-physics-and-laser" id="toc-光子物理与激光器-photon-physics-and-laser" class="nav-link active" data-scroll-target="#光子物理与激光器-photon-physics-and-laser">光子物理与激光器 (Photon Physics and Laser)</a>
-  <ul class="collapse">
-  <li><a href="#能量量子化-energy-quantization" id="toc-能量量子化-energy-quantization" class="nav-link" data-scroll-target="#能量量子化-energy-quantization">1. 能量量子化 (Energy Quantization)</a></li>
-  <li><a href="#不同频率的光子-photons-at-different-frequencies" id="toc-不同频率的光子-photons-at-different-frequencies" class="nav-link" data-scroll-target="#不同频率的光子-photons-at-different-frequencies">2. 不同频率的光子 (Photons at Different Frequencies)</a></li>
-  <li><a href="#原子能级跃迁-atomic-energy-level-transitions" id="toc-原子能级跃迁-atomic-energy-level-transitions" class="nav-link" data-scroll-target="#原子能级跃迁-atomic-energy-level-transitions">3. 原子能级跃迁 (Atomic Energy Level Transitions)</a></li>
-  <li><a href="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser" id="toc-激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="nav-link" data-scroll-target="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser">4. 激光器中的三种辐射过程 (Three Radiation Processes in a Laser)</a></li>
-  <li><a href="#固态激光器的结构与工作原理-solid-state-laser-structure" id="toc-固态激光器的结构与工作原理-solid-state-laser-structure" class="nav-link" data-scroll-target="#固态激光器的结构与工作原理-solid-state-laser-structure">5. 固态激光器的结构与工作原理 (Solid-State Laser Structure)</a></li>
-  <li><a href="#激光模型的动力学分析-dynamical-analysis-of-laser-model" id="toc-激光模型的动力学分析-dynamical-analysis-of-laser-model" class="nav-link" data-scroll-target="#激光模型的动力学分析-dynamical-analysis-of-laser-model">6. 激光模型的动力学分析 (Dynamical Analysis of Laser Model)</a>
+  <li><a href="#能量量子化-energy-quantization" id="toc-能量量子化-energy-quantization" class="nav-link active" data-scroll-target="#能量量子化-energy-quantization"><span class="sec-num">1</span><span class="sec-title">能量量子化<span class="sec-en">Energy Quantization</span></span></a></li>
+  <li><a href="#不同频率的光子-photons-at-different-frequencies" id="toc-不同频率的光子-photons-at-different-frequencies" class="nav-link" data-scroll-target="#不同频率的光子-photons-at-different-frequencies"><span class="sec-num">2</span><span class="sec-title">不同频率的光子<span class="sec-en">Photons at Different Frequencies</span></span></a></li>
+  <li><a href="#原子能级跃迁-atomic-energy-level-transitions" id="toc-原子能级跃迁-atomic-energy-level-transitions" class="nav-link" data-scroll-target="#原子能级跃迁-atomic-energy-level-transitions"><span class="sec-num">3</span><span class="sec-title">原子能级跃迁<span class="sec-en">Atomic Energy Level Transitions</span></span></a></li>
+  <li><a href="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser" id="toc-激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="nav-link" data-scroll-target="#激光器中的三种辐射过程-three-radiation-processes-in-a-laser"><span class="sec-num">4</span><span class="sec-title">激光器中的三种辐射过程<span class="sec-en">Three Radiation Processes in a Laser</span></span></a></li>
+  <li><a href="#固态激光器的结构与工作原理-solid-state-laser-structure" id="toc-固态激光器的结构与工作原理-solid-state-laser-structure" class="nav-link" data-scroll-target="#固态激光器的结构与工作原理-solid-state-laser-structure"><span class="sec-num">5</span><span class="sec-title">固态激光器的结构与工作原理<span class="sec-en">Solid-State Laser Structure</span></span></a></li>
+  <li><a href="#激光模型的动力学分析-dynamical-analysis-of-laser-model" id="toc-激光模型的动力学分析-dynamical-analysis-of-laser-model" class="nav-link" data-scroll-target="#激光模型的动力学分析-dynamical-analysis-of-laser-model"><span class="sec-num">6</span><span class="sec-title">激光模型的动力学分析<span class="sec-en">Dynamical Analysis of Laser Model</span></span></a>
   <ul class="collapse">
   <li><a href="#模型构建-model-construction" id="toc-模型构建-model-construction" class="nav-link" data-scroll-target="#模型构建-model-construction">6.1 模型构建 (Model Construction)</a></li>
   <li><a href="#增益饱和-gain-saturation" id="toc-增益饱和-gain-saturation" class="nav-link" data-scroll-target="#增益饱和-gain-saturation">6.2 增益饱和 (Gain Saturation)</a></li>
@@ -169,69 +198,114 @@ window.Quarto = {
   <li><a href="#稳定性分析-stability-analysis" id="toc-稳定性分析-stability-analysis" class="nav-link" data-scroll-target="#稳定性分析-stability-analysis">6.5 稳定性分析 (Stability Analysis)</a></li>
   <li><a href="#物理解读激光阈值-physical-interpretation-laser-threshold" id="toc-物理解读激光阈值-physical-interpretation-laser-threshold" class="nav-link" data-scroll-target="#物理解读激光阈值-physical-interpretation-laser-threshold">6.6 物理解读：激光阈值 (Physical Interpretation: Laser Threshold)</a></li>
   </ul></li>
-  <li><a href="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory" id="toc-transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="nav-link" data-scroll-target="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory">7. Transcritical 分岔：一般理论 (Transcritical Bifurcation: General Theory)</a>
+  <li><a href="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory" id="toc-transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="nav-link" data-scroll-target="#transcritical-分岔一般理论-transcritical-bifurcation-general-theory"><span class="sec-num">7</span><span class="sec-title">Transcritical 分岔：一般理论<span class="sec-en">Transcritical Bifurcation: General Theory</span></span></a>
   <ul class="collapse">
   <li><a href="#与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" id="toc-与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" class="nav-link" data-scroll-target="#与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation">与 Saddle-Node 分岔的对比 (Comparison with Saddle-Node Bifurcation)</a></li>
   <li><a href="#判别方法-identification-method" id="toc-判别方法-identification-method" class="nav-link" data-scroll-target="#判别方法-identification-method">判别方法 (Identification Method)</a></li>
   </ul></li>
-  <li><a href="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" id="toc-例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="nav-link" data-scroll-target="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space">8. 例题：参数空间中的分岔曲线 (Example: Bifurcation Curve in Parameter Space)</a></li>
-  <li><a href="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" id="toc-总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="nav-link" data-scroll-target="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence">9. 总结：从物理到数学的对应 (Summary: Physics-to-Mathematics Correspondence)</a></li>
-  </ul></li>
+  <li><a href="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" id="toc-例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="nav-link" data-scroll-target="#例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space"><span class="sec-num">8</span><span class="sec-title">例题：参数空间中的分岔曲线<span class="sec-en">Example: Bifurcation Curve in Parameter Space</span></span></a></li>
+  <li><a href="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" id="toc-总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="nav-link" data-scroll-target="#总结从物理到数学的对应-summary-physics-to-mathematics-correspondence"><span class="sec-num">9</span><span class="sec-title">总结：从物理到数学的对应<span class="sec-en">Summary: Physics-to-Mathematics Correspondence</span></span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="光子物理与激光器-photon-physics-and-laser" class="level1">
-<h1>光子物理与激光器 (Photon Physics and Laser)</h1>
+
 <div class="updated-time">
 Updated: 2026-04-07 12:00 AEDT
 </div>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="能量量子化-energy-quantization" class="level2">
-<h2 class="anchored" data-anchor-id="能量量子化-energy-quantization">1. 能量量子化 (Energy Quantization)</h2>
-<p><strong>Definition.</strong> 频率为 <span class="math inline">\(\nu\)</span> 的电磁场模式，其能量只能取 <span class="math inline">\(h\nu\)</span> 的整数倍：</p>
+<div class="tag-legend">
+<p>标签约定：<span class="tag-chip tag-definition">Definition</span> 表示定义，<span class="tag-chip tag-theory">Theory</span> 表示理论/定理，<span class="tag-chip tag-inference">Inference</span> 仅表示推导步骤，<span class="tag-chip tag-result">Result</span> 表示结论或应用结论。</p>
+</div>
+<section id="能量量子化-energy-quantization" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="能量量子化-energy-quantization"><span class="sec-num">1</span><span class="sec-title">能量量子化<span class="sec-en">Energy Quantization</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>频率为 <span class="math inline">\(\nu\)</span> 的电磁场模式，其能量只能取 <span class="math inline">\(h\nu\)</span> 的整数倍：</p>
 <p><span class="math display">\[
 E_n = n h\nu, \quad n = 0, 1, 2, \ldots
 \]</span></p>
 <p>其中 <span class="math inline">\(h \approx 6.626 \times 10^{-34} \, \text{J·s}\)</span> 是 Planck 常数。</p>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>光子 (Photon) 不是”能量切出来的小块”，而是电磁场天生只能以光子为单位激发和释放。光子是电磁场能量的最小单位。</li>
 <li>量子化思想是普遍的：光子是电磁场的量子，声子 (Phonon) 是晶格振动的量子，都是同一个框架。</li>
 <li>为什么能量是量子化的？量子力学没有从更深层解释这一点，它是一个基本假设。Planck 为解释黑体辐射 (Black-body Radiation) 而提出，Einstein 用光电效应 (Photoelectric Effect) 证实了光子的实在性。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="不同频率的光子-photons-at-different-frequencies" class="level2">
-<h2 class="anchored" data-anchor-id="不同频率的光子-photons-at-different-frequencies">2. 不同频率的光子 (Photons at Different Frequencies)</h2>
-<p><strong>Theory.</strong> 不同频率的光子就像不同面额的硬币——每种面额的”最小单位”不同，但都是不可再分的一份。</p>
+<section id="不同频率的光子-photons-at-different-frequencies" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="不同频率的光子-photons-at-different-frequencies"><span class="sec-num">2</span><span class="sec-title">不同频率的光子<span class="sec-en">Photons at Different Frequencies</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>不同频率的光子就像不同面额的硬币——每种面额的”最小单位”不同，但都是不可再分的一份。</p>
 <p><span class="math display">\[
 E = h\nu
 \]</span></p>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>红光 (Red Light)：频率低 → 单光子能量小。</li>
 <li>紫光 (Violet Light)：频率高 → 单光子能量大。</li>
 <li>X 射线 / 伽马射线 (Gamma Ray)：频率更高 → 单光子能量更大。</li>
 </ul>
 <p>紫外线有害的根本原因是质的区别：每一份能量（<span class="math inline">\(h\nu\)</span>）都足以打断化学键、损伤 DNA，而红光的单光子能量太低，无论用多少个都打不断化学键。</p>
+</div>
+</div>
 </section>
-<section id="原子能级跃迁-atomic-energy-level-transitions" class="level2">
-<h2 class="anchored" data-anchor-id="原子能级跃迁-atomic-energy-level-transitions">3. 原子能级跃迁 (Atomic Energy Level Transitions)</h2>
-<p><strong>Theory.</strong> 原子有不同的能量状态（能级 Energy Level）。当原子在能级之间跃迁时，能量以光子的形式释放或吸收：</p>
+<section id="原子能级跃迁-atomic-energy-level-transitions" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="原子能级跃迁-atomic-energy-level-transitions"><span class="sec-num">3</span><span class="sec-title">原子能级跃迁<span class="sec-en">Atomic Energy Level Transitions</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>原子有不同的能量状态（能级 Energy Level）。当原子在能级之间跃迁时，能量以光子的形式释放或吸收：</p>
 <p><span class="math display">\[
 E_{\text{高}} - E_{\text{低}} = h\nu
 \]</span></p>
 <p>能级差唯一确定了释放光子的频率。</p>
-<p><strong>Inference.</strong> 原子从高能级跳到低能级时，电子云分布发生变化，产生一个振荡的电偶极矩 (Oscillating Electric Dipole Moment)。这个振荡的偶极矩激发电磁场，而电磁场只能以量子化的方式被激发，所以出来的恰好是一个光子。</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>原子从高能级跳到低能级时，电子云分布发生变化，产生一个振荡的电偶极矩 (Oscillating Electric Dipole Moment)。这个振荡的偶极矩激发电磁场，而电磁场只能以量子化的方式被激发，所以出来的恰好是一个光子。</p>
+</div>
+</div>
 </section>
-<section id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="level2">
-<h2 class="anchored" data-anchor-id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser">4. 激光器中的三种辐射过程 (Three Radiation Processes in a Laser)</h2>
-<p><strong>Definition.</strong> 激光器涉及三种辐射过程：</p>
+<section id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="激光器中的三种辐射过程-three-radiation-processes-in-a-laser"><span class="sec-num">4</span><span class="sec-title">激光器中的三种辐射过程<span class="sec-en">Three Radiation Processes in a Laser</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>激光器涉及三种辐射过程：</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 26%">
@@ -263,35 +337,76 @@ E_{\text{高}} - E_{\text{低}} = h\nu
 </tr>
 </tbody>
 </table>
-<p><strong>Result.</strong> 受激辐射是激光 (Laser) 的核心机制：一个光子进去，两个一模一样的光子出来。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>受激辐射是激光 (Laser) 的核心机制：一个光子进去，两个一模一样的光子出来。</p>
+</div>
+</div>
 </section>
-<section id="固态激光器的结构与工作原理-solid-state-laser-structure" class="level2">
-<h2 class="anchored" data-anchor-id="固态激光器的结构与工作原理-solid-state-laser-structure">5. 固态激光器的结构与工作原理 (Solid-State Laser Structure)</h2>
-<p><strong>Definition.</strong> 固态激光器由以下部分组成：</p>
+<section id="固态激光器的结构与工作原理-solid-state-laser-structure" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="固态激光器的结构与工作原理-solid-state-laser-structure"><span class="sec-num">5</span><span class="sec-title">固态激光器的结构与工作原理<span class="sec-en">Solid-State Laser Structure</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>固态激光器由以下部分组成：</p>
 <ul>
 <li>活性材料 (Active Medium)：含有大量激光活性原子（如红宝石中的铬离子）。</li>
 <li>两端镜子：构成光学谐振腔 (Optical Resonator)，让光子来回反射，不断触发受激辐射。</li>
 <li>泵浦 (Pump)：外部能量源，将原子从基态激发到高能态。</li>
 <li>半透镜 (Partially Transparent Mirror)：让一部分光漏出去，作为激光输出。</li>
 </ul>
-<p><strong>Theory.</strong> 粒子数反转 (Population Inversion)：正常热平衡下，低能态原子数 <span class="math inline">\(N_1\)</span> 远多于高能态 <span class="math inline">\(N_2\)</span>，即 <span class="math inline">\(N_1 &gt; N_2\)</span>。粒子数反转就是人为地让 <span class="math inline">\(N_2 &gt; N_1\)</span>。</p>
-<p><strong>Inference.</strong> 一个轴向光子飞过活性材料时：</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>粒子数反转 (Population Inversion)：正常热平衡下，低能态原子数 <span class="math inline">\(N_1\)</span> 远多于高能态 <span class="math inline">\(N_2\)</span>，即 <span class="math inline">\(N_1 &gt; N_2\)</span>。粒子数反转就是人为地让 <span class="math inline">\(N_2 &gt; N_1\)</span>。</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>一个轴向光子飞过活性材料时：</p>
 <ul>
 <li>遇到高能态原子 → 触发受激辐射（光子数 +1）</li>
 <li>遇到低能态原子 → 被受激吸收（光子数 −1）</li>
 </ul>
 <p>如果 <span class="math inline">\(N_1 &gt; N_2\)</span>，光子被吸收的概率更大，净效果是光子被消耗。只有当 <span class="math inline">\(N_2 &gt; N_1\)</span> 时，受激辐射占主导，光子数才能净增长。</p>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>谐振腔起到方向滤波器 (Directional Filter) 的作用：轴向光子在两面镜子之间来回反弹被不断放大，偏离轴向的光子则被自然淘汰。</li>
 <li>激光器是能量转换器：把无序的泵浦能量转换成高度有序的激光输出，具有单色性 (Monochromaticity)、方向性 (Directionality) 和相干性 (Coherence)。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="激光模型的动力学分析-dynamical-analysis-of-laser-model" class="level2">
-<h2 class="anchored" data-anchor-id="激光模型的动力学分析-dynamical-analysis-of-laser-model">6. 激光模型的动力学分析 (Dynamical Analysis of Laser Model)</h2>
+<section id="激光模型的动力学分析-dynamical-analysis-of-laser-model" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="激光模型的动力学分析-dynamical-analysis-of-laser-model"><span class="sec-num">6</span><span class="sec-title">激光模型的动力学分析<span class="sec-en">Dynamical Analysis of Laser Model</span></span></h2>
 <section id="模型构建-model-construction" class="level3">
 <h3 class="anchored" data-anchor-id="模型构建-model-construction">6.1 模型构建 (Model Construction)</h3>
-<p><strong>Definition.</strong> 动态变量是腔内光子数 <span class="math inline">\(n(t)\)</span>，其演化由增益和损耗的竞争决定：</p>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>动态变量是腔内光子数 <span class="math inline">\(n(t)\)</span>，其演化由增益和损耗的竞争决定：</p>
 <p><span class="math display">\[
 \dot{n} = \underbrace{GnN}_{\text{gain (受激辐射)}} - \underbrace{kn}_{\text{loss (光子漏出)}}
 \]</span></p>
@@ -299,19 +414,40 @@ E_{\text{高}} - E_{\text{低}} = h\nu
 <li>增益项 <span class="math inline">\(GnN\)</span>：来自受激辐射，速率正比于光子数 <span class="math inline">\(n\)</span> 与高能态原子数 <span class="math inline">\(N\)</span> 的乘积。<span class="math inline">\(G &gt; 0\)</span> 是增益系数。</li>
 <li>损耗项 <span class="math inline">\(kn\)</span>：光子从半透镜漏出，速率正比于光子数。<span class="math inline">\(k &gt; 0\)</span> 是损耗速率常数，其倒数 <span class="math inline">\(\tau = 1/k\)</span> 是光子在腔内的典型寿命。</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="增益饱和-gain-saturation" class="level3">
 <h3 class="anchored" data-anchor-id="增益饱和-gain-saturation">6.2 增益饱和 (Gain Saturation)</h3>
-<p><strong>Theory.</strong> <span class="math inline">\(N\)</span> 不是常数。每次受激辐射发射一个光子，就有一个原子从高能态跳到低能态，<span class="math inline">\(N\)</span> 减少。用线性模型近似：</p>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p><span class="math inline">\(N\)</span> 不是常数。每次受激辐射发射一个光子，就有一个原子从高能态跳到低能态，<span class="math inline">\(N\)</span> 减少。用线性模型近似：</p>
 <p><span class="math display">\[
 N(t) = N_0 - \alpha n
 \]</span></p>
 <p>其中 <span class="math inline">\(N_0\)</span> 是无激光时泵浦维持的高能态原子数（反映泵浦强度），<span class="math inline">\(\alpha &gt; 0\)</span> 表示每个光子消耗高能态原子的比率。</p>
-<p><strong>Result.</strong> 这就是增益饱和效应：光子越多 → 高能态原子被消耗越快 → 增益被压低 → 系统自我调节。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>这就是增益饱和效应：光子越多 → 高能态原子被消耗越快 → 增益被压低 → 系统自我调节。</p>
+</div>
+</div>
 </section>
 <section id="最终方程与-transcritical-标准型-final-equation-transcritical-normal-form" class="level3">
 <h3 class="anchored" data-anchor-id="最终方程与-transcritical-标准型-final-equation-transcritical-normal-form">6.3 最终方程与 Transcritical 标准型 (Final Equation &amp; Transcritical Normal Form)</h3>
-<p><strong>Inference.</strong> 将 <span class="math inline">\(N = N_0 - \alpha n\)</span> 代入：</p>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>将 <span class="math inline">\(N = N_0 - \alpha n\)</span> 代入：</p>
 <p><span class="math display">\[
 \dot{n} = Gn(N_0 - \alpha n) - kn = (GN_0 - k)n - (\alpha G)n^2
 \]</span></p>
@@ -319,11 +455,25 @@ N(t) = N_0 - \alpha n
 <p><span class="math display">\[
 \dot{n} = rn - (\alpha G)n^2
 \]</span></p>
-<p><strong>Result.</strong> 这正是 Transcritical 分岔的标准型。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>这正是 Transcritical 分岔的标准型。</p>
+</div>
+</div>
 </section>
 <section id="不动点分析-fixed-point-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="不动点分析-fixed-point-analysis">6.4 不动点分析 (Fixed Point Analysis)</h3>
-<p><strong>Inference.</strong> 令 <span class="math inline">\(\dot{n} = 0\)</span>：</p>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>令 <span class="math inline">\(\dot{n} = 0\)</span>：</p>
 <p><span class="math display">\[
 n\left[r - (\alpha G)n\right] = 0
 \]</span></p>
@@ -331,10 +481,17 @@ n\left[r - (\alpha G)n\right] = 0
 <p><span class="math display">\[
 n_1^* = 0, \qquad n_2^* = \frac{r}{\alpha G} = \frac{GN_0 - k}{\alpha G}
 \]</span></p>
+</div>
+</div>
 </section>
 <section id="稳定性分析-stability-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="稳定性分析-stability-analysis">6.5 稳定性分析 (Stability Analysis)</h3>
-<p><strong>Theory.</strong> 令 <span class="math inline">\(f(n) = rn - (\alpha G)n^2\)</span>，则 <span class="math inline">\(f'(n) = r - 2(\alpha G)n\)</span>。</p>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>令 <span class="math inline">\(f(n) = rn - (\alpha G)n^2\)</span>，则 <span class="math inline">\(f'(n) = r - 2(\alpha G)n\)</span>。</p>
 <p>在 <span class="math inline">\(n_1^* = 0\)</span> 处：<span class="math inline">\(f'(0) = r = GN_0 - k\)</span></p>
 <ul>
 <li><span class="math inline">\(r &lt; 0\)</span>（泵浦弱，<span class="math inline">\(GN_0 &lt; k\)</span>）：<span class="math inline">\(f'(0) &lt; 0\)</span>，<strong>稳定</strong></li>
@@ -345,11 +502,25 @@ n_1^* = 0, \qquad n_2^* = \frac{r}{\alpha G} = \frac{GN_0 - k}{\alpha G}
 <li><span class="math inline">\(r &lt; 0\)</span>：<span class="math inline">\(f'(n_2^*) &gt; 0\)</span>，不稳定（但此时 <span class="math inline">\(n_2^* &lt; 0\)</span>，物理上无意义）</li>
 <li><span class="math inline">\(r &gt; 0\)</span>：<span class="math inline">\(f'(n_2^*) &lt; 0\)</span>，<strong>稳定</strong></li>
 </ul>
-<p><strong>Result.</strong> 两个不动点的稳定性恰好互补并交换——这是 Transcritical 分岔的标志。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>两个不动点的稳定性恰好互补并交换——这是 Transcritical 分岔的标志。</p>
+</div>
+</div>
 </section>
 <section id="物理解读激光阈值-physical-interpretation-laser-threshold" class="level3">
 <h3 class="anchored" data-anchor-id="物理解读激光阈值-physical-interpretation-laser-threshold">6.6 物理解读：激光阈值 (Physical Interpretation: Laser Threshold)</h3>
-<p><strong>Result.</strong> 激光阈值对应 <span class="math inline">\(r = 0\)</span>，即 <span class="math inline">\(GN_0 = k\)</span>（增益恰好等于损耗）：</p>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>激光阈值对应 <span class="math inline">\(r = 0\)</span>，即 <span class="math inline">\(GN_0 = k\)</span>（增益恰好等于损耗）：</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 37%">
@@ -382,22 +553,50 @@ n_1^* = 0, \qquad n_2^* = \frac{r}{\alpha G} = \frac{GN_0 - k}{\alpha G}
 </tbody>
 </table>
 <p><span class="math inline">\(N_0\)</span> 由泵浦强度控制：泵浦越强 → <span class="math inline">\(N_0\)</span> 越大 → 越容易超过阈值。物理约束 <span class="math inline">\(n \geq 0\)</span> 意味着 <span class="math inline">\(r &lt; 0\)</span> 时的负不动点没有物理意义。</p>
+</div>
+</div>
 </section>
 </section>
-<section id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="level2">
-<h2 class="anchored" data-anchor-id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory">7. Transcritical 分岔：一般理论 (Transcritical Bifurcation: General Theory)</h2>
-<p><strong>Definition.</strong> Transcritical 分岔描述的是两个不动点始终存在，但在某个参数临界值处交换稳定性的场景。</p>
-<p><strong>Theory.</strong> 标准型 (Normal Form)：</p>
+<section id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="transcritical-分岔一般理论-transcritical-bifurcation-general-theory"><span class="sec-num">7</span><span class="sec-title">Transcritical 分岔：一般理论<span class="sec-en">Transcritical Bifurcation: General Theory</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>Transcritical 分岔描述的是两个不动点始终存在，但在某个参数临界值处交换稳定性的场景。</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>标准型 (Normal Form)：</p>
 <p><span class="math display">\[
 \dot{x} = rx - x^2
 \]</span></p>
 <p>其中 <span class="math inline">\(r\)</span> 是控制参数 (Control Parameter)。</p>
-<p><strong>Inference.</strong> 令 <span class="math inline">\(\dot{x} = 0\)</span>，提取 <span class="math inline">\(x\)</span>：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>令 <span class="math inline">\(\dot{x} = 0\)</span>，提取 <span class="math inline">\(x\)</span>：</p>
 <p><span class="math display">\[
 x(r - x) = 0 \implies x_1^* = 0, \quad x_2^* = r
 \]</span></p>
 <p>两个不动点始终存在，在 <span class="math inline">\(r = 0\)</span> 处合并。</p>
-<p><strong>Theory.</strong> 稳定性：<span class="math inline">\(f(x) = rx - x^2\)</span>，<span class="math inline">\(f'(x) = r - 2x\)</span>。</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>稳定性：<span class="math inline">\(f(x) = rx - x^2\)</span>，<span class="math inline">\(f'(x) = r - 2x\)</span>。</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -422,7 +621,16 @@ x(r - x) = 0 \implies x_1^* = 0, \quad x_2^* = r
 </tr>
 </tbody>
 </table>
-<p><strong>Result.</strong> 在 <span class="math inline">\(r = 0\)</span> 处，两个不动点的稳定性同时翻转——这就是”交换稳定性”。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>在 <span class="math inline">\(r = 0\)</span> 处，两个不动点的稳定性同时翻转——这就是”交换稳定性”。</p>
+</div>
+</div>
 <section id="与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation" class="level3">
 <h3 class="anchored" data-anchor-id="与-saddle-node-分岔的对比-comparison-with-saddle-node-bifurcation">与 Saddle-Node 分岔的对比 (Comparison with Saddle-Node Bifurcation)</h3>
 <table class="caption-top table">
@@ -459,19 +667,38 @@ x(r - x) = 0 \implies x_1^* = 0, \quad x_2^* = r
 </section>
 <section id="判别方法-identification-method" class="level3">
 <h3 class="anchored" data-anchor-id="判别方法-identification-method">判别方法 (Identification Method)</h3>
-<p><strong>Theory.</strong> 对一般系统 <span class="math inline">\(\dot{x} = f(x; r)\)</span>，判断某个不动点 <span class="math inline">\(x^*\)</span> 是否发生 Transcritical 分岔：</p>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>对一般系统 <span class="math inline">\(\dot{x} = f(x; r)\)</span>，判断某个不动点 <span class="math inline">\(x^*\)</span> 是否发生 Transcritical 分岔：</p>
 <ol type="1">
 <li>在 <span class="math inline">\(x^*\)</span> 处 Taylor 展开</li>
 <li>检查线性项系数是否随参数过零</li>
 <li>确认二次项系数非零（否则可能退化为更高阶的分岔）</li>
 <li>验证不动点不消失，只是交换稳定性</li>
 </ol>
+</div>
+</div>
 </section>
 </section>
-<section id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="level2">
-<h2 class="anchored" data-anchor-id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space">8. 例题：参数空间中的分岔曲线 (Example: Bifurcation Curve in Parameter Space)</h2>
-<p><strong>Definition.</strong> 系统 <span class="math inline">\(\dot{x} = x(1 - x^2) - a(1 - e^{-bx})\)</span>，分析 <span class="math inline">\(x = 0\)</span> 处的分岔。</p>
-<p><strong>Inference.</strong> <span class="math inline">\(x = 0\)</span> 始终是不动点：代入 <span class="math inline">\(x = 0\)</span> 得 <span class="math inline">\(0 \cdot (1 - 0) - a(1 - e^0) = 0\)</span>。对所有 <span class="math inline">\((a, b)\)</span> 成立。这是 Transcritical 的特征。</p>
+<section id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="例题参数空间中的分岔曲线-example-bifurcation-curve-in-parameter-space"><span class="sec-num">8</span><span class="sec-title">例题：参数空间中的分岔曲线<span class="sec-en">Example: Bifurcation Curve in Parameter Space</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>系统 <span class="math inline">\(\dot{x} = x(1 - x^2) - a(1 - e^{-bx})\)</span>，分析 <span class="math inline">\(x = 0\)</span> 处的分岔。</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p><span class="math inline">\(x = 0\)</span> 始终是不动点：代入 <span class="math inline">\(x = 0\)</span> 得 <span class="math inline">\(0 \cdot (1 - 0) - a(1 - e^0) = 0\)</span>。对所有 <span class="math inline">\((a, b)\)</span> 成立。这是 Transcritical 的特征。</p>
 <p>在 <span class="math inline">\(x = 0\)</span> 附近 Taylor 展开。利用 <span class="math inline">\(e^{-bx} = 1 - bx + \frac{1}{2}b^2x^2 + O(x^3)\)</span>：</p>
 <p><span class="math display">\[
 1 - e^{-bx} = bx - \frac{1}{2}b^2x^2 + O(x^3)
@@ -480,15 +707,24 @@ x(r - x) = 0 \implies x_1^* = 0, \quad x_2^* = r
 <p><span class="math display">\[
 \dot{x} = (1 - ab)x + \frac{1}{2}ab^2 x^2 + O(x^3)
 \]</span></p>
-<p><strong>Result.</strong> 线性项系数为 <span class="math inline">\((1 - ab)\)</span>。当 <span class="math inline">\(ab = 1\)</span> 时线性项消失，这就是 <span class="math inline">\((a, b)\)</span> 参数空间中的分岔曲线——双曲线 <span class="math inline">\(ab = 1\)</span>。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>线性项系数为 <span class="math inline">\((1 - ab)\)</span>。当 <span class="math inline">\(ab = 1\)</span> 时线性项消失，这就是 <span class="math inline">\((a, b)\)</span> 参数空间中的分岔曲线——双曲线 <span class="math inline">\(ab = 1\)</span>。</p>
 <p>近似非零不动点：</p>
 <p><span class="math display">\[
 x^* \approx \frac{2(ab - 1)}{ab^2}
 \]</span></p>
 <p>验证稳定性交换：<span class="math inline">\(f'(0) = 1 - ab\)</span>，在非零不动点处 <span class="math inline">\(f'(x^*) = ab - 1\)</span>。两者在 <span class="math inline">\(ab = 1\)</span> 处同时翻转，确认为 Transcritical 分岔。</p>
+</div>
+</div>
 </section>
-<section id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="level2">
-<h2 class="anchored" data-anchor-id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence">9. 总结：从物理到数学的对应 (Summary: Physics-to-Mathematics Correspondence)</h2>
+<section id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="总结从物理到数学的对应-summary-physics-to-mathematics-correspondence"><span class="sec-num">9</span><span class="sec-title">总结：从物理到数学的对应<span class="sec-en">Summary: Physics-to-Mathematics Correspondence</span></span></h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -527,7 +763,12 @@ x^* \approx \frac{2(ab - 1)}{ab^2}
 </tr>
 </tbody>
 </table>
-<p><strong>Result.</strong> 核心方法论：</p>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>核心方法论：</p>
 <ol type="1">
 <li>找不动点：令 <span class="math inline">\(\dot{x} = 0\)</span></li>
 <li>Taylor 展开：在不动点处展开，化简为多项式</li>
@@ -537,7 +778,11 @@ x^* \approx \frac{2(ab - 1)}{ab^2}
 </ol>
 
 
-</section>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -942,6 +1187,19 @@ x^* \approx \frac{2(ab - 1)}{ab^2}
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 

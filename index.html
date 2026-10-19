@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – Sirius Blog</title>
+<title>Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,18 +74,28 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="./images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -116,40 +130,142 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Home</h1>
+
+
+
+<section class="s-sky s-hero">
+<div class="s-wrap s-hero-grid">
+<div class="s-hero-copy">
+<div class="s-eyebrow">Working notes · 工作笔记</div>
+<h1 class="s-display">The mathematics behind machine learning, <span class="s-hl">one derivation at a time.</span></h1>
+<p class="s-lede">Bilingual notes on linear algebra, stochastic dynamics, analytical mechanics and optimization — each written as an explicit chain from definition to result.</p>
+<p class="s-lede-cn">机器学习的数学基础与研究阅读笔记，中文为主、术语附英文，每一步推导都有标注。</p>
+<div class="s-actions">
+<a class="s-btn s-btn-light" href="Mathematical-Foundations-of-Machine-Learning/index.html">Start with Mathematics
+<svg class="s-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="s-btn s-btn-ghost" href="research/index.html">Research notes</a>
+</div>
+</div>
+
+<figure class="s-hero-figure figure">
+<svg viewbox="0 0 560 600" role="img" aria-label="Star chart of Canis Major, with Sirius as the brightest star">
+<defs>
+<radialgradient id="halo"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"></stop><stop offset="0.16" stop-color="#DDE6FF" stop-opacity="0.55"></stop><stop offset="0.5" stop-color="#9DB7FF" stop-opacity="0.16"></stop><stop offset="1" stop-color="#9DB7FF" stop-opacity="0"></stop></radialgradient>
+<radialgradient id="soft"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.75"></stop><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"></stop></radialgradient>
+</defs>
+<g fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-dasharray="2 5">
+<path d="M0 121.8 Q280 110 560 121.8"></path><path d="M0 401.8 Q280 390 560 401.8"></path>
+<path d="M38.1 0 L38.1 600"></path><path d="M232.7 0 L232.7 600"></path><path d="M427.3 0 L427.3 600"></path>
+</g>
+<g font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="10" fill="#7F8AA3" letter-spacing="0.06em">
+<text x="8" y="114">−15°</text><text x="8" y="394">−25°</text>
+<text x="44" y="592">7h30m</text><text x="238" y="592">7h</text><text x="433" y="592">6h30m</text>
+<text x="20" y="28" letter-spacing="0.24em">CANIS MAJOR</text>
+</g>
+<g fill="none" stroke="#9DB7FF" stroke-opacity="0.45" stroke-width="1">
+<polyline points="474.8,204.7 330,170 258,179.2 208.2,139.5 270.4,39 258,179.2"></polyline>
+<polyline points="330,170 213.2,369 178.2,440.8 76.3,522.2"></polyline>
+<polyline points="178.2,440.8 241.5,513 490.4,543.5"></polyline>
+</g>
+<circle cx="330" cy="170" r="78" fill="url(#halo)"></circle>
+<path d="M330 112 L332.6 167.4 L388 170 L332.6 172.6 L330 228 L327.4 172.6 L272 170 L327.4 167.4Z" fill="#FFFFFF" opacity="0.92"></path>
+<circle cx="330" cy="170" r="5.5" fill="#FFFFFF"></circle>
+<g fill="url(#soft)" opacity="0.6">
+<circle cx="241.5" cy="513" r="12"></circle><circle cx="178.2" cy="440.8" r="11"></circle><circle cx="474.8" cy="204.7" r="11"></circle><circle cx="76.3" cy="522.2" r="9"></circle>
+</g>
+<g fill="#FFFFFF">
+<circle cx="241.5" cy="513" r="3.6"></circle><circle cx="178.2" cy="440.8" r="3.3"></circle><circle cx="474.8" cy="204.7" r="3.2"></circle><circle cx="76.3" cy="522.2" r="2.7"></circle>
+<circle cx="490.4" cy="543.5" r="2.2"></circle><circle cx="213.2" cy="369" r="2.2"></circle><circle cx="208.2" cy="139.5" r="1.6"></circle><circle cx="258" cy="179.2" r="1.5"></circle><circle cx="270.4" cy="39" r="1.7"></circle>
+</g>
+<g font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" letter-spacing="0.04em">
+<text x="392" y="150" fill="#E8ECF5">α  SIRIUS</text>
+<text x="392" y="166" fill="#8E99B0">−1.46 mag · 8.6 ly</text>
+<text x="484" y="228" fill="#A3ADC2">β Mirzam</text>
+<text x="252" y="537" fill="#A3ADC2">ε Adhara</text>
+<text x="168" y="436" fill="#A3ADC2" text-anchor="end">δ Wezen</text>
+<text x="86" y="548" fill="#A3ADC2">η Aludra</text>
+<text x="480" y="566" fill="#A3ADC2" text-anchor="end">ζ Furud</text>
+</g>
+</svg>
+<figcaption><span>α CMa</span><span>RA 06h 45m 09s</span><span>Dec −16° 43′</span></figcaption>
+</figure>
+</div>
+</section>
+
+<div class="s-wrap">
+<section class="s-overlap s-panel" aria-labelledby="chain-h">
+<div class="s-head">
+<h2 id="chain-h" class="s-h2 s-small">How a note reads <span class="s-h2-cn">标签约定</span></h2>
+<a class="s-link" href="Mathematical-Foundations-of-Machine-Learning/6 SGD, Momentum, and Potential Dynamics.html">From: SGD, Momentum, and Potential Dynamics
+<svg class="s-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+<ol class="s-chain">
+<li class="is-definition">
+<div class="s-step-head"><span class="tag-chip tag-definition">Definition</span><span class="s-step-num">I</span></div>
+<p>设目标函数为 <span class="s-math"><i>f</i>(<i>x</i>)</span>，将其解释为势能地形 (Potential Energy Landscape)。</p>
+</li>
+<li class="is-theory">
+<div class="s-step-head"><span class="tag-chip tag-theory">Theory</span><span class="s-step-num">II</span></div>
+<div class="s-eq"><i>F</i>(<i>x</i>) = −∇<i>f</i>(<i>x</i>)</div>
+<p>地形诱导的力。</p>
+</li>
+<li class="is-inference">
+<div class="s-step-head"><span class="tag-chip tag-inference">Inference</span><span class="s-step-num">III</span></div>
+<div class="s-eq"><i>x</i><sub><i>k</i>+1</sub> = <i>x</i><sub><i>k</i></sub> − <i>η</i> ∇<i>f</i>(<i>x</i><sub><i>k</i></sub>)</div>
+<p>令 <span class="s-math"><i>η</i></span> → 0，差商收敛到时间导数。</p>
+</li>
+<li class="is-result">
+<div class="s-step-head"><span class="tag-chip tag-result">Result</span><span class="s-step-num">IV</span></div>
+<p>梯度下降是梯度流 (Gradient Flow) 的前向 Euler 离散化。</p>
+</li>
+</ol>
+</section>
+
+<section class="s-section" aria-labelledby="sections-h">
+<div class="s-head"><h2 id="sections-h" class="s-h2">Sections <span class="s-h2-cn">栏目</span></h2></div>
+<div class="s-tiles">
+<a class="s-tile" href="Mathematical-Foundations-of-Machine-Learning/index.html">
+<div class="s-tile-top"><span class="s-numeral">01</span><span class="s-kicker">Mathematics · 7 notes</span></div>
+<div><div class="s-tile-title">Mathematical Foundations of Machine Learning</div><div class="s-tile-cn">机器学习的数学基础</div></div>
+<p>Orthogonality, the four fundamental subspaces, Langevin dynamics, analytical mechanics and optimization dynamics — plus a collection on nonlinear dynamics.</p>
+<div class="s-tags"><span>Linear algebra</span><span>Stochastic dynamics</span><span>Mechanics</span><span>Optimization</span><span>Nonlinear dynamics</span></div>
+<div class="s-tile-foot"><span class="s-date">Updated 2026-04-07</span><span class="s-more">Browse <svg class="s-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div>
+</a>
+<a class="s-tile" href="research/index.html">
+<div class="s-tile-top"><span class="s-numeral">02</span><span class="s-kicker">Research · 2 notes</span></div>
+<div><div class="s-tile-title">Research</div><div class="s-tile-cn">研究阅读笔记</div></div>
+<p>Notes and summaries from ongoing research reading — representation probing, sparse autoencoders, and state space models.</p>
+<div class="s-tags"><span>Probing</span><span>SAE</span><span>LoRA</span><span>State space models</span></div>
+<div class="s-tile-foot"><span class="s-date">Updated 2026-05-20</span><span class="s-more">Browse <svg class="s-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span></div>
+</a>
+</div>
+</section>
+
+<section class="s-section" aria-labelledby="recent-h">
+<div class="s-head"><h2 id="recent-h" class="s-h2">Recently updated <span class="s-h2-cn">最近更新</span></h2></div>
+<ol class="s-timeline">
+<li><span class="s-when">2026-05-20</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="research/probing_concept_summary.html"><span><span class="s-entry-title">Probing 概念体系总结</span><span class="s-entry-sub">Probe / SAE / LoRA / LRH / SSL</span></span><span class="s-entry-tag">Research</span></a></li>
+<li><span class="s-when">2026-04-07</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2 Photon Physics and Laser.html"><span><span class="s-entry-title">光子物理与激光器</span><span class="s-entry-sub">Photon Physics and Laser</span></span><span class="s-entry-tag">Nonlinear Dynamics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/4 Langevin Dynamics and Diffusion Model.html"><span><span class="s-entry-title">Langevin 动力学与扩散模型</span><span class="s-entry-sub">Langevin Dynamics and Diffusion Model</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/6 SGD, Momentum, and Potential Dynamics.html"><span><span class="s-entry-title">SGD、动量与势动力学</span><span class="s-entry-sub">SGD, Momentum, and Potential Dynamics</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/5 Lagrangian and Hamiltonian Mechanics.html"><span><span class="s-entry-title">分析力学：Lagrangian 与 Hamiltonian 系统</span><span class="s-entry-sub">Analytical Mechanics</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+</ol>
+</section>
 </div>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Welcome to my Quarto blog.</p>
-<p>This site is deployed with GitHub Pages.</p>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -551,6 +667,19 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>sgd-momentum-and-potential-dynamics – Sirius Blog</title>
+<title>SGD、动量与势动力学 (SGD, Momentum, and Potential Dynamics) – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +74,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -101,16 +112,19 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -145,55 +159,110 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">SGD、动量与势动力学</h1>
+            <p class="subtitle lead">SGD, Momentum, and Potential Dynamics</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">On this page · 目录</h2>
    
   <ul>
-  <li><a href="#sgd动量与势动力学-sgd-momentum-and-potential-dynamics" id="toc-sgd动量与势动力学-sgd-momentum-and-potential-dynamics" class="nav-link active" data-scroll-target="#sgd动量与势动力学-sgd-momentum-and-potential-dynamics">SGD、动量与势动力学 (SGD, Momentum, and Potential Dynamics)</a>
-  <ul class="collapse">
-  <li><a href="#损失函数作为势函数-loss-as-a-potential-function" id="toc-损失函数作为势函数-loss-as-a-potential-function" class="nav-link" data-scroll-target="#损失函数作为势函数-loss-as-a-potential-function">1. 损失函数作为势函数 (Loss as a Potential Function)</a></li>
-  <li><a href="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" id="toc-梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="nav-link" data-scroll-target="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow">2. 梯度下降作为梯度流的离散化 (Gradient Descent as a Discretization of Gradient Flow)</a></li>
-  <li><a href="#sgd-的解释-interpreting-sgd" id="toc-sgd-的解释-interpreting-sgd" class="nav-link" data-scroll-target="#sgd-的解释-interpreting-sgd">3. SGD 的解释 (Interpreting SGD)</a></li>
-  <li><a href="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" id="toc-动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="nav-link" data-scroll-target="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system">4. 动量作为二阶动力系统 (Momentum as a Second-Order Dynamical System)</a></li>
-  <li><a href="#力学解释-mechanical-interpretation" id="toc-力学解释-mechanical-interpretation" class="nav-link" data-scroll-target="#力学解释-mechanical-interpretation">5. 力学解释 (Mechanical Interpretation)</a></li>
-  <li><a href="#与优化的联系-connection-back-to-optimization" id="toc-与优化的联系-connection-back-to-optimization" class="nav-link" data-scroll-target="#与优化的联系-connection-back-to-optimization">6. 与优化的联系 (Connection Back to Optimization)</a></li>
-  </ul></li>
+  <li><a href="#损失函数作为势函数-loss-as-a-potential-function" id="toc-损失函数作为势函数-loss-as-a-potential-function" class="nav-link active" data-scroll-target="#损失函数作为势函数-loss-as-a-potential-function"><span class="sec-num">1</span><span class="sec-title">损失函数作为势函数<span class="sec-en">Loss as a Potential Function</span></span></a></li>
+  <li><a href="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" id="toc-梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="nav-link" data-scroll-target="#梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow"><span class="sec-num">2</span><span class="sec-title">梯度下降作为梯度流的离散化<span class="sec-en">Gradient Descent as a Discretization of Gradient Flow</span></span></a></li>
+  <li><a href="#sgd-的解释-interpreting-sgd" id="toc-sgd-的解释-interpreting-sgd" class="nav-link" data-scroll-target="#sgd-的解释-interpreting-sgd"><span class="sec-num">3</span><span class="sec-title">SGD 的解释<span class="sec-en">Interpreting SGD</span></span></a></li>
+  <li><a href="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" id="toc-动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="nav-link" data-scroll-target="#动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system"><span class="sec-num">4</span><span class="sec-title">动量作为二阶动力系统<span class="sec-en">Momentum as a Second-Order Dynamical System</span></span></a></li>
+  <li><a href="#力学解释-mechanical-interpretation" id="toc-力学解释-mechanical-interpretation" class="nav-link" data-scroll-target="#力学解释-mechanical-interpretation"><span class="sec-num">5</span><span class="sec-title">力学解释<span class="sec-en">Mechanical Interpretation</span></span></a></li>
+  <li><a href="#与优化的联系-connection-back-to-optimization" id="toc-与优化的联系-connection-back-to-optimization" class="nav-link" data-scroll-target="#与优化的联系-connection-back-to-optimization"><span class="sec-num">6</span><span class="sec-title">与优化的联系<span class="sec-en">Connection Back to Optimization</span></span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="sgd动量与势动力学-sgd-momentum-and-potential-dynamics" class="level1">
-<h1>SGD、动量与势动力学 (SGD, Momentum, and Potential Dynamics)</h1>
+
 <div class="updated-time">
 Updated: 2026-03-31 12:00 AEDT
 </div>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="损失函数作为势函数-loss-as-a-potential-function" class="level2">
-<h2 class="anchored" data-anchor-id="损失函数作为势函数-loss-as-a-potential-function">1. 损失函数作为势函数 (Loss as a Potential Function)</h2>
-<p><strong>Definition.</strong> 设目标函数为 <span class="math inline">\(f(x)\)</span>。在优化中，常将 <span class="math inline">\(f\)</span> 解释为势能地形 (Potential Energy Landscape)。</p>
-<p><strong>Theory.</strong> 在此解释下，地形诱导的力为</p>
+<div class="tag-legend">
+<p>标签约定：<span class="tag-chip tag-definition">Definition</span> 表示定义，<span class="tag-chip tag-theory">Theory</span> 表示理论/定理，<span class="tag-chip tag-inference">Inference</span> 仅表示推导步骤，<span class="tag-chip tag-result">Result</span> 表示结论或应用结论。</p>
+</div>
+<section id="损失函数作为势函数-loss-as-a-potential-function" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="损失函数作为势函数-loss-as-a-potential-function"><span class="sec-num">1</span><span class="sec-title">损失函数作为势函数<span class="sec-en">Loss as a Potential Function</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>设目标函数为 <span class="math inline">\(f(x)\)</span>。在优化中，常将 <span class="math inline">\(f\)</span> 解释为势能地形 (Potential Energy Landscape)。</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>在此解释下，地形诱导的力为</p>
 <p><span class="math display">\[
 F(x)=-\nabla f(x).
 \]</span></p>
-<p><strong>Inference.</strong> 点 <span class="math inline">\(x\)</span> 倾向于移向低势能区域，因此优化可被视为粒子在能量曲面上的下降运动。</p>
-<p><strong>Result.</strong> 最小化损失等价于将系统驱向低势能状态。</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>点 <span class="math inline">\(x\)</span> 倾向于移向低势能区域，因此优化可被视为粒子在能量曲面上的下降运动。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>最小化损失等价于将系统驱向低势能状态。</p>
+</div>
+</div>
 </section>
-<section id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="level2">
-<h2 class="anchored" data-anchor-id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow">2. 梯度下降作为梯度流的离散化 (Gradient Descent as a Discretization of Gradient Flow)</h2>
-<p><strong>Theory.</strong> 基本梯度下降更新为</p>
+<section id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="梯度下降作为梯度流的离散化-gradient-descent-as-a-discretization-of-gradient-flow"><span class="sec-num">2</span><span class="sec-title">梯度下降作为梯度流的离散化<span class="sec-en">Gradient Descent as a Discretization of Gradient Flow</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>基本梯度下降更新为</p>
 <p><span class="math display">\[
 x_{k+1}=x_k-\eta \nabla f(x_k).
 \]</span></p>
-<p><strong>Inference.</strong> 令 <span class="math inline">\(x_k=x(t_k)\)</span>，选取时间步长</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>令 <span class="math inline">\(x_k=x(t_k)\)</span>，选取时间步长</p>
 <p><span class="math display">\[
 t_{k+1}-t_k=\eta.
 \]</span></p>
@@ -205,29 +274,71 @@ t_{k+1}-t_k=\eta.
 <p><span class="math display">\[
 \dot x(t)=-\nabla f(x(t)).
 \]</span></p>
-<p><strong>Result.</strong> 梯度下降是势函数 <span class="math inline">\(f\)</span> 上梯度流 (Gradient Flow) 的前向 Euler 离散化。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>梯度下降是势函数 <span class="math inline">\(f\)</span> 上梯度流 (Gradient Flow) 的前向 Euler 离散化。</p>
+</div>
+</div>
 </section>
-<section id="sgd-的解释-interpreting-sgd" class="level2">
-<h2 class="anchored" data-anchor-id="sgd-的解释-interpreting-sgd">3. SGD 的解释 (Interpreting SGD)</h2>
-<p><strong>Definition.</strong> 在随机梯度下降中，精确梯度被小批量估计替代：</p>
+<section id="sgd-的解释-interpreting-sgd" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="sgd-的解释-interpreting-sgd"><span class="sec-num">3</span><span class="sec-title">SGD 的解释<span class="sec-en">Interpreting SGD</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>在随机梯度下降中，精确梯度被小批量估计替代：</p>
 <p><span class="math display">\[
 x_{k+1}=x_k-\eta g_k,
 \qquad
 \mathbb E[g_k\mid x_k]=\nabla f(x_k).
 \]</span></p>
-<p><strong>Inference.</strong> 确定性部分仍然是相同的下坡漂移 <span class="math inline">\(-\nabla f(x)\)</span>，而采样误差在漂移周围引入噪声。</p>
-<p><strong>Result.</strong> SGD 可被视为梯度流加上随机性。若噪声较小或被平均掉，主导行为仍由势能地形 <span class="math inline">\(f\)</span> 控制。</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>确定性部分仍然是相同的下坡漂移 <span class="math inline">\(-\nabla f(x)\)</span>，而采样误差在漂移周围引入噪声。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>SGD 可被视为梯度流加上随机性。若噪声较小或被平均掉，主导行为仍由势能地形 <span class="math inline">\(f\)</span> 控制。</p>
+</div>
+</div>
 </section>
-<section id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="level2">
-<h2 class="anchored" data-anchor-id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system">4. 动量作为二阶动力系统 (Momentum as a Second-Order Dynamical System)</h2>
-<p><strong>Definition.</strong> 标准动量更新为</p>
+<section id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="动量作为二阶动力系统-momentum-as-a-second-order-dynamical-system"><span class="sec-num">4</span><span class="sec-title">动量作为二阶动力系统<span class="sec-en">Momentum as a Second-Order Dynamical System</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>标准动量更新为</p>
 <p><span class="math display">\[
 v_{k+1}=\beta v_k-\gamma \nabla f(x_k),
 \qquad
 x_{k+1}=x_k+v_{k+1},
 \]</span></p>
 <p>其中 <span class="math inline">\(v_k\)</span> 是类速度辅助变量。</p>
-<p><strong>Inference.</strong> 由位置更新可得</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>由位置更新可得</p>
 <p><span class="math display">\[
 v_k=x_k-x_{k-1}.
 \]</span></p>
@@ -261,15 +372,36 @@ x_{k+1}-2x_k+x_{k-1}
 <p><span class="math display">\[
 \ddot x(t)+r\dot x(t)+\nabla f(x(t))=0.
 \]</span></p>
-<p><strong>Result.</strong> 动量对应一个有阻尼的二阶系统：惯性来自 <span class="math inline">\(\ddot x\)</span>，摩擦来自 <span class="math inline">\(r\dot x\)</span>，恢复力来自势梯度 <span class="math inline">\(\nabla f\)</span>。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>动量对应一个有阻尼的二阶系统：惯性来自 <span class="math inline">\(\ddot x\)</span>，摩擦来自 <span class="math inline">\(r\dot x\)</span>，恢复力来自势梯度 <span class="math inline">\(\nabla f\)</span>。</p>
+</div>
+</div>
 </section>
-<section id="力学解释-mechanical-interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="力学解释-mechanical-interpretation">5. 力学解释 (Mechanical Interpretation)</h2>
-<p><strong>Definition.</strong> 定义总能量</p>
+<section id="力学解释-mechanical-interpretation" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="力学解释-mechanical-interpretation"><span class="sec-num">5</span><span class="sec-title">力学解释<span class="sec-en">Mechanical Interpretation</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>定义总能量</p>
 <p><span class="math display">\[
 E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
 \]</span></p>
-<p><strong>Inference.</strong> 沿动量 ODE 对其求导：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>沿动量 ODE 对其求导：</p>
 <p><span class="math display">\[
 \frac{dE}{dt}
 =
@@ -283,11 +415,24 @@ E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
 <p><span class="math display">\[
 \frac{dE}{dt}=-r\|\dot x(t)\|^2\le 0.
 \]</span></p>
-<p><strong>Result.</strong> 动量并非逐点简单下坡。它携带动能，必要时可以越过浅谷，并通过阻尼逐渐耗散能量，直到系统在极小值附近安定下来。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>动量并非逐点简单下坡。它携带动能，必要时可以越过浅谷，并通过阻尼逐渐耗散能量，直到系统在极小值附近安定下来。</p>
+</div>
+</div>
 </section>
-<section id="与优化的联系-connection-back-to-optimization" class="level2">
-<h2 class="anchored" data-anchor-id="与优化的联系-connection-back-to-optimization">6. 与优化的联系 (Connection Back to Optimization)</h2>
-<p><strong>Result.</strong></p>
+<section id="与优化的联系-connection-back-to-optimization" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="与优化的联系-connection-back-to-optimization"><span class="sec-num">6</span><span class="sec-title">与优化的联系<span class="sec-en">Connection Back to Optimization</span></span></h2>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>梯度下降是势能地形上的一阶下降律。</li>
 <li>SGD 在该一阶律上添加了随机扰动。</li>
@@ -297,7 +442,11 @@ E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
 <p>简言之，优化算法可被解释为连续动力系统的离散化，而损失函数扮演势能面的角色。</p>
 
 
-</section>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -702,6 +851,19 @@ E(t)=\frac{1}{2}\|\dot x(t)\|^2+f(x(t)).
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 

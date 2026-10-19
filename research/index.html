@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,18 +74,28 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -116,56 +130,77 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Research</h1>
+
+
+
+<section class="s-sky s-header">
+<div class="s-wrap">
+<nav class="s-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Research</span></nav>
+<div class="s-hero-grid" style="align-items: flex-end">
+<div class="s-hero-copy">
+<div class="s-eyebrow">Section 02</div>
+<h1>Research <span class="s-hl">reading notes</span></h1>
+<div class="s-cn">研究阅读笔记</div>
+<p class="s-lede">Notes and summaries from ongoing research reading.</p>
+</div>
+<dl>
+<div><dt>Notes</dt><dd>1 published · 1 draft</dd></div>
+<div><dt>Updated</dt><dd>2026-05-20 17:30 AEDT</dd></div>
+</dl>
+</div>
+</div>
+</section>
+
+<div class="s-wrap">
+<ol class="s-cards s-overlap" style="margin-top: -48px">
+<li>
+<a class="s-card s-float" href="probing_concept_summary.html">
+<div class="s-card-top"><span class="s-numeral" style="font-size: 56px">R·01</span><span class="s-kicker">Reading notes · Updated 2026-05-20</span></div>
+<div>
+<div class="s-card-title" lang="zh-Hans">Probing 概念体系总结</div>
+<p>Structured notes on probes, sparse autoencoders, LoRA, the Linear Representation Hypothesis and self-supervised learning — each section names its key papers.</p>
+</div>
+<ol class="s-stages" aria-label="How the note is organised">
+<li><div class="s-stage-num">I</div><div class="s-stage-cn" lang="zh-Hans">是什么</div><div class="s-stage-en">What it is</div></li>
+<li><div class="s-stage-num">II</div><div class="s-stage-cn" lang="zh-Hans">怎么做</div><div class="s-stage-en">How it is done</div></li>
+<li><div class="s-stage-num">III</div><div class="s-stage-cn" lang="zh-Hans">怎么用</div><div class="s-stage-en">How to use it</div></li>
+<li><div class="s-stage-num">IV</div><div class="s-stage-cn" lang="zh-Hans">注意什么</div><div class="s-stage-en">Caveats</div></li>
+</ol>
+<div class="s-card-foot">
+<div class="s-tags"><span>Probe</span><span>SAE</span><span>LoRA</span><span>Linear Representation Hypothesis</span><span>SSL</span></div>
+<span class="s-btn s-btn-dark">Read note <svg class="s-icon" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</div>
+</a>
+</li>
+<li>
+<div class="s-card s-draft">
+<div class="s-card-top"><span class="s-numeral" style="font-size: 42px; color: #9AA2B2">R·02</span><span class="s-status">In progress · 撰写中</span></div>
+<div>
+<div class="s-card-title">Mamba Theory</div>
+<p>State space models, selective scan.</p>
+</div>
+<div class="s-preview">
+<span class="s-math"><i>h</i>′(<i>t</i>) = <i>A</i> <i>h</i>(<i>t</i>) + <i>B</i> <i>x</i>(<i>t</i>), <i>y</i>(<i>t</i>) = <i>C</i> <i>h</i>(<i>t</i>)</span>
+<small>Continuous-time state space model · starting point</small>
+</div>
+<div class="s-card-foot">
+<div class="s-tags"><span>State space models</span><span>Selective scan</span></div>
+<span style="font-size: 14px; color: #5F6676">Not published yet</span>
+</div>
+</div>
+</li>
+</ol>
+<div class="s-section" style="padding-top: 0"></div>
 </div>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<div class="updated-time">
-Updated: 2026-05-20 17:30 AEDT
-</div>
-<p>Notes and summaries from ongoing research reading.</p>
-<div class="note-cards">
-<div class="note-card">
-<a href="../research/probing_concept_summary.html">Probing 概念体系总结</a>
-<div class="card-desc">
-Probe / SAE / LoRA / Linear Representation Hypothesis / SSL — structured notes organized as “what → how → use → caveats”
-</div>
-</div>
-<div class="note-card">
-<a href="../research/mamba-theory.html">Mamba Theory</a>
-<div class="card-desc">
-State space models, selective scan — work in progress
-</div>
-</div>
-</div>
-
-
-
-</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -567,6 +602,19 @@ State space models, selective scan — work in progress
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 

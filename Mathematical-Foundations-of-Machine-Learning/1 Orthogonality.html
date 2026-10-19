@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>orthogonality – Sirius Blog</title>
+<title>正交性 (Orthogonality) – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +74,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -101,16 +112,19 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -145,117 +159,233 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">正交性</h1>
+            <p class="subtitle lead">Orthogonality</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">On this page · 目录</h2>
    
   <ul>
-  <li><a href="#正交性-orthogonality" id="toc-正交性-orthogonality" class="nav-link active" data-scroll-target="#正交性-orthogonality">正交性 (Orthogonality)</a>
-  <ul class="collapse">
-  <li><a href="#从耦合到解耦-coupled-to-decoupled" id="toc-从耦合到解耦-coupled-to-decoupled" class="nav-link" data-scroll-target="#从耦合到解耦-coupled-to-decoupled">1. 从耦合到解耦 (Coupled to Decoupled)</a></li>
-  <li><a href="#正交的定义-definition-of-orthogonality" id="toc-正交的定义-definition-of-orthogonality" class="nav-link" data-scroll-target="#正交的定义-definition-of-orthogonality">2. 正交的定义 (Definition of Orthogonality)</a></li>
-  <li><a href="#正交分解与能量可加性-energy-additivity" id="toc-正交分解与能量可加性-energy-additivity" class="nav-link" data-scroll-target="#正交分解与能量可加性-energy-additivity">3. 正交分解与能量可加性 (Energy Additivity)</a></li>
-  <li><a href="#正交基下的展开-expansion-in-orthonormal-basis" id="toc-正交基下的展开-expansion-in-orthonormal-basis" class="nav-link" data-scroll-target="#正交基下的展开-expansion-in-orthonormal-basis">4. 正交基下的展开 (Expansion in Orthonormal Basis)</a></li>
-  <li><a href="#gram-schmidt-正交化" id="toc-gram-schmidt-正交化" class="nav-link" data-scroll-target="#gram-schmidt-正交化">5. Gram-Schmidt 正交化</a></li>
-  <li><a href="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" id="toc-正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="nav-link" data-scroll-target="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform">6. 正交矩阵与正交变换 (Orthogonal Matrix &amp; Orthogonal Transform)</a></li>
-  <li><a href="#共轭转置-conjugate-transpose" id="toc-共轭转置-conjugate-transpose" class="nav-link" data-scroll-target="#共轭转置-conjugate-transpose">7. 共轭转置 (Conjugate Transpose)</a></li>
-  <li><a href="#实空间与复空间中的正交-real-vs-complex-inner-product" id="toc-实空间与复空间中的正交-real-vs-complex-inner-product" class="nav-link" data-scroll-target="#实空间与复空间中的正交-real-vs-complex-inner-product">8. 实空间与复空间中的正交 (Real vs Complex Inner Product)</a></li>
-  <li><a href="#函数空间中的正交-orthogonality-in-function-space" id="toc-函数空间中的正交-orthogonality-in-function-space" class="nav-link" data-scroll-target="#函数空间中的正交-orthogonality-in-function-space">9. 函数空间中的正交 (Orthogonality in Function Space)</a></li>
-  <li><a href="#经典正交系-classical-orthogonal-systems" id="toc-经典正交系-classical-orthogonal-systems" class="nav-link" data-scroll-target="#经典正交系-classical-orthogonal-systems">10. 经典正交系 (Classical Orthogonal Systems)</a></li>
-  <li><a href="#谱定理-spectral-theorem" id="toc-谱定理-spectral-theorem" class="nav-link" data-scroll-target="#谱定理-spectral-theorem">11. 谱定理 (Spectral Theorem)</a></li>
-  <li><a href="#奇异值分解-svd" id="toc-奇异值分解-svd" class="nav-link" data-scroll-target="#奇异值分解-svd">12. 奇异值分解 (SVD)</a></li>
-  <li><a href="#correlation-与-independence" id="toc-correlation-与-independence" class="nav-link" data-scroll-target="#correlation-与-independence">13. Correlation 与 Independence</a></li>
-  <li><a href="#高维近似正交现象-near-orthogonality-in-high-dimensions" id="toc-高维近似正交现象-near-orthogonality-in-high-dimensions" class="nav-link" data-scroll-target="#高维近似正交现象-near-orthogonality-in-high-dimensions">14. 高维近似正交现象 (Near Orthogonality in High Dimensions)</a></li>
-  </ul></li>
+  <li><a href="#从耦合到解耦-coupled-to-decoupled" id="toc-从耦合到解耦-coupled-to-decoupled" class="nav-link active" data-scroll-target="#从耦合到解耦-coupled-to-decoupled"><span class="sec-num">1</span><span class="sec-title">从耦合到解耦<span class="sec-en">Coupled to Decoupled</span></span></a></li>
+  <li><a href="#正交的定义-definition-of-orthogonality" id="toc-正交的定义-definition-of-orthogonality" class="nav-link" data-scroll-target="#正交的定义-definition-of-orthogonality"><span class="sec-num">2</span><span class="sec-title">正交的定义<span class="sec-en">Definition of Orthogonality</span></span></a></li>
+  <li><a href="#正交分解与能量可加性-energy-additivity" id="toc-正交分解与能量可加性-energy-additivity" class="nav-link" data-scroll-target="#正交分解与能量可加性-energy-additivity"><span class="sec-num">3</span><span class="sec-title">正交分解与能量可加性<span class="sec-en">Energy Additivity</span></span></a></li>
+  <li><a href="#正交基下的展开-expansion-in-orthonormal-basis" id="toc-正交基下的展开-expansion-in-orthonormal-basis" class="nav-link" data-scroll-target="#正交基下的展开-expansion-in-orthonormal-basis"><span class="sec-num">4</span><span class="sec-title">正交基下的展开<span class="sec-en">Expansion in Orthonormal Basis</span></span></a></li>
+  <li><a href="#gram-schmidt-正交化" id="toc-gram-schmidt-正交化" class="nav-link" data-scroll-target="#gram-schmidt-正交化"><span class="sec-num">5</span><span class="sec-title">Gram-Schmidt 正交化</span></a></li>
+  <li><a href="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" id="toc-正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="nav-link" data-scroll-target="#正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform"><span class="sec-num">6</span><span class="sec-title">正交矩阵与正交变换<span class="sec-en">Orthogonal Matrix &amp; Orthogonal Transform</span></span></a></li>
+  <li><a href="#共轭转置-conjugate-transpose" id="toc-共轭转置-conjugate-transpose" class="nav-link" data-scroll-target="#共轭转置-conjugate-transpose"><span class="sec-num">7</span><span class="sec-title">共轭转置<span class="sec-en">Conjugate Transpose</span></span></a></li>
+  <li><a href="#实空间与复空间中的正交-real-vs-complex-inner-product" id="toc-实空间与复空间中的正交-real-vs-complex-inner-product" class="nav-link" data-scroll-target="#实空间与复空间中的正交-real-vs-complex-inner-product"><span class="sec-num">8</span><span class="sec-title">实空间与复空间中的正交<span class="sec-en">Real vs Complex Inner Product</span></span></a></li>
+  <li><a href="#函数空间中的正交-orthogonality-in-function-space" id="toc-函数空间中的正交-orthogonality-in-function-space" class="nav-link" data-scroll-target="#函数空间中的正交-orthogonality-in-function-space"><span class="sec-num">9</span><span class="sec-title">函数空间中的正交<span class="sec-en">Orthogonality in Function Space</span></span></a></li>
+  <li><a href="#经典正交系-classical-orthogonal-systems" id="toc-经典正交系-classical-orthogonal-systems" class="nav-link" data-scroll-target="#经典正交系-classical-orthogonal-systems"><span class="sec-num">10</span><span class="sec-title">经典正交系<span class="sec-en">Classical Orthogonal Systems</span></span></a></li>
+  <li><a href="#谱定理-spectral-theorem" id="toc-谱定理-spectral-theorem" class="nav-link" data-scroll-target="#谱定理-spectral-theorem"><span class="sec-num">11</span><span class="sec-title">谱定理<span class="sec-en">Spectral Theorem</span></span></a></li>
+  <li><a href="#奇异值分解-svd" id="toc-奇异值分解-svd" class="nav-link" data-scroll-target="#奇异值分解-svd"><span class="sec-num">12</span><span class="sec-title">奇异值分解<span class="sec-en">SVD</span></span></a></li>
+  <li><a href="#correlation-与-independence" id="toc-correlation-与-independence" class="nav-link" data-scroll-target="#correlation-与-independence"><span class="sec-num">13</span><span class="sec-title">Correlation 与 Independence</span></a></li>
+  <li><a href="#高维近似正交现象-near-orthogonality-in-high-dimensions" id="toc-高维近似正交现象-near-orthogonality-in-high-dimensions" class="nav-link" data-scroll-target="#高维近似正交现象-near-orthogonality-in-high-dimensions"><span class="sec-num">14</span><span class="sec-title">高维近似正交现象<span class="sec-en">Near Orthogonality in High Dimensions</span></span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="正交性-orthogonality" class="level1">
-<h1>正交性 (Orthogonality)</h1>
+
 <div class="updated-time">
 Updated: 2026-03-17 18:51 AEDT
 </div>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="从耦合到解耦-coupled-to-decoupled" class="level2">
-<h2 class="anchored" data-anchor-id="从耦合到解耦-coupled-to-decoupled">1. 从耦合到解耦 (Coupled to Decoupled)</h2>
-<p><strong>Theory.</strong> 正交化的核心价值是把耦合问题改写为解耦问题，这与 Divide and Conquer 的思想一致。<br>
+<div class="tag-legend">
+<p>标签约定：<span class="tag-chip tag-definition">Definition</span> 表示定义，<span class="tag-chip tag-theory">Theory</span> 表示理论/定理，<span class="tag-chip tag-inference">Inference</span> 仅表示推导步骤，<span class="tag-chip tag-result">Result</span> 表示结论或应用结论。</p>
+</div>
+<section id="从耦合到解耦-coupled-to-decoupled" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="从耦合到解耦-coupled-to-decoupled"><span class="sec-num">1</span><span class="sec-title">从耦合到解耦<span class="sec-en">Coupled to Decoupled</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>正交化的核心价值是把耦合问题改写为解耦问题，这与 Divide and Conquer 的思想一致。<br>
 在一组正交基下，每个分量可以独立分析，计算和解释都会更清晰。</p>
+</div>
+</div>
 </section>
-<section id="正交的定义-definition-of-orthogonality" class="level2">
-<h2 class="anchored" data-anchor-id="正交的定义-definition-of-orthogonality">2. 正交的定义 (Definition of Orthogonality)</h2>
-<p><strong>Definition.</strong> 向量正交满足：</p>
+<section id="正交的定义-definition-of-orthogonality" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="正交的定义-definition-of-orthogonality"><span class="sec-num">2</span><span class="sec-title">正交的定义<span class="sec-en">Definition of Orthogonality</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>向量正交满足：</p>
 <p><span class="math display">\[
 \langle u,v\rangle=0
 \]</span></p>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>几何视角：两个向量互相投影为零。</li>
 <li>代数视角：内积为零意味着在内积结构下无重叠方向信息。</li>
 <li>信息视角：两个分量在该表示中可视为解耦。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="正交分解与能量可加性-energy-additivity" class="level2">
-<h2 class="anchored" data-anchor-id="正交分解与能量可加性-energy-additivity">3. 正交分解与能量可加性 (Energy Additivity)</h2>
-<p><strong>Theory.</strong> 在欧式空间中，正交分量满足能量可加：</p>
+<section id="正交分解与能量可加性-energy-additivity" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="正交分解与能量可加性-energy-additivity"><span class="sec-num">3</span><span class="sec-title">正交分解与能量可加性<span class="sec-en">Energy Additivity</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>在欧式空间中，正交分量满足能量可加：</p>
 <p><span class="math display">\[
 \|x\|^2=\sum_i x_i^2
 \]</span></p>
-<p><strong>Definition.</strong> 这里的系数是向量在一组标准正交基下的坐标。</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>这里的系数是向量在一组标准正交基下的坐标。</p>
+</div>
+</div>
 </section>
-<section id="正交基下的展开-expansion-in-orthonormal-basis" class="level2">
-<h2 class="anchored" data-anchor-id="正交基下的展开-expansion-in-orthonormal-basis">4. 正交基下的展开 (Expansion in Orthonormal Basis)</h2>
-<p><strong>Theory.</strong> 任意向量可展开为：</p>
+<section id="正交基下的展开-expansion-in-orthonormal-basis" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="正交基下的展开-expansion-in-orthonormal-basis"><span class="sec-num">4</span><span class="sec-title">正交基下的展开<span class="sec-en">Expansion in Orthonormal Basis</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>任意向量可展开为：</p>
 <p><span class="math display">\[
 v=\sum_i \langle v,e_i\rangle e_i
 \]</span></p>
-<p><strong>Definition.</strong> 系数</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>系数</p>
 <p><span class="math display">\[
 \langle v,e_i\rangle
 \]</span></p>
 <p>是投影系数 (Projection Coefficient)。</p>
+</div>
+</div>
 </section>
-<section id="gram-schmidt-正交化" class="level2">
-<h2 class="anchored" data-anchor-id="gram-schmidt-正交化">5. Gram-Schmidt 正交化</h2>
-<p><strong>Theory.</strong> Gram-Schmidt 包含两步：</p>
+<section id="gram-schmidt-正交化" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="gram-schmidt-正交化"><span class="sec-num">5</span><span class="sec-title">Gram-Schmidt 正交化</span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>Gram-Schmidt 包含两步：</p>
 <ol type="1">
 <li>Straighten (Orthogonalization)</li>
 <li>Normalize (Normalization)</li>
 </ol>
-<p><strong>Inference.</strong> 对两向量版本：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>对两向量版本：</p>
 <p><span class="math display">\[
 \tilde{v}=v-\operatorname{proj}_u(v)
 \]</span></p>
 <p><span class="math display">\[
 e=\frac{\tilde{v}}{\|\tilde{v}\|}
 \]</span></p>
-<p><strong>Result.</strong> 原始基被转换为标准正交基，后续投影与坐标计算更稳定。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>原始基被转换为标准正交基，后续投影与坐标计算更稳定。</p>
+</div>
+</div>
 </section>
-<section id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="level2">
-<h2 class="anchored" data-anchor-id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform">6. 正交矩阵与正交变换 (Orthogonal Matrix &amp; Orthogonal Transform)</h2>
-<p><strong>Definition.</strong> 正交矩阵满足：</p>
+<section id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="正交矩阵与正交变换-orthogonal-matrix-orthogonal-transform"><span class="sec-num">6</span><span class="sec-title">正交矩阵与正交变换<span class="sec-en">Orthogonal Matrix &amp; Orthogonal Transform</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>正交矩阵满足：</p>
 <p><span class="math display">\[
 Q^TQ=I
 \]</span></p>
-<p><strong>Theory.</strong> 正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。</p>
-<p><strong>Result.</strong> 若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>正交变换保持长度与角度，典型几何操作是 Rotation 与 Reflection。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>若矩阵列向量构成标准正交基，则该矩阵必可逆且逆矩阵为转置矩阵。</p>
+</div>
+</div>
 </section>
-<section id="共轭转置-conjugate-transpose" class="level2">
-<h2 class="anchored" data-anchor-id="共轭转置-conjugate-transpose">7. 共轭转置 (Conjugate Transpose)</h2>
-<p><strong>Theory.</strong> 在复数空间中，内积应使用共轭转置，才能保证能量量</p>
+<section id="共轭转置-conjugate-transpose" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="共轭转置-conjugate-transpose"><span class="sec-num">7</span><span class="sec-title">共轭转置<span class="sec-en">Conjugate Transpose</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>在复数空间中，内积应使用共轭转置，才能保证能量量</p>
 <p><span class="math display">\[
 x^Hx
 \]</span></p>
 <p>为非负实数。</p>
-<p><strong>Definition.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
 <p><span class="math display">\[
 A^H=\overline{A}^T
 \]</span></p>
@@ -289,10 +419,17 @@ A^H=
 2 &amp; 4+i
 \end{bmatrix}
 \]</span></p>
+</div>
+</div>
 </section>
-<section id="实空间与复空间中的正交-real-vs-complex-inner-product" class="level2">
-<h2 class="anchored" data-anchor-id="实空间与复空间中的正交-real-vs-complex-inner-product">8. 实空间与复空间中的正交 (Real vs Complex Inner Product)</h2>
-<p><strong>Definition.</strong> 实数空间内积与正交条件：</p>
+<section id="实空间与复空间中的正交-real-vs-complex-inner-product" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="实空间与复空间中的正交-real-vs-complex-inner-product"><span class="sec-num">8</span><span class="sec-title">实空间与复空间中的正交<span class="sec-en">Real vs Complex Inner Product</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>实数空间内积与正交条件：</p>
 <p><span class="math display">\[
 \langle x,y\rangle=x^Ty,\quad x^Ty=0
 \]</span></p>
@@ -300,7 +437,14 @@ A^H=
 <p><span class="math display">\[
 Q^TQ=I
 \]</span></p>
-<p><strong>Definition.</strong> 复数空间内积与正交条件：</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>复数空间内积与正交条件：</p>
 <p><span class="math display">\[
 \langle x,y\rangle=x^Hy,\quad x^Hy=0
 \]</span></p>
@@ -308,18 +452,39 @@ Q^TQ=I
 <p><span class="math display">\[
 U^HU=I
 \]</span></p>
-<p><strong>Inference.</strong> 内积保持性推导：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>内积保持性推导：</p>
 <p><span class="math display">\[
 \langle Qx,Qy\rangle=(Qx)^T(Qy)=x^TQ^TQy=x^Ty
 \]</span></p>
 <p><span class="math display">\[
 \langle Ux,Uy\rangle=(Ux)^H(Uy)=x^HU^HUy=x^Hy
 \]</span></p>
-<p><strong>Result.</strong> 实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>实空间保持内积的矩阵称正交矩阵，复空间保持内积的矩阵称酉矩阵。</p>
+</div>
+</div>
 </section>
-<section id="函数空间中的正交-orthogonality-in-function-space" class="level2">
-<h2 class="anchored" data-anchor-id="函数空间中的正交-orthogonality-in-function-space">9. 函数空间中的正交 (Orthogonality in Function Space)</h2>
-<p><strong>Definition.</strong> 对实函数：</p>
+<section id="函数空间中的正交-orthogonality-in-function-space" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="函数空间中的正交-orthogonality-in-function-space"><span class="sec-num">9</span><span class="sec-title">函数空间中的正交<span class="sec-en">Orthogonality in Function Space</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>对实函数：</p>
 <p><span class="math display">\[
 \langle f,g\rangle=\int_a^b f(x)g(x)\,dx
 \]</span></p>
@@ -331,10 +496,17 @@ U^HU=I
 <p><span class="math display">\[
 \langle f,g\rangle=0
 \]</span></p>
+</div>
+</div>
 </section>
-<section id="经典正交系-classical-orthogonal-systems" class="level2">
-<h2 class="anchored" data-anchor-id="经典正交系-classical-orthogonal-systems">10. 经典正交系 (Classical Orthogonal Systems)</h2>
-<p><strong>Definition.</strong> 三角正交系：</p>
+<section id="经典正交系-classical-orthogonal-systems" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="经典正交系-classical-orthogonal-systems"><span class="sec-num">10</span><span class="sec-title">经典正交系<span class="sec-en">Classical Orthogonal Systems</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>三角正交系：</p>
 <p><span class="math display">\[
 1,\cos x,\sin x,\cos 2x,\sin 2x,\cdots
 \]</span></p>
@@ -348,72 +520,180 @@ U^HU=I
 <p><span class="math display">\[
 \int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx=0
 \]</span></p>
-<p><strong>Definition.</strong> 正交多项式系满足：</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>正交多项式系满足：</p>
 <p><span class="math display">\[
 \int_a^b P_m(x)P_n(x)\,dx=0,\quad m\neq n
 \]</span></p>
-<p><strong>Result.</strong> 有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>有限维空间只需有限个正交基；函数空间通常需要无限个正交基函数。</p>
+</div>
+</div>
 </section>
-<section id="谱定理-spectral-theorem" class="level2">
-<h2 class="anchored" data-anchor-id="谱定理-spectral-theorem">11. 谱定理 (Spectral Theorem)</h2>
-<p><strong>Definition.</strong> 实对称矩阵满足：</p>
+<section id="谱定理-spectral-theorem" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="谱定理-spectral-theorem"><span class="sec-num">11</span><span class="sec-title">谱定理<span class="sec-en">Spectral Theorem</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>实对称矩阵满足：</p>
 <p><span class="math display">\[
 A^T=A
 \]</span></p>
-<p><strong>Theory.</strong> 任意实对称矩阵可正交对角化：</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>任意实对称矩阵可正交对角化：</p>
 <p><span class="math display">\[
 A=Q\Lambda Q^T
 \]</span></p>
-<p><strong>Result.</strong> 特征向量给出主轴方向，特征值给出各主轴缩放率。<br>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>特征向量给出主轴方向，特征值给出各主轴缩放率。<br>
 在该基下，耦合线性变换变成独立缩放。</p>
+</div>
+</div>
 </section>
-<section id="奇异值分解-svd" class="level2">
-<h2 class="anchored" data-anchor-id="奇异值分解-svd">12. 奇异值分解 (SVD)</h2>
-<p><strong>Theory.</strong> SVD 表示为：</p>
+<section id="奇异值分解-svd" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="奇异值分解-svd"><span class="sec-num">12</span><span class="sec-title">奇异值分解<span class="sec-en">SVD</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>SVD 表示为：</p>
 <p><span class="math display">\[
 A=U\Sigma V^T
 \]</span></p>
-<p><strong>Definition.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>列向量集合 V 对应输入空间基，称 Right Singular Vectors。</li>
 <li>列向量集合 U 对应输出空间基，称 Left Singular Vectors。</li>
 <li>矩阵 Sigma 表示各方向缩放强度。</li>
 </ul>
-<p><strong>Inference.</strong> 每个奇异对满足：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>每个奇异对满足：</p>
 <p><span class="math display">\[
 Av_i=\sigma_i u_i
 \]</span></p>
-<p><strong>Result.</strong> SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>SVD 可解释为：输入正交变换 + 轴向缩放 + 输出正交变换。</p>
+</div>
+</div>
 </section>
-<section id="correlation-与-independence" class="level2">
-<h2 class="anchored" data-anchor-id="correlation-与-independence">13. Correlation 与 Independence</h2>
-<p><strong>Definition.</strong> 线性不相关条件：</p>
+<section id="correlation-与-independence" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="correlation-与-independence"><span class="sec-num">13</span><span class="sec-title">Correlation 与 Independence</span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>线性不相关条件：</p>
 <p><span class="math display">\[
 \operatorname{Cov}(X,Y)=0
 \]</span></p>
-<p><strong>Definition.</strong> 独立条件：</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>独立条件：</p>
 <p><span class="math display">\[
 f(x,y)=f(x)f(y)
 \]</span></p>
-<p><strong>Theory.</strong> 互信息刻画广义依赖，满足：</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>互信息刻画广义依赖，满足：</p>
 <p><span class="math display">\[
 I(X;Y)=0
 \]</span></p>
 <p>当且仅当独立。</p>
-<p><strong>Result.</strong> 不相关不等于独立。<br>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>不相关不等于独立。<br>
 典型例子是对称分布下的</p>
 <p><span class="math display">\[
 X\ \text{与}\ X^2
 \]</span></p>
 <p>它们可线性不相关，但仍强依赖。</p>
+</div>
+</div>
 </section>
-<section id="高维近似正交现象-near-orthogonality-in-high-dimensions" class="level2">
-<h2 class="anchored" data-anchor-id="高维近似正交现象-near-orthogonality-in-high-dimensions">14. 高维近似正交现象 (Near Orthogonality in High Dimensions)</h2>
-<p><strong>Theory.</strong> 在高维空间中，随机向量夹角集中在直角附近，出现角度集中现象 (Concentration of Measure)。</p>
-<p><strong>Result.</strong> 随机向量在高维中通常近似正交，这也是高维统计与机器学习中常见的几何基础。</p>
+<section id="高维近似正交现象-near-orthogonality-in-high-dimensions" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="高维近似正交现象-near-orthogonality-in-high-dimensions"><span class="sec-num">14</span><span class="sec-title">高维近似正交现象<span class="sec-en">Near Orthogonality in High Dimensions</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>在高维空间中，随机向量夹角集中在直角附近，出现角度集中现象 (Concentration of Measure)。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>随机向量在高维中通常近似正交，这也是高维统计与机器学习中常见的几何基础。</p>
 
 
-</section>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
+
+</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -818,6 +1098,19 @@ X\ \text{与}\ X^2
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 

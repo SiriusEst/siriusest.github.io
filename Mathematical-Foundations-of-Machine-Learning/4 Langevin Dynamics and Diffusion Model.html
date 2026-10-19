@@ -2,20 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>langevin-dynamics-and-diffusion-model – Sirius Blog</title>
+<title>Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model) – Sirius Blog</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -33,16 +36,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../images/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de5948e7e243415ec815f741b3ec7e64.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e7735b7b22659e5fa437aca0bb49075.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-43eda9357cd4a6df5449c708fd8cb473.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,9 +74,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Render formulas in STIX Two (Times-style, as in IEEE papers).
+  // Read by MathJax 4, which is loaded via html-math-method in _quarto.yml.
+  window.MathJax = {
+    output: { font: 'mathjax-stix2', displayOverflow: 'scroll' }
+  };
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -101,16 +112,19 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo light-content">
+    <img src="../images/sirius-mark.svg" alt="Sirius Blog" class="navbar-logo dark-content">
+    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Sirius Blog</span>
     </a>
@@ -145,45 +159,65 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Langevin 动力学与扩散模型</h1>
+            <p class="subtitle lead">Langevin Dynamics and Diffusion Model</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">On this page · 目录</h2>
    
   <ul>
-  <li><a href="#langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" id="toc-langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" class="nav-link active" data-scroll-target="#langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model">Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model)</a>
-  <ul class="collapse">
-  <li><a href="#langevin-动力学-langevin-dynamics" id="toc-langevin-动力学-langevin-dynamics" class="nav-link" data-scroll-target="#langevin-动力学-langevin-dynamics">1. Langevin 动力学 (Langevin Dynamics)</a></li>
-  <li><a href="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" id="toc-fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="nav-link" data-scroll-target="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current">2. Fokker-Planck 方程与概率流 (Fokker-Planck Equation and Probability Current)</a></li>
-  <li><a href="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" id="toc-从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="nav-link" data-scroll-target="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation">3. 从 Itô 公式到一般 Fokker-Planck 方程 (From Itô’s Formula to the General Fokker-Planck Equation)</a></li>
-  <li><a href="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" id="toc-前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="nav-link" data-scroll-target="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process">4. 前向扩散：OU / VP 过程 (Forward Diffusion as an OU / VP Process)</a></li>
-  <li><a href="#反向时间-sde-reverse-time-sde" id="toc-反向时间-sde-reverse-time-sde" class="nav-link" data-scroll-target="#反向时间-sde-reverse-time-sde">5. 反向时间 SDE (Reverse-Time SDE)</a></li>
-  <li><a href="#为什么-score-是未知的-why-the-score-is-unknown" id="toc-为什么-score-是未知的-why-the-score-is-unknown" class="nav-link" data-scroll-target="#为什么-score-是未知的-why-the-score-is-unknown">6. 为什么 Score 是未知的 (Why the Score Is Unknown)</a></li>
-  <li><a href="#去噪-score-matching-denoising-score-matching" id="toc-去噪-score-matching-denoising-score-matching" class="nav-link" data-scroll-target="#去噪-score-matching-denoising-score-matching">7. 去噪 Score Matching (Denoising Score Matching)</a></li>
-  <li><a href="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" id="toc-从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="nav-link" data-scroll-target="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective">8. 从 DSM 到 DDPM 噪声目标 (From DSM to the DDPM Noise Objective)</a></li>
-  <li><a href="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" id="toc-langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="nav-link" data-scroll-target="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models">9. Langevin 动力学与扩散模型的关系 (Relation Between Langevin Dynamics and Diffusion Models)</a></li>
+  <li><a href="#langevin-动力学-langevin-dynamics" id="toc-langevin-动力学-langevin-dynamics" class="nav-link active" data-scroll-target="#langevin-动力学-langevin-dynamics"><span class="sec-num">1</span><span class="sec-title">Langevin 动力学<span class="sec-en">Langevin Dynamics</span></span></a></li>
+  <li><a href="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" id="toc-fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="nav-link" data-scroll-target="#fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current"><span class="sec-num">2</span><span class="sec-title">Fokker-Planck 方程与概率流<span class="sec-en">Fokker-Planck Equation and Probability Current</span></span></a></li>
+  <li><a href="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" id="toc-从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="nav-link" data-scroll-target="#从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation"><span class="sec-num">3</span><span class="sec-title">从 Itô 公式到一般 Fokker-Planck 方程<span class="sec-en">From Itô’s Formula to the General Fokker-Planck Equation</span></span></a></li>
+  <li><a href="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" id="toc-前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="nav-link" data-scroll-target="#前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process"><span class="sec-num">4</span><span class="sec-title">前向扩散：OU / VP 过程<span class="sec-en">Forward Diffusion as an OU / VP Process</span></span></a></li>
+  <li><a href="#反向时间-sde-reverse-time-sde" id="toc-反向时间-sde-reverse-time-sde" class="nav-link" data-scroll-target="#反向时间-sde-reverse-time-sde"><span class="sec-num">5</span><span class="sec-title">反向时间 SDE<span class="sec-en">Reverse-Time SDE</span></span></a></li>
+  <li><a href="#为什么-score-是未知的-why-the-score-is-unknown" id="toc-为什么-score-是未知的-why-the-score-is-unknown" class="nav-link" data-scroll-target="#为什么-score-是未知的-why-the-score-is-unknown"><span class="sec-num">6</span><span class="sec-title">为什么 Score 是未知的<span class="sec-en">Why the Score Is Unknown</span></span></a></li>
+  <li><a href="#去噪-score-matching-denoising-score-matching" id="toc-去噪-score-matching-denoising-score-matching" class="nav-link" data-scroll-target="#去噪-score-matching-denoising-score-matching"><span class="sec-num">7</span><span class="sec-title">去噪 Score Matching<span class="sec-en">Denoising Score Matching</span></span></a></li>
+  <li><a href="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" id="toc-从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="nav-link" data-scroll-target="#从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective"><span class="sec-num">8</span><span class="sec-title">从 DSM 到 DDPM 噪声目标<span class="sec-en">From DSM to the DDPM Noise Objective</span></span></a></li>
+  <li><a href="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" id="toc-langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="nav-link" data-scroll-target="#langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models"><span class="sec-num">9</span><span class="sec-title">Langevin 动力学与扩散模型的关系<span class="sec-en">Relation Between Langevin Dynamics and Diffusion Models</span></span></a></li>
   <li><a href="#参考文献-references" id="toc-参考文献-references" class="nav-link" data-scroll-target="#参考文献-references">参考文献 (References)</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<section id="langevin-动力学与扩散模型-langevin-dynamics-and-diffusion-model" class="level1">
-<h1>Langevin 动力学与扩散模型 (Langevin Dynamics and Diffusion Model)</h1>
+
 <div class="updated-time">
 Updated: 2026-03-31 22:00 AEDT
 </div>
-<p>标签约定：<code>Definition</code> 表示定义，<code>Theory</code> 表示理论/定理，<code>Inference</code> 仅表示推导步骤，<code>Result</code> 表示结论或应用结论。</p>
-<section id="langevin-动力学-langevin-dynamics" class="level2">
-<h2 class="anchored" data-anchor-id="langevin-动力学-langevin-dynamics">1. Langevin 动力学 (Langevin Dynamics)</h2>
-<p><strong>Definition.</strong> 连续时间 Langevin 动力学写为：</p>
+<div class="tag-legend">
+<p>标签约定：<span class="tag-chip tag-definition">Definition</span> 表示定义，<span class="tag-chip tag-theory">Theory</span> 表示理论/定理，<span class="tag-chip tag-inference">Inference</span> 仅表示推导步骤，<span class="tag-chip tag-result">Result</span> 表示结论或应用结论。</p>
+</div>
+<section id="langevin-动力学-langevin-dynamics" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="langevin-动力学-langevin-dynamics"><span class="sec-num">1</span><span class="sec-title">Langevin 动力学<span class="sec-en">Langevin Dynamics</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>连续时间 Langevin 动力学写为：</p>
 <p><span class="math display">\[
 dX_t=-\nabla \Phi(X_t)\,dt+\sqrt{2}\,dW_t
 \]</span></p>
@@ -191,7 +225,14 @@ dX_t=-\nabla \Phi(X_t)\,dt+\sqrt{2}\,dW_t
 <blockquote class="blockquote">
 <p>口语理解：这个式子就两项——左边 <span class="math inline">\(-\nabla\Phi\)</span> 是梯度，让粒子往低的地方走（往势能谷底滑）；右边 <span class="math inline">\(\sqrt{2}\,dW_t\)</span> 是噪声，让粒子随机晃荡、到处探索。整个过程就像一个小球在起伏的地形上滚动，同时还被人不断随机推一把。</p>
 </blockquote>
-<p><strong>Inference.</strong> 若目标分布写为</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>若目标分布写为</p>
 <p><span class="math display">\[
 p_*(x)\propto e^{-\Phi(x)},
 \qquad
@@ -201,26 +242,46 @@ p_*(x)\propto e^{-\Phi(x)},
 <blockquote class="blockquote">
 <p>口语理解：在 ML 里，直接把 <span class="math inline">\(\Phi\)</span> 套成 loss 面就行了。<span class="math inline">\(p_*(x) \propto e^{-\Phi(x)}\)</span> 的意思是——势能越低的地方，概率越大。所以粒子会倾向于聚集在 loss 低的地方，这正是我们想要的。</p>
 </blockquote>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>漂移项对应在能量地形上向下移动。</li>
 <li>扩散项防止粒子过早塌缩到局部区域。</li>
 <li>在平衡态下，过程的稳态分布恰好是目标分布 <span class="math inline">\(p_*\)</span>。</li>
 </ul>
 <p>在机器学习中，<span class="math inline">\(\Phi\)</span> 通常被视为能量/损失地形 (Energy / Loss Landscape)。</p>
+</div>
+</div>
 </section>
-<section id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="level2">
-<h2 class="anchored" data-anchor-id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current">2. Fokker-Planck 方程与概率流 (Fokker-Planck Equation and Probability Current)</h2>
+<section id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="fokker-planck-方程与概率流-fokker-planck-equation-and-probability-current"><span class="sec-num">2</span><span class="sec-title">Fokker-Planck 方程与概率流<span class="sec-en">Fokker-Planck Equation and Probability Current</span></span></h2>
 <blockquote class="blockquote">
 <p>口语理解：前面 Langevin 方程描述的是单个粒子的运动轨迹，是”微观”视角。Fokker-Planck 方程则是”宏观”视角——它描述的是一大群粒子的密度怎么随时间演化。你可以理解为：Langevin 告诉你一个分子怎么跑，FP 告诉你一群分子整体的浓度分布怎么变。</p>
 </blockquote>
-<p><strong>Theory.</strong> 上述 SDE 的密度演化满足</p>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>上述 SDE 的密度演化满足</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}
 =
 \nabla \cdot \bigl(p_t \nabla \Phi\bigr)+\Delta p_t.
 \]</span></p>
-<p><strong>Definition.</strong> 定义概率流 (Probability Current)</p>
+</div>
+</div>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>定义概率流 (Probability Current)</p>
 <p><span class="math display">\[
 J_t(x)=-p_t(x)\nabla \Phi(x)-\nabla p_t(x),
 \]</span></p>
@@ -231,7 +292,14 @@ J_t(x)=-p_t(x)\nabla \Phi(x)-\nabla p_t(x),
 <blockquote class="blockquote">
 <p>口语理解：概率流 <span class="math inline">\(J\)</span> 就是描述”概率往哪个方向流、流多快”的量。可以把 <span class="math inline">\(J\)</span> 拆成两部分理解：<span class="math inline">\(-p_t \nabla\Phi\)</span> 是势能驱动的部分（粒子被梯度推着走），<span class="math inline">\(-\nabla p_t\)</span> 是扩散驱动的部分（粒子从密度高的地方往密度低的地方跑）。连续性方程 <span class="math inline">\(\partial_t p = -\nabla \cdot J\)</span> 就像物理里的质量守恒——概率不会凭空消失，只会从一个地方流到另一个地方。</p>
 </blockquote>
-<p><strong>Inference.</strong> 在平衡态下 <span class="math inline">\(\partial_t p_t=0\)</span>。若进一步施加零通量条件 <span class="math inline">\(J_t=0\)</span>，则</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>在平衡态下 <span class="math inline">\(\partial_t p_t=0\)</span>。若进一步施加零通量条件 <span class="math inline">\(J_t=0\)</span>，则</p>
 <p><span class="math display">\[
 \nabla p_*(x)=-p_*(x)\nabla \Phi(x),
 \]</span></p>
@@ -246,14 +314,28 @@ p_*(x)\propto e^{-\Phi(x)}.
 <blockquote class="blockquote">
 <p>口语理解：平衡态就是密度不再变化了（<span class="math inline">\(\partial_t p = 0\)</span>），而且到处的净流都是零（<span class="math inline">\(J=0\)</span>），也就是说粒子虽然还在动，但整体分布已经稳定了。从 <span class="math inline">\(J=0\)</span> 出发，代入 <span class="math inline">\(p_t = e^{-\Phi(x)}\)</span> 可以验证 <span class="math inline">\(\nabla p_t = -\nabla\Phi \cdot e^{-\Phi} = -p_t \nabla\Phi\)</span>，这样 <span class="math inline">\(J = -p_t\nabla\Phi - \nabla p_t = -p_t\nabla\Phi + p_t\nabla\Phi = 0\)</span>，确实成立。</p>
 </blockquote>
-<p><strong>Result.</strong> 这表明 Langevin 动力学并非任意噪声注入，而是通过漂移与扩散的平衡恢复目标分布。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>这表明 Langevin 动力学并非任意噪声注入，而是通过漂移与扩散的平衡恢复目标分布。</p>
+</div>
+</div>
 </section>
-<section id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="level2">
-<h2 class="anchored" data-anchor-id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation">3. 从 Itô 公式到一般 Fokker-Planck 方程 (From Itô’s Formula to the General Fokker-Planck Equation)</h2>
+<section id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="从-itô-公式到一般-fokker-planck-方程-from-itôs-formula-to-the-general-fokker-planck-equation"><span class="sec-num">3</span><span class="sec-title">从 Itô 公式到一般 Fokker-Planck 方程<span class="sec-en">From Itô’s Formula to the General Fokker-Planck Equation</span></span></h2>
 <blockquote class="blockquote">
 <p>口语理解：这一节的目标是——我们有一个随机微分方程（描述单个粒子的运动），怎么推出它对应的 Fokker-Planck 方程（描述粒子群密度的演化）？工具就是 Itô 公式。思路分四步：① 写出 SDE；② 用 Itô 公式展开 <span class="math inline">\(d\varphi\)</span>；③ 代入 SDE 具体形式；④ 对左右两边分别取期望后用分部积分。</p>
 </blockquote>
-<p><strong>Definition.</strong> 更一般地，考虑各向同性 Itô 过程</p>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>更一般地，考虑各向同性 Itô 过程</p>
 <p><span class="math display">\[
 dX_t=f(X_t,t)\,dt+g(t)\,dW_t.
 \]</span></p>
@@ -336,11 +418,25 @@ d\varphi
 \frac{g(t)^2}{2}\Delta p_t(x).
 \]</span></p>
 <p>这就是一般的 <strong>Fokker-Planck 方程</strong>。</p>
-<p><strong>Result.</strong> Langevin 动力学是上述一般形式的特例，取 <span class="math inline">\(f(x)=-\nabla \Phi(x)\)</span>，<span class="math inline">\(g=\sqrt{2}\)</span>，代入即得 Section 2 的 FP 方程。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>Langevin 动力学是上述一般形式的特例，取 <span class="math inline">\(f(x)=-\nabla \Phi(x)\)</span>，<span class="math inline">\(g=\sqrt{2}\)</span>，代入即得 Section 2 的 FP 方程。</p>
+</div>
+</div>
 </section>
-<section id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="level2">
-<h2 class="anchored" data-anchor-id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process">4. 前向扩散：OU / VP 过程 (Forward Diffusion as an OU / VP Process)</h2>
-<p><strong>Definition.</strong> 在扩散模型中，标准连续时间前向过程为</p>
+<section id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="前向扩散ou-vp-过程-forward-diffusion-as-an-ou-vp-process"><span class="sec-num">4</span><span class="sec-title">前向扩散：OU / VP 过程<span class="sec-en">Forward Diffusion as an OU / VP Process</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>在扩散模型中，标准连续时间前向过程为</p>
 <p><span class="math display">\[
 dX_t=-\frac{1}{2}\beta(t)X_t\,dt+\sqrt{\beta(t)}\,dW_t.
 \]</span></p>
@@ -353,7 +449,14 @@ g(t)=\sqrt{\beta(t)}.
 <blockquote class="blockquote">
 <p>口语理解：前向扩散就是”逐步搞脏数据”的过程——<span class="math inline">\(-\frac{1}{2}\beta(t)x\)</span> 把数据往原点拉（衰减信号），<span class="math inline">\(\sqrt{\beta(t)}\,dW_t\)</span> 不断加噪声。时间越长，原始数据的信息被破坏得越彻底，最终变成纯噪声 <span class="math inline">\(\mathcal{N}(0,I)\)</span>。这个过程就像你把一件衣服丢进泥里越揉越脏。</p>
 </blockquote>
-<p><strong>Theory.</strong> 代入一般 Fokker-Planck 方程，<span class="math inline">\(f = -\frac{1}{2}\beta x\)</span>，<span class="math inline">\(g = \sqrt{\beta}\)</span>：</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>代入一般 Fokker-Planck 方程，<span class="math inline">\(f = -\frac{1}{2}\beta x\)</span>，<span class="math inline">\(g = \sqrt{\beta}\)</span>：</p>
 <p><span class="math display">\[
 \frac{\partial p_t}{\partial t}
 = -\nabla\cdot\left(-\frac{1}{2}\beta x\,p_t\right) + \frac{\beta}{2}\Delta p_t
@@ -385,16 +488,29 @@ g(t)=\sqrt{\beta(t)}.
 <blockquote class="blockquote">
 <p>口语理解：两项一正一负，完美抵消，右端为零。这说明一旦分布到了标准高斯，就不会再变了——<span class="math inline">\(\mathcal{N}(0,I)\)</span> 就是这个 OU 过程的稳态解。所以 <span class="math inline">\(t \to \infty\)</span> 时 <span class="math inline">\(p_t \to \mathcal{N}(0,I)\)</span>。</p>
 </blockquote>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>前向扩散 (forward diffusion)：<span class="math inline">\(p_{\text{data}} \xrightarrow{\text{SDE}} p_T \approx \mathcal{N}(0,I)\)</span>。</li>
 <li>随着时间增加，数据分布逐渐被推向 <span class="math inline">\(\mathcal N(0,I)\)</span>。</li>
 <li>这就是前向扩散的本质：逐步破坏结构，直到分布接近纯噪声。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="反向时间-sde-reverse-time-sde" class="level2">
-<h2 class="anchored" data-anchor-id="反向时间-sde-reverse-time-sde">5. 反向时间 SDE (Reverse-Time SDE)</h2>
-<p><strong>Theory.</strong> Anderson (1982) 的经典结果指出，若前向过程为</p>
+<section id="反向时间-sde-reverse-time-sde" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="反向时间-sde-reverse-time-sde"><span class="sec-num">5</span><span class="sec-title">反向时间 SDE<span class="sec-en">Reverse-Time SDE</span></span></h2>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>Anderson (1982) 的经典结果指出，若前向过程为</p>
 <p><span class="math display">\[
 dX_t=f(X_t,t)\,dt+g(t)\,dW_t,
 \]</span></p>
@@ -409,7 +525,14 @@ g(t)\,d\bar W_t.
 <blockquote class="blockquote">
 <p>口语理解：前向过程是”搞脏”（加噪声），反向过程就是”洗干净”（去噪声）。Anderson 告诉我们，只要你知道每个时刻的 score <span class="math inline">\(\nabla_x \log p_t(x)\)</span>，就可以精确地把时间倒过来走。反向漂移 = 把前向漂移反过来 + 一个 score 修正项。这个 score 修正项是关键——它告诉粒子”数据密度高的方向在哪里”，引导粒子从噪声回到数据。</p>
 </blockquote>
-<p><strong>Inference.</strong> 对 VP 前向 SDE，令 <span class="math inline">\(f(x,t)=-\frac{1}{2}\beta(t)x\)</span>，<span class="math inline">\(g(t)=\sqrt{\beta(t)}\)</span>，代入反向 SDE：</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>对 VP 前向 SDE，令 <span class="math inline">\(f(x,t)=-\frac{1}{2}\beta(t)x\)</span>，<span class="math inline">\(g(t)=\sqrt{\beta(t)}\)</span>，代入反向 SDE：</p>
 <p><span class="math display">\[
 -f = \frac{1}{2}\beta(t)x, \qquad g^2 = \beta(t),
 \]</span></p>
@@ -427,15 +550,28 @@ dX_t=
 <blockquote class="blockquote">
 <p>口语理解：<span class="math inline">\(\frac{1}{2}\beta(t)X_t\)</span> 是前向衰减的”反动作”（把信号放大回来），<span class="math inline">\(\beta(t)\nabla_x\log p_t\)</span> 是 score 指引的方向（往数据密度高的地方拉）。这两项合作，把纯噪声一步一步拉回数据分布。而 <span class="math inline">\(\nabla_x\log p_t\)</span> 就是我们需要用神经网络去学的东西。</p>
 </blockquote>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>若从 <span class="math inline">\(X_T\sim \mathcal N(0,I)\)</span> 出发，将此 SDE 反向积分到 <span class="math inline">\(t=0\)</span>，终点即为数据样本。</li>
 <li>反向漂移是前向漂移加上一个 Score 修正项。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="为什么-score-是未知的-why-the-score-is-unknown" class="level2">
-<h2 class="anchored" data-anchor-id="为什么-score-是未知的-why-the-score-is-unknown">6. 为什么 Score 是未知的 (Why the Score Is Unknown)</h2>
-<p><strong>Definition.</strong> 反向 SDE 中的关键量是 Score</p>
+<section id="为什么-score-是未知的-why-the-score-is-unknown" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="为什么-score-是未知的-why-the-score-is-unknown"><span class="sec-num">6</span><span class="sec-title">为什么 Score 是未知的<span class="sec-en">Why the Score Is Unknown</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>反向 SDE 中的关键量是 Score</p>
 <p><span class="math display">\[
 \nabla_x \log p_t(x).
 \]</span></p>
@@ -443,7 +579,13 @@ dX_t=
 <p><span class="math display">\[
 p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0.
 \]</span></p>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>我们不知道 <span class="math inline">\(p_{\mathrm{data}}\)</span> 的解析形式。</li>
 <li>因此也不知道 <span class="math inline">\(p_t\)</span> 的解析形式。</li>
@@ -460,10 +602,17 @@ s_\theta(x,t)\approx \nabla_x \log p_t(x).
 <p>口语理解：既然 score 算不出来，那就让神经网络去学！训练目标是 <span class="math inline">\(\min_\theta \mathbb{E}_{t, x\sim p_t}\left[\|s_\theta(x,t) - \nabla_x\log p_t(x)\|^2\right]\)</span>。但这个目标本身也依赖未知的 score——怎么办？这就引出了下一节的 Denoising Score Matching。</p>
 </blockquote>
 <p>在条件生成中，同样的思想变为条件 Score，如 <span class="math inline">\(\nabla_x \log p_t(x\mid c)\)</span>，其中 <span class="math inline">\(c\)</span> 可以是类别标签、文本嵌入 (embedding) 或 Prompt 信息。</p>
+</div>
+</div>
 </section>
-<section id="去噪-score-matching-denoising-score-matching" class="level2">
-<h2 class="anchored" data-anchor-id="去噪-score-matching-denoising-score-matching">7. 去噪 Score Matching (Denoising Score Matching)</h2>
-<p><strong>Definition.</strong> 自然的学习目标为</p>
+<section id="去噪-score-matching-denoising-score-matching" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="去噪-score-matching-denoising-score-matching"><span class="sec-num">7</span><span class="sec-title">去噪 Score Matching<span class="sec-en">Denoising Score Matching</span></span></h2>
+<div class="tag-block tag-definition">
+<div class="tag-label">
+<span class="tag-chip tag-definition">Definition</span>
+</div>
+<div class="tag-body">
+<p>自然的学习目标为</p>
 <p><span class="math display">\[
 \mathcal L(\theta)
 =
@@ -476,7 +625,14 @@ s_\theta(x,t)\approx \nabla_x \log p_t(x).
 <blockquote class="blockquote">
 <p>口语理解：我们想让 <span class="math inline">\(s_\theta\)</span> 去拟合真实 score，但真实 score 本身就不知道——这不是鸡生蛋蛋生鸡吗？DSM 的核心 trick 就是：虽然边际 score <span class="math inline">\(\nabla_x\log p_t(x)\)</span> 不知道，但条件 score <span class="math inline">\(\nabla_x\log p_{t|0}(x|x_0)\)</span> 是已知的（因为转移核是高斯），而且可以证明用条件 score 做目标和用边际 score 做目标，在优化意义上是等价的。</p>
 </blockquote>
-<p><strong>Theory.</strong> 对线性 VP 前向过程，转移核 (Transition Kernel) 是显式的：</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>对线性 VP 前向过程，转移核 (Transition Kernel) 是显式的：</p>
 <p><span class="math display">\[
 p_{t|0}(x\mid x_0)
 =
@@ -512,7 +668,14 @@ p_{t|0}(x\mid x_0)
 C_t,
 \]</span></p>
 <p>其中 <span class="math inline">\(C_t\)</span> 与 <span class="math inline">\(\theta\)</span> 无关。</p>
-<p><strong>Inference.</strong> 展开平方范数后，唯一非平凡的项是交叉项</p>
+</div>
+</div>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>展开平方范数后，唯一非平凡的项是交叉项</p>
 <p><span class="math display">\[
 \int s_\theta(x,t)\cdot \nabla_x \log p_t(x)\,p_t(x)\,dx
 =
@@ -526,11 +689,25 @@ p_t(x)=\int p_{t|0}(x\mid x_0)\,p_{\mathrm{data}}(x_0)\,dx_0,
 <blockquote class="blockquote">
 <p>口语理解：关键的数学 trick 是——<span class="math inline">\(\nabla_x\log p_t \cdot p_t = \nabla_x p_t\)</span>，而 <span class="math inline">\(p_t\)</span> 又可以写成 <span class="math inline">\(\int p_{t|0}(\cdot|x_0) p_{\text{data}}(x_0) dx_0\)</span>，所以交叉项可以完全用已知的条件核 <span class="math inline">\(p_{t|0}\)</span> 来表达。最终效果是：优化边际 score 的 loss = 优化条件 score 的 loss + 常数，而条件 score 我们是知道的！</p>
 </blockquote>
-<p><strong>Result.</strong> DSM 将不可求的边际 Score 目标替换为可求的已知高斯转移核的 Score。</p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
+<p>DSM 将不可求的边际 Score 目标替换为可求的已知高斯转移核的 Score。</p>
+</div>
+</div>
 </section>
-<section id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="level2">
-<h2 class="anchored" data-anchor-id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective">8. 从 DSM 到 DDPM 噪声目标 (From DSM to the DDPM Noise Objective)</h2>
-<p><strong>Inference.</strong> 对前向样本做重参数化 (reparameterization)：</p>
+<section id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="从-dsm-到-ddpm-噪声目标-from-dsm-to-the-ddpm-noise-objective"><span class="sec-num">8</span><span class="sec-title">从 DSM 到 DDPM 噪声目标<span class="sec-en">From DSM to the DDPM Noise Objective</span></span></h2>
+<div class="tag-block tag-inference">
+<div class="tag-label">
+<span class="tag-chip tag-inference">Inference</span>
+</div>
+<div class="tag-body">
+<p>对前向样本做重参数化 (reparameterization)：</p>
 <p><span class="math display">\[
 x=\alpha_t x_0+\sigma_t \epsilon,
 \qquad
@@ -559,7 +736,14 @@ s_\theta(\alpha_t x_0+\sigma_t \epsilon,t)
 \right\|^2
 \right].
 \]</span></p>
-<p><strong>Theory.</strong> 若通过噪声预测器参数化 Score 模型，</p>
+</div>
+</div>
+<div class="tag-block tag-theory">
+<div class="tag-label">
+<span class="tag-chip tag-theory">Theory</span>
+</div>
+<div class="tag-body">
+<p>若通过噪声预测器参数化 Score 模型，</p>
 <p><span class="math display">\[
 s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 \]</span></p>
@@ -577,17 +761,29 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 <blockquote class="blockquote">
 <p>口语理解：绕了一大圈，最后得到的训练目标其实非常简单直觉——给模型一张加了噪声的图 <span class="math inline">\(\alpha_t x_0 + \sigma_t\epsilon\)</span>，让它预测加了什么噪声 <span class="math inline">\(\epsilon\)</span>。预测得越准，说明学到的 score 越好。整个推导链条是：反向 SDE 需要 score → score 未知所以用 DSM 等价替换 → 重参数化把 score 目标变成噪声预测目标 → 得到 DDPM loss。</p>
 </blockquote>
-<p><strong>Result.</strong></p>
+</div>
+</div>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>反向 SDE 采样需要 Score。</li>
 <li>DSM 用条件高斯 Score 替换未知的边际 Score。</li>
 <li>重参数化将 Score 目标转换为噪声目标。</li>
 <li>DDPM 训练因此是 Score 学习的一种实际实现。</li>
 </ul>
+</div>
+</div>
 </section>
-<section id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="level2">
-<h2 class="anchored" data-anchor-id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models">9. Langevin 动力学与扩散模型的关系 (Relation Between Langevin Dynamics and Diffusion Models)</h2>
-<p><strong>Result.</strong></p>
+<section id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models" class="level2 sec-numbered">
+<h2 class="sec-numbered anchored" data-anchor-id="langevin-动力学与扩散模型的关系-relation-between-langevin-dynamics-and-diffusion-models"><span class="sec-num">9</span><span class="sec-title">Langevin 动力学与扩散模型的关系<span class="sec-en">Relation Between Langevin Dynamics and Diffusion Models</span></span></h2>
+<div class="tag-block tag-result">
+<div class="tag-label">
+<span class="tag-chip tag-result">Result</span>
+</div>
+<div class="tag-body">
 <ul>
 <li>Langevin 动力学直接使用目标分布的 Score：<span class="math inline">\(\nabla_x \log p(x)=-\nabla \Phi(x)\)</span>。</li>
 <li>扩散模型学习一整族时间索引的 Score：<span class="math inline">\(\nabla_x \log p_t(x)\)</span>。</li>
@@ -613,6 +809,8 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 \to
 \text{噪声预测}.
 \]</span></p>
+</div>
+</div>
 </section>
 <section id="参考文献-references" class="level2">
 <h2 class="anchored" data-anchor-id="参考文献-references">参考文献 (References)</h2>
@@ -623,7 +821,6 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1028,6 +1225,19 @@ s_\theta(x,t)=-\frac{\epsilon_\theta(x,t)}{\sigma_t},
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><strong>Sirius</strong> Blog · 中文 / English</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto · Published on GitHub Pages</p>
+</div>
+  </div>
+</footer>
 
 
 
