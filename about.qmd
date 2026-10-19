@@ -1,7 +1,46 @@
 ---
-title: "About"
+pagetitle: "About"
+page-layout: custom
+toc: false
 ---
 
-<div class="updated-time">Updated: 2026-03-11 21:24 AEDT</div>
+```{=html}
+<section class="s-sky s-hero" style="padding-bottom: 80px">
+<div class="s-wrap s-hero-grid">
+<div class="s-hero-copy">
+<div class="s-eyebrow">About · 关于</div>
+<h1 class="s-statement">I am a researcher at UNSW working on <span class="s-hl">IoT systems and intelligent sensing.</span></h1>
+<div class="s-meta">Updated: 2026-03-11 21:24 AEDT</div>
+</div>
+<figure class="s-hero-figure" style="flex-basis: 280px">
+<svg viewBox="0 0 560 600" role="img" aria-label="Star chart of Canis Major, with Sirius as the brightest star" style="max-width: 300px">
+<defs><radialGradient id="halo"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/><stop offset="0.16" stop-color="#DDE6FF" stop-opacity="0.55"/><stop offset="0.5" stop-color="#9DB7FF" stop-opacity="0.16"/><stop offset="1" stop-color="#9DB7FF" stop-opacity="0"/></radialGradient></defs>
+<g fill="none" stroke="#9DB7FF" stroke-opacity="0.45" stroke-width="1.6">
+<polyline points="474.8,204.7 330,170 258,179.2 208.2,139.5 270.4,39 258,179.2"/>
+<polyline points="330,170 213.2,369 178.2,440.8 76.3,522.2"/>
+<polyline points="178.2,440.8 241.5,513 490.4,543.5"/>
+</g>
+<circle cx="330" cy="170" r="90" fill="url(#halo)"/>
+<path d="M330 106 L333 167 L394 170 L333 173 L330 234 L327 173 L266 170 L327 167Z" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="330" cy="170" r="7" fill="#FFFFFF"/>
+<g fill="#FFFFFF"><circle cx="241.5" cy="513" r="5"/><circle cx="178.2" cy="440.8" r="4.6"/><circle cx="474.8" cy="204.7" r="4.4"/><circle cx="76.3" cy="522.2" r="3.8"/><circle cx="490.4" cy="543.5" r="3.2"/><circle cx="213.2" cy="369" r="3.2"/><circle cx="208.2" cy="139.5" r="2.4"/><circle cx="258" cy="179.2" r="2.2"/><circle cx="270.4" cy="39" r="2.4"/></g>
+</svg>
+</figure>
+</div>
+</section>
 
-I am a researcher at UNSW working on IoT systems and intelligent sensing.
+<div class="s-wrap s-about">
+<div class="s-about-text">
+<h2>About this site</h2>
+<p>Sirius Blog keeps my working notes: the mathematics behind machine learning, and summaries of the research I am reading. Notes are written in Chinese with English terms on first mention, and every block is labelled as a definition, theory, inference step or result.</p>
+<h2>How it is built</h2>
+<p>Written in Markdown, rendered with Quarto, and published to GitHub Pages on every push to <code>main</code>.</p>
+</div>
+<dl class="s-glance" aria-label="At a glance">
+<div><dt>Affiliation</dt><dd class="s-big">UNSW</dd></div>
+<div><dt>Focus</dt><dd>IoT systems · Intelligent sensing</dd></div>
+<div><dt>Currently reading</dt><dd>Representation probing · State space models</dd></div>
+<div><dt>GitHub</dt><dd><a href="https://github.com/SiriusEst">github.com/SiriusEst</a></dd></div>
+</dl>
+</div>
+```

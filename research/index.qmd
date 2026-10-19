@@ -1,18 +1,67 @@
 ---
-title: "Research"
+pagetitle: "Research"
+page-layout: custom
+toc: false
 ---
 
-<div class="updated-time">Updated: 2026-05-20 17:30 AEDT</div>
+```{=html}
+<section class="s-sky s-header">
+<div class="s-wrap">
+<nav class="s-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Research</span></nav>
+<div class="s-hero-grid" style="align-items: flex-end">
+<div class="s-hero-copy">
+<div class="s-eyebrow">Section 02</div>
+<h1>Research <span class="s-hl">reading notes</span></h1>
+<div class="s-cn">研究阅读笔记</div>
+<p class="s-lede">Notes and summaries from ongoing research reading.</p>
+</div>
+<dl>
+<div><dt>Notes</dt><dd>1 published · 1 draft</dd></div>
+<div><dt>Updated</dt><dd>2026-05-20 17:30 AEDT</dd></div>
+</dl>
+</div>
+</div>
+</section>
 
-Notes and summaries from ongoing research reading.
-
-<div class="note-cards">
-<div class="note-card">
-<a href="probing_concept_summary.md">Probing 概念体系总结</a>
-<div class="card-desc">Probe / SAE / LoRA / Linear Representation Hypothesis / SSL — structured notes organized as "what → how → use → caveats"</div>
+<div class="s-wrap">
+<ol class="s-cards s-overlap" style="margin-top: -48px">
+<li>
+<a class="s-card s-float" href="probing_concept_summary.html">
+<div class="s-card-top"><span class="s-numeral" style="font-size: 56px">R·01</span><span class="s-kicker">Reading notes · Updated 2026-05-20</span></div>
+<div>
+<div class="s-card-title" lang="zh-Hans">Probing 概念体系总结</div>
+<p>Structured notes on probes, sparse autoencoders, LoRA, the Linear Representation Hypothesis and self-supervised learning — each section names its key papers.</p>
 </div>
-<div class="note-card">
-<a href="mamba-theory.md">Mamba Theory</a>
-<div class="card-desc">State space models, selective scan — work in progress</div>
+<ol class="s-stages" aria-label="How the note is organised">
+<li><div class="s-stage-num">I</div><div class="s-stage-cn" lang="zh-Hans">是什么</div><div class="s-stage-en">What it is</div></li>
+<li><div class="s-stage-num">II</div><div class="s-stage-cn" lang="zh-Hans">怎么做</div><div class="s-stage-en">How it is done</div></li>
+<li><div class="s-stage-num">III</div><div class="s-stage-cn" lang="zh-Hans">怎么用</div><div class="s-stage-en">How to use it</div></li>
+<li><div class="s-stage-num">IV</div><div class="s-stage-cn" lang="zh-Hans">注意什么</div><div class="s-stage-en">Caveats</div></li>
+</ol>
+<div class="s-card-foot">
+<div class="s-tags"><span>Probe</span><span>SAE</span><span>LoRA</span><span>Linear Representation Hypothesis</span><span>SSL</span></div>
+<span class="s-btn s-btn-dark">Read note <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</div>
+</a>
+</li>
+<li>
+<div class="s-card s-draft">
+<div class="s-card-top"><span class="s-numeral" style="font-size: 42px; color: #9AA2B2">R·02</span><span class="s-status">In progress · 撰写中</span></div>
+<div>
+<div class="s-card-title">Mamba Theory</div>
+<p>State space models, selective scan.</p>
+</div>
+<div class="s-preview">
+<span class="s-math"><i>h</i>′(<i>t</i>) = <i>A</i> <i>h</i>(<i>t</i>) + <i>B</i> <i>x</i>(<i>t</i>),&emsp;<i>y</i>(<i>t</i>) = <i>C</i> <i>h</i>(<i>t</i>)</span>
+<small>Continuous-time state space model · starting point</small>
+</div>
+<div class="s-card-foot">
+<div class="s-tags"><span>State space models</span><span>Selective scan</span></div>
+<span style="font-size: 14px; color: #5F6676">Not published yet</span>
 </div>
 </div>
+</li>
+</ol>
+<div class="s-section" style="padding-top: 0"></div>
+</div>
+```

@@ -3,7 +3,10 @@ project:
 
 website:
   title: "Sirius Blog"
+  favicon: images/favicon.svg
   navbar:
+    logo: images/sirius-mark.svg
+    logo-alt: "Sirius Blog"
     left:
       - href: index.qmd
         text: Home
@@ -13,9 +16,20 @@ website:
         text: Research
       - href: about.qmd
         text: About
+  page-footer:
+    left: "**Sirius** Blog · 中文 / English"
+    right: "Built with Quarto · Published on GitHub Pages"
+
+filters:
+  - filters/sirius.lua
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: [cosmo, theme.scss]
     toc: true
+    toc-title: "On this page · 目录"
+    title-block-banner: true
+    include-in-header: _includes/mathjax.html
+    html-math-method:
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"

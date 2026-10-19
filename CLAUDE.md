@@ -12,6 +12,13 @@ Quarto-based personal blog ("Sirius Blog") hosted via GitHub Pages. Main content
 - **Branch**: Work on `main` unless experimenting with site structure.
 - **Before pushing**: Verify that new `.md` files are linked in `Mathematical-Foundations-of-Machine-Learning/index.qmd`.
 
+## Site Design
+
+- Styling lives in `theme.scss` (layered on cosmo): night-sky navbar, banner and footer; Apple system fonts (SF Pro / PingFang SC / SF Mono).
+- `filters/sirius.lua` turns the note conventions below into styled markup at render time (H1 → banner title, `## N. 中文 (English)` → numbered heading, `**Definition.**` etc. → labelled blocks). Keep writing plain Markdown; don't hand-write that HTML in notes.
+- Formulas render with MathJax 4 in the STIX Two font (`_includes/mathjax.html` plus `html-math-method` in `_quarto.yml`).
+- `index.qmd`, the section `index.qmd` files and `about.qmd` are hand-written HTML blocks using `s-` classes. When adding a note, copy an existing `<li>` row in its section index, and update the Home page's "Recently updated" list.
+
 ## Markdown Writing Conventions
 
 ### Structure

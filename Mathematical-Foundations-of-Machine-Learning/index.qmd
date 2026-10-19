@@ -1,35 +1,139 @@
 ---
-title: "Mathematical Foundations of Machine Learning"
+pagetitle: "Mathematical Foundations of Machine Learning"
+page-layout: custom
+toc: false
 ---
 
-<div class="updated-time">Updated: 2026-04-07 12:00 AEDT</div>
+<!--
+To add a note: copy one <li> in the list below, update its number, title,
+description, date and data-topics (topics separated by "|"), and link the
+rendered .html file.
+-->
 
-This section collects notes on the mathematical foundations used in machine learning.
-Tag legend: `Definition` marks a definition, `Theory` marks a theorem or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or application takeaway.
+```{=html}
+<section class="s-sky s-header">
+<div class="s-wrap">
+<nav class="s-breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Mathematics</span></nav>
+<div class="s-hero-grid">
+<div class="s-hero-copy">
+<div class="s-eyebrow">Section 01 · 7 notes</div>
+<h1>Mathematical Foundations <span class="s-hl">of Machine Learning</span></h1>
+<div class="s-cn">机器学习的数学基础</div>
+<p class="s-lede">This section collects notes on the mathematical foundations used in machine learning.</p>
+<div class="s-meta">Updated: 2026-04-07 12:00 AEDT</div>
+</div>
+<figure class="s-hero-figure">
+<svg viewBox="0 0 440 260" role="img" aria-label="The section's six entries drawn as a constellation, one star per note">
+<defs><radialGradient id="soft"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.8"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient></defs>
+<polyline points="40,190 118,92 196,160 268,64 336,178 404,102" fill="none" stroke="#9DB7FF" stroke-opacity="0.45" stroke-width="1"/>
+<g fill="url(#soft)" opacity="0.6"><circle cx="40" cy="190" r="12"/><circle cx="118" cy="92" r="14"/><circle cx="196" cy="160" r="12"/><circle cx="268" cy="64" r="12"/><circle cx="336" cy="178" r="12"/><circle cx="404" cy="102" r="16"/></g>
+<circle cx="118" cy="92" r="11" fill="none" stroke="#9DB7FF" stroke-opacity="0.7" stroke-dasharray="2 3"/>
+<g fill="#FFFFFF"><circle cx="40" cy="190" r="3"/><circle cx="114" cy="95" r="2.6"/><circle cx="123" cy="88" r="2"/><circle cx="196" cy="160" r="3"/><circle cx="268" cy="64" r="3"/><circle cx="336" cy="178" r="3"/><circle cx="404" cy="102" r="4"/></g>
+<g font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" fill="#A3ADC2" text-anchor="middle" letter-spacing="0.06em">
+<text x="40" y="218">01</text><text x="118" y="126">02 ··</text><text x="196" y="188">03</text><text x="268" y="44">04</text><text x="336" y="206">05</text><text x="404" y="134">06</text>
+</g>
+</svg>
+<figcaption><span>One star per note · 02 is a double star: a collection of two</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
 
-<div class="note-cards">
-<div class="note-card">
-<a href="1%20Orthogonality.md">Orthogonality</a>
-<div class="card-desc">Orthogonal decomposition, projection, Gram-Schmidt</div>
+<div class="s-wrap">
+<section class="s-overlap s-panel" aria-labelledby="legend-h">
+<h2 id="legend-h" class="s-h2 s-small" style="font-size: 20px; margin-bottom: 16px">Tag legend <span class="s-h2-cn">标签约定</span></h2>
+<div class="s-legend">
+<div><span class="tag-chip tag-definition">Definition</span>marks a definition</div>
+<div><span class="tag-chip tag-theory">Theory</span>marks a theorem or principle</div>
+<div><span class="tag-chip tag-inference">Inference</span>marks a derivation step</div>
+<div><span class="tag-chip tag-result">Result</span>marks a conclusion or application takeaway</div>
 </div>
-<div class="note-card subfolder">
-<a href="Nonlinear-Dynamics/index.qmd">Nonlinear Dynamics</a> <span class="card-badge">subfolder</span>
-<div class="card-desc">Phase portraits, bifurcations, laser models</div>
-</div>
-<div class="note-card">
-<a href="3%20Linear-Algebra%20Four%20Subspaces.md">Four Fundamental Subspaces</a>
-<div class="card-desc">Column / row / null spaces, least squares</div>
-</div>
-<div class="note-card">
-<a href="4%20Langevin%20Dynamics%20and%20Diffusion%20Model.md">Langevin Dynamics and Diffusion Model</a>
-<div class="card-desc">Stochastic dynamics, score matching</div>
-</div>
-<div class="note-card">
-<a href="5%20Lagrangian%20and%20Hamiltonian%20Mechanics.md">Analytical Mechanics</a>
-<div class="card-desc">Lagrangian, Hamiltonian, symplectic structure</div>
-</div>
-<div class="note-card">
-<a href="6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.md">SGD, Momentum, and Potential Dynamics</a>
-<div class="card-desc">Gradient flow, momentum, potential energy landscape</div>
+</section>
+
+<section class="s-section" aria-labelledby="notes-h">
+<div class="s-head">
+<h2 id="notes-h" class="s-h2">Notes<span class="s-shown" aria-live="polite">6 shown</span></h2>
+<div class="s-filter" role="group" aria-label="Filter by topic">
+<button type="button" data-topic="All" aria-pressed="true">All</button>
+<button type="button" data-topic="Linear algebra" aria-pressed="false">Linear algebra</button>
+<button type="button" data-topic="Dynamics" aria-pressed="false">Dynamics</button>
+<button type="button" data-topic="Mechanics" aria-pressed="false">Mechanics</button>
+<button type="button" data-topic="Optimization" aria-pressed="false">Optimization</button>
 </div>
 </div>
+
+<ol class="s-notes">
+<li data-topics="Linear algebra">
+<a class="s-row" href="1%20Orthogonality.html">
+<span class="s-row-num">01</span>
+<div class="s-row-main"><div class="s-row-cn">正交性</div><div class="s-row-en">Orthogonality</div><p>Orthogonal decomposition, projection, Gram-Schmidt</p><div class="s-tags"><span>Linear algebra</span></div></div>
+<div class="s-row-side"><span>2026-03-17</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+<li class="s-collection" data-topics="Dynamics">
+<div class="s-collection-card">
+<span class="s-row-num">02</span>
+<div class="s-row-main">
+<div class="s-row-cn"><a href="Nonlinear-Dynamics/index.html">非线性动力学</a><span class="s-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.6l2 2.2h8.4A1.5 1.5 0 0 1 21 8.7v9.8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5Z"/></svg>Collection · 2 notes</span></div>
+<div class="s-row-en">Nonlinear Dynamics</div>
+<p>Phase portraits, bifurcations, laser models</p>
+<ol class="s-children">
+<li><a href="Nonlinear-Dynamics/1%20Nonlinear%20Dynamics.html"><span class="s-child-num">01</span><span class="s-child-main"><span class="s-child-cn">非线性动力学</span><span class="s-child-en">Nonlinear Dynamics</span><span class="s-child-desc">Autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics</span></span><span class="s-child-date">2026-03-17</span></a></li>
+<li><a href="Nonlinear-Dynamics/2%20Photon%20Physics%20and%20Laser.html"><span class="s-child-num">02</span><span class="s-child-main"><span class="s-child-cn">光子物理与激光器</span><span class="s-child-en">Photon Physics and Laser</span><span class="s-child-desc">Energy quantization, laser threshold, transcritical bifurcation</span></span><span class="s-child-date">2026-04-07</span></a></li>
+</ol>
+</div>
+</div>
+</li>
+<li data-topics="Linear algebra">
+<a class="s-row" href="3%20Linear-Algebra%20Four%20Subspaces.html">
+<span class="s-row-num">03</span>
+<div class="s-row-main"><div class="s-row-cn">线性代数：四个基本子空间</div><div class="s-row-en">Four Fundamental Subspaces</div><p>Column / row / null spaces, least squares</p><div class="s-tags"><span>Linear algebra</span></div></div>
+<div class="s-row-side"><span>2026-03-19</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+<li data-topics="Dynamics">
+<a class="s-row" href="4%20Langevin%20Dynamics%20and%20Diffusion%20Model.html">
+<span class="s-row-num">04</span>
+<div class="s-row-main"><div class="s-row-cn">Langevin 动力学与扩散模型</div><div class="s-row-en">Langevin Dynamics and Diffusion Model</div><p>Stochastic dynamics, score matching</p><div class="s-tags"><span>Dynamics</span></div></div>
+<div class="s-row-side"><span>2026-03-31</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+<li data-topics="Mechanics">
+<a class="s-row" href="5%20Lagrangian%20and%20Hamiltonian%20Mechanics.html">
+<span class="s-row-num">05</span>
+<div class="s-row-main"><div class="s-row-cn">分析力学：Lagrangian 与 Hamiltonian 系统</div><div class="s-row-en">Analytical Mechanics</div><p>Lagrangian, Hamiltonian, symplectic structure</p><div class="s-tags"><span>Mechanics</span></div></div>
+<div class="s-row-side"><span>2026-03-31</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+<li data-topics="Optimization|Dynamics">
+<a class="s-row" href="6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.html">
+<span class="s-row-num">06</span>
+<div class="s-row-main"><div class="s-row-cn">SGD、动量与势动力学</div><div class="s-row-en">SGD, Momentum, and Potential Dynamics</div><p>Gradient flow, momentum, potential energy landscape</p><div class="s-tags"><span>Optimization</span><span>Dynamics</span></div></div>
+<div class="s-row-side"><span>2026-03-31</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+</ol>
+</section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var buttons = document.querySelectorAll('.s-filter button');
+  var rows = document.querySelectorAll('.s-notes > li');
+  var shown = document.querySelector('.s-shown');
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var topic = button.dataset.topic;
+      var count = 0;
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === button ? 'true' : 'false'); });
+      rows.forEach(function (row) {
+        var match = topic === 'All' || row.dataset.topics.split('|').indexOf(topic) !== -1;
+        row.hidden = !match;
+        if (match) count++;
+      });
+      shown.textContent = count + ' shown';
+    });
+  });
+});
+</script>
+```

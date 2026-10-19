@@ -1,7 +1,132 @@
 ---
-title: "Home"
+pagetitle: "Sirius Blog"
+page-layout: custom
+toc: false
 ---
 
-Welcome to my Quarto blog.
+```{=html}
+<section class="s-sky s-hero">
+<div class="s-wrap s-hero-grid">
+<div class="s-hero-copy">
+<div class="s-eyebrow">Working notes · 工作笔记</div>
+<h1 class="s-display">The mathematics behind machine learning, <span class="s-hl">one derivation at a time.</span></h1>
+<p class="s-lede">Bilingual notes on linear algebra, stochastic dynamics, analytical mechanics and optimization — each written as an explicit chain from definition to result.</p>
+<p class="s-lede-cn">机器学习的数学基础与研究阅读笔记，中文为主、术语附英文，每一步推导都有标注。</p>
+<div class="s-actions">
+<a class="s-btn s-btn-light" href="Mathematical-Foundations-of-Machine-Learning/index.html">Start with Mathematics
+<svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="s-btn s-btn-ghost" href="research/index.html">Research notes</a>
+</div>
+</div>
 
-This site is deployed with GitHub Pages.
+<figure class="s-hero-figure">
+<svg viewBox="0 0 560 600" role="img" aria-label="Star chart of Canis Major, with Sirius as the brightest star">
+<defs>
+<radialGradient id="halo"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/><stop offset="0.16" stop-color="#DDE6FF" stop-opacity="0.55"/><stop offset="0.5" stop-color="#9DB7FF" stop-opacity="0.16"/><stop offset="1" stop-color="#9DB7FF" stop-opacity="0"/></radialGradient>
+<radialGradient id="soft"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.75"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+</defs>
+<g fill="none" stroke="#FFFFFF" stroke-opacity="0.1" stroke-dasharray="2 5">
+<path d="M0 121.8 Q280 110 560 121.8"/><path d="M0 401.8 Q280 390 560 401.8"/>
+<path d="M38.1 0 L38.1 600"/><path d="M232.7 0 L232.7 600"/><path d="M427.3 0 L427.3 600"/>
+</g>
+<g font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="10" fill="#7F8AA3" letter-spacing="0.06em">
+<text x="8" y="114">−15°</text><text x="8" y="394">−25°</text>
+<text x="44" y="592">7h30m</text><text x="238" y="592">7h</text><text x="433" y="592">6h30m</text>
+<text x="20" y="28" letter-spacing="0.24em">CANIS MAJOR</text>
+</g>
+<g fill="none" stroke="#9DB7FF" stroke-opacity="0.45" stroke-width="1">
+<polyline points="474.8,204.7 330,170 258,179.2 208.2,139.5 270.4,39 258,179.2"/>
+<polyline points="330,170 213.2,369 178.2,440.8 76.3,522.2"/>
+<polyline points="178.2,440.8 241.5,513 490.4,543.5"/>
+</g>
+<circle cx="330" cy="170" r="78" fill="url(#halo)"/>
+<path d="M330 112 L332.6 167.4 L388 170 L332.6 172.6 L330 228 L327.4 172.6 L272 170 L327.4 167.4Z" fill="#FFFFFF" opacity="0.92"/>
+<circle cx="330" cy="170" r="5.5" fill="#FFFFFF"/>
+<g fill="url(#soft)" opacity="0.6">
+<circle cx="241.5" cy="513" r="12"/><circle cx="178.2" cy="440.8" r="11"/><circle cx="474.8" cy="204.7" r="11"/><circle cx="76.3" cy="522.2" r="9"/>
+</g>
+<g fill="#FFFFFF">
+<circle cx="241.5" cy="513" r="3.6"/><circle cx="178.2" cy="440.8" r="3.3"/><circle cx="474.8" cy="204.7" r="3.2"/><circle cx="76.3" cy="522.2" r="2.7"/>
+<circle cx="490.4" cy="543.5" r="2.2"/><circle cx="213.2" cy="369" r="2.2"/><circle cx="208.2" cy="139.5" r="1.6"/><circle cx="258" cy="179.2" r="1.5"/><circle cx="270.4" cy="39" r="1.7"/>
+</g>
+<g font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11" letter-spacing="0.04em">
+<text x="392" y="150" fill="#E8ECF5">α  SIRIUS</text>
+<text x="392" y="166" fill="#8E99B0">−1.46 mag · 8.6 ly</text>
+<text x="484" y="228" fill="#A3ADC2">β Mirzam</text>
+<text x="252" y="537" fill="#A3ADC2">ε Adhara</text>
+<text x="168" y="436" fill="#A3ADC2" text-anchor="end">δ Wezen</text>
+<text x="86" y="548" fill="#A3ADC2">η Aludra</text>
+<text x="480" y="566" fill="#A3ADC2" text-anchor="end">ζ Furud</text>
+</g>
+</svg>
+<figcaption><span>α CMa</span><span>RA 06h 45m 09s</span><span>Dec −16° 43′</span></figcaption>
+</figure>
+</div>
+</section>
+
+<div class="s-wrap">
+<section class="s-overlap s-panel" aria-labelledby="chain-h">
+<div class="s-head">
+<h2 id="chain-h" class="s-h2 s-small">How a note reads <span class="s-h2-cn">标签约定</span></h2>
+<a class="s-link" href="Mathematical-Foundations-of-Machine-Learning/6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.html">From: SGD, Momentum, and Potential Dynamics
+<svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+<ol class="s-chain">
+<li class="is-definition">
+<div class="s-step-head"><span class="tag-chip tag-definition">Definition</span><span class="s-step-num">I</span></div>
+<p>设目标函数为 <span class="s-math"><i>f</i>(<i>x</i>)</span>，将其解释为势能地形 (Potential Energy Landscape)。</p>
+</li>
+<li class="is-theory">
+<div class="s-step-head"><span class="tag-chip tag-theory">Theory</span><span class="s-step-num">II</span></div>
+<div class="s-eq"><i>F</i>(<i>x</i>) = −∇<i>f</i>(<i>x</i>)</div>
+<p>地形诱导的力。</p>
+</li>
+<li class="is-inference">
+<div class="s-step-head"><span class="tag-chip tag-inference">Inference</span><span class="s-step-num">III</span></div>
+<div class="s-eq"><i>x</i><sub><i>k</i>+1</sub> = <i>x</i><sub><i>k</i></sub> − <i>η</i> ∇<i>f</i>(<i>x</i><sub><i>k</i></sub>)</div>
+<p>令 <span class="s-math"><i>η</i></span> → 0，差商收敛到时间导数。</p>
+</li>
+<li class="is-result">
+<div class="s-step-head"><span class="tag-chip tag-result">Result</span><span class="s-step-num">IV</span></div>
+<p>梯度下降是梯度流 (Gradient Flow) 的前向 Euler 离散化。</p>
+</li>
+</ol>
+</section>
+
+<section class="s-section" aria-labelledby="sections-h">
+<div class="s-head"><h2 id="sections-h" class="s-h2">Sections <span class="s-h2-cn">栏目</span></h2></div>
+<div class="s-tiles">
+<a class="s-tile" href="Mathematical-Foundations-of-Machine-Learning/index.html">
+<div class="s-tile-top"><span class="s-numeral">01</span><span class="s-kicker">Mathematics · 7 notes</span></div>
+<div><div class="s-tile-title">Mathematical Foundations of Machine Learning</div><div class="s-tile-cn">机器学习的数学基础</div></div>
+<p>Orthogonality, the four fundamental subspaces, Langevin dynamics, analytical mechanics and optimization dynamics — plus a collection on nonlinear dynamics.</p>
+<div class="s-tags"><span>Linear algebra</span><span>Stochastic dynamics</span><span>Mechanics</span><span>Optimization</span><span>Nonlinear dynamics</span></div>
+<div class="s-tile-foot"><span class="s-date">Updated 2026-04-07</span><span class="s-more">Browse <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+<a class="s-tile" href="research/index.html">
+<div class="s-tile-top"><span class="s-numeral">02</span><span class="s-kicker">Research · 2 notes</span></div>
+<div><div class="s-tile-title">Research</div><div class="s-tile-cn">研究阅读笔记</div></div>
+<p>Notes and summaries from ongoing research reading — representation probing, sparse autoencoders, and state space models.</p>
+<div class="s-tags"><span>Probing</span><span>SAE</span><span>LoRA</span><span>State space models</span></div>
+<div class="s-tile-foot"><span class="s-date">Updated 2026-05-20</span><span class="s-more">Browse <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</div>
+</section>
+
+<section class="s-section" aria-labelledby="recent-h">
+<div class="s-head"><h2 id="recent-h" class="s-h2">Recently updated <span class="s-h2-cn">最近更新</span></h2></div>
+<ol class="s-timeline">
+<li><span class="s-when">2026-05-20</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="research/probing_concept_summary.html"><span><span class="s-entry-title">Probing 概念体系总结</span><span class="s-entry-sub">Probe / SAE / LoRA / LRH / SSL</span></span><span class="s-entry-tag">Research</span></a></li>
+<li><span class="s-when">2026-04-07</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/Nonlinear-Dynamics/2%20Photon%20Physics%20and%20Laser.html"><span><span class="s-entry-title">光子物理与激光器</span><span class="s-entry-sub">Photon Physics and Laser</span></span><span class="s-entry-tag">Nonlinear Dynamics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/4%20Langevin%20Dynamics%20and%20Diffusion%20Model.html"><span><span class="s-entry-title">Langevin 动力学与扩散模型</span><span class="s-entry-sub">Langevin Dynamics and Diffusion Model</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/6%20SGD,%20Momentum,%20and%20Potential%20Dynamics.html"><span><span class="s-entry-title">SGD、动量与势动力学</span><span class="s-entry-sub">SGD, Momentum, and Potential Dynamics</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+<li><span class="s-when">2026-03-31</span><span class="s-rail" aria-hidden="true"><span class="s-dot"></span></span>
+<a href="Mathematical-Foundations-of-Machine-Learning/5%20Lagrangian%20and%20Hamiltonian%20Mechanics.html"><span><span class="s-entry-title">分析力学：Lagrangian 与 Hamiltonian 系统</span><span class="s-entry-sub">Analytical Mechanics</span></span><span class="s-entry-tag">Mathematics</span></a></li>
+</ol>
+</section>
+</div>
+```

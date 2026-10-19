@@ -1,19 +1,42 @@
 ---
-title: "Nonlinear Dynamics"
+pagetitle: "Nonlinear Dynamics"
+page-layout: custom
+toc: false
 ---
 
-<div class="updated-time">Updated: 2026-04-07 12:00 AEDT</div>
+```{=html}
+<section class="s-sky s-header">
+<div class="s-wrap">
+<nav class="s-breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a><span aria-hidden="true">/</span><a href="../index.html">Mathematics</a><span aria-hidden="true">/</span><span aria-current="page">Nonlinear Dynamics</span></nav>
+<div class="s-hero-copy">
+<div class="s-eyebrow">Collection 02 · 2 notes</div>
+<h1>Nonlinear <span class="s-hl">Dynamics</span></h1>
+<div class="s-cn">非线性动力学</div>
+<p class="s-lede">Notes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications.</p>
+<div class="s-meta">Updated: 2026-04-07 12:00 AEDT</div>
+</div>
+</div>
+</section>
 
-Notes on nonlinear dynamics: phase portraits, bifurcations, stability analysis, and physical applications.
-Tag legend: `Definition` marks a definition, `Theory` marks a theorem or principle, `Inference` marks a derivation step, and `Result` marks a conclusion or application takeaway.
-
-<div class="note-cards">
-<div class="note-card">
-<a href="1%20Nonlinear%20Dynamics.md">Nonlinear Dynamics</a>
-<div class="card-desc">Autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics</div>
+<div class="s-wrap">
+<section class="s-overlap s-panel" aria-label="Notes in this collection" style="padding-top: 8px; padding-bottom: 8px">
+<ol class="s-notes" style="margin-top: 0; border-top: 0">
+<li>
+<a class="s-row" href="1%20Nonlinear%20Dynamics.html">
+<span class="s-row-num">01</span>
+<div class="s-row-main"><div class="s-row-cn">非线性动力学</div><div class="s-row-en">Nonlinear Dynamics</div><p>Autonomous systems, bifurcations, eigenvalue methods, Hamiltonian mechanics</p></div>
+<div class="s-row-side"><span>2026-03-17</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+<li style="border-bottom: 0">
+<a class="s-row" href="2%20Photon%20Physics%20and%20Laser.html">
+<span class="s-row-num">02</span>
+<div class="s-row-main"><div class="s-row-cn">光子物理与激光器</div><div class="s-row-en">Photon Physics and Laser</div><p>Energy quantization, laser threshold, transcritical bifurcation</p></div>
+<div class="s-row-side"><span>2026-04-07</span><span class="s-arrow" aria-hidden="true"><svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+</a>
+</li>
+</ol>
+</section>
+<div class="s-section" style="padding-top: 0"></div>
 </div>
-<div class="note-card">
-<a href="2%20Photon%20Physics%20and%20Laser.md">Photon Physics and Laser</a>
-<div class="card-desc">Energy quantization, laser threshold, transcritical bifurcation</div>
-</div>
-</div>
+```
