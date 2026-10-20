@@ -32,4 +32,4 @@ format:
     include-in-header: _includes/mathjax.html
     html-math-method:
       method: mathjax
-      url: "https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"
+      url: "https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-mml-chtml.js"

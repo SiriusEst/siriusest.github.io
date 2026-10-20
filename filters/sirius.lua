@@ -8,6 +8,7 @@
 --                                        display math / lists that follow it,
 --                                        until the next label or heading
 --   * the `标签约定：...` legend line -> coloured tag chips
+--   * pages with formulas            -> preload hints for MathJax's font
 
 local stringify = pandoc.utils.stringify
 
@@ -148,6 +149,41 @@ local function numbered_header(h)
   return h
 end
 
+-- On pages with formulas, start fetching the STIX Two font data while the
+-- MathJax script itself downloads, instead of after it runs. Keep the version
+-- in step with the MathJax url in _quarto.yml (MathJax 4.1 loads the font
+-- package at its own version from jsDelivr).
+local MATHJAX_HINTS = [[
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-stix2-font@4.1.3/chtml.js">
+<link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/a11y/assistive-mml.js">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-stix2-font@4.1.3/chtml/woff2/mjx-stx-zero.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-stix2-font@4.1.3/chtml/woff2/mjx-stx-n.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-stix2-font@4.1.3/chtml/woff2/mjx-stx-lo.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="https://cdn.jsdelivr.net/npm/@mathjax/mathjax-stix2-font@4.1.3/chtml/woff2/mjx-stx-s6.woff2">
+]]
+
+local function add_mathjax_hints(doc)
+  local has_math = false
+  doc:walk({
+    Math = function()
+      has_math = true
+    end,
+  })
+  if not has_math then
+    return
+  end
+  local hints = pandoc.Blocks({ pandoc.RawBlock("html", MATHJAX_HINTS) })
+  local includes = doc.meta["header-includes"]
+  if includes == nil then
+    doc.meta["header-includes"] = pandoc.List({ hints })
+  elseif pandoc.utils.type(includes) == "List" then
+    includes:insert(hints)
+  else
+    doc.meta["header-includes"] = pandoc.List({ includes, hints })
+  end
+end
+
 local function promote_title(doc)
   if doc.meta.title then
     return
@@ -171,6 +207,7 @@ end
 
 function Pandoc(doc)
   promote_title(doc)
+  add_mathjax_hints(doc)
 
   local out = pandoc.List()
   local current, group = nil, nil
